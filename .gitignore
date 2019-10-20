@@ -1,0 +1,26 @@
+# JetBrains files
+**.idea/
+**.iml
+**.ipr
+**.iws
+
+# Compiled files
+bin/*
+
+# Maven Output Directories
+**/out
+**/target
+
+# Logs & Config files
+logs/
+config/hierarchy.txt
+sick-*.csv
+
+# Doc
+doc/formation/*.pdf
+
+# Gradle files
+**/build/
+**.gradle/
+
+# **DO NOT** put gradle/ or gradlew here, they allow the project to be imported without having to download&install Gradle!
