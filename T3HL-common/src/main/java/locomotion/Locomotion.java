@@ -135,8 +135,21 @@ public class Locomotion implements Module {
      * Méthode permettant au robot de tourner
      * @param angle angle absolu vers lequel il faut se tourner
      */
-    public void turn(double angle) throws UnableToMoveException {
-        pathFollower.turn(angle, false);
+    public void turnTowards(double angle) throws UnableToMoveException {
+        pathFollower.turnTowards(angle, false);
+    }
+
+    /**
+     * Permet au robot de tourner sur lui-même vers un point donné
+     * @param point le point vers lequel tourner
+     * @throws UnableToMoveException
+     */
+    public void turnTowards(Vec2 point) throws UnableToMoveException {
+        Vec2 currentPosition = XYO.getRobotInstance().getPosition();
+        double dy = point.getY()-currentPosition.getY();
+        double dx = point.getX()-currentPosition.getX();
+        double angle = Math.atan2(dy, dx);
+        pathFollower.turnTowards(angle, false);
     }
 
     /**
@@ -145,7 +158,7 @@ public class Locomotion implements Module {
      */
     public void turnRelative(double angle) throws UnableToMoveException {
         angle = Calculs.modulo(angle + xyo.getOrientation(), Math.PI);
-        pathFollower.turn(angle, false);
+        pathFollower.turnTowards(angle, false);
     }
 
     /**

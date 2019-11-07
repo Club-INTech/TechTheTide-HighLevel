@@ -290,7 +290,7 @@ public abstract class Robot implements Module {
      * @param point point vers lequel se tourner
      */
     public void turnToPoint(Vec2 point) throws UnableToMoveException {
-        this.turn(point.minusVector(XYO.getRobotInstance().getPosition()).getA());
+        this.turnTowards(point.minusVector(XYO.getRobotInstance().getPosition()).getA());
     }
 
     /**
@@ -321,13 +321,24 @@ public abstract class Robot implements Module {
 
     /**
      * Permet au robot de tourner sur lui-même
+     * @param point
+     *              point vers lequel on veut se tourner
+     * @throws UnableToMoveException
+     *              en cas de problème de blocage/adversaire
+     */
+    public void turnTowards(Vec2 point) throws UnableToMoveException {
+        this.locomotion.turnTowards(point);
+    }
+
+    /**
+     * Permet au robot de tourner sur lui-même
      * @param angle
      *              angle absolue vers lequel on veut se tourner
      * @throws UnableToMoveException
      *              en cas de problème de blocage/adversaire
      */
-    public void turn(double angle) throws UnableToMoveException {
-        this.locomotion.turn(angle);
+    public void turnTowards(double angle) throws UnableToMoveException {
+        this.locomotion.turnTowards(angle);
     }
 
     public void perform(Order order) {

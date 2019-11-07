@@ -44,24 +44,6 @@ public class Table implements Module {
 
     private final ArrayList<Obstacle> temporaryObstacles;
 
-    private ConcurrentLinkedQueue<Obstacle> chaosObstacles;
-
-    private Obstacle paletRougeDroite;
-    private Obstacle paletBleuDroite;
-    private Obstacle paletVertDroite;
-    private Obstacle paletRougeGauche;
-    private Obstacle paletBleuGauche;
-    private Obstacle paletVertGauche;
-    private Obstacle paletRedUnZoneChaosPurple;
-    private Obstacle paletRedDeuxZoneChaosPurple;
-    private Obstacle paletGreenZoneChaosPurple;
-    private Obstacle paletBlueZoneChaosPurple;
-    private Obstacle paletRedUnZoneChaosYellow;
-    private Obstacle paletRedDeuxZoneChaosYellow;
-    private Obstacle paletGreenZoneChaosYellow;
-    private Obstacle paletBlueZoneChaosYellow;
-    private Obstacle separationRampe;
-
     /**
      * Obstacle mobile simulé
      */
@@ -139,92 +121,13 @@ public class Table implements Module {
         this.mobileObstacles = new ConcurrentLinkedQueue<>();
         this.mobileObstacleBuffer = new ArrayList<>();
         this.temporaryObstacles = new ArrayList<>();
-        this.chaosObstacles = new ConcurrentLinkedQueue<>();
     }
 
     /**
      * Initialisation des obstacles fixes de la table
      */
     public void initObstaclesNoInit() {
-        Vec2 vecteurPaletRougeUnZoneChaosDroite = PaletsZoneChaos.RED_1_ZONE_CHAOS_PURPLE.getPosition();
-        Obstacle paletRougeUnZoneChaosDroite = new StillCircularObstacle(vecteurPaletRougeUnZoneChaosDroite, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletRougeUnZoneChaosDroite);
-        this.paletRedUnZoneChaosPurple = paletRougeUnZoneChaosDroite;
-
-        Vec2 vecteurPaletRougeDeuxZoneChaosDroite = PaletsZoneChaos.RED_2_ZONE_CHAOS_PURPLE.getPosition();
-        Obstacle paletRougeDeuxZoneChaosDroite = new StillCircularObstacle(vecteurPaletRougeDeuxZoneChaosDroite, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletRougeDeuxZoneChaosDroite);
-        this.paletRedDeuxZoneChaosPurple = paletRougeDeuxZoneChaosDroite;
-
-        Vec2 vecteurPaletRougeUnZoneChaosGauche = PaletsZoneChaos.RED_1_ZONE_CHAOS_YELLOW.getPosition();
-        Obstacle paletRougeUnZoneChaosGauche = new StillCircularObstacle(vecteurPaletRougeUnZoneChaosGauche, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletRougeUnZoneChaosGauche);
-        this.paletRedUnZoneChaosYellow = paletRougeUnZoneChaosGauche;
-
-        Vec2 vecteurPaletRougeDeuxZoneChaosGauche = PaletsZoneChaos.RED_2_ZONE_CHAOS_YELLOW.getPosition();
-        Obstacle paletRougeDeuxZoneChaosGauche = new StillCircularObstacle(vecteurPaletRougeDeuxZoneChaosGauche, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletRougeDeuxZoneChaosGauche);
-        this.paletRedDeuxZoneChaosYellow = paletRougeDeuxZoneChaosGauche;
-
-        Vec2 vecteurPaletVertZoneChaosDroite = PaletsZoneChaos.GREEN_ZONE_CHAOS_PURPLE.getPosition();
-        Obstacle paletVertZoneChaosDroite = new StillCircularObstacle(vecteurPaletVertZoneChaosDroite, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletVertZoneChaosDroite);
-        this.paletGreenZoneChaosPurple = paletVertZoneChaosDroite;
-
-        Vec2 vecteurPaletVertZoneChaosGauche = PaletsZoneChaos.GREEN_ZONE_CHAOS_YELLOW.getPosition();
-        Obstacle paletVertZoneChaosGauche = new StillCircularObstacle(vecteurPaletVertZoneChaosGauche, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletVertZoneChaosGauche);
-        this.paletGreenZoneChaosYellow = paletVertZoneChaosGauche;
-
-        Vec2 vecteurPaletBleuZoneChaosDroite = PaletsZoneChaos.BLUE_ZONE_CHAOS_PURPLE.getPosition();
-        Obstacle paletBleuZoneChaosDroite = new StillCircularObstacle(vecteurPaletBleuZoneChaosDroite, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletBleuZoneChaosDroite);
-        this.paletBlueZoneChaosPurple = paletBleuZoneChaosDroite;
-
-        Vec2 vecteurPaletBleuZoneChaosGauche = PaletsZoneChaos.BLUE_ZONE_CHAOS_YELLOW.getPosition();
-        Obstacle paletBleuZoneChaosGauche = new StillCircularObstacle(vecteurPaletBleuZoneChaosGauche, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletBleuZoneChaosGauche);
-        this.paletBlueZoneChaosYellow = paletBleuZoneChaosGauche;
-
-        Vec2 vecteurRampeCentre = new InternalVectCartesian(0, 1789);
-        CircularRectangle formeRampe = new CircularRectangle(vecteurRampeCentre, 2100-robotRay-obstacleMargin, 422, robotRay+obstacleMargin);
-        balanceAndRamps = new StillCircularRectangularObstacle(formeRampe);
-        this.addFixedObstacleNoGraphChange(balanceAndRamps);
-
-        Vec2 vecteurSupportPaletRampeDroiteCentre = new InternalVectCartesian(750, 1561);           //arrondi
-        CircularRectangle formePaletSupportRampeDroite = new CircularRectangle(vecteurSupportPaletRampeDroiteCentre, 600-robotRay-obstacleMargin, 18, robotRay+obstacleMargin);
-        Obstacle paletSupportRampeDroite = new StillCircularRectangularObstacle(formePaletSupportRampeDroite);
-        this.addFixedObstacleNoGraphChange(paletSupportRampeDroite);
-
-        Vec2 vecteurSupportPaletRampeGaucheCentre = new InternalVectCartesian(-750, 1561);           //arrondi
-        CircularRectangle formePaletSupportRampeGauche = new CircularRectangle(vecteurSupportPaletRampeGaucheCentre, 600-robotRay-obstacleMargin, 18, robotRay+obstacleMargin);
-        Obstacle paletSupportRampeGauche = new StillCircularRectangularObstacle(formePaletSupportRampeGauche);
-        this.addFixedObstacleNoGraphChange(paletSupportRampeGauche);
-
-        Vec2 vecteurSeparationRampeCentre = new InternalVectCartesian(0, 1478);
-        CircularRectangle formeSeparationRampe = new CircularRectangle(vecteurSeparationRampeCentre, 40, 200, robotRay+obstacleMargin);
-        this.separationRampe = new StillCircularRectangularObstacle(formeSeparationRampe);
-        this.addTemporaryObstacle(separationRampe);
-
-        Vec2 vecteurAccelerateurCentre = new InternalVectCartesian(0, 18);                                 //arrondi
-        CircularRectangle formeAccelerateur = new CircularRectangle(vecteurAccelerateurCentre, 2000-robotRay-obstacleMargin, 36, robotRay+obstacleMargin);
-        Obstacle accelerateur = new StillCircularRectangularObstacle(formeAccelerateur);
-        this.addFixedObstacleNoGraphChange(accelerateur);
-
-        /*
-        Vec2 vecteurGoldeniumDroiteCentre = new VectCartesian(736, 46);
-        CircularRectangle formeGoldeniumDroite = new CircularRectangle(vecteurGoldeniumDroiteCentre, 102, 40, robotRay+obstacleMargin);
-        Obstacle goldeniumDroite = new StillCircularRectangularObstacle(formeGoldeniumDroite);
-        this.addFixedObstacleNoGraphChange(goldeniumDroite);*/
-/*
-        Vec2 vecteurGoldeniumGaucheCentre = new VectCartesian(-736, 46);
-        CircularRectangle formeGoldeniumGauche = new CircularRectangle(vecteurGoldeniumGaucheCentre, 102, 40, robotRay+obstacleMargin);
-        Obstacle goldeniumGauche = new StillCircularRectangularObstacle(formeGoldeniumGauche);
-        this.addFixedObstacleNoGraphChange(goldeniumGauche);
-*/
-        /**
-         * Bord de la table !
-         */
+        // Bords de la table
 
         Vec2 vecteurTableBordDroit = new InternalVectCartesian(1500,1000);
         Rectangle formeTableBordDroit = new Rectangle(vecteurTableBordDroit, 2*robotRay,2000);
@@ -245,46 +148,6 @@ public class Table implements Module {
         Rectangle formeTableBordBas = new Rectangle(vecteurTableBordBas, 3000,2*robotRay);
         Obstacle tableBordBas = new StillRectangularObstacle(formeTableBordBas);
         this.addFixedObstacleNoGraphChange(tableBordBas);
-
-    //    this.addFixedObstacleNoGraphChange(goldeniumGauche);
-
-        /**
-         * Couleur représente la couleur de la zone se situant derrière le palet !
-         */
-
-        Vec2 vecteurPaletRougeDroiteCentre = new InternalVectCartesian(1000, 450);
-        Obstacle paletRougeDroite = new StillCircularObstacle(vecteurPaletRougeDroiteCentre, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletRougeDroite);
-        this.paletRougeDroite = paletRougeDroite;
-
-        Vec2 vecteurPaletVertDroiteCentre = new InternalVectCartesian(1000, 750);
-        Obstacle paletVertDroite = new StillCircularObstacle(vecteurPaletVertDroiteCentre, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletVertDroite);
-        this.paletVertDroite = paletVertDroite;
-
-        Vec2 vecteurPaletBleuDroiteCentre = new InternalVectCartesian(1000, 1050);
-        Obstacle paletBleuDroite = new StillCircularObstacle(vecteurPaletBleuDroiteCentre, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletBleuDroite);
-        this.paletBleuDroite = paletBleuDroite;
-
-        Vec2 vecteurPaletRougeGaucheCentre = new InternalVectCartesian(-1000, 450);
-        Obstacle paletRougeGauche = new StillCircularObstacle(vecteurPaletRougeGaucheCentre, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletRougeGauche);
-        this.paletRougeGauche = paletRougeGauche;
-
-        Vec2 vecteurPaletVertGaucheCentre = new InternalVectCartesian(-1000, 750);
-        Obstacle paletVertGauche = new StillCircularObstacle(vecteurPaletVertGaucheCentre, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletVertGauche);
-        this.paletVertGauche = paletVertGauche;
-
-        Vec2 vecteurPaletBleuGaucheCentre = new InternalVectCartesian(-1000, 1050);
-        Obstacle paletBleuGauche = new StillCircularObstacle(vecteurPaletBleuGaucheCentre, robotRay+obstacleMargin);
-        this.addTemporaryObstacle(paletBleuGauche);
-        this.paletBleuGauche = paletBleuGauche;
-
-        if(openTheGate) {
-            addFixedObstacle(new StillRectangularObstacle(new Rectangle(new InternalVectCartesian(0, 1000), 2, 2000)));
-        }
     }
 
     /**
@@ -652,87 +515,6 @@ public class Table implements Module {
 
     public MobileCircularObstacle getSimulatedObstacle() {
         return simulatedObstacle;
-    }
-
-    public Obstacle getPaletRougeDroite() {
-        return paletRougeDroite;
-    }
-
-    public Obstacle getPaletBleuDroite() {
-        return paletBleuDroite;
-    }
-
-    public Obstacle getPaletVertDroite() {
-        return paletVertDroite;
-    }
-
-    public Obstacle getPaletRougeGauche() {
-        return paletRougeGauche;
-    }
-
-    public Obstacle getPaletBleuGauche() {
-        return paletBleuGauche;
-    }
-
-    public Obstacle getPaletVertGauche() {
-        return paletVertGauche;
-    }
-
-    public Obstacle getPaletRedUnZoneChaosPurple() {
-        return paletRedUnZoneChaosPurple;
-    }
-
-    public Obstacle getPaletRedDeuxZoneChaosPurple() {
-        return paletRedDeuxZoneChaosPurple;
-    }
-
-    public Obstacle getPaletGreenZoneChaosPurple() {
-        return paletGreenZoneChaosPurple;
-    }
-
-    public Obstacle getPaletBlueZoneChaosPurple() {
-        return paletBlueZoneChaosPurple;
-    }
-
-    public Obstacle getPaletRedUnZoneChaosYellow() {
-        return paletRedUnZoneChaosYellow;
-    }
-
-    public Obstacle getPaletRedDeuxZoneChaosYellow() {
-        return paletRedDeuxZoneChaosYellow;
-    }
-
-    public Obstacle getPaletGreenZoneChaosYellow() {
-        return paletGreenZoneChaosYellow;
-    }
-
-    public Obstacle getPaletBlueZoneChaosYellow() {
-        return paletBlueZoneChaosYellow;
-    }
-
-    public void removeAllChaosObstacles() {
-        removeTemporaryObstacle(paletRedUnZoneChaosPurple);
-        removeTemporaryObstacle(paletRedDeuxZoneChaosPurple);
-        removeTemporaryObstacle(paletGreenZoneChaosPurple);
-        removeTemporaryObstacle(paletBlueZoneChaosPurple);
-
-        removeTemporaryObstacle(paletRedUnZoneChaosYellow);
-        removeTemporaryObstacle(paletRedDeuxZoneChaosYellow);
-        removeTemporaryObstacle(paletGreenZoneChaosYellow);
-        removeTemporaryObstacle(paletBlueZoneChaosYellow);
-    }
-
-    public void removeTassot(){
-        removeTemporaryObstacle(separationRampe);
-    }
-    public void addTassot(){addTemporaryObstacle(separationRampe);}
-
-    public void removeObstacleZoneChaos(Vec2 position){
-        for(Obstacle obstacle : this.temporaryObstacles) {
-            if(obstacle.getPosition().equals(position)){
-                removeTemporaryObstacle(obstacle);
-            }
-        }
     }
 
     public boolean isPositionInBalance(Vec2 center) {

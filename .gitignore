@@ -5,7 +5,7 @@
 **.iws
 
 # Compiled files
-bin/*
+bin/
 
 # Maven Output Directories
 **/out

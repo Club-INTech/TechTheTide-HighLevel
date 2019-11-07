@@ -109,7 +109,7 @@ public class Test_OrderWrapper {
     }
 
     /**
-     * Test du turn
+     * Test du turnTowards
      * @throws Exception
      */
     @Test

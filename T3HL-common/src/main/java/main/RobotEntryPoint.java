@@ -51,8 +51,6 @@ public abstract class RobotEntryPoint {
     protected LidarController lidarController;
     protected Table table;
     protected Robot robot;
-    protected PaletsChaosControler paletsChaosControler;
-    // Regardez, c'est GLaDOS!
     protected AIModule ai;
     protected PanneauModule panneauService;
 
@@ -211,10 +209,6 @@ public abstract class RobotEntryPoint {
             table.initObstacles();
             lidarController = hl.module(LidarController.class);
             robot = hl.module(robotClass);
-            if(hl.getConfig().getBoolean(ConfigData.USING_BALISE_IMAGE) || hl.getConfig().getBoolean(ConfigData.ZONE_CHAOS_TEST)) {
-                paletsChaosControler = hl.module(PaletsChaosControler.class);
-                paletsChaosControler.start();
-            }
             ai = hl.module(AIModule.class);
             MatchTimer timer = hl.module(MatchTimer.class);
             timer.start();

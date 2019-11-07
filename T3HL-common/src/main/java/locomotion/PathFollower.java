@@ -294,7 +294,7 @@ public class PathFollower extends ModuleThread {
      * @throws UnableToMoveException
      *              en cas de blocage mécanique ou d'adversaire
      */
-    public void turn(double angle, boolean expectedWallImpact, Runnable... parallelActions) throws UnableToMoveException {
+    public void turnTowards(double angle, boolean expectedWallImpact, Runnable... parallelActions) throws UnableToMoveException {
         try {
             SensorState.STUCKED.setData(false);
             // on désactive le lidar pendant qu'on tourne pour éviter d'avoir des "traces" des obstacles lors de la rotation
@@ -427,7 +427,7 @@ public class PathFollower extends ModuleThread {
     private Optional<MobileCircularObstacle> getEnemyInSegment(Segment segment) {
         synchronized (table.getMobileObstacles()) {
             return table.getMobileObstacles().stream()
-                    .filter(it -> it.intersect(segment))
+                    .filter(obstacle -> obstacle.intersect(segment))
                     .findFirst();
         }
     }

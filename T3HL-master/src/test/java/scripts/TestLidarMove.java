@@ -20,10 +20,6 @@ public class TestLidarMove extends TestBaseHL {
 
     @Override
     public void initState(HLInstance hl) throws ContainerException {
-        table.removeTemporaryObstacle(table.getPaletRougeGauche());
-        table.removeTemporaryObstacle(table.getPaletVertGauche());
-        table.removeTemporaryObstacle(table.getPaletBleuGauche());
-        table.removeAllChaosObstacles();
     }
 
     @Override

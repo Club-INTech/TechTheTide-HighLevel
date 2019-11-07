@@ -63,7 +63,7 @@ public class Test_OrderWrapper_Symetry {
     }
 
     /**
-     * Test pour tester le turn avec la symétrie
+     * Test pour tester le turnTowards avec la symétrie
      * @throws Exception
      */
     @Test

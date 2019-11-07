@@ -220,8 +220,16 @@ public abstract class Script implements Module {
      * Tournes le robot vers un angle donné (absolu!)
      * @param angle l'angle absolu vers lequel le robot doit s'orienter
      */
-    public void turn(double angle) throws UnableToMoveException {
-        robot.turn(angle);
+    public void turnTowards(double angle) throws UnableToMoveException {
+        robot.turnTowards(angle);
+    }
+
+    /**
+     * Tournes le robot vers un point donné (absolu!)
+     * @param point le point vers lequel tourner
+     */
+    public void turnTowards(Vec2 point) throws UnableToMoveException {
+        robot.turnTowards(point);
     }
 
     /**

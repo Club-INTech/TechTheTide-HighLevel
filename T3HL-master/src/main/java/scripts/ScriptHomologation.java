@@ -3,7 +3,6 @@ package scripts;
 import locomotion.UnableToMoveException;
 import utils.HLInstance;
 import utils.math.Vec2;
-import utils.math.InternalVectCartesian;
 import utils.math.VectCartesian;
 
 import java.util.concurrent.Future;
@@ -36,19 +35,19 @@ public class ScriptHomologation extends Script {
                 // on active une pompe par exemple
                 actuators.rightPump.activate();
             });
-            turn(Math.PI/2);
+            turnTowards(Math.PI/2);
             moveLengthwise(DISTANCE_INTERPALET*2, false);
-            turn(Math.PI);
+            turnTowards(Math.PI);
             moveLengthwise(DISTANCE_INTERPALET*3, false);
-            turn(-Math.PI/2);
+            turnTowards(-Math.PI/2);
             moveLengthwise(DISTANCE_INTERPALET, false);
-            turn(0);
+            turnTowards(0);
             moveLengthwise(DISTANCE_INTERPALET*2, false);
-            turn(Math.PI);
+            turnTowards(Math.PI);
             moveLengthwise(DISTANCE_INTERPALET*2, false);
-            turn(-Math.PI/2);
+            turnTowards(-Math.PI/2);
             moveLengthwise(DISTANCE_INTERPALET, false);
-            turn(0);
+            turnTowards(0);
             moveLengthwise(DISTANCE_INTERPALET*2, false);
 
 

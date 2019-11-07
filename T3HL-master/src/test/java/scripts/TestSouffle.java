@@ -21,9 +21,9 @@ public class TestSouffle extends TestBaseHL {
     @Override
     public void action() throws Exception {
         for (int i = 0; i < 4; i++) {
-            robot.turn(Math.PI);
+            robot.turnTowards(Math.PI);
             TimeUnit.MILLISECONDS.sleep(5000);
-            robot.turn(-Math.PI);
+            robot.turnTowards(-Math.PI);
             TimeUnit.MILLISECONDS.sleep(5000);
         }
     }
