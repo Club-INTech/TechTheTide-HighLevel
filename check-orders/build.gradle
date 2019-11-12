@@ -1,0 +1,24 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.21'
+}
+
+apply plugin: 'idea'
+
+// s'applique à tous les sous-projets (principal, secondaire, simulateur, etc.)
+group 'fr.club_intech.hl.order_check'
+version '2019.0.0'
+
+ext.runConfigs = []
+
+// On dit à Gradle qu'on va faire du Java
+apply plugin: 'java-library'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}

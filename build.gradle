@@ -10,6 +10,10 @@ buildscript {
 
 apply plugin: 'idea'
 
+dependencies {
+    project(':check-orders')
+}
+
 // s'applique à tous les sous-projets (principal, secondaire, simulateur, etc.)
 subprojects {
     group 'fr.club_intech.hl'

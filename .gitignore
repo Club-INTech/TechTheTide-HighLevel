@@ -23,4 +23,7 @@ doc/formation/*.pdf
 **/build/
 **.gradle/
 
+.distinct_order_list
+.order_list
+
 # **DO NOT** put gradle/ or gradlew here, they allow the project to be imported without having to download&install Gradle!
