@@ -9,7 +9,7 @@ import kotlin.system.exitProcess
 fun main() {
     print(File(".").canonicalPath)
     // on lance le build
-    val gradleProcess = ProcessBuilder("./gradlew", "build", "-x", "test").start()
+    val gradleProcess = ProcessBuilder("../gradlew", "build", "-x", "test").start()
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
         gradleProcess.inputStream.bufferedReader().useLines { it.forEach(::println) }
     }
@@ -22,7 +22,7 @@ fun main() {
     }
 
     // on récupère le jar le plus récent
-    val commonBuildFolder = File("T3HL-common/build/libs/")
+    val commonBuildFolder = File("../T3HL-common/build/libs/")
     val builds = commonBuildFolder.listFiles() ?: error("No build performed? Make sure Gradle can build the project")
     val latestBuild = builds.maxBy { it.lastModified() }!!
 
@@ -73,8 +73,8 @@ fun main() {
     val distinctOrders = orders.map { it.split(" ").first() }.distinct()
     println()
     println("Writing files")
-    File(".order_list").writeText(orders.joinToString("\n"))
-    File(".distinct_order_list").writeText(distinctOrders.joinToString("\n"))
+    File("../.order_list").writeText(orders.joinToString("\n"))
+    File("../.distinct_order_list").writeText(distinctOrders.joinToString("\n"))
 }
 
 
