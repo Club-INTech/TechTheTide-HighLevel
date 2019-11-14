@@ -1,9 +1,6 @@
 name: Test de compilation
 
-on:
-  push:
-    branches:
-      - the-refactoring
+on: push
 
 jobs:
   build:

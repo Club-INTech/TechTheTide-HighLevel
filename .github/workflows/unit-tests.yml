@@ -1,9 +1,6 @@
 name: Test unitaires
 
-on:
-  push:
-    branches:
-      - the-refactoring
+on: push
 
 jobs:
   build:
