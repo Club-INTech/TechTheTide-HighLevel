@@ -1,4 +1,4 @@
-name: Test de compilation
+name: Check des ordres
 
 on: push
 
