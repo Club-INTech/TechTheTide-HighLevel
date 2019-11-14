@@ -1,6 +1,6 @@
 // Méthode utilitaire pour générer les configurations de lancement d'IDEA
 task genIntellijRuns {
-
+    new File("bin/").mkdirs()
     def xmlFile = rootProject.projectDir.canonicalPath+'/.idea/workspace.xml'
     def file = new File(xmlFile)
     if(!file.exists()) {
