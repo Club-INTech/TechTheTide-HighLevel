@@ -25,11 +25,19 @@ fun main() {
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
         displayLSProcess.inputStream.bufferedReader().useLines { it.forEach(::println) }
     }
+    displayLSProcess.waitFor()
+
+    val displayLSProcess3 = ProcessBuilder("ls", "-a", "../T3HL-common/").start()
+    thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
+        displayLSProcess3.inputStream.bufferedReader().useLines { it.forEach(::println) }
+    }
+    displayLSProcess3.waitFor()
 
     val displayLSProcess2 = ProcessBuilder("ls", "-a", "../T3HL-common/build/libs").start()
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
         displayLSProcess2.inputStream.bufferedReader().useLines { it.forEach(::println) }
     }
+    displayLSProcess2.waitFor()
 
     // on récupère le jar le plus récent
     val commonBuildFolder = File("../T3HL-common/build/libs/")
