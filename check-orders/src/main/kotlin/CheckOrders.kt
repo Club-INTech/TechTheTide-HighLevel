@@ -41,6 +41,7 @@ fun main() {
 
     // on récupère le jar le plus récent
     val commonBuildFolder = File("../T3HL-common/build/libs/")
+    println("Exists: ${commonBuildFolder.exists()}")
     val builds = commonBuildFolder.listFiles() ?: error("No build performed? Make sure Gradle can build the project")
     val latestBuild = builds.maxBy { it.lastModified() }!!
 

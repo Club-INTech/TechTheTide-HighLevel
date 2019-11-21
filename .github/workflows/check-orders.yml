@@ -16,10 +16,14 @@ jobs:
         run: chmod +x ./gradlew && ./gradlew shadowJar && ls -la T3HL-common/build/libs #&& ./gradlew check-orders:checkOrders;
       - name: Clone LL repo
         run: git clone https://github.com/Club-INTech/TechTheTide-LowLevel LL && cd LL
+
       - name: Checkout most recent branch
+        working-directory: ./LL
         run: branch=`git branch -a --sort=-committerdate | head -1`; git checkout $branch
       - name: Retrieve performCheck script
+        working-directory: ./LL
         #run: wget https://raw.githubusercontent.com/Club-INTech/TechTheTide-HighLevel/ TODO
         run: git log --oneline | head -1
+
       - name: Perform check
         run: echo "performCheck.py" #./performCheck.py
