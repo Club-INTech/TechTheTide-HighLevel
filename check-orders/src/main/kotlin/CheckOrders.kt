@@ -21,6 +21,16 @@ fun main() {
         exitProcess(1)
     }
 
+    val displayLSProcess = ProcessBuilder("ls", "-a", "../").start()
+    thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
+        displayLSProcess.inputStream.bufferedReader().useLines { it.forEach(::println) }
+    }
+
+    val displayLSProcess2 = ProcessBuilder("ls", "-a", "../T3HL-common/build/libs").start()
+    thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
+        displayLSProcess2.inputStream.bufferedReader().useLines { it.forEach(::println) }
+    }
+
     // on récupère le jar le plus récent
     val commonBuildFolder = File("../T3HL-common/build/libs/")
     val builds = commonBuildFolder.listFiles() ?: error("No build performed? Make sure Gradle can build the project")
