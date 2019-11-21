@@ -9,7 +9,7 @@ import kotlin.system.exitProcess
 fun main() {
     print(File(".").canonicalPath)
     // on lance le build
-    val gradleProcess = ProcessBuilder("../gradlew", "build", "-x", "test").start()
+    val gradleProcess = ProcessBuilder("../gradlew", "shadowJar").start()
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
         gradleProcess.inputStream.bufferedReader().useLines { it.forEach(::println) }
     }
