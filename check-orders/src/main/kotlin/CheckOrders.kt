@@ -8,18 +8,6 @@ import kotlin.system.exitProcess
 
 fun main() {
     print(File(".").canonicalPath)
-    // on lance le build
-    val gradleProcess = ProcessBuilder("../gradlew", "shadowJar").start()
-    thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
-        gradleProcess.inputStream.bufferedReader().useLines { it.forEach(::println) }
-    }
-    val errorCode = gradleProcess.waitFor()
-    println("Finished with error code $errorCode")
-
-    if(errorCode != 0) {
-        println("An error occured, can't check orders")
-        exitProcess(1)
-    }
 
     val displayLSProcess = ProcessBuilder("ls", "-al", "../").start()
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
