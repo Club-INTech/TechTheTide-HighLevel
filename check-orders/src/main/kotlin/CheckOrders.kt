@@ -73,8 +73,7 @@ fun main() {
     val distinctOrders = orders.map { it.split(" ").first() }.distinct()
     println()
     println("Writing files")
-    File("../.order_list").writeText(orders.joinToString("\n"))
-    File("../.distinct_order_list").writeText(distinctOrders.joinToString("\n"))
+    File("../.hl_order_list").writeText(distinctOrders.joinToString("\n"))
 }
 
 

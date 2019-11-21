@@ -4,7 +4,6 @@ on: push
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -13,5 +12,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.13
-      - name: TODO
+      - name: Generate list
         run: chmod +x ./gradlew && ./gradlew check-orders:checkOrders
+      - name: Clone LL repo
+        run: git clone https://github.com/Club-INTech/TechTheTide-LowLevel LL && cd LL
+      - name: Checkout most recent branch
+        run: branch=`git branch -a --sort=-committerdate | head -1`; git checkout $branch
+      - name: Retrieve performCheck script
+        #run: wget https://raw.githubusercontent.com/Club-INTech/TechTheTide-HighLevel/ TODO
+        run: git log --oneline | head -1
+      - name: Perform check
+        run: echo "performCheck.py" #./performCheck.py
