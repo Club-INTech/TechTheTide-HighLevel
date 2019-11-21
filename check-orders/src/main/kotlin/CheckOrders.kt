@@ -21,19 +21,19 @@ fun main() {
         exitProcess(1)
     }
 
-    val displayLSProcess = ProcessBuilder("ls", "-a", "../").start()
+    val displayLSProcess = ProcessBuilder("ls", "-al", "../").start()
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
         displayLSProcess.inputStream.bufferedReader().useLines { it.forEach(::println) }
     }
     displayLSProcess.waitFor()
 
-    val displayLSProcess3 = ProcessBuilder("ls", "-a", "../T3HL-common/").start()
+    val displayLSProcess3 = ProcessBuilder("ls", "-al", "../T3HL-common/").start()
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
         displayLSProcess3.inputStream.bufferedReader().useLines { it.forEach(::println) }
     }
     displayLSProcess3.waitFor()
 
-    val displayLSProcess2 = ProcessBuilder("ls", "-a", "../T3HL-common/build/libs").start()
+    val displayLSProcess2 = ProcessBuilder("ls", "-al", "../T3HL-common/build/libs").start()
     thread(isDaemon = true) { // affichage de la sortie de Gradle dans la console
         displayLSProcess2.inputStream.bufferedReader().useLines { it.forEach(::println) }
     }
