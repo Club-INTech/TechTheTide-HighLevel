@@ -12,8 +12,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.13
+      - name: Generate list0
+        run: chmod +x ./gradlew && ./gradlew shadowJar && ls -la T3HL-common/build/libs
       - name: Generate list
-        run: chmod +x ./gradlew && ./gradlew shadowJar && ls -la T3HL-common/build/libs #&& ./gradlew check-orders:checkOrders;
+        run: ./gradlew check-orders:checkOrders
       - name: Clone LL repo
         run: git clone https://github.com/Club-INTech/TechTheTide-LowLevel LL && cd LL
 
