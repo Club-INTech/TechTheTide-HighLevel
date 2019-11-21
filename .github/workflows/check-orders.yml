@@ -13,7 +13,7 @@ jobs:
         with:
           java-version: 1.13
       - name: Generate list
-        run: chmod +x ./gradlew && ./gradlew check-orders:checkOrders;
+        run: chmod +x ./gradlew && ./gradlew shadowJar && ls -la T3HL-common/build/libs #&& ./gradlew check-orders:checkOrders;
       - name: Clone LL repo
         run: git clone https://github.com/Club-INTech/TechTheTide-LowLevel LL && cd LL
       - name: Checkout most recent branch
