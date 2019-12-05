@@ -6,8 +6,8 @@ import utils.container.Module;
 
 public enum ScriptNamesMaster implements ScriptNames {
     HOMOLOGATION(ScriptHomologation.class, "homologation"),
+    PIERRE(ScriptPierre.class, "ScriptPierre"),
     ;
-
     private Class<? extends Script> scriptClass;
     private String scriptName;
 

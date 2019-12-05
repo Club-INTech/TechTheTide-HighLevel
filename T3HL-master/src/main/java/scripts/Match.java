@@ -22,13 +22,19 @@ public class Match extends Script {
     @Override
     public void execute(int version) {
         // Code lançant les différents scripts du principal
-        scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
+        scriptManagerMaster.getScript(ScriptNamesMaster.PIERRE).timedExecute();
+        try {
+            moveLengthwise(-100, false);
+        } catch (UnableToMoveException e) {
+            e.printStackTrace();
+
+        }
         // TODO: A vous de jouer les 1As!
     }
 
     @Override
     public Vec2 entryPosition(int version) {
-        return scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).entryPosition(0);
+        return scriptManagerMaster.getScript(ScriptNamesMaster.PIERRE).entryPosition(0);
     }
 
     @Override

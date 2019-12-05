@@ -35,6 +35,7 @@ public class ScriptHomologation extends Script {
                 // on active une pompe par exemple
                 actuators.rightPump.activate();
             });
+
             turnTowards(Math.PI/2);
             moveLengthwise(DISTANCE_INTERPALET*2, false);
             turnTowards(Math.PI);
