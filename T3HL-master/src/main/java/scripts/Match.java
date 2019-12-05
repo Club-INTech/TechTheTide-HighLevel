@@ -22,6 +22,10 @@ public class Match extends Script {
     @Override
     public void execute(int version) {
         // Code lançant les différents scripts du principal
+        scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
+        //Test
+        scriptManagerMaster.getScript(ScriptNamesMaster.TESTBASIC).timedExecute(0);
+       // scriptTest // A rajouter
         scriptManagerMaster.getScript(ScriptNamesMaster.PIERRE).timedExecute();
         try {
             moveLengthwise(-100, false);
@@ -34,7 +38,8 @@ public class Match extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return scriptManagerMaster.getScript(ScriptNamesMaster.PIERRE).entryPosition(0);
+        return scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).entryPosition(0);
+
     }
 
     @Override

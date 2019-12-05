@@ -22,7 +22,8 @@ public class ScriptHomologation extends Script {
     @Override
     public void execute(int version) {
         try {
-            // TODO: remplacer ce code d'exemple par un code qui marche
+            // TODO: remplacer ce code d
+            //  'exemple par un code qui marche
             Future<Void> myParallelAction = async("Parallel action", () -> {
                // on peut faire des actions en parallèle avec 'async'
 
