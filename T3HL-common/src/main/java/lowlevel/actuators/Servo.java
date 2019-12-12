@@ -6,31 +6,33 @@ package lowlevel.actuators;
  * @author jglrxavpok
  */
 public class Servo implements Actuator {
+
+    private Servo symetrized = this;
+
     /**
      * Identifiant du servomoteur
      */
     private int id;
 
     /**
-     * Identifiant du servomoteur lorsqu'il est symétrisé
-     */
-    private int symetrizedID;
-
-    /**
-     * Instancies le servomoteur avec le même ID symétrisé que l'ID de base. Ce servomoteur ne sera donc pas symétrisé.
+     * Instancies le servomoteur
      * @param id l'identifiant du servomoteur
      */
     public Servo(int id) {
-        this(id, id);
+        this.id = id;
     }
 
-    /**
-     * Instancies le servomoteur
-     * @param id l'identifiant du servomoteur
-     * @param symetrizedID l'identifiant du servomoteur lorsqu'il est symétrisé
-     */
-    public Servo(int id, int symetrizedID) {
-        this.id = id;
-        this.symetrizedID = symetrizedID;
+    public int id() {
+        return id;
+    }
+
+    public Servo getSymetrized() {
+        return symetrized;
+    }
+
+    public Servo setSymetrized(Servo symetrized) {
+        this.symetrized = symetrized;
+        symetrized.symetrized = this;
+        return this;
     }
 }
