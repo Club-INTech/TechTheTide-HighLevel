@@ -191,7 +191,7 @@ public class Table implements Module {
         Obstacle verre8 = new StillCircularObstacle(formeVerre8);
         this.addTemporaryObstacle(verre8);
 
-        Vec2 positionVerre9 = new VectCartesian(1100, 400);
+        Vec2 positionVerre9 = new VectCartesian(1100, 800);
         Circle formeVerre9 = new Circle(positionVerre9,36+robotRay);
         Obstacle verre9 = new StillCircularObstacle(formeVerre9);
         this.addTemporaryObstacle(verre9);
@@ -241,7 +241,7 @@ public class Table implements Module {
         Obstacle verre18 = new StillCircularObstacle(formeVerre18);
         this.addTemporaryObstacle(verre18);
 
-        Vec2 positionVerre19 = new VectCartesian(2050, 800);
+        Vec2 positionVerre19 = new VectCartesian(2050, 400);
         Circle formeVerre19 = new Circle(positionVerre19,36 +robotRay);
         Obstacle verre19 = new StillCircularObstacle(formeVerre19);
         this.addTemporaryObstacle(verre19);
