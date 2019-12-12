@@ -96,6 +96,7 @@ public interface ConfigData
      */
     ConfigInfo<String> MASTER_IP = new BaseConfigInfo<>("192.168.12.2", String.class);
     ConfigInfo<Integer> MASTER_PORT = new BaseConfigInfo<>(14500, Integer.TYPE);
+
     ConfigInfo<String> TEENSY_MASTER_IP = new BaseConfigInfo<>("192.168.1.1", String.class);
     ConfigInfo<Integer> TEENSY_MASTER_PORT = new BaseConfigInfo<>(13500, Integer.TYPE);
     ConfigInfo<String> TEENSY_SLAVE_IP = new BaseConfigInfo<>("192.168.12.3", String.class);

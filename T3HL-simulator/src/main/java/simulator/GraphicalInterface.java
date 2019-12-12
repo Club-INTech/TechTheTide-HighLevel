@@ -366,8 +366,8 @@ public class GraphicalInterface extends JFrame {
                 float diameter = transformTableDistanceToInterfaceDistance(pathShape.getRadius()*2);
                 g.drawOval(center.getX()-Math.round(diameter/2), center.getY()-Math.round(diameter/2), Math.round(diameter), Math.round(diameter));
 
-                drawPrimitiveShape(g, shape);
             }
+            drawPrimitiveShape(g, shape);
         }
     }
 
@@ -377,6 +377,7 @@ public class GraphicalInterface extends JFrame {
         Vec2 center = transformTableCoordsToInterfaceCoords(centerOnTable);
         if (shape instanceof Circle){
             float diameter = transformTableDistanceToInterfaceDistance(((Circle) shape).getRadius()*2);
+            g.setColor(TEMPORARY_OBSTACLE_COLOR.darker());
             g.fillOval(center.getX()-Math.round(diameter/2), center.getY()-Math.round(diameter/2), Math.round(diameter), Math.round(diameter));
         }
         else if (shape instanceof Rectangle){

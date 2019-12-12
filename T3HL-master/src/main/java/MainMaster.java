@@ -105,6 +105,8 @@ public class MainMaster extends RobotEntryPoint implements Offsets {
         robot.increaseScore(5); // présence de l'expérience
         robot.setRotationSpeed(Speed.ULTRA_SLOW_ALL);
 
+        // TODO: recalage
+
         try {
             Match match = hl.module(Match.class);
             robot.setPositionAndOrientation(match.entryPosition(0), 0.0);
