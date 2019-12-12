@@ -1,5 +1,6 @@
 package lowlevel.order;
 
+import lowlevel.actuators.Servo;
 import lowlevel.actuators.ServoGroup;
 import utils.RobotSide;
 
@@ -118,9 +119,27 @@ public class OrderBuilder<T extends Order> {
         if(isSided) {
             BuiltSidedServoGroupOrder original = new BuiltSidedServoGroupOrder(system, side, servoGroup, angles);
             original.symetrized = original.createSymetrized();
+            ((BuiltSidedServoGroupOrder)original.symetrized).symetrized = original;
             return original;
         } else {
             return new BuiltServoGroupOrder(system, servoGroup, angles);
+        }
+    }
+
+    /**
+     * Déplaces un servo-moteur donné à un angle voulu
+     * @param servo le servomoteur à bouger
+     * @param angle l'angle du servo moteur
+     * @return L'ordre représentant le mouvement
+     */
+    public ServoOrder moveServo(Servo servo, float angle) {
+        if(isSided) {
+            BuiltSidedServoOrder original = new BuiltSidedServoOrder(system, side, servo, angle);
+            original.symetrized = original.createSymetrized();
+            ((BuiltSidedServoOrder)original.symetrized).symetrized = original;
+            return original;
+        } else {
+            return new BuiltServoOrder(system, servo, angle);
         }
     }
 

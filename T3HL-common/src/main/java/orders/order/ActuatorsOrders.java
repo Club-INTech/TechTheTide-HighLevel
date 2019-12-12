@@ -1,9 +1,8 @@
 package orders.order;
 
 import lowlevel.actuators.ServoGroups;
-import lowlevel.order.OrderBuilder;
-import lowlevel.order.SidedOrder;
-import lowlevel.order.SidedServoGroupOrder;
+import lowlevel.actuators.Servos;
+import lowlevel.order.*;
 import utils.RobotSide;
 
 /**
@@ -48,6 +47,9 @@ public final class ActuatorsOrders {
             .side(RobotSide.RIGHT)
             .moveServoGroup(ServoGroups.RightArm, 180f, 180f, 180f);
     public static final SidedServoGroupOrder BrasGaucheToutDroit = (SidedServoGroupOrder) BrasDroitToutDroit.symetrize();
+
+    public static final SidedOrder LeftArmEcueil = (SidedOrder) OrderBuilder.create("servo").side(RobotSide.LEFT).moveServo(Servos.leftArmBase, 180f);
+    public static final Order RightArmEcueil = LeftArmEcueil.symetrize();
 
     private ActuatorsOrders(){}
 }
