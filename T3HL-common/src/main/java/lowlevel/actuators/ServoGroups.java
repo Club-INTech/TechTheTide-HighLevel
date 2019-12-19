@@ -7,11 +7,15 @@ package lowlevel.actuators;
  */
 public class ServoGroups implements Servos {
 
-    public static final ServoGroup LeftArm = new ServoGroup(0, leftArmBase, leftArmElbow, leftArmWrist);
-    public static final ServoGroup RightArm = new ServoGroup(1, rightArmBase, rightArmElbow, rightArmWrist);
+    /////////////////////2020
+    ///////////////////////Principal
+
+    /////////////////Secondaire
+    public static final ServoGroup LeftArms = new ServoGroup(2, leftArm1, leftArm2, leftArm3);
+    public static final ServoGroup RightArms = new ServoGroup(3, rightArm1, rightArm2, rightArm3);
 
     static {
-        LeftArm.symetrized = RightArm;
-        RightArm.symetrized = LeftArm;
+        LeftArms.symetrized = RightArms;
+        RightArms.symetrized = LeftArms;
     }
 }

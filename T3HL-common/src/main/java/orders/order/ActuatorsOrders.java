@@ -1,9 +1,13 @@
 package orders.order;
 
 import lowlevel.actuators.ServoGroups;
+import lowlevel.order.*;
 import lowlevel.actuators.Servos;
 import lowlevel.order.*;
 import utils.RobotSide;
+import utils.communication.Formatting;
+
+import java.text.Format;
 
 /**
  * Liste des ordres liés aux actuateurs.
@@ -17,6 +21,7 @@ public final class ActuatorsOrders {
     private static final String PUMPS = "pump";
     private static final String VALVES = "valve";
     private static final String SERVOGROUPS = "servogroup";
+    private static final String SERVOS = "servos";
 
     public static final SidedOrder ActivateRightPump = OrderBuilder
             .create(PUMPS)
@@ -42,14 +47,101 @@ public final class ActuatorsOrders {
             .off();
     public static final SidedOrder DeactivateLeftValve = DeactivateRightValve.symetrize();
 
-    public static final SidedServoGroupOrder BrasDroitToutDroit = (SidedServoGroupOrder) OrderBuilder
-            .create(SERVOGROUPS)
-            .side(RobotSide.RIGHT)
-            .moveServoGroup(ServoGroups.RightArm, 180f, 180f, 180f);
-    public static final SidedServoGroupOrder BrasGaucheToutDroit = (SidedServoGroupOrder) BrasDroitToutDroit.symetrize();
-
-    public static final SidedOrder LeftArmEcueil = (SidedOrder) OrderBuilder.create("servo").side(RobotSide.LEFT).moveServo(Servos.leftArmBase, 180f);
-    public static final Order RightArmEcueil = LeftArmEcueil.symetrize();
-
     private ActuatorsOrders(){}
+
+
+    //NEW 2020
+    /////////////////////////////////////////////PUMPS and VALVES
+
+    public static final OrderWithArgument Valve = OrderBuilder
+            .createWithArgs("Valve", Formatting.INT, Formatting.STRING);
+
+    public static Order Valve1On = Valve.compileWith(1, "on");
+    public static Order Valve1Off = Valve.compileWith(1, "off");
+    public static Order Valve2On = Valve.compileWith(2, "on");
+    public static Order Valve2Off = Valve.compileWith(2, "off");
+    public static Order Valve3On = Valve.compileWith(3, "on");
+    public static Order Valve3Off = Valve.compileWith(3, "off");
+
+    public static Order Valve4On = Valve.compileWith(4, "on");
+    public static Order Valve4Off = Valve.compileWith(4, "off");
+    public static Order Valve5On = Valve.compileWith(5, "on");
+    public static Order Valve5Off = Valve.compileWith(5, "off");
+    public static Order Valve6On = Valve.compileWith(6, "on");
+    public static Order Valve6Off = Valve.compileWith(6, "off");
+
+    public static final OrderWithArgument Pump = OrderBuilder
+            .createWithArgs("Suck", Formatting.INT, Formatting.STRING);
+
+    public static Order Pump1On = Pump.compileWith(1, "on");
+    public static Order Pump1Off = Pump.compileWith(1, "off");
+    public static Order Pump2On = Pump.compileWith(2, "on");
+    public static Order Pump2Off = Pump.compileWith(2, "off");
+    public static Order Pump3On = Pump.compileWith(3, "on");
+    public static Order PumpOff = Pump.compileWith(3, "off");
+
+    public static Order Pump4On = Pump.compileWith(4, "on");
+    public static Order Pump4Off = Pump.compileWith(4, "off");
+    public static Order Pump5On = Pump.compileWith(5, "on");
+    public static Order Pump5Off = Pump.compileWith(5, "off");
+    public static Order Pump6On = Pump.compileWith(6, "on");
+    public static Order Pump6Off = Pump.compileWith(6, "off");
+
+//////////////////BRAS
+
+    public static final SidedServoOrder LeftArmIn = (SidedServoOrder) OrderBuilder
+            .create(SERVOS)
+            .side(RobotSide.LEFT)
+            .moveServo(Servos.leftArm, 180);
+
+    public static final SidedOrder RightArm1In = LeftArmIn.symetrize();
+
+    public static final SidedServoOrder LeftArmOut = (SidedServoOrder) OrderBuilder
+            .create(SERVOS)
+            .side(RobotSide.LEFT)
+            .moveServo(Servos.leftArm, 180);
+
+    public static final SidedOrder RightArm1Out = LeftArmOut.symetrize();
+
+
+
+    public static final Order BrasStock = OrderBuilder
+            .createSimple("BrasStock");
+
+    public static final Order BrasEcueil = OrderBuilder
+            .createSimple("BrasEcueil");
+
+    public static final Order BrasDepot = OrderBuilder
+            .createSimple("BrasDepot");
+
+//////////////////GATE
+    public static final Order GateOpen = OrderBuilder
+        .createSimple("GateOpen");
+    public static final Order GateClose = OrderBuilder
+        .createSimple("GateClose");
+
+//////////////////ELEVATOR
+    public static final Order LiftUp = OrderBuilder
+        .createSimple("LiftUp");
+    public static final Order LiftDown = OrderBuilder
+        .createSimple("LiftDown");
+
+//////////////////FLAG
+    public static final Order FlagUp = OrderBuilder
+        .createSimple("FlagUp");
+    public static final Order FlagDown = OrderBuilder
+        .createSimple("FlagDown");
+
+
+    //Bras in/ Brasout : common order pour manche à air et le phare
+    //Bras stock : bras in rangé ds le robot
+   // Bras ecueil : bras out bonne hauteur pour choper gobelet
+   // Bras depot : bras out bonne hauteur pour poser par terre ds le port
+
+  //  Valve : pour activer l'électrovanne
+  //  Suck : Aspirer avec la ventouse
+
+   // Liftup/ Liftdown : pour monter/descendre le profilet pour remonter les 2 gobelets en hauteur
+
+
 }
