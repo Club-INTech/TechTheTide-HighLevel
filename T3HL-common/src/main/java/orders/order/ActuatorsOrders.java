@@ -49,9 +49,8 @@ public final class ActuatorsOrders {
 
     private ActuatorsOrders(){}
 
-
     //NEW 2020
-    /////////////////////////////////////////////PUMPS and VALVES
+    /////////////////////////////////////////////PUMPS and VALVES (SECONDAIRE)
 
     public static final OrderWithArgument Valve = OrderBuilder
             .createWithArgs("Valve", Formatting.INT, Formatting.STRING);
@@ -70,6 +69,8 @@ public final class ActuatorsOrders {
     public static Order Valve6On = Valve.compileWith(6, "on");
     public static Order Valve6Off = Valve.compileWith(6, "off");
 
+    public static Order Valve7Off = Valve.compileWith(7, "off");
+
     public static final OrderWithArgument Pump = OrderBuilder
             .createWithArgs("Suck", Formatting.INT, Formatting.STRING);
 
@@ -87,23 +88,23 @@ public final class ActuatorsOrders {
     public static Order Pump6On = Pump.compileWith(6, "on");
     public static Order Pump6Off = Pump.compileWith(6, "off");
 
-//////////////////BRAS
+    public static Order Pump7Off = Valve.compileWith(7, "off");
+
+//////////////////BRAS (COMMUNS POUR PHARE ET MANCHES)
 
     public static final SidedServoOrder LeftArmIn = (SidedServoOrder) OrderBuilder
             .create(SERVOS)
             .side(RobotSide.LEFT)
             .moveServo(Servos.leftArm, 180);
-
-    public static final SidedOrder RightArm1In = LeftArmIn.symetrize();
+    public static final SidedOrder RightArmIn = LeftArmIn.symetrize();
 
     public static final SidedServoOrder LeftArmOut = (SidedServoOrder) OrderBuilder
             .create(SERVOS)
             .side(RobotSide.LEFT)
             .moveServo(Servos.leftArm, 180);
+    public static final SidedOrder RightArmOut = LeftArmOut.symetrize();
 
-    public static final SidedOrder RightArm1Out = LeftArmOut.symetrize();
-
-
+///////POSITION BRAS (SECONDAIRE)
 
     public static final Order BrasStock = OrderBuilder
             .createSimple("BrasStock");
@@ -114,34 +115,38 @@ public final class ActuatorsOrders {
     public static final Order BrasDepot = OrderBuilder
             .createSimple("BrasDepot");
 
-//////////////////GATE
+//////////////////GATE (PRINCIPAL)
     public static final Order GateOpen = OrderBuilder
         .createSimple("GateOpen");
     public static final Order GateClose = OrderBuilder
         .createSimple("GateClose");
 
-//////////////////ELEVATOR
+//////////////////ELEVATOR (PRINCIPAL)
     public static final Order LiftUp = OrderBuilder
         .createSimple("LiftUp");
     public static final Order LiftDown = OrderBuilder
         .createSimple("LiftDown");
 
-//////////////////FLAG
+//////////////////FLAG COMMUNS)
     public static final Order FlagUp = OrderBuilder
         .createSimple("FlagUp");
     public static final Order FlagDown = OrderBuilder
         .createSimple("FlagDown");
 
 
-    //Bras in/ Brasout : common order pour manche à air et le phare
+    //Bras in/ Brasout ==> LeftArmIn/Out et RightArmIn/Out: common order pour manche à air et le phare
     //Bras stock : bras in rangé ds le robot
    // Bras ecueil : bras out bonne hauteur pour choper gobelet
    // Bras depot : bras out bonne hauteur pour poser par terre ds le port
 
   //  Valve : pour activer l'électrovanne
-  //  Suck : Aspirer avec la ventouse
+  //  Suck ==> Pump : Aspirer avec la ventouse
 
-   // Liftup/ Liftdown : pour monter/descendre le profilet pour remonter les 2 gobelets en hauteur
+   // Gate Open/Close ==> GateGreenOpen/Close et GateRedOpen/Close
+
+   // LiftUp/ LiftDown : pour monter/descendre le profilet pour remonter les 2 gobelets en hauteur
+    //FlagUp/Down
+
 
 
 }

@@ -20,11 +20,13 @@ public class ScriptTestSorya extends Script {
         try {
             moveLengthwise(DISTANCE* 2, false);
             turnTowards(-Math.PI / 2);
+            actuators.rightPump.activate();
         }
         catch (UnableToMoveException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+
     }
 
     @Override

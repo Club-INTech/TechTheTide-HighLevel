@@ -11,11 +11,11 @@ public class ServoGroups implements Servos {
     ///////////////////////Principal
 
     /////////////////Secondaire
-    public static final ServoGroup LeftArms = new ServoGroup(2, leftArm1, leftArm2, leftArm3);
-    public static final ServoGroup RightArms = new ServoGroup(3, rightArm1, rightArm2, rightArm3);
+    public static final ServoGroup FrontArms = new ServoGroup(2, frontArm1, frontArm2, frontArm3);
+    public static final ServoGroup BackArms = new ServoGroup(3, backArm1, backArm2, backArm3);
 
     static {
-        LeftArms.symetrized = RightArms;
-        RightArms.symetrized = LeftArms;
+      //  FrontArms.symetrized = BackArms;
+      //  BackArms.symetrized = FrontArms;
     }
 }
