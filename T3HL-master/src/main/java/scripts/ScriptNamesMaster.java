@@ -8,7 +8,7 @@ public enum ScriptNamesMaster implements ScriptNames {
     HOMOLOGATION(ScriptHomologation.class, "homologation"),
    // NOMSCRIPTEST // A rajouter
     TESTBASIC(ScriptTestSorya.class, "testSorya"),
-    PIERRE(ScriptPierre.class, "ScriptPierre"),
+    PIERRE(ScriptPierrePrincipal.class, "ScriptPierre"),
     ;
     private Class<? extends Script> scriptClass;
     private String scriptName;

@@ -70,6 +70,7 @@ public final class ActuatorsOrders {
     public static Order Valve6Off = Valve.compileWith(6, "off");
 
     public static Order Valve7Off = Valve.compileWith(7, "off");
+    public static Order Valve7On = Valve.compileWith(7, "on");
 
     public static final OrderWithArgument Pump = OrderBuilder
             .createWithArgs("Suck", Formatting.INT, Formatting.STRING);
@@ -89,6 +90,7 @@ public final class ActuatorsOrders {
     public static Order Pump6Off = Pump.compileWith(6, "off");
 
     public static Order Pump7Off = Valve.compileWith(7, "off");
+    public static Order Pump7On = Valve.compileWith(7, "on");
 
 //////////////////BRAS (COMMUNS POUR PHARE ET MANCHES)
 

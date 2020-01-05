@@ -22,6 +22,7 @@ import data.Table;
 import data.table.MobileCircularObstacle;
 import locomotion.UnableToMoveException;
 import lowlevel.actuators.ActuatorsModule;
+import orders.OrderWrapper;
 import pfg.config.Configurable;
 import robot.Robot;
 import utils.HLInstance;
@@ -42,6 +43,7 @@ import java.util.function.Supplier;
  * @author rem, jglrxavpok
  */
 public abstract class Script implements Module {
+    protected OrderWrapper wrapper;
 
     protected final HLInstance hl;
 
@@ -59,6 +61,9 @@ public abstract class Script implements Module {
      * Les différentes versions du script
      */
     protected ArrayList<Integer> versions;
+
+
+
 
     /**
      * Timeout avant d'arrêter d'essayer de se déplacer (quand un ennemi est dans un obstacle par exemple)
@@ -81,6 +86,7 @@ public abstract class Script implements Module {
         this.robot = hl.module(Robot.class);
         this.table = hl.module(Table.class);
         this.actuators = hl.module(ActuatorsModule.class);
+        this.wrapper = hl.module(OrderWrapper.class);
     }
 
     /**
