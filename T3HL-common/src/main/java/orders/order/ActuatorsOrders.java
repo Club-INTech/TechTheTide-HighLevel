@@ -55,7 +55,9 @@ public final class ActuatorsOrders {
     //  Valve : pour activer l'électrovanne
     public static final OrderWithArgument Valve = OrderBuilder
             .createWithArgs("Valve", Formatting.INT, Formatting.STRING);
-// Les 6 valves du secondaires
+
+    // Les 6 valves du secondaires
+
     public static Order Valve1On = Valve.compileWith(1, "on");
     public static Order Valve1Off = Valve.compileWith(1, "off");
     public static Order Valve2On = Valve.compileWith(2, "on");
@@ -109,18 +111,23 @@ public final class ActuatorsOrders {
     public static final SidedOrder RightArmOut = LeftArmOut.symetrize();
 
 ///////POSITION BRAS (SECONDAIRE)
+    //
 
     //Bras stock : bras in rangé ds le robot
-    public static final Order BrasStock = OrderBuilder
-            .createSimple("BrasStock");
+  //  public static final Order BrasStock = OrderBuilder.createSimple("BrasStock");
+    // Position basic des bras
+    public static final OrderWithArgument BrasStock = OrderBuilder
+            .createWithArgs("BrasStock", Formatting.INT);
 
     // Bras ecueil : bras out bonne hauteur pour choper gobelet
-    public static final Order BrasEcueil = OrderBuilder
-            .createSimple("BrasEcueil");
+   // public static final Order BrasEcueil = OrderBuilder.createSimple("BrasEcueil");
+    public static final OrderWithArgument BrasEcueil = OrderBuilder
+            .createWithArgs("BrasEcueil", Formatting.INT);
 
     // Bras depot : bras out bonne hauteur pour poser par terre ds le port
-    public static final Order BrasDepot = OrderBuilder
-            .createSimple("BrasDepot");
+    //public static final Order BrasDepot = OrderBuilder.createSimple("BrasDepot");
+    public static final OrderWithArgument BrasDepot = OrderBuilder
+            .createWithArgs("BrasDepot", Formatting.INT);
 
 //////////////////GATE (PRINCIPAL)
 

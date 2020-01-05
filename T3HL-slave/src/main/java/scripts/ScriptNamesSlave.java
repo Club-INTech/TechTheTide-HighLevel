@@ -6,7 +6,7 @@ import utils.container.Module;
 
 public enum ScriptNamesSlave implements ScriptNames {
     HOMOLOGATION(ScriptHomologationSlave.class,"homologation"),
-    ;
+    ECUEIL_PRIVE(ScriptRecupEcueilPrive.class, "EcueilPrive");
 
     private Class<? extends Script> scriptClass;
     private String scriptName;

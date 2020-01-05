@@ -5,6 +5,18 @@ import data.synchronization.SynchronizationWithBuddy;
 import pfg.config.Config;
 import utils.HLInstance;
 import utils.math.Vec2;
+import data.Table;
+import locomotion.UnableToMoveException;
+import orders.order.ActuatorsOrders;
+import orders.order.MotionOrders;
+import orders.order.PositionAndOrientationOrders;
+import orders.order.SpeedOrders;
+import pfg.config.ConfigInfo;
+import robot.Slave;
+import utils.ConfigData;
+import utils.math.VectCartesian;
+
+// @author : yam(AznekEnimsay), last modification 05/01/20
 
 public class MatchSlave extends Script {
     private final ScriptManagerSlave scriptManagerSlave;
@@ -19,13 +31,18 @@ public class MatchSlave extends Script {
     @Override
     public void execute(int version) {
         // Code lançant les différents scripts du secondaire
-        scriptManagerSlave.getScript(ScriptNamesSlave.HOMOLOGATION).timedExecute(0);
-        // TODO: A vous de jouer les 1As!
+        scriptManagerSlave.getScript(ScriptNamesSlave.ECUEIL_PRIVE).timedExecute();
+        try {
+            moveLengthwise(-500, false);
+        } catch (UnableToMoveException e) {
+            e.printStackTrace();
+        }
     }
+    // TODO : à vous de jouer le 1As!
 
     @Override
     public Vec2 entryPosition(int version) {
-        return XYO.getRobotInstance().getPosition();
+        return scriptManagerSlave.getScript(ScriptNamesSlave.ECUEIL_PRIVE).entryPosition(0);
     }
 
     @Override
