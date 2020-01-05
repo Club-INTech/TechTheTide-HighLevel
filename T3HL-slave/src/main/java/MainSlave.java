@@ -70,25 +70,13 @@ public class MainSlave extends RobotEntryPoint {
 
     @Override
     protected void act() {
-        Vec2 newPos = new InternalVectCartesian(1500 -297,400);
-        // position de démarrage, on s'oriente pour pouvoir prendre le palet rouge
-
-        //Pour aller à la bonne position de départ
-        if(hl.getConfig().get(ConfigData.SYMETRY)) { // symétrie
-            XYO.getRobotInstance().update(newPos.getX(), newPos.getY(), Math.PI/2);
-            robot.setPositionAndOrientation(newPos, Math.PI/2);
-        }
-        else {
-            //s'oriente vers PI/2 avant de se recaler
-            XYO.getRobotInstance().update(newPos.getX(), newPos.getY(), -Math.PI/2);
-            //XYO.getRobotInstance().update(newPos.getX(), newPos.getY(), -Math.PI/2);
-            robot.setPositionAndOrientation(newPos, -Math.PI/2);
-        }
-
-        orderWrapper.waitJumper();
+        // TODO: recalage
 
         try {
-            hl.module(MatchSlave.class).execute(0);
+            MatchSlave match = hl.module(MatchSlave.class);
+            robot.setPositionAndOrientation(match.entryPosition(0), 0.0);
+            orderWrapper.waitJumper();
+            match.execute(0);
         } catch (ContainerException e) {
             e.printStackTrace();
         }
