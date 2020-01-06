@@ -59,6 +59,16 @@ public final class ActuatorsOrders {
     public static final Order[] ValveOn = Valve.batchCompile(8, (index) -> new Object[] { index, "on" });
     public static final Order[] ValveOff = Valve.batchCompile(8, (index) -> new Object[] { index, "off" });
 
+    // Pump : pour activer la pompe
+
+    public static final OrderWithArgument Pump = OrderBuilder
+            .createWithArgs("Suck", Formatting.INT, Formatting.STRING);
+
+    public static final Order[] PumpOn = Pump.batchCompile(8, (index) -> new Object[] {index, "on"});
+    public static final Order[] PumpOff = Pump.batchCompile(8, (index) -> new Object[] {index, "off"});
+
+
+
     // Les 6 valves du secondaires
 
     public static Order Valve1On = Valve.compileWith(1, "on");
@@ -78,8 +88,6 @@ public final class ActuatorsOrders {
     public static Order Valve7Off = Valve.compileWith(7, "off");
     public static Order Valve7On = Valve.compileWith(7, "on");
 
-    public static final OrderWithArgument Pump = OrderBuilder
-            .createWithArgs("Suck", Formatting.INT, Formatting.STRING);
 // Pompes du secondaire
 //  Suck ==> Pump : Aspirer avec la ventouse
     public static Order Pump1On = Pump.compileWith(1, "on");
@@ -100,7 +108,9 @@ public final class ActuatorsOrders {
     public static Order Pump7On = Valve.compileWith(7, "on");
 
 //////////////////BRAS (COMMUNS POUR PHARE ET MANCHES)
+
 //Bras in/ Brasout ==> LeftArmIn/Out et RightArmIn/Out: common order pour manche à air et le phare
+
     public static final SidedServoOrder LeftArmIn = (SidedServoOrder) OrderBuilder
             .create(SERVOS)
             .side(RobotSide.LEFT)
@@ -114,25 +124,28 @@ public final class ActuatorsOrders {
     public static final SidedOrder RightArmOut = LeftArmOut.symetrize();
 
 ///////POSITION BRAS (SECONDAIRE)
-    //
 
     //Bras stock : bras in rangé ds le robot
-  //  public static final Order BrasStock = OrderBuilder.createSimple("BrasStock");
-    // Position basic des bras
+
+    // Position basic des bras pour stocker les gobelets
     public static final OrderWithArgument BrasStock = OrderBuilder
             .createWithArgs("BrasStock", Formatting.INT);
 
+    public static final Order[] AllBrasStock = BrasStock.batchCompile(7, (index) -> new Object[] { index } ); // 0 à 6
+
     // Bras ecueil : bras out bonne hauteur pour choper gobelet
-   // public static final Order BrasEcueil = OrderBuilder.createSimple("BrasEcueil");
     public static final OrderWithArgument BrasEcueil = OrderBuilder
             .createWithArgs("BrasEcueil", Formatting.INT);
 
     public static final Order[] AllBrasEcueil = BrasEcueil.batchCompile(7, (index) -> new Object[] { index } ); // 0 à 6
 
     // Bras depot : bras out bonne hauteur pour poser par terre ds le port
+
     //public static final Order BrasDepot = OrderBuilder.createSimple("BrasDepot");
     public static final OrderWithArgument BrasDepot = OrderBuilder
             .createWithArgs("BrasDepot", Formatting.INT);
+
+    public static final Order[] AllBrasDepot = BrasDepot.batchCompile(7, (index) -> new Object[] { index } ); // 0 à 6
 
 //////////////////GATE (PRINCIPAL)
 
