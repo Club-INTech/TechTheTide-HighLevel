@@ -31,8 +31,8 @@ public class ScriptRecupEcueilPrive extends Script {
             int ray = hl.getConfig().getInt(ConfigData.BUDDY_RAY);
             MotionOrders.MoveToPoint.compileWith(ray, 1525);
             turnTowards(-Math.PI/2);
-            wrapper.perform(ActuatorsOrders.BrasEcueil.compileWith(4));
-            wrapper.perform(ActuatorsOrders.BrasEcueil.compileWith(6));
+            wrapper.perform(ActuatorsOrders.AllBrasEcueil[4]);
+            wrapper.perform(ActuatorsOrders.AllBrasEcueil[6]);
             wrapper.perform(ActuatorsOrders.Valve.compileWith(4,"on"));
             wrapper.perform(ActuatorsOrders.Valve.compileWith(6,"on"));
             wrapper.perform(ActuatorsOrders.Pump.compileWith(4,"on"));
@@ -44,7 +44,7 @@ public class ScriptRecupEcueilPrive extends Script {
             turnTowards(-Math.PI/2);
             moveLengthwise(-225,false);
             turnTowards(Math.PI/2);
-            wrapper.perform(ActuatorsOrders.BrasEcueil.compileWith(5));
+            wrapper.perform(ActuatorsOrders.AllBrasEcueil[5]);
             wrapper.perform(ActuatorsOrders.Valve.compileWith(5,"on"));
             wrapper.perform(ActuatorsOrders.Pump.compileWith(5,"on"));
             moveLengthwise(-7,true);
@@ -52,8 +52,8 @@ public class ScriptRecupEcueilPrive extends Script {
             moveLengthwise(7,true);
             MotionOrders.MoveToPoint.compileWith(ray, 1600);
             turnTowards(-Math.PI/2);
-            wrapper.perform(ActuatorsOrders.BrasEcueil.compileWith(1));
-            wrapper.perform(ActuatorsOrders.BrasEcueil.compileWith(3));
+            wrapper.perform(ActuatorsOrders.AllBrasEcueil[1]);
+            wrapper.perform(ActuatorsOrders.AllBrasEcueil[3]);
             wrapper.perform(ActuatorsOrders.Valve.compileWith(1,"on"));
             wrapper.perform(ActuatorsOrders.Valve.compileWith(3,"on"));
             wrapper.perform(ActuatorsOrders.Pump.compileWith(1,"on"));

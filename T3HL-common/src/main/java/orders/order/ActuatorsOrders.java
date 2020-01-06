@@ -124,6 +124,8 @@ public final class ActuatorsOrders {
     public static final OrderWithArgument BrasEcueil = OrderBuilder
             .createWithArgs("BrasEcueil", Formatting.INT);
 
+    public static final Order[] AllBrasEcueil = BrasEcueil.batchCompile(7, (index) -> new Object[] { index } ); // 0 à 6
+
     // Bras depot : bras out bonne hauteur pour poser par terre ds le port
     //public static final Order BrasDepot = OrderBuilder.createSimple("BrasDepot");
     public static final OrderWithArgument BrasDepot = OrderBuilder

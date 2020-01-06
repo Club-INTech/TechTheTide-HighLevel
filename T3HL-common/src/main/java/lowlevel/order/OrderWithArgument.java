@@ -1,6 +1,7 @@
 package lowlevel.order;
 
 import java.util.Locale;
+import java.util.function.Function;
 
 /**
  * Ordre qui accepte des arguments
@@ -43,6 +44,14 @@ public class OrderWithArgument implements Order {
     public Order compileWith(Object... arguments) {
         String llOrder = with(arguments);
         return () -> llOrder;
+    }
+
+    public Order[] batchCompile(int count, Function<Integer, Object[]> arguments) {
+        Order[] orders = new Order[count];
+        for (int i = 0; i < count; i++) {
+            orders[i] = compileWith(arguments.apply(i));
+        }
+        return orders;
     }
 
     @Override
