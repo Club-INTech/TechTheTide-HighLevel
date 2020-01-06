@@ -56,6 +56,9 @@ public final class ActuatorsOrders {
     public static final OrderWithArgument Valve = OrderBuilder
             .createWithArgs("Valve", Formatting.INT, Formatting.STRING);
 
+    public static final Order[] ValveOn = Valve.batchCompile(8, (index) -> new Object[] { index, "on" });
+    public static final Order[] ValveOff = Valve.batchCompile(8, (index) -> new Object[] { index, "off" });
+
     // Les 6 valves du secondaires
 
     public static Order Valve1On = Valve.compileWith(1, "on");
@@ -84,7 +87,7 @@ public final class ActuatorsOrders {
     public static Order Pump2On = Pump.compileWith(2, "on");
     public static Order Pump2Off = Pump.compileWith(2, "off");
     public static Order Pump3On = Pump.compileWith(3, "on");
-    public static Order PumpOff = Pump.compileWith(3, "off");
+    public static Order Pump3Off = Pump.compileWith(3, "off");
 
     public static Order Pump4On = Pump.compileWith(4, "on");
     public static Order Pump4Off = Pump.compileWith(4, "off");

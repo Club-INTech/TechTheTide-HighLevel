@@ -92,6 +92,22 @@ public class ScriptRecupEcueilPrive extends Script {
         }
     }
 
+    private void drop(int... indices) {
+        for (int index : indices) {
+          /*  perform(ActuatorsOrders.AllBrasDepot[index]);
+            perform(ActuatorsOrders.ValveOff[index]);
+            perform(ActuatorsOrders.PumpOff[index]);*/
+        }
+    }
+
+    private void grab(int... indices) {
+        for (int index : indices) {
+         /*   perform(ActuatorsOrders.AllBrasEcueil[index]);
+            perform(ActuatorsOrders.ValveOn[index]);
+            perform(ActuatorsOrders.PumpOn[index]);*/
+        }
+    }
+
     @Override
     public Vec2 entryPosition(int version) {
         int ray = hl.getConfig().getInt(ConfigData.BUDDY_RAY);
