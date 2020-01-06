@@ -278,15 +278,30 @@ public abstract class Script implements Module {
         robot.moveLengthwise(distance, expectedWallImpact, runnables);
     }
 
+    /**
+     * Utilise un ordre donné, sans attendre de confirmation
+     * @param order l'ordre à exécuter
+     */
     public void perform(Order order) {
         wrapper.perform(order);
     }
 
+    /**
+     * Utilise un ordre donné, avec possibilité d'attendre la confirmation du LL
+     * @param order l'ordre à exécuter
+     * @param waitForConfirmation doit-on attendre la confirmation du LL?
+     */
     public void perform(Order order, boolean waitForConfirmation) {
         wrapper.perform(order, waitForConfirmation);
     }
-    
-    public void moveToPoint(Vec2 point) throws UnableToMoveException {
+
+    /**
+     * Ordonnes un 'goto' vers le LL. ATTENTION! Cette méthode ne prend PAS en compte le pathfinding! Si ça va dans le mur c'est votre faute
+     * @param point le point vers lequel aller
+     * @throws UnableToMoveException
+     *              en cas de problème de blocage/adversaire
+     */
+    public void gotoPoint(Vec2 point) throws UnableToMoveException {
         robot.gotoPoint(point);
     }
 
