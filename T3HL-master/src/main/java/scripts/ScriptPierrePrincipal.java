@@ -25,15 +25,15 @@ public class ScriptPierrePrincipal extends Script {
 
         try {
             //Portes ouvertes à 135 degrés
-            wrapper.perform(ActuatorsOrders.Valve7Off);
+            perform(ActuatorsOrders.Valve7Off);
             turnTowards(-0.63);
             moveLengthwise(186,false);
             //Portes ouvertes à 90 degrés
             turnTowards(-Math.PI/2);
             moveLengthwise(260,false);
-            wrapper.perform(ActuatorsOrders.LiftDown);
-            wrapper.perform(ActuatorsOrders.Pump7On);
-            wrapper.perform(ActuatorsOrders.LiftUp);
+            perform(ActuatorsOrders.LiftDown);
+            perform(ActuatorsOrders.Pump7On);
+            perform(ActuatorsOrders.LiftUp);
             turnTowards(0);
             moveLengthwise(350,false);
             turnTowards(0.88);
@@ -49,19 +49,19 @@ public class ScriptPierrePrincipal extends Script {
             //Portes ouvertes à 180 degrés
             moveLengthwise(400,false);
             moveLengthwise(-90,false);
-            wrapper.perform(ActuatorsOrders.LiftDown);
-            wrapper.perform(ActuatorsOrders.Pump7Off);
-            wrapper.perform(ActuatorsOrders.Valve7On);
+            perform(ActuatorsOrders.LiftDown);
+            perform(ActuatorsOrders.Pump7Off);
+            perform(ActuatorsOrders.Valve7On);
             moveLengthwise(-310,false);
-            wrapper.perform(ActuatorsOrders.GateClose);
+            perform(ActuatorsOrders.GateClose);
             turnTowards(Math.PI);
             moveLengthwise(1800-762,false);
             turnTowards(Math.PI/2);
             moveLengthwise(500,false);
             turnTowards(Math.PI);
             moveLengthwise(400,false);
-            wrapper.perform(ActuatorsOrders.RightArmOut);
-            wrapper.perform(ActuatorsOrders.RightArmIn);
+            perform(ActuatorsOrders.RightArmOut);
+            perform(ActuatorsOrders.RightArmIn);
             moveLengthwise(-400,false);
             turnTowards(-Math.PI/2);
             moveLengthwise(400,false);

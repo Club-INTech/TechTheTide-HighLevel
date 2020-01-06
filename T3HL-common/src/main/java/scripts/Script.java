@@ -22,6 +22,7 @@ import data.Table;
 import data.table.MobileCircularObstacle;
 import locomotion.UnableToMoveException;
 import lowlevel.actuators.ActuatorsModule;
+import lowlevel.order.Order;
 import orders.OrderWrapper;
 import pfg.config.Configurable;
 import robot.Robot;
@@ -275,6 +276,18 @@ public abstract class Script implements Module {
      */
     public void moveLengthwise(int distance, boolean expectedWallImpact, Runnable... runnables) throws UnableToMoveException {
         robot.moveLengthwise(distance, expectedWallImpact, runnables);
+    }
+
+    public void perform(Order order) {
+        wrapper.perform(order);
+    }
+
+    public void perform(Order order, boolean waitForConfirmation) {
+        wrapper.perform(order, waitForConfirmation);
+    }
+    
+    public void moveToPoint(Vec2 point) throws UnableToMoveException {
+        robot.gotoPoint(point);
     }
 
         // =========================================
