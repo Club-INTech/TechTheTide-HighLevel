@@ -1,23 +1,14 @@
 package scripts;
 
-import data.XYO;
-import data.synchronization.SynchronizationWithBuddy;
-import pfg.config.Config;
+
 import pfg.config.Configurable;
 import utils.HLInstance;
 import utils.math.Vec2;
-import data.Table;
 import locomotion.UnableToMoveException;
 import orders.order.ActuatorsOrders;
-import orders.order.MotionOrders;
-import orders.order.PositionAndOrientationOrders;
-import orders.order.SpeedOrders;
-import pfg.config.ConfigInfo;
-import robot.Slave;
-import utils.ConfigData;
 import utils.math.VectCartesian;
 
-// @author : yam(AznekEnimsay), last modification 05/01/20
+// @author : yam(AznekEnimsay), last modification 06/01/20
 
 public class ScriptRecupEcueilPrive extends Script {
 
