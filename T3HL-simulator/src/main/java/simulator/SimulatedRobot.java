@@ -241,6 +241,7 @@ public class SimulatedRobot implements IRobot {
                 this.orientation += forcedRotationSpeed * MILLIS_BETWEEN_UPDATES/1000.0;
             }
 
+            orientationTarget = orientation;
             return;
         }
         if (Math.abs(moduloSpec(this.orientationTarget) - moduloSpec(this.orientation)) > this.ORIENTATION_TOLERANCE){
@@ -258,7 +259,7 @@ public class SimulatedRobot implements IRobot {
                 this.turning=true;
             }
         }
-        else{
+        else {
             this.orientation=moduloSpec(this.orientationTarget);
             this.turning=false;
         }
@@ -305,7 +306,7 @@ public class SimulatedRobot implements IRobot {
             this.forceRaiseStoppedMovingFlag();
         }
         else {
-            Vec2 orientationVector = new VectPolar(1, this.orientation);
+            Vec2 orientationVector = new VectPolar(1, this.orientationTarget);
             this.positionTarget = this.position.plusVector(orientationVector.homothetie((float) delta));
         }
     }
