@@ -9,13 +9,16 @@ import utils.math.InternalVectCartesian;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
 
-public class ScriptPierrePrincipal extends Script {
+
+// @author Pierre, last modification 14/01/20
+
+public class ScriptPrincipalBasique extends Script {
     /**
      * Construit un script
      *
      * @param hl le container
      */
-    protected ScriptPierrePrincipal(HLInstance hl) {
+    protected ScriptPrincipalBasique(HLInstance hl) {
         super(hl);
     }
 
@@ -25,18 +28,20 @@ public class ScriptPierrePrincipal extends Script {
 
         try {
             //Portes ouvertes à 135 degrés
-            perform(ActuatorsOrders.Valve7Off);
+            perform(ActuatorsOrders.ValvePOff);
             turnTowards(-0.63);
             moveLengthwise(186,false);
+
             //Portes ouvertes à 90 degrés
             turnTowards(-Math.PI/2);
             moveLengthwise(260,false);
             perform(ActuatorsOrders.LiftDown);
-            perform(ActuatorsOrders.Pump7On);
+            perform(ActuatorsOrders.PumpPOn);
             perform(ActuatorsOrders.LiftUp);
             turnTowards(0);
             moveLengthwise(350,false);
             turnTowards(0.88);
+
             //Portes ouvertes à 135 degrés
             moveLengthwise(426,false);
             turnTowards(Math.PI/2);
@@ -46,12 +51,13 @@ public class ScriptPierrePrincipal extends Script {
             turnTowards(0);
             moveLengthwise(450,false);
             turnTowards(Math.PI/2);
+
             //Portes ouvertes à 180 degrés
             moveLengthwise(400,false);
             moveLengthwise(-90,false);
             perform(ActuatorsOrders.LiftDown);
-            perform(ActuatorsOrders.Pump7Off);
-            perform(ActuatorsOrders.Valve7On);
+            perform(ActuatorsOrders.PumpPOff);
+            perform(ActuatorsOrders.ValvePOn);
             moveLengthwise(-310,false);
             perform(ActuatorsOrders.GateClose);
             turnTowards(Math.PI);

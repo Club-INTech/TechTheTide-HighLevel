@@ -2,11 +2,12 @@ package scripts;
 
 import utils.HLInstance;
 import utils.container.ContainerException;
-import utils.container.Module;
 
 public enum ScriptNamesSlave implements ScriptNames {
     HOMOLOGATION(ScriptHomologationSlave.class,"homologation"),
-    ECUEIL_PRIVE(ScriptRecupEcueilPrive.class, "EcueilPrive");
+    ECUEIL_PRIVE(ScriptRecupEcueilPrive.class, "EcueilPrive"),
+    ECUEIL_COMMUN(ScriptRecupEcueilCommun.class, "EcueilCommun"),
+    ;
 
     private Class<? extends Script> scriptClass;
     private String scriptName;

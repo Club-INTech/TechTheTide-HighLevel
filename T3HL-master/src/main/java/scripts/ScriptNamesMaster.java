@@ -2,13 +2,12 @@ package scripts;
 
 import utils.HLInstance;
 import utils.container.ContainerException;
-import utils.container.Module;
 
 public enum ScriptNamesMaster implements ScriptNames {
     HOMOLOGATION(ScriptHomologation.class, "homologation"),
    // NOMSCRIPTEST // A rajouter
     TESTBASIC(ScriptTestSorya.class, "testSorya"),
-    PIERRE(ScriptPierrePrincipal.class, "ScriptPierre"),
+    RECUPBASIQUE(ScriptPrincipalBasique.class, "ScriptPierre"),
     ;
     private Class<? extends Script> scriptClass;
     private String scriptName;

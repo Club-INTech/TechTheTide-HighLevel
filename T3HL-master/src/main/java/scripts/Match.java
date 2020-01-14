@@ -26,7 +26,7 @@ public class Match extends Script {
         //Test
         //scriptManagerMaster.getScript(ScriptNamesMaster.TESTBASIC).timedExecute(0);
        // scriptTest // A rajouter
-        scriptManagerMaster.getScript(ScriptNamesMaster.PIERRE).timedExecute();
+        scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
         try {
             moveLengthwise(-100, false);
         } catch (UnableToMoveException e) {
@@ -38,7 +38,7 @@ public class Match extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return scriptManagerMaster.getScript(ScriptNamesMaster.PIERRE).entryPosition(0);
+        return scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).entryPosition(0);
 
     }
 
