@@ -36,7 +36,7 @@ HOMOLOGATION                        = false
 
 # DIMENSIONS DES ROBOTS
 ROBOT_RAY                           = 190
-BUDDY_RAY                           = 150
+BUDDY_RAY                           = 70
 VECTOR_COMPARISON_THRESHOLD         = 5
 RECALAGE_ACC                        =false
 SECOURS                             =false
@@ -55,7 +55,7 @@ HOMOLOGATION                        = false
 RECALAGE_MECA_BLUE_ACC              = false
 
 # DIMENSIONS DES ROBOTS
-ROBOT_RAY                           = 150
+ROBOT_RAY                           = 70
 BUDDY_RAY                           = 190
 VECTOR_COMPARISON_THRESHOLD         = 15
 

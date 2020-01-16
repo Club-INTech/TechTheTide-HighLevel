@@ -51,6 +51,9 @@ public enum Channel {
 
     //PaletChaosControler,
     PALETS_POSITION('!', '-'),
+
+    // Config gobelets
+    CONFIG_ECEUIL('y', ';')
     ;
 
     /**

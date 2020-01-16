@@ -71,6 +71,15 @@ public interface ConfigData
     ConfigInfo<Boolean> USING_LIDAR = new BaseConfigInfo<>(false, Boolean.TYPE);
 
     /**
+     * Recupérattion de la configuration des gobelets dans l'écueil commun
+     */
+    ConfigInfo<String> CONFIG_ECUEIL = new BaseConfigInfo<>("RRRRR", String.class);
+
+    /**
+    * Lecture ou non de la config de l'éceuil*/
+    ConfigInfo<Boolean> CONFIG_USE   = new BaseConfigInfo<>(false, Boolean.TYPE);
+
+    /**
      * Si on utilise l'électron
      */
     ConfigInfo<Boolean> USING_ELECTRON = new BaseConfigInfo<>(false, Boolean.TYPE);
@@ -107,6 +116,8 @@ public interface ConfigData
     ConfigInfo<Integer> IA_PORT = new BaseConfigInfo<>(16000, Integer.TYPE);
     ConfigInfo<String> ELECTRON_IP = new BaseConfigInfo<>("192.168.42.69", String.class);
     ConfigInfo<Integer> ELECTRON_PORT = new BaseConfigInfo<>(18900, Integer.TYPE);
+    ConfigInfo<String> CONFIG_IP = new BaseConfigInfo<>("192.168.", String.class);
+    ConfigInfo<Integer> CONFIG_PORT = new BaseConfigInfo<>(0, Integer.TYPE);
 
     ConfigInfo<String> LOCALHOST = new BaseConfigInfo<>("localhost", String.class);
     ConfigInfo<Integer> LOCALSERVER_PORT = new BaseConfigInfo<>(13550, Integer.TYPE);

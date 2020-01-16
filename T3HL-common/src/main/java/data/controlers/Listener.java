@@ -91,6 +91,11 @@ public class Listener implements Module {
     private boolean usingElectron;
 
     /**
+     * Est ce qu'on récupère la configuration des gobelets ?
+     */
+    @Configurable
+    private boolean usingConfigEcueil;
+    /**
      * Est-ce qu'on se connecte au copain?
      */
     @Configurable
@@ -225,6 +230,9 @@ public class Listener implements Module {
             if(usingElectron) {
                 connectionManager.initConnections(Connection.ELECTRON);
                 Log.COMMUNICATION.debug("Electron connected");
+            }
+            if(usingConfigEcueil) {
+                connectionManager.initConnections(Connection.CONFIG_ECEUIL);
             }
         } catch (CommunicationException e) {
             e.printStackTrace();

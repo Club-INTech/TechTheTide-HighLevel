@@ -10,13 +10,15 @@ import utils.math.VectCartesian;
 
 // @author yam(AznekEnimsay); last modification 14/01/20
 
+
 public class GobeletActions{
 
+    private static int place = 7;
 
     // Pour mettre tous les bras en position de stockage : retour à la config de base du robot
 
     public static void BrasRepos(Script script, int...indices) throws UnableToMoveException {
-        script.moveLengthwise(-7,false);
+        script.moveLengthwise(-place,false);
         for (int index : indices)
             script.perform(ActuatorsOrders.AllBrasStock[index]);
     }
@@ -39,14 +41,14 @@ public class GobeletActions{
             script.perform(ActuatorsOrders.ValveOn[index]);
             script.perform(ActuatorsOrders.PumpOn[index]);
             if(reverse) {
-                script.moveLengthwise(-7,true);
+                script.moveLengthwise(-place,true);
                 script.perform(ActuatorsOrders.AllBrasStock[index]);
-                script.moveLengthwise(7,false);
+                script.moveLengthwise(place,false);
             }
             else {
-                script.moveLengthwise(7,true);
+                script.moveLengthwise(place,true);
                 script.perform(ActuatorsOrders.AllBrasStock[index]);
-                script.moveLengthwise(-7,false);
+                script.moveLengthwise(-place,false);
             }
         }
     }

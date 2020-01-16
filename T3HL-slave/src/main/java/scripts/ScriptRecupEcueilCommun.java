@@ -1,6 +1,7 @@
 package scripts;
 
 import pfg.config.Configurable;
+import utils.ConfigData;
 import utils.HLInstance;
 import utils.math.Vec2;
 import locomotion.UnableToMoveException;
@@ -11,7 +12,6 @@ public class ScriptRecupEcueilCommun extends Script {
     @Configurable("buddyRay")
     private int ray;
 
-    //@Configurable("config")
     private String config ;
 
     protected ScriptRecupEcueilCommun(HLInstance hl) {
@@ -19,6 +19,7 @@ public class ScriptRecupEcueilCommun extends Script {
 
     @Override
     public void execute(int version) {
+        config = hl.getConfig().get(ConfigData.CONFIG_ECUEIL); // Pour être sur d'avoir la valeur à jour de la config dans l'éceuil
         // Code lançant les différents scripts du secondaire
         try {
             switch (config) {
