@@ -5,8 +5,6 @@ import utils.container.ContainerException;
 
 public enum ScriptNamesMaster implements ScriptNames {
     HOMOLOGATION(ScriptHomologation.class, "homologation"),
-   // NOMSCRIPTEST // A rajouter
-    TESTBASIC(ScriptTestSorya.class, "testSorya"),
     RECUPBASIQUE(ScriptPrincipalBasique.class, "ScriptPierre"),
     ;
     private Class<? extends Script> scriptClass;

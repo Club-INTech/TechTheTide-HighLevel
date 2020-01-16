@@ -31,10 +31,11 @@ public class ScriptRecupEcueilPrive extends Script {
             moveLengthwise(-225,false);
             turnTowards(0);
             GobeletActions.grab(this,true,4);
-            followPathTo( new VectCartesian(ray, 1600));
-            turnTowards(Math.PI);
+
 
             // On attrape les deux gobelets restants
+            followPathTo( new VectCartesian(ray, 1600));
+            turnTowards(Math.PI);
             GobeletActions.grab(this,false,0,2);
 
             // Retour au port pour déposer les gobelets

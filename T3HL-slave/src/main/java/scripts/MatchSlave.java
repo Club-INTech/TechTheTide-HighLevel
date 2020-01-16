@@ -31,7 +31,7 @@ public class MatchSlave extends Script {
     @Override
     public void execute(int version) {
         // Code lançant les différents scripts du secondaire
-        scriptManagerSlave.getScript(ScriptNamesSlave.ECUEIL_COMMUN).timedExecute();
+        scriptManagerSlave.getScript(ScriptNamesSlave.ECUEIL_PRIVE).timedExecute();
         try {
             moveLengthwise(-500, false);
         } catch (UnableToMoveException e) {
