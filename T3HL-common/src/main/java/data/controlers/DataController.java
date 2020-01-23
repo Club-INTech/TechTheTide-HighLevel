@@ -65,10 +65,7 @@ public class DataController extends ModuleThread {
 
     private int measureIndex = 0;
 
-    /**
-     * Offset pour corriger la mesure des sicks (différence réel - mesuré)
-     */
-    private int offsetSick= 6;
+
     private int offsetSickDroitSecondaire=2;
     private int posUpdates = 0;
 
@@ -292,6 +289,8 @@ public class DataController extends ModuleThread {
      * SICK
      */
     private void handleSick(String message){
+
+        // Affiche les valeures prises par les SICK
         String[] sickMeasurementsStr = message.split(ARGUMENTS_SEPARATOR);
         System.out.println("=== SICK ===");
         Sick[] sicks = Sick.values();
@@ -309,8 +308,8 @@ public class DataController extends ModuleThread {
             Sick.setNewXYO(XYO.getRobotInstance());
             return;
         }
-        int dsick;
-        int esick = sickMeasurements[significantSicks[1].getIndex()] - sickMeasurements[significantSicks[2].getIndex()];
+        int dsick; // Distance entre les 2 SICK parallèles
+        int esick = sickMeasurements[significantSicks[1].getIndex()] - sickMeasurements[significantSicks[2].getIndex()]; //Ecart de valeur entre les 2 SICK parallèles
         int xCalcule;
         int yCalcule;
         double teta;
@@ -319,7 +318,7 @@ public class DataController extends ModuleThread {
         if (master) {
             dsick = 173;
             double rapport = ((double)esick) / dsick;
-            InternalVectCartesian vectsick = new InternalVectCartesian(101,113); //Vecteur qui place les sick par rapport à l'origine du robot
+            InternalVectCartesian vectsick = new InternalVectCartesian(101,113); // Vecteur qui place les sick par rapport à l'origine du robot
             double orien= XYO.getRobotInstance().getOrientation();
 
             if(symetry) { // pas shouldSymetrize parce qu'il faut rester au bon endroit sur la table
@@ -328,44 +327,43 @@ public class DataController extends ModuleThread {
                 if (-Math.PI/2 < orien && orien < Math.PI/2) {
                     if (significantSicks[1] == Sick.SICK_ARRIERE_DROIT || significantSicks[1] == Sick.SICK_AVANT_DROIT) {
                         teta = Math.atan(rapport);
-                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta)/2));
+                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta)/2));
                     } else {
                         teta = Math.atan(-rapport);
-                        yCalcule = 2000 - (int)Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta)/2));
+                        yCalcule = 2000 - (int)Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta)/2));
                     }
                 } else {
                     if (significantSicks[1] == Sick.SICK_ARRIERE_DROIT || significantSicks[1] == Sick.SICK_AVANT_DROIT) {
                         teta = Math.atan(rapport);
-                        yCalcule = 2000-(int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta)/2));
+                        yCalcule = 2000-(int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta)/2));
                     } else {
                         teta = Math.atan(-rapport);
-                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta)/2));
+                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta)/2));
                     }
 
 
                 }
-                xCalcule = (int) Math.round((1500 - (sickMeasurements[significantSicks[0].getIndex()]+ vectsick.getX()+offsetSick) * Math.cos(teta)));
+                xCalcule = (int) Math.round((1500 - (sickMeasurements[significantSicks[0].getIndex()]+ vectsick.getX()) * Math.cos(teta)));
                 teta = Calculs.modulo(Math.PI-teta, Math.PI);
             } else {
-                System.out.println(orien);
                 if (-Math.PI/2 < orien && orien < Math.PI/2) {
                     if (significantSicks[1] == Sick.SICK_AVANT_GAUCHE || significantSicks[1] == Sick.SICK_ARRIERE_GAUCHE) {
                         teta = Math.atan(-rapport);
-                        yCalcule = 2000- (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta))/2);
+                        yCalcule = 2000- (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta))/2);
                     } else {
                         teta = Math.atan(rapport);
-                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta))/2);
+                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta))/2);
                     }
                 } else {
                     if (significantSicks[1] == Sick.SICK_AVANT_GAUCHE || significantSicks[1] == Sick.SICK_ARRIERE_GAUCHE) {
                         teta = Math.atan(-rapport);
-                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta))/2);
+                        yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta))/2);
                     } else {
                         teta = Math.atan(rapport);
-                        yCalcule = 2000-(int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()+2*offsetSick) * Math.cos(teta))/2);
+                        yCalcule = 2000-(int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta))/2);
                     }
                 }
-                xCalcule = 1500 - (int) ((sickMeasurements[significantSicks[0].getIndex()]+vectsick.getX()+offsetSick) * Math.cos(teta));
+                xCalcule = 1500 - (int) ((sickMeasurements[significantSicks[0].getIndex()]+vectsick.getX()) * Math.cos(teta));
             }
             newOrientation = Calculs.modulo(teta + Math.PI, Math.PI);
             if (-Math.PI/2 < orien && orien < Math.PI/2) {
@@ -385,14 +383,14 @@ public class DataController extends ModuleThread {
                 if(orien<Math.PI/4 && orien > -Math.PI/4){
                     System.out.println("On est passé par le premier cas");
                     teta=Math.atan(rapport);
-                    xCalcule= -1500 + (int) (((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+vectSickSecondaire.getY()+offsetSick) * Math.cos(teta));
+                    xCalcule= -1500 + (int) (((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+vectSickSecondaire.getY()) * Math.cos(teta));
                     yCalcule=(int) ((sickMeasurements[significantSicks[0].getIndex()]+vectSickSecondaire.getX()+offsetSickDroitSecondaire) * Math.cos(teta));
                 }
                 else{
                     System.out.println("On est passé par le deuxième cas");
                     teta=Math.atan(rapport);//Il faut enlever pi/2
                     xCalcule=-1500 + (int) ((sickMeasurements[significantSicks[0].getIndex()]+vectSickSecondaire.getX()+offsetSickDroitSecondaire) * Math.cos(teta));
-                    yCalcule = 2000 - (int) (((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+offsetSick+vectSickSecondaire.getY()) * Math.cos(teta));
+                    yCalcule = 2000 - (int) (((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+vectSickSecondaire.getY()) * Math.cos(teta));
                     teta+= -Math.PI/2;
                     teta += Math.PI;
                 }
@@ -404,13 +402,13 @@ public class DataController extends ModuleThread {
                     System.out.println("On est passé par le troisième cas");
                     teta=Math.atan(rapport); //Il faut ajouter pi/2
                     xCalcule = 1500 - (int) ((sickMeasurements[significantSicks[0].getIndex()]+vectSickSecondaire.getX()+offsetSickDroitSecondaire) * Math.cos(teta));
-                    yCalcule=(int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+offsetSick+vectSickSecondaire.getY()) * Math.cos(teta));
+                    yCalcule=(int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+vectSickSecondaire.getY()) * Math.cos(teta));
                     teta+=Math.PI/2;
                 }
                 else{
                     System.out.println("On est passé par le quatrième cas");
                     teta=Math.atan(rapport);//Il faut ajouter pi
-                    xCalcule= 1500 - (int) (((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+offsetSick+vectSickSecondaire.getY()) * Math.cos(teta));
+                    xCalcule= 1500 - (int) (((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()])/2+vectSickSecondaire.getY()) * Math.cos(teta));
                     yCalcule= 2000 - (int) ((sickMeasurements[significantSicks[0].getIndex()]+vectSickSecondaire.getX()+offsetSickDroitSecondaire) * Math.cos(teta));
                     teta += Math.PI;
                 }

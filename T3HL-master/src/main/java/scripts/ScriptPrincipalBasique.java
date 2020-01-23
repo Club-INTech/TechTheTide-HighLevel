@@ -1,18 +1,23 @@
 package scripts;
 
+import data.XYO;
 import locomotion.UnableToMoveException;
 import lowlevel.order.Order;
 import orders.OrderWrapper;
 import orders.order.ActuatorsOrders;
+import pfg.config.Configurable;
 import utils.HLInstance;
 import utils.math.InternalVectCartesian;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
 
 
+
 // @author Pierre, last modification 14/01/20
 
 public class ScriptPrincipalBasique extends Script {
+    @Configurable
+    private int robotRay;
     /**
      * Construit un script
      *
@@ -31,6 +36,8 @@ public class ScriptPrincipalBasique extends Script {
             perform(ActuatorsOrders.ValvePOff);
             turnTowards(-0.63);
             moveLengthwise(186,false);
+
+            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
 
             //Portes ouvertes à 90 degrés
             turnTowards(-Math.PI/2);
@@ -58,6 +65,7 @@ public class ScriptPrincipalBasique extends Script {
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOff);
             perform(ActuatorsOrders.ValvePOn);
+
             moveLengthwise(-310,false);
             perform(ActuatorsOrders.GateClose);
             turnTowards(Math.PI);

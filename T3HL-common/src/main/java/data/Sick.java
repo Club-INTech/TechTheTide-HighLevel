@@ -1,5 +1,8 @@
 package data;
 
+import utils.math.InternalVectCartesian;
+import utils.math.Vec2;
+
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -8,12 +11,14 @@ import java.util.concurrent.ExecutionException;
  */
 public enum Sick {
 
-    SICK_AVANT(0, -1), //SICK DROIT POUR LE SECONDAIRE
-    SICK_AVANT_GAUCHE(1, -1), // SICK ARRIERE DROIT POUR LE SECONDAIRE
-    SICK_ARRIERE_GAUCHE(2, -1), //SICK ARRIERE GAUCHE POUR LE SECONDAIRE
-    SICK_ARRIERE(3, -1),
-    SICK_ARRIERE_DROIT(4, -1),
-    SICK_AVANT_DROIT(5, -1),
+    //TODO Mettre à jour en fonction de nos nouveaux robots
+
+    SICK_AVANT(0, -1,0,0,6),
+    SICK_AVANT_GAUCHE(1, -1,0,0,6),
+    SICK_ARRIERE_GAUCHE(2, -1,0,0,6),
+    SICK_ARRIERE(3, -1,0,0,6),
+    SICK_ARRIERE_DROIT(4, -1,0,0,6),
+    SICK_AVANT_DROIT(5, -1,0,0,6),
 
     ;
 
@@ -53,6 +58,19 @@ public enum Sick {
      */
     private int lastMeasure;
 
+    /**
+     * position en x et y du SICK par rapport au centre du robot
+     */
+    private int xRelativeRobot;
+    private int yRelativeRobot;
+
+    /**
+     * Offset de chaque SICK
+     */
+
+    private int offset;
+
+
     private static Sick[] significantSicks = LOWER_LEFT_CORNER_TOWARDS_PI;
 
     /**
@@ -70,9 +88,12 @@ public enum Sick {
      * Constructeur de l'enum
      * @param indiceSick
      */
-    Sick(int indiceSick, int lastMeasure){
+    Sick(int indiceSick, int lastMeasure, int xRelativeRobot, int yRelativeRobot, int offset){
         this.indiceSick=indiceSick;
         this.lastMeasure = lastMeasure;
+        this.xRelativeRobot = xRelativeRobot;
+        this.yRelativeRobot = yRelativeRobot;
+        this.offset=offset;
     }
 
     /**
@@ -112,8 +133,8 @@ public enum Sick {
      * @return int
      */
     public int getLastMeasure(){
-        return this.lastMeasure;
-    }
+        return this.lastMeasure + this.offset;
+    } //L'Offset de chaque SICK est directement ajouté
 
     /**
      * Set la dernière mesure réalisée par le sick
@@ -148,4 +169,13 @@ public enum Sick {
     public int getIndex() {
         return indiceSick;
     }
+    public int getxRelativeRobot(){
+        return this.xRelativeRobot;
+    }
+
+    public int getyRelativeRobot(){
+        return this.yRelativeRobot;
+    }
+
+
 }
