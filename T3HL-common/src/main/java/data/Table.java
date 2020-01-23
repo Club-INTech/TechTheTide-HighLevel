@@ -592,6 +592,27 @@ public class Table implements Module {
         }
     }
 
+    public boolean removeAnyIntersectedMobileObstacle(Vec2 center, int ray) {
+        Iterator<MobileCircularObstacle> iterator = mobileObstacles.iterator();
+        MobileCircularObstacle obstacle;
+        int i=0;
+        synchronized (mobileObstacles) {
+            while (iterator.hasNext()) {
+                obstacle = iterator.next();
+                if (obstacle.getPosition().distanceTo(center) < ((Circle) obstacle.getShape()).getRadius() + ray) {
+                    removeTemporaryObstacle(obstacle);
+                    i=1;
+                }
+            }
+        }
+        if(i==1){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     /**
      * Ajoute l'obstacle mobile SIMULÉ à la liste des obstacles mobiles
      */
