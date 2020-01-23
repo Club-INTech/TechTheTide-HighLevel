@@ -93,7 +93,7 @@ public class Listener implements Module {
     /**
      * Est ce qu'on récupère la configuration des gobelets ?
      */
-    @Configurable
+    @Configurable("configUse")
     private boolean usingConfigEcueil;
     /**
      * Est-ce qu'on se connecte au copain?

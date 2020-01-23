@@ -593,24 +593,20 @@ public class Table implements Module {
     }
 
     public boolean removeAnyIntersectedMobileObstacle(Vec2 center, int ray) {
-        Iterator<MobileCircularObstacle> iterator = mobileObstacles.iterator();
-        MobileCircularObstacle obstacle;
-        int i=0;
-        synchronized (mobileObstacles) {
-            while (iterator.hasNext()) {
-                obstacle = iterator.next();
-                if (obstacle.getPosition().distanceTo(center) < ((Circle) obstacle.getShape()).getRadius() + ray) {
-                    removeTemporaryObstacle(obstacle);
-                    i=1;
+        Iterator<Obstacle> iterator = temporaryObstacles.iterator();
+        boolean cond=false;
+        synchronized (temporaryObstacles) {
+            for(int i = temporaryObstacles.size() -1 ; i>=0;i--){
+                Obstacle obstacle = temporaryObstacles.get(i);
+                double d =  obstacle.getPosition().distanceTo(center);
+                double b = ((Circle) obstacle.getShape()).getRadius() + ray;
+                if (obstacle.getPosition().distanceTo(center) < ((Circle) obstacle.getShape()).getRadius() + ray ) {
+                    this.removeTemporaryObstacle(obstacle);
+                    cond=true;
                 }
             }
         }
-        if(i==1){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return cond;
     }
 
     /**

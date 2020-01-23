@@ -1,12 +1,15 @@
 package scripts;
 
 import data.XYO;
+import data.table.Obstacle;
+import data.table.StillCircularObstacle;
 import locomotion.UnableToMoveException;
 import lowlevel.order.Order;
 import orders.OrderWrapper;
 import orders.order.ActuatorsOrders;
 import pfg.config.Configurable;
 import utils.HLInstance;
+import utils.math.Circle;
 import utils.math.InternalVectCartesian;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
@@ -40,7 +43,9 @@ public class ScriptPrincipalBasique extends Script {
             table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
 
             //Portes ouvertes à 90 degrés
+
             turnTowards(-Math.PI/2);
+            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
             moveLengthwise(260,false);
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOn);
@@ -62,6 +67,7 @@ public class ScriptPrincipalBasique extends Script {
             //Portes ouvertes à 180 degrés
             moveLengthwise(400,false);
             moveLengthwise(-90,false);
+            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOff);
             perform(ActuatorsOrders.ValvePOn);
@@ -83,6 +89,7 @@ public class ScriptPrincipalBasique extends Script {
             turnTowards(0);
             moveLengthwise(1500-762,false);
             turnTowards(-Math.PI/2);
+            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
             //Lire girouette
 
 
