@@ -38,22 +38,24 @@ public class Table implements Module {
     private Graphe graphe;
 
     /**
-     * Liste des obstacles fixes
+     * Liste des obstacles fixes (murs, zones d'accès interdites...)
      */
     private final ArrayList<Obstacle> fixedObstacles;
 
+    /**
+     * Liste des obstacles temporaires SYNCHRONISER LES ACCES! (éléments de jeu...)
+     */
     private final ArrayList<Obstacle> temporaryObstacles;
 
     /**
-     * Obstacle mobile simulé
-     */
-
-    private MobileCircularObstacle simulatedObstacle;
-
-    /**
-     * Liste des obstacles mobiles. SYNCHRONISER LES ACCES!
+     * Liste des obstacles mobiles. SYNCHRONISER LES ACCES! (ennemis détectés...)
      */
     private final ConcurrentLinkedQueue<MobileCircularObstacle> mobileObstacles;
+
+    /**
+     * Obstacle mobile simulé (ennemi simulé)
+     */
+    private MobileCircularObstacle simulatedObstacle;
 
     /**
      * Longueur de la table (en x, en mm)
@@ -592,15 +594,15 @@ public class Table implements Module {
         }
     }
 
-    public boolean removeAnyIntersectedMobileObstacle(Vec2 center, int ray) {
-        Iterator<Obstacle> iterator = temporaryObstacles.iterator();
+    public boolean removeAnyIntersectedMobileObstacle(Vec2 center, int ray) { //TODO : fix le nom de la méthode + les arguments
+        Iterator<Obstacle> iterator = temporaryObstacles.iterator(); //TODO : itérateur non utilisé
         boolean cond=false;
         synchronized (temporaryObstacles) {
             for(int i = temporaryObstacles.size() -1 ; i>=0;i--){
                 Obstacle obstacle = temporaryObstacles.get(i);
-                double d =  obstacle.getPosition().distanceTo(center);
-                double b = ((Circle) obstacle.getShape()).getRadius() + ray;
-                if (obstacle.getPosition().distanceTo(center) < ((Circle) obstacle.getShape()).getRadius() + ray ) {
+                double d =  obstacle.getPosition().distanceTo(center); //TODO : non utilisé
+                double b = ((Circle) obstacle.getShape()).getRadius() + ray; //TODO : non utilisé
+                if (obstacle.getPosition().distanceTo(center) < ((Circle) obstacle.getShape()).getRadius() + ray ) { //TODO : Faux (enfin je pense), vérifier comment est est crée un obstacle, ainsi que comment est défini son rayon + les méthodes de la classe Obstacle
                     this.removeTemporaryObstacle(obstacle);
                     cond=true;
                 }
