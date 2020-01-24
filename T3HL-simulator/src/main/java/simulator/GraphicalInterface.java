@@ -567,7 +567,7 @@ public class GraphicalInterface extends JFrame {
             DEFAULT_COLOR = new Color(0, 0, 0, 255);
             ROBOT_COLOR = new Color(0, 0, 255, 128);
             ORIENTATION_COLOR = new Color(0, 255, 255, 255);
-            FIXED_OBSTACLE_COLOR = new Color(255, 255, 0, 64);
+            FIXED_OBSTACLE_COLOR = new Color(255, 0, 0, 64);
             MOBILE_OBSTACLE_COLOR = new Color(255,0,0,64);
             POINTS_TO_DRAW_COLOR = new Color(255,255,255, 255);
         }

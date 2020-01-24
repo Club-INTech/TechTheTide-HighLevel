@@ -154,125 +154,125 @@ public class Table implements Module {
 
         //Verres
 
-        float glassRay = 36 + robotRay;
+        float glassRay = 36;
 
         Vec2 positionVerre1 = new VectCartesian(300, 400);
-        Circle formeVerre1 = new Circle(positionVerre1,glassRay);
+        Circle formeVerre1 = new Circle(positionVerre1,glassRay + robotRay);
         Obstacle verre1 = new StillCircularObstacle(formeVerre1);
         this.addTemporaryObstacle(verre1);
 
         Vec2 positionVerre2 = new VectCartesian(300, 1200);
-        Circle formeVerre2 = new Circle(positionVerre2,glassRay);
+        Circle formeVerre2 = new Circle(positionVerre2,glassRay + robotRay);
         Obstacle verre2 = new StillCircularObstacle(formeVerre2);
         this.addTemporaryObstacle(verre2);
 
         Vec2 positionVerre3 = new VectCartesian(450, 510);
-        Circle formeVerre3 = new Circle(positionVerre3,glassRay);
+        Circle formeVerre3 = new Circle(positionVerre3,glassRay + robotRay);
         Obstacle verre3 = new StillCircularObstacle(formeVerre3);
         this.addTemporaryObstacle(verre3);
 
         Vec2 positionVerre4 = new VectCartesian(450, 1080);
-        Circle formeVerre4 = new Circle(positionVerre4,glassRay);
+        Circle formeVerre4 = new Circle(positionVerre4,glassRay + robotRay);
         Obstacle verre4 = new StillCircularObstacle(formeVerre4);
         this.addTemporaryObstacle(verre4);
 
         Vec2 positionVerre5 = new VectCartesian(670, 100);
-        Circle formeVerre5 = new Circle(positionVerre5,glassRay);
+        Circle formeVerre5 = new Circle(positionVerre5,glassRay + robotRay);
         Obstacle verre5 = new StillCircularObstacle(formeVerre5);
         this.addTemporaryObstacle(verre5);
 
         Vec2 positionVerre6 = new VectCartesian(950, 400);
-        Circle formeVerre6 = new Circle(positionVerre6,glassRay);
+        Circle formeVerre6 = new Circle(positionVerre6,glassRay + robotRay);
         Obstacle verre6 = new StillCircularObstacle(formeVerre6);
         this.addTemporaryObstacle(verre6);
 
         Vec2 positionVerre7 = new VectCartesian(1005, 1955);
-        Circle formeVerre7 = new Circle(positionVerre7,glassRay);
+        Circle formeVerre7 = new Circle(positionVerre7,glassRay + robotRay);
         Obstacle verre7 = new StillCircularObstacle(formeVerre7);
         this.addTemporaryObstacle(verre7);
 
         Vec2 positionVerre8 = new VectCartesian(1065, 1650);
-        Circle formeVerre8 = new Circle(positionVerre8,glassRay);
+        Circle formeVerre8 = new Circle(positionVerre8,glassRay + robotRay);
         Obstacle verre8 = new StillCircularObstacle(formeVerre8);
         this.addTemporaryObstacle(verre8);
 
         Vec2 positionVerre9 = new VectCartesian(1100, 800);
-        Circle formeVerre9 = new Circle(positionVerre9,glassRay);
+        Circle formeVerre9 = new Circle(positionVerre9,glassRay + robotRay);
         Obstacle verre9 = new StillCircularObstacle(formeVerre9);
         this.addTemporaryObstacle(verre9);
 
         Vec2 positionVerre10 = new VectCartesian(1270, 1200);
-        Circle formeVerre10 = new Circle(positionVerre10,glassRay);
+        Circle formeVerre10 = new Circle(positionVerre10,glassRay + robotRay);
         Obstacle verre10 = new StillCircularObstacle(formeVerre10);
         this.addTemporaryObstacle(verre10);
 
         Vec2 positionVerre11 = new VectCartesian(3000-1665, 1650);
-        Circle formeVerre11 = new Circle(positionVerre11,glassRay);
+        Circle formeVerre11 = new Circle(positionVerre11,glassRay + robotRay);
         Obstacle verre11 = new StillCircularObstacle(formeVerre11);
         this.addTemporaryObstacle(verre11);
 
         Vec2 positionVerre12 = new VectCartesian(3000-1605, 1955);
-        Circle formeVerre12 = new Circle(positionVerre12,glassRay);
+        Circle formeVerre12 = new Circle(positionVerre12,glassRay + robotRay);
         Obstacle verre12 = new StillCircularObstacle(formeVerre12);
         this.addTemporaryObstacle(verre12);
 
         Vec2 positionVerre13 = new VectCartesian(1605, 1955);
-        Circle formeVerre13 = new Circle(positionVerre13,glassRay);
+        Circle formeVerre13 = new Circle(positionVerre13,glassRay + robotRay);
         Obstacle verre13 = new StillCircularObstacle(formeVerre13);
         this.addTemporaryObstacle(verre13);
 
         Vec2 positionVerre14 = new VectCartesian(1665, 1650);
-        Circle formeVerre14 = new Circle(positionVerre14,glassRay);
+        Circle formeVerre14 = new Circle(positionVerre14,glassRay + robotRay);
         Obstacle verre14 = new StillCircularObstacle(formeVerre14);
         this.addTemporaryObstacle(verre14);
 
         Vec2 positionVerre15 = new VectCartesian(1730, 1200);
-        Circle formeVerre15 = new Circle(positionVerre15,glassRay);
+        Circle formeVerre15 = new Circle(positionVerre15,glassRay + robotRay);
         Obstacle verre15 = new StillCircularObstacle(formeVerre15);
         this.addTemporaryObstacle(verre15);
 
         Vec2 positionVerre16 = new VectCartesian(1900, 800);
-        Circle formeVerre16 = new Circle(positionVerre16,glassRay);
+        Circle formeVerre16 = new Circle(positionVerre16,glassRay + robotRay);
         Obstacle verre16 = new StillCircularObstacle(formeVerre16);
         this.addTemporaryObstacle(verre16);
 
         Vec2 positionVerre17 = new VectCartesian(1935, 1650);
-        Circle formeVerre17 = new Circle(positionVerre17,glassRay);
+        Circle formeVerre17 = new Circle(positionVerre17,glassRay + robotRay);
         Obstacle verre17 = new StillCircularObstacle(formeVerre17);
         this.addTemporaryObstacle(verre17);
 
         Vec2 positionVerre18 = new VectCartesian(1995, 1955);
-        Circle formeVerre18 = new Circle(positionVerre18,glassRay);
+        Circle formeVerre18 = new Circle(positionVerre18,glassRay + robotRay);
         Obstacle verre18 = new StillCircularObstacle(formeVerre18);
         this.addTemporaryObstacle(verre18);
 
         Vec2 positionVerre19 = new VectCartesian(2050, 400);
-        Circle formeVerre19 = new Circle(positionVerre19,glassRay);
+        Circle formeVerre19 = new Circle(positionVerre19,glassRay + robotRay);
         Obstacle verre19 = new StillCircularObstacle(formeVerre19);
         this.addTemporaryObstacle(verre19);
 
         Vec2 positionVerre20 = new VectCartesian(2330, 100);
-        Circle formeVerre20 = new Circle(positionVerre20,glassRay);
+        Circle formeVerre20 = new Circle(positionVerre20,glassRay + robotRay);
         Obstacle verre20 = new StillCircularObstacle(formeVerre20);
         this.addTemporaryObstacle(verre20);
 
         Vec2 positionVerre21 = new VectCartesian(2550, 510);
-        Circle formeVerre21 = new Circle(positionVerre21,glassRay);
+        Circle formeVerre21 = new Circle(positionVerre21,glassRay + robotRay);
         Obstacle verre21 = new StillCircularObstacle(formeVerre21);
         this.addTemporaryObstacle(verre21);
 
         Vec2 positionVerre22 = new VectCartesian(2550, 1080);
-        Circle formeVerre22 = new Circle(positionVerre22,glassRay);
+        Circle formeVerre22 = new Circle(positionVerre22,glassRay + robotRay);
         Obstacle verre22 = new StillCircularObstacle(formeVerre22);
         this.addTemporaryObstacle(verre22);
 
         Vec2 positionVerre23 = new VectCartesian(2700, 400);
-        Circle formeVerre23 = new Circle(positionVerre23,glassRay);
+        Circle formeVerre23 = new Circle(positionVerre23,glassRay + robotRay);
         Obstacle verre23 = new StillCircularObstacle(formeVerre23);
         this.addTemporaryObstacle(verre23);
 
         Vec2 positionVerre24 = new VectCartesian(2700, 1200);
-        Circle formeVerre24 = new Circle(positionVerre24,glassRay);
+        Circle formeVerre24 = new Circle(positionVerre24,glassRay + robotRay);
         Obstacle verre24 = new StillCircularObstacle(formeVerre24);
         this.addTemporaryObstacle(verre24);
 
@@ -280,18 +280,18 @@ public class Table implements Module {
         //Tasseaux
 
         Vec2 vecteurPetitTasseauBleu = new VectCartesian(900,1925);
-        Rectangle formePetitTasseauBleu = new Rectangle(vecteurPetitTasseauBleu, 2*robotRay + 22,150 + 2*robotRay);
-        Obstacle petitTasseauBleu = new StillRectangularObstacle(formePetitTasseauBleu);
+        CircularRectangle formePetitTasseauBleu = new CircularRectangle(vecteurPetitTasseauBleu, 22,150, robotRay);
+        StillCircularRectangularObstacle petitTasseauBleu = new StillCircularRectangularObstacle(formePetitTasseauBleu);
         this.addFixedObstacleNoGraphChange(petitTasseauBleu);
 
         Vec2 vecteurPetitTasseauJaune = new VectCartesian(2100,1925);
-        Rectangle formePetitTasseauJaune = new Rectangle(vecteurPetitTasseauJaune, 2*robotRay + 22,150 + 2*robotRay);
-        Obstacle petitTasseauJaune = new StillRectangularObstacle(formePetitTasseauJaune);
+        CircularRectangle formePetitTasseauJaune = new CircularRectangle(vecteurPetitTasseauJaune, 22,150, robotRay);
+        StillCircularRectangularObstacle petitTasseauJaune = new StillCircularRectangularObstacle(formePetitTasseauJaune);
         this.addFixedObstacleNoGraphChange(petitTasseauJaune);
 
         Vec2 vecteurGrandTasseau = new VectCartesian(1500,1850);
-        Rectangle formeGrandTasseau = new Rectangle(vecteurGrandTasseau, 2*robotRay + 22,300 + 2*robotRay);
-        Obstacle grandTasseau= new StillRectangularObstacle(formeGrandTasseau);
+        CircularRectangle formeGrandTasseau = new CircularRectangle(vecteurGrandTasseau, 22,300, robotRay);
+        StillCircularRectangularObstacle grandTasseau= new StillCircularRectangularObstacle(formeGrandTasseau);
         this.addFixedObstacleNoGraphChange(grandTasseau);
 
     }

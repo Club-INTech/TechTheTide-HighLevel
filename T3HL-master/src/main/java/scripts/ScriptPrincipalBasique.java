@@ -49,12 +49,19 @@ public class ScriptPrincipalBasique extends Script {
         });
 
         try {
+
+            Vec2 positionVerre6 = new VectCartesian(1270, 1200);
+
+            catchVerre(positionVerre6,true);
+
             //Portes ouvertes à 135 degrés
             perform(ActuatorsOrders.ValvePOff);
             turnTowards(-0.63);
             moveLengthwise(186,false);
 
             //Portes ouvertes à 90 degrés
+
+
 
             turnTowards(-Math.PI/2);
             moveLengthwise(260,false);
