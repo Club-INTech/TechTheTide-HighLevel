@@ -595,13 +595,10 @@ public class Table implements Module {
     }
 
     public boolean removeAnyIntersectedMobileObstacle(Vec2 center, int ray) { //TODO : fix le nom de la méthode + les arguments
-        Iterator<Obstacle> iterator = temporaryObstacles.iterator(); //TODO : itérateur non utilisé
         boolean cond=false;
         synchronized (temporaryObstacles) {
             for(int i = temporaryObstacles.size() -1 ; i>=0;i--){
                 Obstacle obstacle = temporaryObstacles.get(i);
-                double d =  obstacle.getPosition().distanceTo(center); //TODO : non utilisé
-                double b = ((Circle) obstacle.getShape()).getRadius() + ray; //TODO : non utilisé
                 if (obstacle.getPosition().distanceTo(center) < ((Circle) obstacle.getShape()).getRadius() + ray ) { //TODO : Faux (enfin je pense), vérifier comment est est crée un obstacle, ainsi que comment est défini son rayon + les méthodes de la classe Obstacle
                     this.removeTemporaryObstacle(obstacle);
                     cond=true;
