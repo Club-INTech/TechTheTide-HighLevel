@@ -14,6 +14,8 @@ import utils.math.InternalVectCartesian;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
 
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 
 // @author Pierre, last modification 14/01/20
@@ -34,18 +36,27 @@ public class ScriptPrincipalBasique extends Script {
     public void execute(int version) {
 
 
+        Future<Void> myParallelAction = async("Parallel action", () -> {
+
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            while(true){
+                table.removeAnyIntersectedTemporaryObstacle(XYO.getRobotInstance().getPosition());
+            }
+        });
+
         try {
             //Portes ouvertes à 135 degrés
             perform(ActuatorsOrders.ValvePOff);
             turnTowards(-0.63);
             moveLengthwise(186,false);
 
-            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
-
             //Portes ouvertes à 90 degrés
 
             turnTowards(-Math.PI/2);
-            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
             moveLengthwise(260,false);
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOn);
@@ -55,6 +66,7 @@ public class ScriptPrincipalBasique extends Script {
             turnTowards(0.88);
 
             //Portes ouvertes à 135 degrés
+
             moveLengthwise(426,false);
             turnTowards(Math.PI/2);
             moveLengthwise(430,false);
@@ -67,29 +79,36 @@ public class ScriptPrincipalBasique extends Script {
             //Portes ouvertes à 180 degrés
             moveLengthwise(400,false);
             moveLengthwise(-90,false);
-            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
+
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOff);
             perform(ActuatorsOrders.ValvePOn);
 
             moveLengthwise(-310,false);
             perform(ActuatorsOrders.GateClose);
+
             turnTowards(Math.PI);
             moveLengthwise(1800-762,false);
             turnTowards(Math.PI/2);
-            moveLengthwise(500,false);
+            moveLengthwise(700-robotRay,false);
+
+
+
+            //Vec2 a1 = new VectCartesian(762, 2000-robotRay);
+            //gotoPoint(a1);
+
             turnTowards(Math.PI);
-            moveLengthwise(400,false);
+            moveLengthwise( 762 - robotRay,false);
             perform(ActuatorsOrders.RightArmOut);
             perform(ActuatorsOrders.RightArmIn);
-            moveLengthwise(-400,false);
+            moveLengthwise(robotRay-762,false);
             turnTowards(-Math.PI/2);
-            moveLengthwise(400,false);
+            moveLengthwise(700-robotRay,false);
             moveLengthwise(200,false);
             turnTowards(0);
             moveLengthwise(1500-762,false);
             turnTowards(-Math.PI/2);
-            table.removeAnyIntersectedMobileObstacle(XYO.getRobotInstance().getPosition(),robotRay);
+
             //Lire girouette
 
 
