@@ -4,6 +4,7 @@ import lowlevel.order.OrderWithArgument;
 import simulator.exceptions.OrderException;
 import data.CouleurPalet;
 import orders.order.*;
+import utils.Log;
 import utils.RobotSide;
 import utils.math.InternalVectCartesian;
 

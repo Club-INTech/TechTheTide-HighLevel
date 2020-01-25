@@ -2,11 +2,9 @@ package simulator;
 
 import data.CouleurPalet;
 import data.controlers.Channel;
+import utils.Log;
 import utils.RobotSide;
-import utils.math.Calculs;
-import utils.math.Vec2;
-import utils.math.InternalVectCartesian;
-import utils.math.VectPolar;
+import utils.math.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -50,7 +48,7 @@ public class SimulatedRobot implements IRobot {
     private boolean isLaunched;
 
     // variables utiles pour le mode montlhery
-    private boolean montlheryMode;
+    private boolean montlheryMode = false;
     private boolean forcedMovement;
     private float forcedTranslationSpeed;
     private float forcedRotationSpeed;
@@ -245,7 +243,7 @@ public class SimulatedRobot implements IRobot {
             return;
         }
         if (Math.abs(moduloSpec(this.orientationTarget) - moduloSpec(this.orientation)) > this.ORIENTATION_TOLERANCE){
-            if (Math.abs(this.orientationTarget - this.orientation) < this.ROTATION_SPEED * this.timeSinceLastUpdate()){
+            if (Math.abs(moduloSpec(this.orientationTarget) - moduloSpec(this.orientation)) < this.ROTATION_SPEED * this.timeSinceLastUpdate()){
                 this.orientation=moduloSpec(this.orientationTarget);
                 this.turning=true;
             }
@@ -306,8 +304,10 @@ public class SimulatedRobot implements IRobot {
             this.forceRaiseStoppedMovingFlag();
         }
         else {
-            Vec2 orientationVector = new VectPolar(1, this.orientationTarget);
-            this.positionTarget = this.position.plusVector(orientationVector.homothetie((float) delta));
+            Vec2 orientationVector = new VectPolar(100, moduloSpec(this.orientationTarget));
+            Log.COMMUNICATION.warning("C:" + orientationVector.getX() + ", D:" + orientationVector.getY());
+            this.positionTarget = this.position.plusVector(orientationVector.homothetie(((float) delta)/100));
+            Log.COMMUNICATION.warning("A:" + this.position + ", B:" + this.positionTarget + ", C:" + orientationVector);
         }
     }
 
