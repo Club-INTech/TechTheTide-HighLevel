@@ -309,6 +309,8 @@ public abstract class Robot implements Module {
 
     //Permet d'attrapper un gobelet avec sa couleur et sa position
 
+    // Pas testé !!!
+
      public void catchVerre(Vec2 positionVerre, boolean couloir) {   //true = droite
         int xRobot = XYO.getRobotInstance().getPosition().getX() + 1500;
         int yRobot = XYO.getRobotInstance().getPosition().getY();

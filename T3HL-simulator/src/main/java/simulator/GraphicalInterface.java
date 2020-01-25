@@ -244,7 +244,8 @@ public class GraphicalInterface extends JFrame {
 
     private void drawDebug(Graphics g, IRobot simulatedRobot, int index) {
         drawElevators(g, simulatedRobot, index);
-        drawArmPositions(g, simulatedRobot, index);
+        //drawArmPositions(g, simulatedRobot, index);
+        drawCouloirs(g,simulatedRobot,index);
     }
 
     private void drawArmPositions(Graphics g, IRobot simulatedRobot, int index) {
@@ -256,8 +257,21 @@ public class GraphicalInterface extends JFrame {
         int baseX = TABLE_PIXEL_WIDTH + margin*2 + 120;
         int textHeight = g.getFontMetrics().getHeight();
 
-        g.drawString("Lpos: "+simulatedRobot.getLeftArmPosition(), baseX, baseY+textHeight);
+        g.drawString("Lpos: "+simulatedRobot.getLeftArmPosition() , baseX, baseY+textHeight);
         g.drawString("Rpos: "+simulatedRobot.getRightArmPosition(), baseX, baseY+textHeight*2+margin);
+    }
+
+
+    // en cours de construction
+    private void drawCouloirs(Graphics g, IRobot simulatedRobot,int index){
+        g.setColor(Color.BLACK);
+
+        int totalCouloirPanelHeight = 100;
+        int baseY = totalCouloirPanelHeight*index;
+        int margin = 10;
+        int baseX = TABLE_PIXEL_WIDTH + margin;
+        int textHeight = g.getFontMetrics().getHeight();
+        g.drawString("droite",baseX,baseY+textHeight);
     }
 
     private void drawElevators(Graphics g, IRobot simulatedRobot, int index) {
@@ -319,6 +333,8 @@ public class GraphicalInterface extends JFrame {
             baseX += paletWidth + innerSpacing*2 + margin;
         }
     }
+
+
 
     /** Affiche le background */
     private void drawBackground(Graphics g){

@@ -52,7 +52,7 @@ public class ScriptPrincipalBasique extends Script {
 
             Vec2 positionVerre6 = new VectCartesian(1270, 1200);
 
-            catchVerre(positionVerre6,true);
+            //catchVerre(positionVerre6,true);
 
             //Portes ouvertes à 135 degrés
             perform(ActuatorsOrders.ValvePOff);
@@ -108,15 +108,19 @@ public class ScriptPrincipalBasique extends Script {
             moveLengthwise( 762 - robotRay,false);
             perform(ActuatorsOrders.RightArmOut);
             perform(ActuatorsOrders.RightArmIn);
+            robot.increaseScore(15);
             moveLengthwise(robotRay-762,false);
             turnTowards(-Math.PI/2);
             moveLengthwise(700-robotRay,false);
             moveLengthwise(200,false);
             turnTowards(0);
+            int i = robot.score;
             moveLengthwise(1500-762,false);
             turnTowards(-Math.PI/2);
 
+
             //Lire girouette
+            //System.out.print(robot.score);
 
 
 
