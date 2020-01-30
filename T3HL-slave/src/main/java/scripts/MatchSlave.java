@@ -31,7 +31,8 @@ public class MatchSlave extends Script {
     @Override
     public void execute(int version) {
         // Code lançant les différents scripts du secondaire
-        scriptManagerSlave.getScript(ScriptNamesSlave.TEST_MCS).timedExecute();
+        scriptManagerSlave.getScript(ScriptNamesSlave.ECUEIL_PRIVE).timedExecute();
+        //scriptManagerSlave.getScript(ScriptNamesSlave.TEST_MCS).timedExecute();
         //scriptManagerSlave.getScript(ScriptNamesSlave.ECUEIL_PRIVE).timedExecute();
     }
     // TODO : à vous de jouer le 1As!

@@ -9,7 +9,7 @@ NBR_NOEUDS_CIRCLE                   = 14
 ESPACEMENT_CIRCLE                   = 1.2
 
 #Couleur
-COULEUR                             =jaune
+COULEUR                             =bleu
 
 #CHEMIN D'EXECUTION DU PROCESSUS LIDAR
 LIDAR_PROCESS_PATH                  =../bin/LiDAR_UST_10LX
@@ -46,7 +46,6 @@ RECALAGE_MECA_ACC                   =true
 
 [Slave]
 MASTER                              = false
-COULEUR                             = jaune
 USING_PANEL				= false
 USING_7_SEGMENTS                    = false
 USING_LIDAR			                =false

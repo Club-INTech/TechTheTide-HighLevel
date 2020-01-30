@@ -1,7 +1,9 @@
 package scripts;
 
 
+import pfg.config.Config;
 import pfg.config.Configurable;
+import utils.ConfigData;
 import utils.HLInstance;
 import utils.math.Vec2;
 import locomotion.UnableToMoveException;
@@ -64,4 +66,8 @@ public class ScriptRecupEcueilPrive extends Script {
 
     }
 
+    @Override
+    public void updateConfig(Config config) {
+        System.out.println(">>> "+config.get(ConfigData.COULEUR));
+    }
 }

@@ -13,7 +13,7 @@ import utils.math.VectCartesian;
 
 public class GobeletActions{
 
-    private static int place = 7;
+    private static int place = 70;
 
     // Pour mettre tous les bras en position de stockage : retour à la config de base du robot
 

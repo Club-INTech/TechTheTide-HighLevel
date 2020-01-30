@@ -48,7 +48,7 @@ public interface ConfigData
      * Couleur
      */
     ConfigInfo<String> COULEUR = new BaseConfigInfo<>("jaune", String.class);
-    ConfigInfo<Boolean> SYMETRY = new DerivedConfigInfo<>(false, Boolean.TYPE, config -> config.get(COULEUR).equals("violet"));
+    ConfigInfo<Boolean> SYMETRY = new DerivedConfigInfo<>(false, Boolean.TYPE, config -> config.get(COULEUR).equalsIgnoreCase("bleu"));
 
     /**
      * Informations relatives au status du robot (Maître ou esclave ?)
