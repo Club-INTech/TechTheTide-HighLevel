@@ -73,7 +73,7 @@ public class OrderWrapper implements Module {
 
     /**
      * Construit l'order wrapper
-     * @param symmetrizedActuatorOrderMap
+     * @param hl instance du HL
      *              service permettant de gérer la symétrie des ordres
      */
     private OrderWrapper(HLInstance hl) {

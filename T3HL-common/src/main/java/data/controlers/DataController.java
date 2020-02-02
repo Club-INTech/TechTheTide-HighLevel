@@ -101,6 +101,7 @@ public class DataController extends ModuleThread {
         listener.registerMessageHandler(Channel.SICK, this::handleSick);
         listener.registerMessageHandler(Channel.COULEUR_PALET_PRIS, this::handleCouleurPalet);
         listener.registerMessageHandler(Channel.BUDDY_EVENT, this::handleBuddyEvent);
+        listener.registerMessageHandler(Channel.CONFIG_ECEUIL, this::handleEcueilMessage);
 
         start();
     }
@@ -477,6 +478,13 @@ public class DataController extends ModuleThread {
         int version = Integer.parseInt(scriptString[1]);
         RobotState.CURRENT_SCRIPT_NAME.setData(script);
         RobotState.CURRENT_SCRIPT_VERSION.setData(version);
+    }
+
+    /**
+     * Gère les messages venant de la balise à propos de la configuration de l'écueil
+     */
+    private void handleEcueilMessage(String message){
+        GameState.CONFIG_ECUEIL.setData(message);
     }
 
     private boolean symetry() {

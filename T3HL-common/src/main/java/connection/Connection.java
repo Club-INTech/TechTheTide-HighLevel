@@ -42,7 +42,7 @@ public enum Connection {
     TEENSY_MASTER_MONTHLERY(ConfigData.TEENSY_MASTER_IP, ConfigData.TEENSY_MASTER_PORT, SerialInterface.class),
     TEENSY_SLAVE(ConfigData.TEENSY_SLAVE_IP, ConfigData.TEENSY_SLAVE_PORT, SerialInterface.class),
     ELECTRON(ConfigData.ELECTRON_IP, ConfigData.ELECTRON_PORT, SocketClientInterface.class, false),
-    CONFIG_ECEUIL(ConfigData.CONFIG_IP, ConfigData.CONFIG_PORT  ,SocketClientInterface.class),
+    CONFIG_ECUEIL(ConfigData.BALISE_IP, ConfigData.BALISE_PORT, SocketClientInterface.class),
 
     LOCALHOST_SERVER(ConfigData.LOCALHOST, ConfigData.LOCALSERVER_PORT, SocketServerInterface.class),
     LOCALHOST_CLIENT(ConfigData.LOCALHOST, ConfigData.LOCALSERVER_PORT, SocketClientInterface.class),

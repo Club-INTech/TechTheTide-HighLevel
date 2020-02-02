@@ -1,36 +1,49 @@
 package scripts;
 
+import connection.Connection;
+import data.GameState;
 import pfg.config.Configurable;
 import utils.ConfigData;
 import utils.HLInstance;
+import utils.communication.CommunicationException;
 import utils.math.Vec2;
 import locomotion.UnableToMoveException;
 import utils.math.VectCartesian;
+
+import java.util.concurrent.TimeUnit;
 
 public class ScriptRecupEcueilCommun extends Script {
 
     @Configurable("buddyRay")
     private int ray;
 
-    private String config ;
-
     protected ScriptRecupEcueilCommun(HLInstance hl) {
-        super(hl);}
+        super(hl);
+    }
 
     @Override
     public void execute(int version) {
-        config = hl.getConfig().get(ConfigData.CONFIG_ECUEIL); // Pour être sur d'avoir la valeur à jour de la config dans l'éceuil
+        try {
+            Connection.CONFIG_ECUEIL.send("test");
+            //TODO : mettre une limite de temps
+            while (GameState.CONFIG_ECUEIL.getData().equals("RRRRR")){
+                TimeUnit.SECONDS.sleep(1);
+            }
+        } catch (CommunicationException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        String configEcueil = (String) GameState.CONFIG_ECUEIL.getData(); // Pour être sur d'avoir la valeur à jour de la config dans l'éceuil
         // Code lançant les différents scripts du secondaire
         try {
-            switch (config) {
+            switch (configEcueil) {
                 case "RRVRV":
-                    recupConfig2();
+                    recupConfigRRVRV();
                     break;
                 case "VVRRR":
-                    recupConfig3();
+                    recupConfigVVRRR();
                     break;
                 default:
-                    recupConfig1();
+                    recupConfigRVRRV();
                     break;
             }
         } catch (UnableToMoveException e) {
@@ -41,7 +54,7 @@ public class ScriptRecupEcueilCommun extends Script {
      // La numérotation des configs est celle de la coupe (l'ordre des gobelets part du mat vers l'extérieur)
      // Configuration numéro 3 (RRVVV) : attrapage de gobelets go !
 
-    private void recupConfig3() throws UnableToMoveException {
+    private void recupConfigVVRRR() throws UnableToMoveException {
         followPathTo(new VectCartesian(925, ray));
         turnTowards(-Math.PI/2);
         GobeletActions.grab(this,false, 0,1);
@@ -59,7 +72,7 @@ public class ScriptRecupEcueilCommun extends Script {
 
     //Configuration numéro 2 (RRVRV)
 
-    private void recupConfig2() throws  UnableToMoveException {
+    private void recupConfigRRVRV() throws  UnableToMoveException {
         followPathTo(new VectCartesian(775, ray));
         turnTowards(-Math.PI/2);
         GobeletActions.grab(this,false, 0,2);
@@ -80,7 +93,7 @@ public class ScriptRecupEcueilCommun extends Script {
 
     //Configuration numéro 1 (RVRRV)
 
-    private void recupConfig1() throws  UnableToMoveException {
+    private void recupConfigRVRRV() throws  UnableToMoveException {
         followPathTo(new VectCartesian(925, ray));
         turnTowards(Math.PI/2);
         GobeletActions.grab(this,true, 3,5);

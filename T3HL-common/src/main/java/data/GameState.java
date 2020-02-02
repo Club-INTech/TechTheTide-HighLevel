@@ -29,9 +29,9 @@ public enum GameState {
     BALANCE_FREE(false),
     ACCELERATOR_FREE(false),
     POSITIONS_CHAOS_RECUES(false),
+    CONFIG_ECUEIL("RRRRR"),
     ;
-    private Object valueObject;
-    GameState(Object valueObject){
+    private Object valueObject;GameState(Object valueObject){
         this.valueObject=valueObject;
     }
 

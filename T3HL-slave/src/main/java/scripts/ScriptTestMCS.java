@@ -4,6 +4,7 @@ import locomotion.UnableToMoveException;
 import utils.HLInstance;
 import utils.math.InternalVectCartesian;
 import utils.math.Vec2;
+import utils.math.VectCartesian;
 
 public class ScriptTestMCS extends Script {
     /**
@@ -19,10 +20,21 @@ public class ScriptTestMCS extends Script {
     public void execute(int version) {
         try {
             robot.setPositionAndOrientation(new InternalVectCartesian(0,0), 0.0);
-            for (int i = 0; i < 10; i++) {
-                gotoPoint(new InternalVectCartesian(500, 500));
-                gotoPoint(new InternalVectCartesian(900, 0));
-            }
+                moveLengthwise(1000, false);
+                turnTowards(Math.PI/2);
+                moveLengthwise(1000, false);
+                turnTowards(Math.PI);
+                moveLengthwise(1000, false);
+                turnTowards(-Math.PI/2);
+                moveLengthwise(1000, false);
+                turnTowards(0);
+
+
+               // gotoPoint(new InternalVectCartesian(0, 1000));
+               // gotoPoint(new InternalVectCartesian(1000, 1000));
+               // gotoPoint(new InternalVectCartesian(1000, 0));
+               // gotoPoint(new InternalVectCartesian(0, 0));
+
         } catch (UnableToMoveException e) {
             e.printStackTrace();
         }
@@ -30,7 +42,7 @@ public class ScriptTestMCS extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return null;
+        return new VectCartesian(0,0);
     }
 
     @Override

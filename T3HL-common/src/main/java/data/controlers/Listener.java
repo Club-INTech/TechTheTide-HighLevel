@@ -27,7 +27,6 @@ import utils.HLInstance;
 import utils.Log;
 import utils.communication.CommunicationException;
 import utils.container.Module;
-import utils.container.ModuleThread;
 
 import java.util.*;
 
@@ -93,8 +92,8 @@ public class Listener implements Module {
     /**
      * Est ce qu'on récupère la configuration des gobelets ?
      */
-    @Configurable("configUse")
-    private boolean usingConfigEcueil;
+    @Configurable
+    private boolean usingBaliseConnection;
     /**
      * Est-ce qu'on se connecte au copain?
      */
@@ -153,7 +152,10 @@ public class Listener implements Module {
             return;
 
         List<MessageHandler> handlers = messageHandlers.get(header);
-        if(handlers == null) return;
+        if(handlers == null) {
+            System.out.println("No handler for message: " + header + message);
+            return;
+        }
         for (int i = 0; i < handlers.size(); i++) {
             final MessageHandler handler = handlers.get(i);
             hl.async("Handle Message", () -> handler.handle(message));
@@ -219,20 +221,21 @@ public class Listener implements Module {
                     Log.COMMUNICATION.debug("Debug connection ready!");
                 }
             }
-            if(usingBaliseImage || zoneChaosTest){
+            /*if(usingBaliseImage || zoneChaosTest){
                 //if(usingBaliseImage ){
                 connectionManager.initConnections(Connection.BALISE_IMAGE);
-            }
+            }*/
             if(usingLidar) {
                 connectionManager.initConnections(Connection.LIDAR_DATA);
                 Log.COMMUNICATION.debug("Lidar connected");
             }
+            /*
             if(usingElectron) {
                 connectionManager.initConnections(Connection.ELECTRON);
                 Log.COMMUNICATION.debug("Electron connected");
-            }
-            if(usingConfigEcueil) {
-                connectionManager.initConnections(Connection.CONFIG_ECEUIL);
+            }*/
+            if(usingBaliseConnection) {
+                connectionManager.initConnections(Connection.CONFIG_ECUEIL);
             }
         } catch (CommunicationException e) {
             e.printStackTrace();
