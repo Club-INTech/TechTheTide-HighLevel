@@ -1,5 +1,7 @@
 package scripts;
 
+import data.CouleurPalet;
+import data.CouleurVerre;
 import data.XYO;
 import data.table.Obstacle;
 import data.table.StillCircularObstacle;
@@ -36,15 +38,16 @@ public class ScriptPrincipalBasique extends Script {
     public void execute(int version) {
 
 
-        Future<Void> myParallelAction = async("Parallel action", () -> {
 
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        async("Parallel action", () -> {
+
             while(true){
                 table.removeAnyIntersectedTemporaryObstacle(XYO.getRobotInstance().getPosition());
+                try {
+                    TimeUnit.MILLISECONDS.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -60,6 +63,10 @@ public class ScriptPrincipalBasique extends Script {
             moveLengthwise(186,false);
 
             //Portes ouvertes à 90 degrés
+
+            //robot.pushPaletDroit(CouleurPalet.BLEU);
+
+            //robot.pushCouloirDroit(CouleurVerre.ROUGE);
 
 
 

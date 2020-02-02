@@ -21,10 +21,7 @@ package robot;
 import com.panneau.LEDs;
 import com.panneau.TooManyDigitsException;
 import connection.Connection;
-import data.CouleurPalet;
-import data.SensorState;
-import data.Sick;
-import data.XYO;
+import data.*;
 import data.controlers.DataController;
 import data.controlers.PanneauModule;
 import data.synchronization.SynchronizationWithBuddy;
@@ -104,6 +101,10 @@ public abstract class Robot implements Module {
 
     private Stack<CouleurPalet> leftElevator;
     private Stack<CouleurPalet> rightElevator;
+
+    private Stack<CouleurVerre> rightCouloir;
+    private Stack<CouleurVerre> leftCouloir;
+
 
     /**
      * Est-ce qu'on est en mode simulation?
@@ -626,6 +627,57 @@ public abstract class Robot implements Module {
     }
 
     /**
+     * Envoie une mise à jour de l'état des couloirs au simulateur si jamais il est connecté
+     */
+
+    private void sendCouloirUpdate(){
+        simulatorDebug.sendCouloirContents(RobotSide.LEFT,leftCouloir);
+        simulatorDebug.sendCouloirContents(RobotSide.RIGHT,rightCouloir);
+    }
+
+    /**
+     * Ajoute un verre dans le couloir de droite
+     */
+
+
+    public void pushCouloirDroit(CouleurVerre verre) {
+        if(master && symetry()) {
+            pushCouloirGaucheNoSymetry(verre);
+        } else {
+            pushCouloirDroitNoSymetry(verre);
+        }
+    }
+
+    /**
+     * Ajoute un verre dans le couloir de gauche
+     */
+    public void pushCouloirGauche(CouleurVerre verre) {
+        if(master && symetry()) {
+            pushCouloirDroitNoSymetry(verre);
+        } else {
+            pushCouloirGaucheNoSymetry(verre);
+        }
+    }
+
+    /**
+     * Ajoute un verre dans le couloir de droite
+     */
+    public void pushCouloirDroitNoSymetry(CouleurVerre verre) {
+        rightCouloir.push(verre);
+        sendElevatorUpdate();
+    }
+
+    /**
+     * Ajoute un verre dans le couloir de gauche
+     */
+    public void pushCouloirGaucheNoSymetry(CouleurVerre verre) {
+        leftCouloir.push(verre);
+        sendElevatorUpdate();
+    }
+
+
+
+    /**
      * Ajoute un palet dans l'ascenseur de droite
      * @throws NullPointerException si l'ascenseur n'existe pas
      */
@@ -753,6 +805,28 @@ public abstract class Robot implements Module {
             return leftElevator;
         } else {
             return rightElevator;
+        }
+    }
+
+    /**
+     * Renvoies le couloir de gauche
+     */
+    public Stack<CouleurVerre> getLeftCouloir() {
+        if(master && symetry()) {
+            return rightCouloir;
+        } else {
+            return leftCouloir;
+        }
+    }
+
+    /**
+     * Renvoies le couloir de droite
+     */
+    public Stack<CouleurVerre> getRightCouloir() {
+        if(master && symetry()) {
+            return leftCouloir;
+        } else {
+            return rightCouloir;
         }
     }
 

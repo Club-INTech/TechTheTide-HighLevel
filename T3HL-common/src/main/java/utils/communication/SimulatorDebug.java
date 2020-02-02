@@ -3,6 +3,7 @@ package utils.communication;
 import connection.Connection;
 import connection.ConnectionManager;
 import data.CouleurPalet;
+import data.CouleurVerre;
 import pfg.config.Config;
 import pfg.config.Configurable;
 import utils.ConfigData;
@@ -26,6 +27,21 @@ public class SimulatorDebug implements Module {
         if(active) {
             StringBuilder builder = new StringBuilder(getSenderPort()+" elevatorContents "+side.toString());
             for(CouleurPalet colour : elevator) {
+                builder.append(" ");
+                builder.append(colour.toString());
+            }
+            try {
+                Connection.DEBUG_SIMULATEUR.send(builder.toString());
+            } catch (CommunicationException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sendCouloirContents(RobotSide side, Stack<CouleurVerre> couloir) {
+        if(active) {
+            StringBuilder builder = new StringBuilder(getSenderPort()+" couloirContents "+side.toString());
+            for(CouleurVerre colour : couloir) {
                 builder.append(" ");
                 builder.append(colour.toString());
             }

@@ -1,6 +1,7 @@
 package simulator;
 
 import data.CouleurPalet;
+import data.CouleurVerre;
 import data.XYO;
 import robot.Robot;
 import utils.HLInstance;
@@ -78,5 +79,24 @@ public class VisualisedRobot implements IRobot {
     }
 
     @Override
+    public List<CouleurVerre> getCouloir(RobotSide side) {
+        switch (side) {
+            case LEFT:
+                return robot.getLeftCouloir();
+
+            case RIGHT:
+                return robot.getRightCouloir();
+
+            default:
+                throw new RuntimeException("ça ne devrait pas arriver (side="+side+")");
+        }
+    }
+
+    @Override
     public void setElevatorContents(RobotSide side, String[] contents, int startIndex) {/* noop */}
+
+    @Override
+    public void setCouloirsContents(RobotSide side, String[] contents, int startIndex) {
+
+    }
 }

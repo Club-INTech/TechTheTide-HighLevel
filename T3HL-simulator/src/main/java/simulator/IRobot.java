@@ -1,6 +1,7 @@
 package simulator;
 
 import data.CouleurPalet;
+import data.CouleurVerre;
 import utils.RobotSide;
 import utils.math.Vec2;
 
@@ -22,5 +23,9 @@ public interface IRobot {
 
     List<CouleurPalet> getElevatorOrNull(RobotSide side);
 
+    List<CouleurVerre> getCouloir(RobotSide side);
+
     void setElevatorContents(RobotSide side, String[] contents, int startIndex);
+
+    void setCouloirsContents(RobotSide side, String[] contents, int startIndex);
 }

@@ -202,6 +202,7 @@ public class SimulatorManager extends Thread {
                 RobotSide side = RobotSide.valueOf(data[2]);
                 if(simulatedRobots.get(senderPort) != null) {
                     simulatedRobots.get(senderPort).setElevatorContents(side, data, 3);
+                    simulatedRobots.get(senderPort).setCouloirsContents(side,data,3);
                 }
             }
             break;

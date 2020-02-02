@@ -1,6 +1,7 @@
 package simulator;
 
 import data.CouleurPalet;
+import data.CouleurVerre;
 import data.controlers.Channel;
 import utils.Log;
 import utils.RobotSide;
@@ -57,6 +58,11 @@ public class SimulatedRobot implements IRobot {
     private List<CouleurPalet> leftStack;
     private List<CouleurPalet> rightStack;
 
+    //Couloirs
+
+    private List<CouleurVerre> leftCouloir;
+    private List<CouleurVerre> rightCouloir;
+
     // Positions des bras (pour le debug)
     private String leftArmPosition = "unknown";
     private String rightArmPosition = "unknown";
@@ -76,6 +82,9 @@ public class SimulatedRobot implements IRobot {
         this.isLaunched=false;
         this.leftStack=new LinkedList<>();
         this.rightStack=new LinkedList<>();
+        this.leftCouloir=new LinkedList<>();
+        this.rightCouloir=new LinkedList<>();
+
     }
 
     /* ================================== Passage et initialisation de paramètres ============================= */
@@ -211,6 +220,30 @@ public class SimulatedRobot implements IRobot {
         }
     }
 
+    @Override
+    public void setCouloirsContents(RobotSide side, String[] contents, int startIndex) {
+        List<CouleurVerre> couloir;
+        switch (side) {
+            case LEFT:
+                couloir = leftCouloir;
+                break;
+
+            case RIGHT:
+                couloir = rightCouloir;
+                break;
+
+            default:
+                throw new IllegalArgumentException("Side: "+side);
+        }
+
+        synchronized (couloir) {
+            couloir.clear();
+            for (int i = startIndex; i < contents.length; i++) {
+                couloir.add(CouleurVerre.valueOf(contents[i]));
+            }
+        }
+    }
+
     public List<CouleurPalet> getElevatorOrNull(RobotSide side) {
         switch (side) {
             case LEFT:
@@ -218,6 +251,20 @@ public class SimulatedRobot implements IRobot {
 
             case RIGHT:
                 return rightStack;
+
+            default: // ne doit jamais arriver
+                return null;
+        }
+    }
+
+    @Override
+    public List<CouleurVerre> getCouloir(RobotSide side) {
+        switch (side) {
+            case LEFT:
+                return leftCouloir;
+
+            case RIGHT:
+                return rightCouloir;
 
             default: // ne doit jamais arriver
                 return null;
