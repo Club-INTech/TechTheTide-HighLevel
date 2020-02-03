@@ -102,8 +102,8 @@ public abstract class Robot implements Module {
     private Stack<CouleurPalet> leftElevator;
     private Stack<CouleurPalet> rightElevator;
 
-    private Stack<CouleurVerre> rightCouloir;
-    private Stack<CouleurVerre> leftCouloir;
+    private Stack<CouleurVerre> rightCouloir = new Stack<CouleurVerre>();
+    private Stack<CouleurVerre> leftCouloir = new Stack<CouleurVerre>();
 
 
     /**
@@ -339,7 +339,7 @@ public abstract class Robot implements Module {
             xb = Math.pow(1-a,0.5);
         }
 
-        if(couloir == true){
+        if(couloir){
             if(xa <= 0){
                 if(ya>0) {
                     xb = -xb;
@@ -352,7 +352,7 @@ public abstract class Robot implements Module {
                 }
             }
         }
-        if(couloir == false){
+        if(!couloir){
             if(xa <= 0){
                 if(ya>0) {
                     yb = -yb;
@@ -641,7 +641,8 @@ public abstract class Robot implements Module {
 
 
     public void pushCouloirDroit(CouleurVerre verre) {
-        if(master && symetry()) {
+
+        if(symetry()) {
             pushCouloirGaucheNoSymetry(verre);
         } else {
             pushCouloirDroitNoSymetry(verre);
@@ -652,19 +653,53 @@ public abstract class Robot implements Module {
      * Ajoute un verre dans le couloir de gauche
      */
     public void pushCouloirGauche(CouleurVerre verre) {
-        if(master && symetry()) {
+        if(symetry()) {
             pushCouloirDroitNoSymetry(verre);
         } else {
             pushCouloirGaucheNoSymetry(verre);
         }
     }
 
+    public void emptyBothCouloirs(){
+        emptyCouloirDroit();
+        emptyCouloirGauche();
+    }
+
+    public void emptyCouloirDroit() {
+
+        if(symetry()) {
+            emptyCouloirGaucheNoSymetry();
+        } else {
+            emptyCouloirDroitNoSymetry();
+        }
+    }
+
+    public void emptyCouloirGauche() {
+
+        if(symetry()) {
+            emptyCouloirDroitNoSymetry();
+        } else {
+            emptyCouloirGaucheNoSymetry();
+        }
+    }
+
+    public void emptyCouloirDroitNoSymetry(){
+        rightCouloir.clear();
+        sendCouloirUpdate();
+    }
+
+    public void emptyCouloirGaucheNoSymetry(){
+        leftCouloir.clear();
+        sendCouloirUpdate();
+    }
+
+
     /**
      * Ajoute un verre dans le couloir de droite
      */
     public void pushCouloirDroitNoSymetry(CouleurVerre verre) {
         rightCouloir.push(verre);
-        sendElevatorUpdate();
+        sendCouloirUpdate();
     }
 
     /**
@@ -672,7 +707,7 @@ public abstract class Robot implements Module {
      */
     public void pushCouloirGaucheNoSymetry(CouleurVerre verre) {
         leftCouloir.push(verre);
-        sendElevatorUpdate();
+        sendCouloirUpdate();
     }
 
 
@@ -682,7 +717,8 @@ public abstract class Robot implements Module {
      * @throws NullPointerException si l'ascenseur n'existe pas
      */
     public void pushPaletDroit(CouleurPalet palet) {
-       if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
+
+        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
            pushPaletGaucheNoSymetry(palet);
        } else {
            pushPaletDroitNoSymetry(palet);

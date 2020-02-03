@@ -293,8 +293,8 @@ public class GraphicalInterface extends JFrame {
 
             g.drawString(side.toString(), baseX, couloirBottomY+textHeight);
 
-            // render palets
-            int paletYOffset = -verreHeight-innerSpacing*2;
+            // render verres
+            int verreYOffset = -verreHeight-innerSpacing*2;
             for(CouleurVerre colour : couloir) {
                 switch (colour) {
                     case ROUGE:
@@ -311,8 +311,8 @@ public class GraphicalInterface extends JFrame {
                         g.setColor(Color.DARK_GRAY);
                         break;
                 }
-                g.fillRect(baseX+innerSpacing, couloirBottomY+paletYOffset+innerSpacing, verreWidth, verreHeight);
-                paletYOffset -= verreHeight+verreSpacing;
+                g.fillRect(baseX+innerSpacing, couloirBottomY+verreYOffset+innerSpacing, verreWidth, verreHeight);
+                verreYOffset -= verreHeight+verreSpacing;
             }
 
             baseX += verreWidth + innerSpacing*2 + margin;

@@ -58,16 +58,14 @@ public class ScriptPrincipalBasique extends Script {
             //catchVerre(positionVerre6,true);
 
             //Portes ouvertes à 135 degrés
+
             perform(ActuatorsOrders.ValvePOff);
             turnTowards(-0.63);
             moveLengthwise(186,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
 
             //Portes ouvertes à 90 degrés
-
-            //robot.pushPaletDroit(CouleurPalet.BLEU);
-
-            //robot.pushCouloirDroit(CouleurVerre.ROUGE);
-
 
 
             turnTowards(-Math.PI/2);
@@ -77,22 +75,30 @@ public class ScriptPrincipalBasique extends Script {
             perform(ActuatorsOrders.LiftUp);
             turnTowards(0);
             moveLengthwise(350,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(0.88);
 
             //Portes ouvertes à 135 degrés
 
             moveLengthwise(426,false);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
             turnTowards(Math.PI/2);
             moveLengthwise(430,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(0.96);
             moveLengthwise(488,false);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
             turnTowards(0);
             moveLengthwise(450,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(Math.PI/2);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
 
             //Portes ouvertes à 180 degrés
             moveLengthwise(400,false);
             moveLengthwise(-90,false);
+
+            robot.emptyBothCouloirs();
 
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOff);
