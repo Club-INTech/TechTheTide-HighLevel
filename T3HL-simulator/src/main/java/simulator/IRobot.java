@@ -25,7 +25,15 @@ public interface IRobot {
 
     List<CouleurVerre> getCouloir(RobotSide side);
 
+    boolean getLighthouse();
+
     void setElevatorContents(RobotSide side, String[] contents, int startIndex);
 
     void setCouloirsContents(RobotSide side, String[] contents, int startIndex);
+
+    void setLighthouseContents(boolean state);
+
+    void setWindsocksContents(int state);
+
+    int getWindsocks();
 }

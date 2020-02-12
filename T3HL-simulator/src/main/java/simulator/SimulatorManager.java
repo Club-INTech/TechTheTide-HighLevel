@@ -214,6 +214,22 @@ public class SimulatorManager extends Thread {
             }
             break;
 
+            case "lighthouseState":
+                {
+                if (simulatedRobots.get(senderPort) != null) {
+                   simulatedRobots.get(senderPort).setLighthouseContents(Boolean.valueOf(data[2]));
+                }
+            }
+            break;
+
+            case "windsocksState":
+            {
+                if (simulatedRobots.get(senderPort) != null) {
+                    simulatedRobots.get(senderPort).setWindsocksContents(Integer.valueOf(data[2]));
+                }
+            }
+
+
         }
     }
 

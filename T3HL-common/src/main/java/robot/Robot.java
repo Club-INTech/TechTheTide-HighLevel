@@ -105,6 +105,10 @@ public abstract class Robot implements Module {
     private Stack<CouleurVerre> rightCouloir = new Stack<CouleurVerre>();
     private Stack<CouleurVerre> leftCouloir = new Stack<CouleurVerre>();
 
+    private boolean lighthouse;
+
+    private int windsocks;
+
 
     /**
      * Est-ce qu'on est en mode simulation?
@@ -635,6 +639,10 @@ public abstract class Robot implements Module {
         simulatorDebug.sendCouloirContents(RobotSide.RIGHT,rightCouloir);
     }
 
+    private void sendLighthouseUpdate(){
+        simulatorDebug.sendLighthouseContents(lighthouse);
+    }
+
     /**
      * Ajoute un verre dans le couloir de droite
      */
@@ -710,6 +718,33 @@ public abstract class Robot implements Module {
         sendCouloirUpdate();
     }
 
+    /** Valide le Phare
+     * */
+
+     public void validateLighthouse(){
+         lighthouse=true;
+         if(simulatorDebug!=null){
+             simulatorDebug.sendLighthouseContents(true);
+         }
+     }
+
+     public boolean getLighthouse(){
+         return lighthouse;
+     }
+
+    /**
+     * Valide les manches à air
+     */
+    public void validateWindsocks(int state){
+        windsocks = state;
+        if(simulatorDebug!=null){
+            simulatorDebug.sendWindsocksContents(windsocks);
+        }
+    }
+
+    public int getWindsocks(){
+        return  windsocks;
+    }
 
 
     /**

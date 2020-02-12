@@ -53,6 +53,7 @@ public class ScriptPrincipalBasique extends Script {
 
         try {
 
+
             Vec2 positionVerre6 = new VectCartesian(1270, 1200);
 
             //catchVerre(positionVerre6,true);
@@ -64,6 +65,9 @@ public class ScriptPrincipalBasique extends Script {
             moveLengthwise(186,false);
             robot.pushCouloirDroit(CouleurVerre.VERT);
             robot.pushCouloirGauche(CouleurVerre.ROUGE);
+
+
+
 
             //Portes ouvertes à 90 degrés
 
@@ -77,6 +81,9 @@ public class ScriptPrincipalBasique extends Script {
             moveLengthwise(350,false);
             robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(0.88);
+
+
+
 
             //Portes ouvertes à 135 degrés
 
@@ -120,9 +127,12 @@ public class ScriptPrincipalBasique extends Script {
             turnTowards(Math.PI);
             moveLengthwise( 762 - robotRay,false);
             perform(ActuatorsOrders.RightArmOut);
-            perform(ActuatorsOrders.RightArmIn);
             robot.increaseScore(15);
-            moveLengthwise(robotRay-762,false);
+            robot.validateWindsocks(1);
+            moveLengthwise(-400,false);
+            robot.validateWindsocks(3);
+            moveLengthwise(robotRay-362,false);
+            perform(ActuatorsOrders.RightArmIn);
             turnTowards(-Math.PI/2);
             moveLengthwise(700-robotRay,false);
             moveLengthwise(200,false);
@@ -130,6 +140,8 @@ public class ScriptPrincipalBasique extends Script {
             int i = robot.score;
             moveLengthwise(1500-762,false);
             turnTowards(-Math.PI/2);
+
+            robot.validateLighthouse();
 
 
             //Lire girouette

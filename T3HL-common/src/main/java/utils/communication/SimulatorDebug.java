@@ -53,6 +53,32 @@ public class SimulatorDebug implements Module {
         }
     }
 
+    public void sendLighthouseContents(boolean lighthouse) {
+        if(active) {
+            StringBuilder builder = new StringBuilder(getSenderPort()+" lighthouseState ");
+            builder.append(lighthouse);
+
+            try {
+                Connection.DEBUG_SIMULATEUR.send(builder.toString());
+            } catch (CommunicationException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void sendWindsocksContents(int windsocks) {
+        if(active) {
+            StringBuilder builder = new StringBuilder(getSenderPort()+" windsocksState ");
+            builder.append(windsocks);
+
+            try {
+                Connection.DEBUG_SIMULATEUR.send(builder.toString());
+            } catch (CommunicationException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public int getSenderPort() {
         return senderPort;
     }
