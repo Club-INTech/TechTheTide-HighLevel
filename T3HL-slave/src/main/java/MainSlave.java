@@ -74,7 +74,7 @@ public class MainSlave extends RobotEntryPoint {
 
         try {
             MatchSlave match = hl.module(MatchSlave.class);
-            robot.setPositionAndOrientation(match.entryPosition(0), 0.0);
+            robot.setPositionAndOrientation(match.entryPosition(0), Math.PI/2);
            // TODO: remettre orderWrapper.waitJumper();
             match.execute(0);
         } catch (ContainerException e) {

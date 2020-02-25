@@ -6,6 +6,14 @@ import utils.math.Vec2;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+//DISTANCE SICK / AXE CENTRALE DU ROBOT
+
+//arrière droit : 91.802 mm
+//arrière gauche : 91.802 mm
+//droit : 134.33 mm
+//gauche : 134.33 mm
+
+
 /**
  * Enum des sicks, les numérotations respectent la convention avec le LL
  */

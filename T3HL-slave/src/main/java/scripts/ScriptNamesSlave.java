@@ -7,6 +7,7 @@ public enum ScriptNamesSlave implements ScriptNames {
     HOMOLOGATION(ScriptHomologationSlave.class,"homologation"),
     ECUEIL_PRIVE(ScriptRecupEcueilPrive.class, "EcueilPrive"),
     ECUEIL_COMMUN(ScriptRecupEcueilCommun.class, "EcueilCommun"),
+    TEST_ECUEIL_PRIVE (TestScriptRecupEcueilPrive.class, "TestEcueilPrive"),
     TEST_MCS(ScriptTestMCS.class, "TestMCS")
     ;
 

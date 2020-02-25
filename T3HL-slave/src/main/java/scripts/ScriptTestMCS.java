@@ -22,11 +22,11 @@ public class ScriptTestMCS extends Script {
             robot.setPositionAndOrientation(new InternalVectCartesian(0,0), 0.0);
                 moveLengthwise(1000, false);
                 turnTowards(Math.PI/2);
-                moveLengthwise(1000, false);
+                moveLengthwise(500, false);
                 turnTowards(Math.PI);
                 moveLengthwise(1000, false);
                 turnTowards(-Math.PI/2);
-                moveLengthwise(1000, false);
+                moveLengthwise(500, false);
                 turnTowards(0);
 
 

@@ -16,7 +16,7 @@ import robot.Slave;
 import utils.ConfigData;
 import utils.math.VectCartesian;
 
-// @author : yam(AznekEnimsay), last modification 05/01/20
+// @author : yasmine (AznekEnimsay), last modification 05/01/20
 
 public class MatchSlave extends Script {
     private final ScriptManagerSlave scriptManagerSlave;
@@ -31,7 +31,7 @@ public class MatchSlave extends Script {
     @Override
     public void execute(int version) {
         // Code lançant les différents scripts du secondaire
-        scriptManagerSlave.getScript(ScriptNamesSlave.TEST_MCS).timedExecute();
+        scriptManagerSlave.getScript(ScriptNamesSlave.TEST_ECUEIL_PRIVE).timedExecute();
         //scriptManagerSlave.getScript(ScriptNamesSlave.TEST_MCS).timedExecute();
         //scriptManagerSlave.getScript(ScriptNamesSlave.ECUEIL_PRIVE).timedExecute();
     }
@@ -39,7 +39,7 @@ public class MatchSlave extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return scriptManagerSlave.getScript(ScriptNamesSlave.TEST_MCS).entryPosition(0);
+        return scriptManagerSlave.getScript(ScriptNamesSlave.TEST_ECUEIL_PRIVE).entryPosition(0);
     }
 
     @Override
