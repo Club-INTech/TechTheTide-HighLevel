@@ -1,6 +1,7 @@
 package simulator;
 
 import data.CouleurPalet;
+import data.CouleurVerre;
 import data.Table;
 import data.graphe.Node;
 import data.table.MobileCircularObstacle;
@@ -243,7 +244,7 @@ public class GraphicalInterface extends JFrame {
     }
 
     private void drawDebug(Graphics g, IRobot simulatedRobot, int index) {
-        drawElevators(g, simulatedRobot, index);
+        //drawElevators(g, simulatedRobot, index);
         //drawArmPositions(g, simulatedRobot, index);
         drawCouloirs(g,simulatedRobot,index);
     }
@@ -271,9 +272,100 @@ public class GraphicalInterface extends JFrame {
         int margin = 10;
         int baseX = TABLE_PIXEL_WIDTH + margin;
         int textHeight = g.getFontMetrics().getHeight();
-        g.drawString("droite",baseX,baseY+textHeight);
+        g.drawString("Robot(port="+simulatedRobot.getPort()+")", baseX, baseY+textHeight);
+
+
+        for(RobotSide side : RobotSide.values()) {
+            g.setColor(Color.BLACK); // on reset la couleur car le dessin des verres peut changer la couleur
+
+            List<CouleurVerre> couloir = simulatedRobot.getCouloir(side);
+            if(couloir == null)
+                continue;
+            int verreHeight = 20;
+            int verreSpacing = 2;
+            int verreWidth = 50;
+            int innerSpacing = 2;
+
+
+
+            int couloirBottomY = baseY + textHeight + (verreHeight + verreSpacing) * 4 + innerSpacing;
+            g.drawLine(baseX, baseY+textHeight, baseX, couloirBottomY);
+            g.drawLine(baseX, couloirBottomY, baseX+verreWidth+innerSpacing*2, couloirBottomY);
+            g.drawLine(baseX+verreWidth+innerSpacing*2, baseY+textHeight, baseX+verreWidth+innerSpacing*2, couloirBottomY);
+
+            g.drawString(side.toString(), baseX, couloirBottomY+textHeight);
+
+            // render verres
+            int verreYOffset = -verreHeight-innerSpacing*2;
+            for(CouleurVerre colour : couloir) {
+                switch (colour) {
+                    case ROUGE:
+                        g.setColor(Color.RED);
+                        break;
+
+
+                    case VERT:
+                        g.setColor(Color.GREEN);
+                        break;
+
+
+                    case PAS_DE_VERRE:
+                        g.setColor(Color.DARK_GRAY);
+                        break;
+                }
+                g.fillRect(baseX+innerSpacing, couloirBottomY+verreYOffset+innerSpacing, verreWidth, verreHeight);
+                verreYOffset -= verreHeight+verreSpacing;
+            }
+
+            baseX += verreWidth + innerSpacing*2 + margin;
+        }
+        boolean lighthouse = simulatedRobot.getLighthouse();
+        g.setColor(Color.BLACK);
+        g.drawString("Phare :",baseX -70,baseY+215);
+        g.drawRect(baseX , baseY + 200, 20, 20);
+
+        if (!lighthouse) {
+            g.setColor(Color.RED);
+            g.fillRect(baseX , baseY + 200, 20, 20);
+        }
+        if (lighthouse) {
+            g.setColor(Color.GREEN);
+            g.fillRect(baseX , baseY + 200, 20, 20);
+        }
+
+        int windsocks = simulatedRobot.getWindsocks();
+        g.setColor(Color.BLACK);
+        g.drawString("Manches à air :",baseX -70,baseY+290);
+        g.drawRect(baseX , baseY + 300, 20, 20);
+        g.drawRect(baseX + 100 , baseY + 300, 20, 20);
+
+        if (windsocks == 0) {
+            g.setColor(Color.RED);
+            g.fillRect(baseX , baseY + 300, 20, 20);
+            g.fillRect(baseX + 100 , baseY + 300, 20, 20);
+        }
+        if (windsocks == 1) {
+            g.setColor(Color.GREEN);
+            g.fillRect(baseX , baseY + 300, 20, 20);
+            g.setColor(Color.RED);
+            g.fillRect(baseX + 100 , baseY + 300, 20, 20);
+        }
+
+        if (windsocks == 2) {
+            g.setColor(Color.RED);
+            g.fillRect(baseX , baseY + 300, 20, 20);
+            g.setColor(Color.GREEN);
+            g.fillRect(baseX + 100 , baseY + 300, 20, 20);
+        }
+
+        if (windsocks == 3) {
+            g.setColor(Color.GREEN);
+            g.fillRect(baseX , baseY + 300, 20, 20);
+            g.fillRect(baseX + 100 , baseY + 300, 20, 20);
+        }
     }
 
+    /*
     private void drawElevators(Graphics g, IRobot simulatedRobot, int index) {
         g.setColor(Color.BLACK);
 
@@ -283,6 +375,8 @@ public class GraphicalInterface extends JFrame {
         int baseX = TABLE_PIXEL_WIDTH + margin;
         int textHeight = g.getFontMetrics().getHeight();
         g.drawString("Robot(port="+simulatedRobot.getPort()+")", baseX, baseY+textHeight);
+
+
 
         for(RobotSide side : RobotSide.values()) {
             g.setColor(Color.BLACK); // on reset la couleur car le dessin des palets peut changer la couleur
@@ -334,7 +428,7 @@ public class GraphicalInterface extends JFrame {
         }
     }
 
-
+*/
 
     /** Affiche le background */
     private void drawBackground(Graphics g){

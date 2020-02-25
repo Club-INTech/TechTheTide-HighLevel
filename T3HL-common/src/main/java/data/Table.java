@@ -32,6 +32,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @author rem
  */
 public class Table implements Module {
+
+    @Configurable
+    private boolean symetry;
     /**
      * Graphe
      */
@@ -598,6 +601,9 @@ public class Table implements Module {
     }
 
     public boolean removeAnyIntersectedTemporaryObstacle(Vec2 center) {
+        if (symetry){
+            center=center.symetrizeVector();
+        }
         boolean cond=false;
         synchronized (temporaryObstacles) {
             for(int i = temporaryObstacles.size() -1 ; i>=0;i--){

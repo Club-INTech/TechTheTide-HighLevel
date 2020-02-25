@@ -24,9 +24,9 @@ public class Match extends Script {
         // Code lançant les différents scripts du principal
         //scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
         //Test
-        scriptManagerMaster.getScript(ScriptNamesMaster.RECUPFACULTATIF).timedExecute(0);
+        //scriptManagerMaster.getScript(ScriptNamesMaster.RECUPFACULTATIF).timedExecute(0);
        // scriptTest // A rajouter
-       //scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
+       scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
 
 
         try {
@@ -40,8 +40,8 @@ public class Match extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        //return scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).entryPosition(0);
-        return scriptManagerMaster.getScript(ScriptNamesMaster.RECUPFACULTATIF).entryPosition(0);
+        return scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).entryPosition(0);
+        //return scriptManagerMaster.getScript(ScriptNamesMaster.RECUPFACULTATIF).entryPosition(0);
     }
 
     @Override

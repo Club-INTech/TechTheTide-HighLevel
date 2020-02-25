@@ -21,10 +21,7 @@ package robot;
 import com.panneau.LEDs;
 import com.panneau.TooManyDigitsException;
 import connection.Connection;
-import data.CouleurPalet;
-import data.SensorState;
-import data.Sick;
-import data.XYO;
+import data.*;
 import data.controlers.DataController;
 import data.controlers.PanneauModule;
 import data.synchronization.SynchronizationWithBuddy;
@@ -104,6 +101,14 @@ public abstract class Robot implements Module {
 
     private Stack<CouleurPalet> leftElevator;
     private Stack<CouleurPalet> rightElevator;
+
+    private Stack<CouleurVerre> rightCouloir = new Stack<CouleurVerre>();
+    private Stack<CouleurVerre> leftCouloir = new Stack<CouleurVerre>();
+
+    private boolean lighthouse;
+
+    private int windsocks;
+
 
     /**
      * Est-ce qu'on est en mode simulation?
@@ -338,7 +343,7 @@ public abstract class Robot implements Module {
             xb = Math.pow(1-a,0.5);
         }
 
-        if(couloir == true){
+        if(couloir){
             if(xa <= 0){
                 if(ya>0) {
                     xb = -xb;
@@ -351,7 +356,7 @@ public abstract class Robot implements Module {
                 }
             }
         }
-        if(couloir == false){
+        if(!couloir){
             if(xa <= 0){
                 if(ya>0) {
                     yb = -yb;
@@ -626,11 +631,129 @@ public abstract class Robot implements Module {
     }
 
     /**
+     * Envoie une mise à jour de l'état des couloirs au simulateur si jamais il est connecté
+     */
+
+    private void sendCouloirUpdate(){
+        simulatorDebug.sendCouloirContents(RobotSide.LEFT,leftCouloir);
+        simulatorDebug.sendCouloirContents(RobotSide.RIGHT,rightCouloir);
+    }
+
+    private void sendLighthouseUpdate(){
+        simulatorDebug.sendLighthouseContents(lighthouse);
+    }
+
+    /**
+     * Ajoute un verre dans le couloir de droite
+     */
+
+
+    public void pushCouloirDroit(CouleurVerre verre) {
+
+        if(symetry()) {
+            pushCouloirGaucheNoSymetry(verre);
+        } else {
+            pushCouloirDroitNoSymetry(verre);
+        }
+    }
+
+    /**
+     * Ajoute un verre dans le couloir de gauche
+     */
+    public void pushCouloirGauche(CouleurVerre verre) {
+        if(symetry()) {
+            pushCouloirDroitNoSymetry(verre);
+        } else {
+            pushCouloirGaucheNoSymetry(verre);
+        }
+    }
+
+    public void emptyBothCouloirs(){
+        emptyCouloirDroit();
+        emptyCouloirGauche();
+    }
+
+    public void emptyCouloirDroit() {
+
+        if(symetry()) {
+            emptyCouloirGaucheNoSymetry();
+        } else {
+            emptyCouloirDroitNoSymetry();
+        }
+    }
+
+    public void emptyCouloirGauche() {
+
+        if(symetry()) {
+            emptyCouloirDroitNoSymetry();
+        } else {
+            emptyCouloirGaucheNoSymetry();
+        }
+    }
+
+    public void emptyCouloirDroitNoSymetry(){
+        rightCouloir.clear();
+        sendCouloirUpdate();
+    }
+
+    public void emptyCouloirGaucheNoSymetry(){
+        leftCouloir.clear();
+        sendCouloirUpdate();
+    }
+
+
+    /**
+     * Ajoute un verre dans le couloir de droite
+     */
+    public void pushCouloirDroitNoSymetry(CouleurVerre verre) {
+        rightCouloir.push(verre);
+        sendCouloirUpdate();
+    }
+
+    /**
+     * Ajoute un verre dans le couloir de gauche
+     */
+    public void pushCouloirGaucheNoSymetry(CouleurVerre verre) {
+        leftCouloir.push(verre);
+        sendCouloirUpdate();
+    }
+
+    /** Valide le Phare
+     * */
+
+     public void validateLighthouse(){
+         lighthouse=true;
+         if(simulatorDebug!=null){
+             simulatorDebug.sendLighthouseContents(true);
+         }
+     }
+
+     public boolean getLighthouse(){
+         return lighthouse;
+     }
+
+    /**
+     * Valide les manches à air
+     */
+    public void validateWindsocks(int state){
+        windsocks = state;
+        if(simulatorDebug!=null){
+            simulatorDebug.sendWindsocksContents(windsocks);
+        }
+    }
+
+    public int getWindsocks(){
+        return  windsocks;
+    }
+
+
+    /**
      * Ajoute un palet dans l'ascenseur de droite
      * @throws NullPointerException si l'ascenseur n'existe pas
      */
     public void pushPaletDroit(CouleurPalet palet) {
-       if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
+
+        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
            pushPaletGaucheNoSymetry(palet);
        } else {
            pushPaletDroitNoSymetry(palet);
@@ -753,6 +876,28 @@ public abstract class Robot implements Module {
             return leftElevator;
         } else {
             return rightElevator;
+        }
+    }
+
+    /**
+     * Renvoies le couloir de gauche
+     */
+    public Stack<CouleurVerre> getLeftCouloir() {
+        if(master && symetry()) {
+            return rightCouloir;
+        } else {
+            return leftCouloir;
+        }
+    }
+
+    /**
+     * Renvoies le couloir de droite
+     */
+    public Stack<CouleurVerre> getRightCouloir() {
+        if(master && symetry()) {
+            return leftCouloir;
+        } else {
+            return rightCouloir;
         }
     }
 
