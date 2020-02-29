@@ -165,7 +165,7 @@ public class LidarController implements Module {
             if(tableBB.isInShape(obstacleCenter) && !table.isPositionInBalance(obstacleCenter)) {
                 // signes différents, on est de deux côtés de la table différents
                 if(SensorState.DISABLE_ENNEMIES_OTHER_SIDE.getData() && obstacleCenter.getX() * currentXYO.getPosition().getX() <= 0) {
-                    //         Log.LIDAR.warning("On ignore l'ennemi à "+obstacleCenter+" parce qu'on a désactivé les ennemis de l'autre côté de la table");
+                    // Log.LIDAR.warning("On ignore l'ennemi à "+obstacleCenter+" parce qu'on a désactivé les ennemis de l'autre côté de la table");
                     continue;
                 }
                 mobileObstacles.add(obstacleCenter);

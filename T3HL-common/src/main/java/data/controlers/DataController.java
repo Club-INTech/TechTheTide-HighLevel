@@ -321,9 +321,9 @@ public class DataController extends ModuleThread {
         double newOrientation;
 
         if (master) {
-            dsick = 173;
+            dsick = 173; //TODO : demander à la méca
             double rapport = ((double)esick) / dsick;
-            InternalVectCartesian vectsick = new InternalVectCartesian(101,113); // Vecteur qui place les sick par rapport à l'origine du robot
+            InternalVectCartesian vectsick = new InternalVectCartesian(101,113); // Vecteur qui place les sick par rapport à l'origine du robot //TODO : demander à la méca
             double orien= XYO.getRobotInstance().getOrientation();
 
             if(symetry) { // pas shouldSymetrize parce qu'il faut rester au bon endroit sur la table
@@ -337,7 +337,8 @@ public class DataController extends ModuleThread {
                         teta = Math.atan(-rapport);
                         yCalcule = 2000 - (int)Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta)/2));
                     }
-                } else {
+                }
+                else {
                     if (significantSicks[1] == Sick.SICK_ARRIERE_DROIT || significantSicks[1] == Sick.SICK_AVANT_DROIT) {
                         teta = Math.atan(rapport);
                         yCalcule = 2000-(int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta)/2));
@@ -350,12 +351,14 @@ public class DataController extends ModuleThread {
                 }
                 xCalcule = (int) Math.round((1500 - (sickMeasurements[significantSicks[0].getIndex()]+ vectsick.getX()) * Math.cos(teta)));
                 teta = Calculs.modulo(Math.PI-teta, Math.PI);
-            } else {
+            }
+            else {
                 if (-Math.PI/2 < orien && orien < Math.PI/2) {
                     if (significantSicks[1] == Sick.SICK_AVANT_GAUCHE || significantSicks[1] == Sick.SICK_ARRIERE_GAUCHE) {
                         teta = Math.atan(-rapport);
                         yCalcule = 2000- (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta))/2);
-                    } else {
+                    }
+                    else {
                         teta = Math.atan(rapport);
                         yCalcule = (int) Math.round(((sickMeasurements[significantSicks[2].getIndex()]+sickMeasurements[significantSicks[1].getIndex()]+2*vectsick.getY()) * Math.cos(teta))/2);
                     }
