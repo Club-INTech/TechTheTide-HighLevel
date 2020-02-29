@@ -53,21 +53,23 @@ public class ScriptPrincipalBasique extends Script {
 
         try {
 
+
             Vec2 positionVerre6 = new VectCartesian(1270, 1200);
 
             //catchVerre(positionVerre6,true);
 
             //Portes ouvertes à 135 degrés
+
             perform(ActuatorsOrders.ValvePOff);
             turnTowards(-0.63);
             moveLengthwise(186,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
+
+
+
 
             //Portes ouvertes à 90 degrés
-
-            //robot.pushPaletDroit(CouleurPalet.BLEU);
-
-            //robot.pushCouloirDroit(CouleurVerre.ROUGE);
-
 
 
             turnTowards(-Math.PI/2);
@@ -77,22 +79,33 @@ public class ScriptPrincipalBasique extends Script {
             perform(ActuatorsOrders.LiftUp);
             turnTowards(0);
             moveLengthwise(350,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(0.88);
+
+
+
 
             //Portes ouvertes à 135 degrés
 
             moveLengthwise(426,false);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
             turnTowards(Math.PI/2);
             moveLengthwise(430,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(0.96);
             moveLengthwise(488,false);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
             turnTowards(0);
             moveLengthwise(450,false);
+            robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(Math.PI/2);
+            robot.pushCouloirGauche(CouleurVerre.ROUGE);
 
             //Portes ouvertes à 180 degrés
             moveLengthwise(400,false);
             moveLengthwise(-90,false);
+
+            robot.emptyBothCouloirs();
 
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOff);
@@ -114,9 +127,12 @@ public class ScriptPrincipalBasique extends Script {
             turnTowards(Math.PI);
             moveLengthwise( 762 - robotRay,false);
             perform(ActuatorsOrders.RightArmOut);
-            perform(ActuatorsOrders.RightArmIn);
             robot.increaseScore(15);
-            moveLengthwise(robotRay-762,false);
+            robot.validateWindsocks(1);
+            moveLengthwise(-400,false);
+            robot.validateWindsocks(3);
+            moveLengthwise(robotRay-362,false);
+            perform(ActuatorsOrders.RightArmIn);
             turnTowards(-Math.PI/2);
             moveLengthwise(700-robotRay,false);
             moveLengthwise(200,false);
@@ -124,6 +140,8 @@ public class ScriptPrincipalBasique extends Script {
             int i = robot.score;
             moveLengthwise(1500-762,false);
             turnTowards(-Math.PI/2);
+
+            robot.validateLighthouse();
 
 
             //Lire girouette

@@ -9,7 +9,7 @@ NBR_NOEUDS_CIRCLE                   = 14
 ESPACEMENT_CIRCLE                   = 1.2
 
 #Couleur
-COULEUR                             =bleu
+COULEUR                             = jaune
 
 #CHEMIN D'EXECUTION DU PROCESSUS LIDAR
 LIDAR_PROCESS_PATH                  =../bin/LiDAR_UST_10LX
@@ -53,7 +53,7 @@ HOMOLOGATION                        = false
 RECALAGE_MECA_BLUE_ACC              = false
 
 # DIMENSIONS DES ROBOTS
-ROBOT_RAY                           = 70
+ROBOT_RAY                           = 142
 BUDDY_RAY                           = 190
 VECTOR_COMPARISON_THRESHOLD         = 15
 

@@ -63,6 +63,12 @@ public class SimulatedRobot implements IRobot {
     private List<CouleurVerre> leftCouloir;
     private List<CouleurVerre> rightCouloir;
 
+    //Phare
+
+    private boolean lighthouse;
+
+    private int windsocks;
+
     // Positions des bras (pour le debug)
     private String leftArmPosition = "unknown";
     private String rightArmPosition = "unknown";
@@ -244,6 +250,7 @@ public class SimulatedRobot implements IRobot {
         }
     }
 
+
     public List<CouleurPalet> getElevatorOrNull(RobotSide side) {
         switch (side) {
             case LEFT:
@@ -269,6 +276,26 @@ public class SimulatedRobot implements IRobot {
             default: // ne doit jamais arriver
                 return null;
         }
+    }
+
+    @Override
+    public void setLighthouseContents(boolean state) {
+        lighthouse = state;
+    }
+
+    @Override
+    public void setWindsocksContents(int state) {
+        windsocks = state;
+    }
+
+    @Override
+    public int getWindsocks() {
+        return windsocks;
+    }
+
+    @Override
+    public boolean getLighthouse() {
+        return lighthouse;
     }
 
     /* =============================== Méthodes d'envoide la position du robot ============================== */

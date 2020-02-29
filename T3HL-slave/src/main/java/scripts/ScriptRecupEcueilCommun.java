@@ -3,7 +3,6 @@ package scripts;
 import connection.Connection;
 import data.GameState;
 import pfg.config.Configurable;
-import utils.ConfigData;
 import utils.HLInstance;
 import utils.communication.CommunicationException;
 import utils.math.Vec2;
@@ -38,12 +37,15 @@ public class ScriptRecupEcueilCommun extends Script {
             switch (configEcueil) {
                 case "RRVRV":
                     recupConfigRRVRV();
+                    System.out.println("RRVRV");
                     break;
                 case "VVRRR":
                     recupConfigVVRRR();
+                    System.out.println("VVRRR");
                     break;
                 default:
                     recupConfigRVRRV();
+                    System.out.println("RVRRV");
                     break;
             }
         } catch (UnableToMoveException e) {

@@ -8,25 +8,64 @@ import java.util.function.Function;
 
 public enum Recalage {
 
-    //TODO recoder ici tous les calculs
 
-    MASTER_BAS_DROITE_PI((Integer) -> {
-        double XSickAvant= Sick.SICK_AVANT_DROIT.getLastMeasure() ;
-        double XSickArriere=Sick.SICK_ARRIERE_DROIT.getLastMeasure();
-        int YSick= Sick.SICK_AVANT.getLastMeasure();
-        double rapport = ((double)XSickAvant - XSickArriere)/(Sick.SICK_AVANT_DROIT.getxRelativeRobot() - Sick.SICK_ARRIERE_DROIT.getxRelativeRobot());
-        double teta = Math.atan(rapport);
-        int yCalcule = 2000-(int) Math.round(((XSickAvant+XSickArriere+2*Sick.SICK_AVANT_DROIT.getyRelativeRobot()) * Math.cos(teta))/2);
-        int xCalcule = 1500 - (int) ((YSick+Sick.SICK_AVANT.getyRelativeRobot()) * Math.cos(teta));
-        return new XYO(new InternalVectCartesian(xCalcule, yCalcule), teta);
-    }),
-   MASTER__BAS_DROITE_O((Void) -> {
+   MASTER__BAS_GAUCHE_0((Integer) -> {
 
-       return new XYO(new InternalVectCartesian(0, 0), 1);
+       int distanceInterSick = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getxRelativeRobot() - Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getxRelativeRobot() ; //TODO : DEMANDER A LA MECA
+       double XSickArriereDroit = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getLastMeasure();
+       double XSickArriereGauche = Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getLastMeasure();
+       double YSick = Sick.SICK_DROIT_PRINCIPAL.getLastMeasure();
+       double rate = (XSickArriereDroit - XSickArriereGauche / distanceInterSick) ; // rapport < 0 => en dessous de l'axe, rapport > 0 => au dessus de l'axe
+       double alpha = Math.atan(rate);
+       double yValue = Sick.SICK_DROIT_PRINCIPAL.getyRelativeRobot() + YSick * Math.cos(alpha);
+       double xValue = XSickArriereGauche * Math.cos(alpha) + Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getxRelativeRobot();
+       return new XYO(new InternalVectCartesian(xValue, yValue), alpha) ;
    }),
+
+    MASTER_HAUT_GAUCHE_0 ((Integer) -> {
+
+        int distanceInterSick = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getxRelativeRobot() - Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getxRelativeRobot() ;
+        double XSickArriereDroit = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getLastMeasure();
+        double XSickArriereGauche = Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getLastMeasure();
+        double YSick = Sick.SICK_GAUCHE_PRINCIPAL.getLastMeasure();
+        double rate = (XSickArriereDroit - XSickArriereGauche / distanceInterSick) ; // rapport < 0 => en dessous de l'axe, rapport > 0 => au dessus de l'axe
+        double alpha = Math.atan(rate);
+        double yValue = 2000 - YSick * Math.cos(alpha) + Sick.SICK_GAUCHE_PRINCIPAL.getyRelativeRobot();
+        double xValue = XSickArriereGauche * Math.cos(alpha) + Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getxRelativeRobot();
+        return new XYO(new InternalVectCartesian(xValue, yValue), alpha) ;
+    }),
+
+    MASTER_BAS_DROITE_PI ((Integer) -> {
+
+        int distanceInterSick = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getxRelativeRobot() - Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getxRelativeRobot() ;
+        double XSickArriereDroit = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getLastMeasure();
+        double XSickArriereGauche = Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getLastMeasure();
+        double YSick = Sick.SICK_GAUCHE_PRINCIPAL.getLastMeasure();
+        double rate = (XSickArriereDroit - XSickArriereGauche / distanceInterSick) ; // rapport < 0 => en dessous de l'axe, rapport > 0 => au dessus de l'axe
+        double alpha = Math.atan(rate);
+        double yValue = YSick * Math.cos(alpha) + Sick.SICK_GAUCHE_PRINCIPAL.getyRelativeRobot();
+        double xValue = 3000 -  XSickArriereGauche * Math.cos(alpha) + Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getxRelativeRobot();
+        return new XYO(new InternalVectCartesian(xValue, yValue), alpha);
+
+    }),
+
+    MASTER_HAUT_DROITE_PI ((Integer) -> {
+
+        int distanceInterSick = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getxRelativeRobot() - Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getxRelativeRobot() ;
+        double XSickArriereDroit = Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getLastMeasure();
+        double XSickArriereGauche = Sick.SICK_ARRIERE_GAUCHE_PRINCIPAL.getLastMeasure();
+        double YSick = Sick.SICK_DROIT_PRINCIPAL.getLastMeasure();
+        double rate = (XSickArriereDroit - XSickArriereGauche / distanceInterSick) ; // rapport < 0 => en dessous de l'axe, rapport > 0 => au dessus de l'axe
+        double alpha = Math.atan(rate);
+        double yValue = 2000 - YSick * Math.cos(alpha) + Sick.SICK_DROIT_PRINCIPAL.getyRelativeRobot();
+        double xValue = 3000 -  XSickArriereGauche * Math.cos(alpha) + Sick.SICK_ARRIERE_DROIT_PRINCIPAL.getxRelativeRobot();
+        return new XYO(new InternalVectCartesian(xValue, yValue), alpha);
+
+    })
+
     ;
 
-    private Function<Integer, XYO> calcul;
+   private Function<Integer, XYO> calcul;
 
     Recalage(Function<Integer, XYO> calcul){
         this.calcul = calcul;

@@ -93,10 +93,32 @@ public class VisualisedRobot implements IRobot {
     }
 
     @Override
+    public boolean getLighthouse() {
+        return robot.getLighthouse();
+    }
+
+    @Override
     public void setElevatorContents(RobotSide side, String[] contents, int startIndex) {/* noop */}
 
     @Override
     public void setCouloirsContents(RobotSide side, String[] contents, int startIndex) {
 
     }
+
+    @Override
+    public void setLighthouseContents(boolean contents) {
+
+    }
+
+    @Override
+    public void setWindsocksContents(int state) {
+
+    }
+
+    @Override
+    public int getWindsocks() {
+        return robot.getWindsocks();
+    }
+
+
 }
