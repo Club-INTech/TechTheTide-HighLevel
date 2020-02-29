@@ -351,9 +351,9 @@ public class SimulatedRobot implements IRobot {
             this.forceRaiseStoppedMovingFlag();
         }
         else {
-            Vec2 orientationVector = new VectPolar(100, moduloSpec(this.orientationTarget));
+            Vec2 orientationVector = new VectPolar(1000, moduloSpec(this.orientationTarget));
             Log.COMMUNICATION.warning("C:" + orientationVector.getX() + ", D:" + orientationVector.getY());
-            this.positionTarget = this.position.plusVector(orientationVector.homothetie(((float) delta)/100));
+            this.positionTarget = this.position.plusVector(orientationVector.homothetie(((float) delta/1000)));
             Log.COMMUNICATION.warning("A:" + this.position + ", B:" + this.positionTarget + ", C:" + orientationVector);
         }
     }

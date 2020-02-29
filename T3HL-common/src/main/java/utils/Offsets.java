@@ -19,70 +19,81 @@ public interface Offsets {
 
 
     /*      MASTER      */
-    ConfigInfo<Integer> PALETSX6_X_JAUNE = new BaseConfigInfo<>(-2, Integer.TYPE);
-    ConfigInfo<Integer> PALETSX6_Y_JAUNE = new BaseConfigInfo<>(-4, Integer.TYPE);
-    ConfigInfo<Integer> PALETSX6_X_VIOLET = new BaseConfigInfo<>(20, Integer.TYPE);
-    ConfigInfo<Integer> PALETSX6_Y_VIOLET = new BaseConfigInfo<>(10, Integer.TYPE);
-    ConfigInfo<Double> PALETSX6_THETA_VIOLET = new BaseConfigInfo<>(0.025/* atan(10.0/100.0) */, Double.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_JAUNE_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_JAUNE_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_JAUNE_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_JAUNE_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_JAUNE_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_JAUNE_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_JAUNE_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_JAUNE_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> ACCELERATEUR_Y_VIOLET = new BaseConfigInfo<>(6, Integer.TYPE);
-    ConfigInfo<Integer> ACCELERATEUR_Y_JAUNE = new BaseConfigInfo<>(3, Integer.TYPE);
-    ConfigInfo<Integer> PALETS_X6_BALANCE_Y_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> PALETS_X6_BALANCE_Y_VIOLET = new BaseConfigInfo<>(10, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_BLEU_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_BLEU_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_BLEU_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_BLEU_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_BLEU_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_BLEU_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_X_BLEU_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PORT_Y_BLEU_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> ZDD_X_VIOLET = new BaseConfigInfo<>(5, Integer.TYPE);
-    ConfigInfo<Integer> ZDD_X_JAUNE = new BaseConfigInfo<>(5, Integer.TYPE);
-    ConfigInfo<Integer> ZDD_Y_JAUNE = new BaseConfigInfo<>(-5, Integer.TYPE);
-    ConfigInfo<Integer> ZDD_Y_VIOLET = new BaseConfigInfo<>(-5, Integer.TYPE);
-    ConfigInfo<Integer> ZDD_POST_BALANCE_X_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> ZDD_POST_BALANCE_X_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> ZDD_POST_BALANCE_Y_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> ZDD_POST_BALANCE_Y_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_JAUNE_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_JAUNE_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_JAUNE_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_JAUNE_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_JAUNE_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_JAUNE_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_JAUNE_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_JAUNE_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> ACCELERATEUR_Y_RECALAGE_JAUNE = new BaseConfigInfo<>(100, Integer.TYPE);
-    ConfigInfo<Integer> ACCELERATEUR_Y_RECALAGE_VIOLET = new BaseConfigInfo<>(100, Integer.TYPE);
-    ConfigInfo<Double> ACCELERATEUR_THETA_RECALAGE_JAUNE = new BaseConfigInfo<>(0.1, Double.TYPE);
-    ConfigInfo<Double> ACCELERATEUR_THETA_RECALAGE_VIOLET = new BaseConfigInfo<>(0.1, Double.TYPE);
-    ConfigInfo<Double> ACCELERATEUR_THETA_RECALAGE_JAUNE_COTE_2 = new BaseConfigInfo<>(0.1, Double.TYPE);
-    ConfigInfo<Double> ACCELERATEUR_THETA_RECALAGE_VIOLET_COTE_2 = new BaseConfigInfo<>(0.1, Double.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_BLEU_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_BLEU_VERT_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_BLEU_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_BLEU_RED_SUP = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_BLEU_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_BLEU_VERT_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_X_BLEU_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_MILIEU_Y_BLEU_RED_INF = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    /*      SLAVE       */
-    ConfigInfo<Integer> PALETSX3_X_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> PALETSX3_Y_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> PALETSX3_X_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> PALETSX3_Y_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_X_JAUNE_RED = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_Y_JAUNE_RED = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_X_JAUNE_VERT = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_Y_JAUNE_VERT = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> GOLDENIUM_X_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GOLDENIUM_Y_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GOLDENIUM_X_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GOLDENIUM_Y_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_X_BLEU_RED = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_Y_BLEU_RED = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_X_BLEU_VERT = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GOBELETS_PETIT_PORT_Y_BLEU_VERT = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> GETBLUEACC_X_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GETBLUEACC_Y_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GETBLUEACC_X_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GETBLUEACC_Y_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
+    ConfigInfo<Integer> GIROUETTE_X = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> GIROUETTE_Y = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> GETBLUEACC_X_RETRAIT_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GETBLUEACC_Y_RETRAIT_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GETBLUEACC_X_RETRAIT_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GETBLUEACC_Y_RETRAIT_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
+    ConfigInfo<Integer> PHARE_X_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> PHARE_Y_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> PHARE_X_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> PHARE_Y_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> SECONDAIRE_BALANCE_OFFSET_X_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> SECONDAIRE_BALANCE_OFFSET_X_VIOLET = new BaseConfigInfo<>(20, Integer.TYPE);
-    ConfigInfo<Integer> SECONDAIRE_BALANCE_OFFSET_Y_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> SECONDAIRE_BALANCE_OFFSET_Y_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE1_X_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE1_Y_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE2_X_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE2_Y_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> MOVE_GOLDENIUM_JAUNE = new BaseConfigInfo<>(517, Integer.TYPE);
-    ConfigInfo<Integer> MOVE_GOLDENIUM_VIOLET = new BaseConfigInfo<>(517, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE1_X_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE1_Y_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE2_X_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MANCHE2_Y_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
 
-    ConfigInfo<Integer> GOLDENIUM_GOTO_X_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GOLDENIUM_GOTO_Y_JAUNE = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GOLDENIUM_GOTO_X_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
-    ConfigInfo<Integer> GOLDENIUM_GOTO_Y_VIOLET = new BaseConfigInfo<>(0, Integer.TYPE);
+    /*      SECONDAIRE       */
 
-    ConfigInfo<Integer> DECALAGE_GOLD_JAUNE = new BaseConfigInfo<>(20, Integer.TYPE);
-    ConfigInfo<Integer> DECALAGE_GOLD_VIOLET = new BaseConfigInfo<>(20, Integer.TYPE);
-    ;
+    ConfigInfo<Integer> MILIEU_ECUEIL_COMMUN_X_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MILIEU_ECUEIL_COMMUN_Y_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MILIEU_ECUEIL_COMMUN_X_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MILIEU_ECUEIL_COMMUN_Y_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
+
+    ConfigInfo<Integer> MILIEU_ECUEIL_PRIVE_X_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MILIEU_ECUEIL_PRIVE_Y_JAUNE = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MILIEU_ECUEIL_PRIVE_X_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
+    ConfigInfo<Integer> MILIEU_ECUEIL_PRIVE_Y_BLEU = new BaseConfigInfo<>(1, Integer.TYPE);
 
     ConfigInfo<?>[] ALL_VALUES = ConfigInfo.findAllIn(Offsets.class);
     Map<ConfigInfo<?>, Object> OFFSET_CACHE = new HashMap<>();

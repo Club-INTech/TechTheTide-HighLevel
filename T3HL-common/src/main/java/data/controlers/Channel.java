@@ -29,13 +29,15 @@ public enum Channel {
     //Du LL
     LL_DEBUG('@', 'C'),
     ROBOT_POSITION('@', 'P'),
-    COULEUR_PALET_PRIS('!', '&'),
+    COULEUR_GOBELET_PRIS('!', '&'),
+
     SICK('@', 'A'),
 
     //De buddy
     BUDDY_POSITION('!', '#'),
     BUDDY_PATH('!', 'C'),
-    UPDATE_PALETS('!', 'H'),
+    UPDATE_GOBELETS('!', 'H'),
+
     BUDDY_EVENT('!', 'E'),
 
     //De l'IA
@@ -43,14 +45,14 @@ public enum Channel {
 
     //Pour l'IA
     EVENTS('@', 'B'),
-    PALETS_ASCENSEUR('@', 'D'),
+    GOBELETS_ASCENSEUR('@', 'D'),
 
     //LidarControler
     OBSTACLES('!', '!'),
     RAW_LIDAR_DATA('!', 'R'),
 
-    //PaletChaosControler,
-    PALETS_POSITION('!', '-'),
+    //Gobelet Position
+    GOBELETS_POSITION('!', '-'),
 
     // Config gobelets
     CONFIG_ECEUIL('y', ';')

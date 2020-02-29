@@ -79,10 +79,6 @@ public interface ConfigData
     * Lecture ou non de la config de l'éceuil*/
     ConfigInfo<Boolean> USING_BALISE_CONNECTION   = new BaseConfigInfo<>(false, Boolean.TYPE);
 
-    /**
-     * Si on utilise l'électron
-     */
-    ConfigInfo<Boolean> USING_ELECTRON = new BaseConfigInfo<>(false, Boolean.TYPE);
 
     /**
      * Si on utilise la balise pour le traitement d'images
@@ -114,8 +110,9 @@ public interface ConfigData
     ConfigInfo<String> BALISE_IP = new BaseConfigInfo<>("192.168.12.12", String.class);
     ConfigInfo<Integer> BALISE_PORT = new BaseConfigInfo<>(42111, Integer.TYPE);
     ConfigInfo<Integer> IA_PORT = new BaseConfigInfo<>(16000, Integer.TYPE);
-    ConfigInfo<String> ELECTRON_IP = new BaseConfigInfo<>("192.168.42.69", String.class);
-    ConfigInfo<Integer> ELECTRON_PORT = new BaseConfigInfo<>(18900, Integer.TYPE);
+
+//    ConfigInfo<String> ELECTRON_IP = new BaseConfigInfo<>("192.168.42.69", String.class);
+//    ConfigInfo<Integer> ELECTRON_PORT = new BaseConfigInfo<>(18900, Integer.TYPE);
 
     ConfigInfo<String> LOCALHOST = new BaseConfigInfo<>("localhost", String.class);
     ConfigInfo<Integer> LOCALSERVER_PORT = new BaseConfigInfo<>(13550, Integer.TYPE);
@@ -126,7 +123,7 @@ public interface ConfigData
 
     ConfigInfo<Boolean> MODE_MONTHLERY = new BaseConfigInfo<>(false, Boolean.TYPE);
     ConfigInfo<Boolean> OPEN_THE_GATE = new BaseConfigInfo<>(false, Boolean.TYPE);
-    ConfigInfo<Boolean> ZONE_CHAOS_TEST = new BaseConfigInfo<>(true, Boolean.TYPE);
+//    ConfigInfo<Boolean> ZONE_CHAOS_TEST = new BaseConfigInfo<>(true, Boolean.TYPE);
 
 
     /**
@@ -141,8 +138,8 @@ public interface ConfigData
      */
     ConfigInfo<Long> PING_INTERVAL = new BaseConfigInfo<>(100L, Long.TYPE); // durée entre deux pings, en ms (permet de confirmer que la connexion fonctionne encore)
     ConfigInfo<Long> PING_TIMEOUT = new BaseConfigInfo<>(500L, Long.TYPE); // durée d'attente pour déclarer un timeout de la connexion, en ms (permet de confirmer que la connexion fonctionne encore)
-    ConfigInfo<Long> BALANCE_WAIT_TIME = new BaseConfigInfo<>(14000L, Long.TYPE); // combien de temps on attend le secondaire
-    ConfigInfo<Long> BALANCE_SLAVE_WAIT_TIME = new BaseConfigInfo<>(3000L, Long.TYPE);
+//    ConfigInfo<Long> BALANCE_WAIT_TIME = new BaseConfigInfo<>(14000L, Long.TYPE); // combien de temps on attend le secondaire
+//    ConfigInfo<Long> BALANCE_SLAVE_WAIT_TIME = new BaseConfigInfo<>(3000L, Long.TYPE);
     ConfigInfo<Long> TIME_BETWEEN_POS_UPDATES = new BaseConfigInfo<>(200L, Long.TYPE); // durée entre deux envois de positions entre principal et secondaire
 
     ConfigInfo<Long> LOCOMOTION_OBSTRUCTED_TIMEOUT = new BaseConfigInfo<>(2000L, Long.TYPE);
@@ -183,20 +180,10 @@ public interface ConfigData
      */
     ConfigInfo<String> LIDAR_PROCESS_PATH = new BaseConfigInfo<>("../bin/LiDAR_UST_10LX", String.class);
 
-    /**
-     * On se recale à l'accélérateur? Si non c'est à x6
-     */
-    ConfigInfo<Boolean> RECALAGE_ACC = new BaseConfigInfo<>(false, Boolean.TYPE);
-
-    ConfigInfo<Boolean> RECALAGE_MECA_ACC = new BaseConfigInfo<>(true, Boolean.TYPE);
-
-    ConfigInfo<Boolean> RECALAGE_MECA_BLUE_ACC = new BaseConfigInfo<>(true, Boolean.TYPE);
-
-    ConfigInfo<Boolean> SECOURS = new BaseConfigInfo<>(false, Boolean.TYPE);
-
     ConfigInfo<?>[] ALL_VALUES = ConfigInfo.findAllIn(ConfigData.class);
 
     static ConfigInfo<?>[] values() {
         return ALL_VALUES;
     }
+
 }

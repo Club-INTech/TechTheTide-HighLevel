@@ -5,7 +5,7 @@ import utils.container.ContainerException;
 
 public enum ScriptNamesMaster implements ScriptNames {
     HOMOLOGATION(ScriptHomologation.class, "homologation"),
-    RECUPBASIQUE(ScriptPrincipalBasique.class, "ScriptPierre"),
+    RECUPBASIQUE(ScriptPrincipalBasique.class, "ScriptPrincipalBasique"),
     RECUPFACULTATIF(ScriptPrincipalOtherSide.class, "ScriptOtherSide"),
     ;
     private Class<? extends Script> scriptClass;

@@ -41,7 +41,7 @@ public enum Log
     HOOK(true),
     TABLE(false),
     AI(true),
-    ELECTRON(true),
+//    ELECTRON(true),
     POSITION(false),
     LL_DEBUG(false),
     DYNAMIXEL_COM(false),

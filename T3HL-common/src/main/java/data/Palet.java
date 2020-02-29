@@ -2,7 +2,7 @@ package data;
 
 public enum Palet {
 
-    ROUGE_1_ZONE_DEPART_US(0,CouleurPalet.ROUGE, false,false),
+/*    ROUGE_1_ZONE_DEPART_US(0,CouleurPalet.ROUGE, false,false),
     ROUGE_2_ZONE_DEPART_US(1,CouleurPalet.ROUGE, false,false),
     VERT_ZONE_DEPART_US(2,CouleurPalet.VERT, false,false),
 
@@ -39,7 +39,7 @@ public enum Palet {
      * @param palet_pris si le palet a été pris (ie enlevé de son emplacement de base)
      * @param palet_marque si la palet a été marqué (ie des points ont été marqué grâce à ce palet)
      */
-    Palet(int id, CouleurPalet couleur, boolean palet_pris , boolean palet_marque) {
+/*    Palet(int id, CouleurPalet couleur, boolean palet_pris , boolean palet_marque) {
         this.couleur = couleur;
         this.palet_pris = palet_pris;
         this.palet_marque = palet_marque;
@@ -50,7 +50,7 @@ public enum Palet {
      * Renvoie l'id du palet
      * @return renvoie l'id du palet
      */
-    public int getId(){
+/*    public int getId(){
         return this.id;
     }
 
@@ -58,7 +58,7 @@ public enum Palet {
      * Renvoie la couleur du palet
      * @return renvoie un objet CouleurPalet correspondant à la couleur du palet
      */
-    public CouleurPalet getCouleur(){
+/*    public CouleurPalet getCouleur(){
         return this.couleur;
     }
 
@@ -67,7 +67,7 @@ public enum Palet {
      * @param id id du palet à rechercher
      * @return renvoie le palet correspondant à l'id, ou null si aucun palet n'est trouvé
      */
-    public static Palet getPaletById(int id){
+/*    public static Palet getPaletById(int id){
         for (Palet palet : values()){
             if (palet.id == id){
                 return palet;
@@ -80,24 +80,24 @@ public enum Palet {
      * Renvoie si le palet a été pris
      * @return true si le palet a été pris, false sinon
      */
-    public boolean getPaletPris(){ return this.palet_pris; }
+/*    public boolean getPaletPris(){ return this.palet_pris; }
 
     /**
      * Set si le palet a été pris
      * @param valeur true si le palet a été pris, false sinon
      */
-    public void setPaletPris(boolean valeur){ this.palet_pris = valeur; }
+/*    public void setPaletPris(boolean valeur){ this.palet_pris = valeur; }
 
     /**
      * Renvoie si le palet a été marqué
      * @return true si le palet a été marqué, false sinon
      */
-    public boolean getPaletMarque(){ return this.palet_marque; }
+/*    public boolean getPaletMarque(){ return this.palet_marque; }
 
     /**
      * Set si le palet a été marqué
      * @param valeur true si le palet a été marqué, false sinon
      */
-    public void setPaletMarque(boolean valeur){ this.palet_marque =valeur; }
-
+/*    public void setPaletMarque(boolean valeur){ this.palet_marque =valeur; }
+*/
 }

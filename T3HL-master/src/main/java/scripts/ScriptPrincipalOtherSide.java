@@ -4,6 +4,7 @@ import data.XYO;
 import locomotion.UnableToMoveException;
 import orders.order.ActuatorsOrders;
 import utils.HLInstance;
+import utils.Offsets;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
 
@@ -31,9 +32,14 @@ public class ScriptPrincipalOtherSide extends Script {
 
         try {
             perform(ActuatorsOrders.ValvePOff);
-
+          /*  double myOffset = Offsets.get(Offsets.ACCELERATEUR_THETA_RECALAGE_JAUNE);
+            if(symetry) {
+                myOffset = Offsets.get(Offsets.ACCELERATEUR_THETA_RECALAGE_VIOLET);
+            }
+*/
             turnTowards(-0.82);
-            moveLengthwise(300,false);
+//            moveLengthwise((int) (300+myOffset),false);
+            moveLengthwise((int) (300),false);
             TimeUnit.SECONDS.sleep (1);
 
 
@@ -49,14 +55,13 @@ public class ScriptPrincipalOtherSide extends Script {
             turnTowards(-0.82);
             TimeUnit.SECONDS.sleep (1);
             moveLengthwise(410,false);
-            moveLengthwise(410,false);
-            moveLengthwise(410,false);
-            TimeUnit.SECONDS.sleep (1);
+
             turnTowards(Math.PI);
 
-          //  followPathTo(new VectCartesian(1450, 500)); // pathfinding vers environ milieu de la table
-
-
+            followPathTo(new VectCartesian(1450, 1000)); // pathfinding vers environ milieu de la table
+            moveLengthwise(410,false);
+            followPathTo(new VectCartesian(1000, 500));
+            followPathTo(new VectCartesian(50, 100));
 
 
 
@@ -80,3 +85,6 @@ public class ScriptPrincipalOtherSide extends Script {
         // TODO: on fait quoi quand on a fini ? (erreur ou fin normale)
     }
 }
+
+
+

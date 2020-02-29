@@ -94,12 +94,14 @@ public class DataController extends ModuleThread {
         registerChannelHandler(Channel.LL_DEBUG, this::handleLLDebug);
 
         listener.registerMessageHandler(Channel.BUDDY_PATH, this::handleBuddyPath);
-        listener.registerMessageHandler(Channel.UPDATE_PALETS, this::handlePaletUpdate);
+        listener.registerMessageHandler(Channel.UPDATE_GOBELETS, this::handleGobeletUpdate);
+
         listener.registerMessageHandler(Channel.SCRIPTS, this::handleScriptOrder);
         listener.registerMessageHandler(Channel.EVENTS, this::handleEvent);
         listener.registerMessageHandler(Channel.EVENTS, this::handleArmEvent);
         listener.registerMessageHandler(Channel.SICK, this::handleSick);
-        listener.registerMessageHandler(Channel.COULEUR_PALET_PRIS, this::handleCouleurPalet);
+        listener.registerMessageHandler(Channel.COULEUR_GOBELET_PRIS, this::handleCouleurGobelet);
+
         listener.registerMessageHandler(Channel.BUDDY_EVENT, this::handleBuddyEvent);
         listener.registerMessageHandler(Channel.CONFIG_ECEUIL, this::handleEcueilMessage);
 
@@ -174,13 +176,15 @@ public class DataController extends ModuleThread {
         String[] parts = message.split(" ");
         String type = parts[0];
         switch (type) {
-            case "balancefree":
+/*            case "balancefree":
                 GameState.BALANCE_FREE.setData(true);
                 break;
 
             case "acceleratorfree":
                 GameState.ACCELERATOR_FREE.setData(true);
                 break;
+
+ */
             case "increaseScore": {
                 if (master) {
                     try {
@@ -252,7 +256,7 @@ public class DataController extends ModuleThread {
                 Log.STDOUT.debug("Position at StoppedMoving: (x,y)=" + XYO.getRobotInstance().getPosition() + ", o=" + XYO.getRobotInstance().getOrientation());
                 break;
 
-            case "leftElevatorStopped":
+/*            case "leftElevatorStopped":
                 if (symetry()) {
                     SensorState.RIGHT_ELEVATOR_MOVING.setData(false);
                 } else {
@@ -267,7 +271,7 @@ public class DataController extends ModuleThread {
                     SensorState.RIGHT_ELEVATOR_MOVING.setData(false);
                 }
                 break;
-
+*/
             case "confirmOrder":
                 if (event.length >= 2) {
                     Log.COMMUNICATION.debug("Received confirmation for order (" + event[1] + ")");
@@ -277,12 +281,12 @@ public class DataController extends ModuleThread {
                 }
                 break;
 
-            case "gogogofast": {
+/*            case "gogogofast": {
                 timer.resetTimer();
                 SensorState.WAITING_JUMPER.setData(false);
                 break;
             }
-
+*/
         }
     }
 
@@ -427,9 +431,20 @@ public class DataController extends ModuleThread {
     /**
      * COULEUR_PALETS
      */
-    private void handleCouleurPalet(String message){
-        CouleurPalet.setCouleurPalRecu(message);
+/*    private void handleCouleurPalet(String message){
+         CouleurPalet.setCouleurPalRecu(message);
     }
+*/
+/////////////////////////////////////////
+    /**
+     * COULEUR_GOBELETS
+     */
+    private void handleCouleurGobelet(String message){
+         CouleurVerre.setCouleurGobRecu(message);
+    }
+
+
+
 
     /**
      * BUDDY : position
@@ -451,11 +466,11 @@ public class DataController extends ModuleThread {
         }
         BuddyState.BUDDY_PATH.setData(path);
     }
-
+////////////////////////////////////////////////////////////////////////
     /**
      * Update palets
      */
-    private void handlePaletUpdate(String message){
+/*    private void handlePaletUpdate(String message){
         String[] paletsString = message.split(ARGUMENTS_SEPARATOR);
         int id = Integer.parseInt(paletsString[0]);
         if (id == Palet.GOLDENIUM.getId()) {
@@ -467,6 +482,19 @@ public class DataController extends ModuleThread {
                 palet.setPaletPris(Boolean.parseBoolean(paletsString[1]));
             }
         }
+    }
+*/
+/////////////////////////////////////////////////////////////////////////////
+    /**
+     * Update gobelets
+     */
+    private void handleGobeletUpdate(String message){
+        String[] gobeletsString = message.split(ARGUMENTS_SEPARATOR);
+        int id = Integer.parseInt(gobeletsString[0]);
+        Gobelet gobelet = Gobelet.getVerreById(id);
+        if (gobelet != null) {
+            gobelet.setVerrePris(Boolean.parseBoolean(gobeletsString[1]));
+            }
     }
 
     /**

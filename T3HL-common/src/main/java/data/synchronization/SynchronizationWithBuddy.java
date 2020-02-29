@@ -50,7 +50,7 @@ public class SynchronizationWithBuddy extends SynchronizationCommon {
     /**
      * Permet de prévenir le principal que le distributeur x6 est libre
      */
-    public void sendAcceleratorFree() {
+/*    public void sendAcceleratorFree() {
         sendString(String.format("%sacceleratorfree", Channel.BUDDY_EVENT.getHeaders()));
     }
 
@@ -69,7 +69,7 @@ public class SynchronizationWithBuddy extends SynchronizationCommon {
             Log.STRATEGY.critical("Pas de connexion au buddy, on prend l'hypothèse que l'accélérateur est libre");
         }
     }
-
+*/
     /**
      * Permet d'incrémenter les points sur le principal quand appelé par le secondaire
      * @param points nombre de points à incrémenter

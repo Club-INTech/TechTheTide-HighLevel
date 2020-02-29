@@ -25,11 +25,15 @@ package data;
  */
 public enum GameState {
 
-    GOLDENIUM_LIBERE(false),
-    BALANCE_FREE(false),
-    ACCELERATOR_FREE(false),
+
     POSITIONS_CHAOS_RECUES(false),
     CONFIG_ECUEIL("RRRRR"),
+
+    PHARE_ALLUME(false),
+    MANCHES_LEVES(false),
+    GIROUETTE_LUE(false),
+    DRAPEAUX_LEVES(false),
+
     ;
     private Object valueObject;GameState(Object valueObject){
         this.valueObject=valueObject;
