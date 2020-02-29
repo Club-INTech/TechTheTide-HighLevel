@@ -43,7 +43,7 @@ import java.util.List;
 public class LidarController implements Module {
 
     /**
-     * Temps d'attente entre deux vérification de la queue
+     * Temps d'attente entre deux vérifications de la queue
      */
     private static final int TIME_LOOP                  = 25;
 

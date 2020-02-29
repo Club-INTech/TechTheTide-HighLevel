@@ -21,6 +21,17 @@ import java.util.concurrent.ExecutionException;
  */
 public enum Sick {
 
+    // sicks de l'année dernière à enlever au fur et à mesure
+
+    SICK_ARRIERE_DROIT(6, -1, 0, 0, 6),
+    SICK_ARRIERE_GAUCHE(6, -1, 0, 0, 6),
+    SICK_AVANT_DROIT(6, -1, 0, 0, 6),
+    SICK_AVANT_GAUCHE(6, -1, 0, 0, 6),
+    SICK_DROIT(6, -1, 0, 0, 6),
+    SICK_GAUCHE(6, -1, 0, 0, 6),
+    SICK_AVANT(6, -1, 0, 0, 6),
+
+
     // Indices choisis avec le LL don't worry
 
     SICK_ARRIERE_GAUCHE_PRINCIPAL(0, -1,0,0,6),
