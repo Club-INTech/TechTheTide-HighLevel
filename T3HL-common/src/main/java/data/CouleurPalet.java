@@ -22,7 +22,7 @@ public enum CouleurPalet {
     }
 
     static CompletableFuture<CouleurPalet> couleurPalRecue;
-    //static CouleurPalet couleurPalRecue;
+ //   static CouleurPalet couleurPalRecue;
 
     static {
         couleurPalRecue = new CompletableFuture<>();

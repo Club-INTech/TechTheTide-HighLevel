@@ -164,8 +164,8 @@ public abstract class Robot implements Module {
             }
         }
     }
-
-    public void waitForLeftElevator() {
+///////////////////////////////////////////////////////////////////////////////////
+/*    public void waitForLeftElevator() {
         waitForElevator("left");
     }
 
@@ -188,6 +188,7 @@ public abstract class Robot implements Module {
         state.setData(true);
         Module.waitWhileTrue(state::getData);
     }
+*//////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Ordonnes un 'goto' vers le LL. ATTENTION! Cette méthode ne prend PAS en compte le pathfinding! Si ça va dans le mur c'est votre faute

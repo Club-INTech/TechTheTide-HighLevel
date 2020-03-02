@@ -15,20 +15,19 @@ COULEUR                             = jaune
 LIDAR_PROCESS_PATH                  =../bin/LiDAR_UST_10LX
 VISUALISATION                       =false
 SIMULATION                          =false
-USING_ELECTRON                      =false
+
 USING_BALISE_IMAGE                  =false
 CONNECT_TO_BUDDY                    =false
-BALANCE_WAIT_TIME                   =5000
-BALANCE_SLAVE_WAIT_TIME             =3000
+
 MODE_MONTHLERY                      =false
 OPEN_THE_GATE                       =false
-ZONE_CHAOS_TEST                     =false
+
 
 #________________________________________________________________________________________________________________________
 
 [Master]
 MASTER                              = true
-USING_ELECTRON                      = false
+
 USING_PANEL                         = false
 USING_LIDAR			                = true
 LED_COUNT			                = 16
@@ -60,67 +59,77 @@ VECTOR_COMPARISON_THRESHOLD         = 15
 
 #________________________________________________________________________________________________________________________
 [Offsets]
-PALETSX6_X_JAUNE                    =-4
-PALETSX6_Y_JAUNE                    =3
-PALETSX6_X_VIOLET                   =10
-PALETSX6_Y_VIOLET                   =-7
-PALETSX6_THETA_VIOLET               =0.0115
-PALETS_X6_BALANCE_Y_JAUNE           =0
-PALETS_X6_BALANCE_Y_VIOLET          =10
 
-ZDD_POST_BALANCE_X_JAUNE            =0
-ZDD_POST_BALANCE_Y_JAUNE            =100
-ZDD_POST_BALANCE_X_VIOLET           =0
-ZDD_POST_BALANCE_Y_VIOLET           =100
+GOBELETS_PORT_X_JAUNE_RED_SUP       =1
+GOBELETS_PORT_Y_JAUNE_RED_SUP       =1
+GOBELETS_PORT_X_JAUNE_VERT_SUP      =1
+GOBELETS_PORT_Y_JAUNE_VERT_SUP      =1
+GOBELETS_PORT_X_JAUNE_RED_INF       =1
+GOBELETS_PORT_Y_JAUNE_RED_INF       =1
+GOBELETS_PORT_X_JAUNE_VERT_INF      =1
+GOBELETS_PORT_Y_JAUNE_VERT_INF      =1
 
-ACCELERATEUR_Y_VIOLET               =-15
-ACCELERATEUR_Y_JAUNE                =-25
+GOBELETS_PORT_X_BLEU_VERT_SUP       =1
+GOBELETS_PORT_Y_BLEU_VERT_SUP       =1
+GOBELETS_PORT_X_BLEU_RED_SUP        =1
+GOBELETS_PORT_Y_BLEU_RED_SUP        =1
+GOBELETS_PORT_X_BLEU_VERT_INF       =1
+GOBELETS_PORT_Y_BLEU_VERT_INF       =1
+GOBELETS_PORT_X_BLEU_RED_INF        =1
+GOBELETS_PORT_Y_BLEU_RED_INF        =1
 
-ACCELERATEUR_THETA_RECALAGE_JAUNE   =0.06
-ACCELERATEUR_THETA_RECALAGE_JAUNE_COTE_2   =0.01
-ACCELERATEUR_THETA_RECALAGE_VIOLET_COTE_2  =0.075
-ACCELERATEUR_THETA_RECALAGE_VIOLET  =0.05
-ACCELERATEUR_Y_RECALAGE_VIOLET             =123
-ACCELERATEUR_Y_RECALAGE_JAUNE             =122
+GOBELETS_MILIEU_X_JAUNE_RED_SUP     =1
+GOBELETS_MILIEU_Y_JAUNE_RED_SUP     =1
+GOBELETS_MILIEU_X_JAUNE_VERT_SUP    =1
+GOBELETS_MILIEU_Y_JAUNE_VERT_SUP    =1
+GOBELETS_MILIEU_X_JAUNE_RED_INF     =1
+GOBELETS_MILIEU_Y_JAUNE_RED_INF     =1
+GOBELETS_MILIEU_X_JAUNE_VERT_INF    =1
+GOBELETS_MILIEU_Y_JAUNE_VERT_INF    =1
 
-ZDD_X_VIOLET                        =-3
-ZDD_X_JAUNE                         =-3
+GOBELETS_MILIEU_X_BLEU_VERT_SUP     =1
+GOBELETS_MILIEU_Y_BLEU_VERT_SUP     =1
+GOBELETS_MILIEU_X_BLEU_RED_SUP      =1
+GOBELETS_MILIEU_Y_BLEU_RED_SUP      =1
+GOBELETS_MILIEU_X_BLEU_VERT_INF     =1
+GOBELETS_MILIEU_Y_BLEU_VERT_INF     =1
+GOBELETS_MILIEU_X_BLEU_RED_INF      =1
+GOBELETS_MILIEU_Y_BLEU_RED_INF      =1
 
-ZDD_Y_JAUNE                         =-5
-ZDD_Y_VIOLET                        =-5
+GOBELETS_PETIT_PORT_X_JAUNE_RED     =1
+GOBELETS_PETIT_PORT_Y_JAUNE_RED     =1
+GOBELETS_PETIT_PORT_X_JAUNE_VERT    =1
+GOBELETS_PETIT_PORT_Y_JAUNE_VERT    =1
 
-PALETSX3_X_JAUNE                    =0
-PALETSX3_Y_JAUNE                    =0
-PALETSX3_X_VIOLET                   =0
-PALETSX3_Y_VIOLET                   =0
+GOBELETS_PETIT_PORT_X_BLEU_RED      =1
+GOBELETS_PETIT_PORT_Y_BLEU_RED      =1
+GOBELETS_PETIT_PORT_X_BLEU_VERT     =1
+GOBELETS_PETIT_PORT_Y_BLEU_VERT     =1
 
-GOLDENIUM_X_JAUNE                   =0
-GOLDENIUM_Y_JAUNE                   =0
-GOLDENIUM_X_VIOLET                  =0
-GOLDENIUM_Y_VIOLET                  =0
+GIROUETTE_X                         =1
+GIROUETTE_Y                         =1
 
-MOVE_GOLDENIUM_JAUNE                =517
-MOVE_GOLDENIUM_VIOLET               =507
+PHARE_X_JAUNE                       =1
+PHARE_Y_JAUNE                       =1
+PHARE_X_BLEU                        =1
+PHARE_Y_BLEU                        =1
 
-DECALAGE_GOLD_JAUNE                 =-5
-DECALAGE_GOLD_VIOLET                =30
+MANCHE1_X_JAUNE                     =1
+MANCHE1_Y_JAUNE                     =1
+MANCHE2_X_JAUNE                     =1
+MANCHE2_Y_JAUNE                     =1
 
-GOLDENIUM_GOTO_X_JAUNE              =0
-GOLDENIUM_GOTO_Y_JAUNE              =45
-GOLDENIUM_GOTO_X_VIOLET             =0
-GOLDENIUM_GOTO_Y_VIOLET             =0
+MANCHE1_X_BLEU                      =1
+MANCHE1_Y_BLEU                      =1
+MANCHE2_X_BLEU                      =1
+MANCHE2_Y_BLEU                      =1
 
-GETBLUEACC_X_JAUNE                  =0
-GETBLUEACC_Y_JAUNE                  =3
-GETBLUEACC_X_VIOLET                 =0
-GETBLUEACC_Y_VIOLET                 =6
+MILIEU_ECUEIL_COMMUN_X_JAUNE        =1
+MILIEU_ECUEIL_COMMUN_Y_JAUNE        =1
+MILIEU_ECUEIL_COMMUN_X_BLEU         =1
+MILIEU_ECUEIL_COMMUN_Y_BLEU         =1
 
-GETBLUEACC_X_RETRAIT_JAUNE            =24
-GETBLUEACC_Y_RETRAIT_JAUNE            =-39
-GETBLUEACC_X_RETRAIT_VIOLET           =-20
-GETBLUEACC_Y_RETRAIT_VIOLET           =-2
-
-SECONDAIRE_BALANCE_OFFSET_X_VIOLET  =10
-SECONDAIRE_BALANCE_OFFSET_X_JAUNE   =-20
-SECONDAIRE_BALANCE_OFFSET_Y_VIOLET  =0
-SECONDAIRE_BALANCE_OFFSET_Y_JAUNE   =20
+MILIEU_ECUEIL_PRIVE_X_JAUNE         =1
+MILIEU_ECUEIL_PRIVE_Y_JAUNE         =1
+MILIEU_ECUEIL_PRIVE_XBLEU           =1
+MILIEU_ECUEIL_PRIVE_Y_BLEU          =1

@@ -14,13 +14,11 @@ import utils.container.Module;
 public class ActuatorsModule implements Module {
 
     private OrderWrapper wrapper;
-
+//Used in script homologation de l'an dernier (don't delete yet)
     public final OnOffActuator leftPump;
     public final OnOffActuator rightPump;
     public final OnOffActuator leftValve;
     public final OnOffActuator rightValve;
-    public final ElevatorActuator leftElevator;
-    public final ElevatorActuator rightElevator;
 
     public ActuatorsModule(OrderWrapper wrapper) {
         this.wrapper = wrapper;
@@ -31,12 +29,10 @@ public class ActuatorsModule implements Module {
         leftValve = new OnOffActuator(wrapper, ActuatorsOrders.ActivateLeftValve, ActuatorsOrders.DeactivateLeftValve);
         rightValve = new OnOffActuator(wrapper, ActuatorsOrders.ActivateRightValve, ActuatorsOrders.DeactivateRightValve);
 
-        leftElevator = new ElevatorActuator(wrapper, ElevatorOrders.RaiseLeftElevator, ElevatorOrders.LowerLeftElevator,
+/*        leftElevator = new ElevatorActuator(wrapper, ElevatorOrders.RaiseLeftElevator, ElevatorOrders.LowerLeftElevator,
                 ElevatorOrders.RaiseThenLowerLeftElevator, ElevatorOrders.RaiseThenLowerLeftElevator, SensorState.LEFT_ELEVATOR_MOVING);
         rightElevator = new ElevatorActuator(wrapper, ElevatorOrders.RaiseRightElevator, ElevatorOrders.LowerRightElevator,
                 ElevatorOrders.RaiseThenLowerRightElevator, ElevatorOrders.RaiseThenLowerRightElevator, SensorState.RIGHT_ELEVATOR_MOVING);
-
-        ///////////////2020
-
+*/
     }
 }

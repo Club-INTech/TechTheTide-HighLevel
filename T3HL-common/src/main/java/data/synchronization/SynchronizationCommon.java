@@ -95,10 +95,8 @@ public abstract class SynchronizationCommon implements Module {
 
     /**
      * Envoie une confirmation de palet pris
-     * @param palet quel palet a été pris
-     * @param pris True si le palet a été pris, False sinon
      */
-    public void sendPaletPris(Palet palet, boolean pris){
+/*    public void sendPaletPris(Palet palet, boolean pris){
         this.sendString(String.format(Locale.US, "%s%d %s", Channel.UPDATE_PALETS.getHeaders(), palet.getId(), pris));
     }
 
@@ -106,10 +104,10 @@ public abstract class SynchronizationCommon implements Module {
      * Envoie l'état du goldenium
      * @param accessible True si le goldenium est accessible, False sinon
      */
-    public void sendGoldeniumState(boolean accessible){
+/*    public void sendGoldeniumState(boolean accessible){
         this.sendString(String.format(Locale.US, "%s%d %s", Channel.UPDATE_PALETS.getHeaders(), Palet.GOLDENIUM.getId(), accessible));
     }
-
+*/
     public void setConnection(Connection connection) {
         this.connection = connection;
     }

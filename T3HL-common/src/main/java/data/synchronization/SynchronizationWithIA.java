@@ -51,16 +51,16 @@ public class SynchronizationWithIA extends SynchronizationCommon {
         }
     }
 
-    /**
+ /*   /**
      * Envoie un message quand le jumper est sorti
-     */
+
     public void sendJumperOut(){
         this.sendString(String.format(Locale.US, "%s KRAKATOA", Channel.EVENTS.getHeaders()));
     }
 
     /**
      * Envoie le contenu de l'ascenseur droit à l'IA
-     */
+
     public void sendPaletsAscenseurDroit(){
         Robot robot = null;
         try {
@@ -81,7 +81,7 @@ public class SynchronizationWithIA extends SynchronizationCommon {
 
     /**
      * Envoie le contenu de l'ascenseur gauche à l'IA
-     */
+
     public void sendPaletsAscenseurGauche(){
         Robot robot = null;
         try {
@@ -102,11 +102,11 @@ public class SynchronizationWithIA extends SynchronizationCommon {
 
     /**
      * Envoie le contenu de l'ascenseur du secondaire (droit) à l'IA
-     */
+
     public void sendPaletsAscenseurSecondaire(){
         this.sendPaletsAscenseurDroit();
     }
-
+*/
     @Override
     public void updateConfig(Config config) {
         if (this.simulation) {

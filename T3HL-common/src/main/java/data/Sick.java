@@ -6,6 +6,8 @@ import utils.math.Vec2;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
+/* @author mikail, AznekEnimsay */
+
 //DISTANCE SICK / AXE CENTRALE DU ROBOT
 
 //arrière droit : 91.802 mm
@@ -19,42 +21,47 @@ import java.util.concurrent.ExecutionException;
  */
 public enum Sick {
 
-    //TODO Mettre à jour en fonction de nos nouveaux robots
+    // sicks de l'année dernière à enlever au fur et à mesure
 
-    SICK_AVANT(0, -1,0,0,6),
-    SICK_AVANT_GAUCHE(1, -1,0,0,6),
-    SICK_ARRIERE_GAUCHE(2, -1,0,0,6),
-    SICK_ARRIERE(3, -1,0,0,6),
-    SICK_ARRIERE_DROIT(4, -1,0,0,6),
-    SICK_AVANT_DROIT(5, -1,0,0,6),
+    SICK_ARRIERE_DROIT(6, -1, 0, 0, 6),
+    SICK_ARRIERE_GAUCHE(6, -1, 0, 0, 6),
+    SICK_AVANT_DROIT(6, -1, 0, 0, 6),
+    SICK_AVANT_GAUCHE(6, -1, 0, 0, 6),
+    SICK_DROIT(6, -1, 0, 0, 6),
+    SICK_GAUCHE(6, -1, 0, 0, 6),
+    SICK_AVANT(6, -1, 0, 0, 6),
 
+
+    // Indices choisis avec le LL don't worry
+
+    SICK_ARRIERE_GAUCHE_PRINCIPAL(0, -1,0,0,6),
+    SICK_GAUCHE_PRINCIPAL(1, -1, 0, 0, 6),
+    SICK_DROIT_PRINCIPAL(2, -1, 0, 0, 6),
+    SICK_ARRIERE_DROIT_PRINCIPAL(3, -1,0,0,6),
     ;
 
     // =====================================================================
     // ==== Capteurs SICK à utiliser selon l'orientation et la position ====
     // =====================================================================
+
     //RIEN DU TOUT
     public static final Sick[] NOTHING = {};
 
-    public static final Sick[] LOWER_LEFT_CORNER_TOWARDS_PI = {SICK_AVANT, SICK_AVANT_GAUCHE, SICK_ARRIERE_GAUCHE};
-    public static final Sick[] UPPER_LEFT_CORNER_TOWARDS_PI = {SICK_AVANT, SICK_AVANT_DROIT, SICK_ARRIERE_DROIT};
+    public static final Sick[] UPPER_LEFT_CORNER_TOWARDS_0 = {SICK_ARRIERE_DROIT_PRINCIPAL, SICK_ARRIERE_GAUCHE_PRINCIPAL, SICK_GAUCHE_PRINCIPAL};
+    public static final Sick[] UPPER_LEFT_CORNER_TOWARDS_PI = {SICK_DROIT_PRINCIPAL};
 
+    public static final Sick[] LOWER_LEFT_CORNER_TOWARDS_0 = {SICK_ARRIERE_DROIT_PRINCIPAL, SICK_ARRIERE_GAUCHE_PRINCIPAL, SICK_DROIT_PRINCIPAL};
+    public static final Sick[] LOWER_LEFT_CORNER_TOWARDS_PI = {SICK_GAUCHE_PRINCIPAL};
 
-    public static final Sick[] LOWER_RIGHT_CORNER_TOWARDS_0 = {SICK_AVANT, SICK_AVANT_DROIT, SICK_ARRIERE_DROIT};
-    public static final Sick[] UPPER_RIGHT_CORNER_TOWARDS_0 = {SICK_AVANT, SICK_AVANT_GAUCHE, SICK_ARRIERE_GAUCHE};
+    public static final Sick[] LOWER_RIGHT_CORNER_TOWARDS_0 = {SICK_DROIT_PRINCIPAL};
+    public static final Sick[] LOWER_RIGHT_CORNER_TORWARDS_PI = {SICK_ARRIERE_DROIT_PRINCIPAL, SICK_ARRIERE_GAUCHE_PRINCIPAL, SICK_GAUCHE_PRINCIPAL};
 
-    // Symétries côté gauche
-    public static final Sick[] LOWER_LEFT_CORNER_TOWARDS_0 = {SICK_ARRIERE, SICK_AVANT_DROIT, SICK_ARRIERE_DROIT};
-    public static final Sick[] UPPER_LEFT_CORNER_TOWARDS_0 = {SICK_ARRIERE, SICK_AVANT_GAUCHE, SICK_ARRIERE_GAUCHE};
-
-    // Symétries côté droit
-    public static final Sick[] LOWER_RIGHT_CORNER_TOWARDS_PI = {SICK_ARRIERE, SICK_AVANT_GAUCHE, SICK_ARRIERE_GAUCHE};
-    public static final Sick[] UPPER_RIGHT_CORNER_TOWARDS_PI = {SICK_ARRIERE, SICK_AVANT_DROIT, SICK_ARRIERE_DROIT};
-
+    public static final Sick[] UPPER_RIGHT_CORNER_TOWARDS_0 = {SICK_GAUCHE_PRINCIPAL};
+    public static final Sick[] UPPER_RIGHT_CORNER_TORWARDS_PI = {SICK_ARRIERE_DROIT_PRINCIPAL, SICK_ARRIERE_GAUCHE_PRINCIPAL, SICK_DROIT_PRINCIPAL};
 
     //Secondaire
 
-    public static final Sick[] SECONDAIRE= {SICK_AVANT, SICK_AVANT_GAUCHE, SICK_ARRIERE_GAUCHE};
+   // public static final Sick[] SECONDAIRE= {SICK_AVANT, SICK_AVANT_GAUCHE, SICK_ARRIERE_GAUCHE};
 
     /**
      * Indice du capteur sick

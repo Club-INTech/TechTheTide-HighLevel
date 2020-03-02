@@ -78,16 +78,16 @@ public class Listener implements Module {
     @Configurable
     private boolean usingBaliseImage;
 
-    @Configurable
-    private boolean zoneChaosTest;
+//    @Configurable
+//    private boolean zoneChaosTest;
 
     @Configurable
     private boolean visualisation;
     /**
      * Est-ce qu'on active l'électron ?
      */
-    @Configurable
-    private boolean usingElectron;
+//    @Configurable
+//    private boolean usingElectron;
 
     /**
      * Est ce qu'on récupère la configuration des gobelets ?
