@@ -95,7 +95,7 @@ public abstract class RobotEntryPoint {
                 e.printStackTrace();
             }
         }
-        if(panneauService.getPanneau() != null && hl.getConfig().getBoolean(ConfigData.USING_PANEL)) {
+        if(hl.getConfig().getBoolean(ConfigData.USING_PANEL) && panneauService.getPanneau() != null) {
             resetColorToTeamColor(panneauService.getPanneau());
         }
     }
