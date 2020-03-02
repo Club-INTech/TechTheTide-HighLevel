@@ -84,7 +84,7 @@ public abstract class RobotEntryPoint {
     protected void waitForAllConnectionsReady() {
         while (!connectionManager.areMandatoryConnectionsInitiated()) {
             try {
-                if(panneauService.getPanneau() != null && hl.getConfig().getBoolean(ConfigData.USING_PANEL)) {
+                if(hl.getConfig().getBoolean(ConfigData.USING_PANEL) && panneauService.getPanneau() != null) {
                     float f = (float) Math.min(1, Math.sin(System.currentTimeMillis()/1000.0 * Math.PI)*0.5f+0.5f);
                     //leds.fillColor(new LEDs.RGBColor(f, 0f, 1f-f));
                     panneauService.getPanneau().setLeds(Panneau.LedColor.NOIR); //FIXME: On n'a pls de RGB, donc c'est soit jaune, soit bleu, soit rien du tuot (ou jaune et bleu à la limite)
