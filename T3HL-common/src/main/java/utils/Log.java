@@ -49,6 +49,10 @@ public enum Log
     // sorties standard
     STDOUT(true),
     STDERR(true, false),
+
+    // Debugger
+
+    DEBUGGER(true),
     ;
 
     /**
