@@ -23,13 +23,13 @@ public enum Sick {
 
     // sicks de l'année dernière à enlever au fur et à mesure
 
-    SICK_ARRIERE_DROIT(6, -1, 0, 0, 6),
-    SICK_ARRIERE_GAUCHE(6, -1, 0, 0, 6),
-    SICK_AVANT_DROIT(6, -1, 0, 0, 6),
-    SICK_AVANT_GAUCHE(6, -1, 0, 0, 6),
-    SICK_DROIT(6, -1, 0, 0, 6),
-    SICK_GAUCHE(6, -1, 0, 0, 6),
-    SICK_AVANT(6, -1, 0, 0, 6),
+    SICK_ARRIERE_DROIT(-1, -1, 0, 0, 6),
+    SICK_ARRIERE_GAUCHE(-1, -1, 0, 0, 6),
+    SICK_AVANT_DROIT(-1, -1, 0, 0, 6),
+    SICK_AVANT_GAUCHE(-1, -1, 0, 0, 6),
+    SICK_DROIT(-1, -1, 0, 0, 6),
+    SICK_GAUCHE(-1, -1, 0, 0, 6),
+    SICK_AVANT(-1, -1, 0, 0, 6),
 
 
     // Indices choisis avec le LL don't worry
@@ -38,6 +38,14 @@ public enum Sick {
     SICK_GAUCHE_PRINCIPAL(1, -1, 0, 0, 6),
     SICK_DROIT_PRINCIPAL(2, -1, 0, 0, 6),
     SICK_ARRIERE_DROIT_PRINCIPAL(3, -1,0,0,6),
+
+    SICK_AVANT_GAUCHE_SECONDAIRE(0, -1,0,0,6),
+    SICK_GAUCHE_SECONDAIRE(1, -1, 0, 0, 6),
+    SICK_DROIT_SECONDAIRE(2, -1, 0, 0, 6),
+    SICK_AVANT_DROIT_SECONDAIRE(3, -1,0,0,6),
+
+
+
     ;
 
     // =====================================================================
