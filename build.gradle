@@ -69,7 +69,7 @@ subprojects {
         implementation 'com.fazecast:jSerialComm:2.5.1'
         
         // Lib pour communiquer avec le panneau de score et de sélection de couleur sur le robot
-        implementation 'com.github.Club-INTech:PanneauRaspi:master-SNAPSHOT' // (jitpack) // TODO: remove -SNAPSHOT or replace lib
+        implementation 'com.github.Club-INTech:PanneauRaspi:master-SNAPSHOT' // (jitpack)
         
         // Lib qui gère la config du robot
         implementation 'com.github.Club-INTech:config:d190abd67e' // (jitpack)

@@ -1,10 +1,6 @@
 package data.controlers;
 
-import com.panneau.LEDs;
 import com.panneau.Panneau;
-import com.panneau.TooManyDigitsException;
-import com.pi4j.io.gpio.RaspiPin;
-import com.pi4j.io.i2c.I2CFactory;
 import pfg.config.Configurable;
 import utils.ConfigData;
 import utils.HLInstance;
@@ -27,7 +23,7 @@ public class PanneauModule implements Module {
     @Configurable
     private int ledProgramPort;
     @Configurable
-    private int ledCount;
+    private int ledCount; //TODO: inutilisé
     @Configurable
     private boolean using7Segments;
 
@@ -40,40 +36,37 @@ public class PanneauModule implements Module {
     }
 
     public Panneau getPanneau() {
-        if(panel == null) {
-            try {
-                panel = new Panneau(ledCount, ledProgramPort, RaspiPin.GPIO_07, using7Segments);
-                if(using7Segments) {
-                    Log.STRATEGY.debug("Appel au constructeur du panneau avec " + ledCount + " leds et l'ecran de score");
-                }else{
-                    Log.STRATEGY.debug("Appel au constructeur du panneau avec " + ledCount + " leds, sans l'ecran de score");
-                }
-                panel.addListener(teamColor -> {
-                    couleur=panel.getTeamColor().toString().toLowerCase();
-                    hl.getConfig().override(ConfigData.COULEUR, couleur);
-                    hl.updateConfig(hl.getConfig());
-                });
-                panel.getLeds().fillColor(LEDs.RGBColor.NOIR);
-            } catch (IOException | I2CFactory.UnsupportedBusNumberException e){
-                e.printStackTrace();
+        if (panel == null) {
+            panel = new Panneau(ledCount, ledProgramPort, using7Segments); //TODO: mauvaise signatire du constructeur
+            if (using7Segments) {
+                Log.STRATEGY.debug("Appel au constructeur du panneau avec " + ledCount + " leds et l'ecran de score");
+            } else {
+                Log.STRATEGY.debug("Appel au constructeur du panneau avec " + ledCount + " leds, sans l'ecran de score");
             }
+            panel.addListener(teamColor -> {
+                couleur = panel.getTeamColor().toString().toLowerCase();
+                hl.getConfig().override(ConfigData.COULEUR, couleur);
+                hl.updateConfig(hl.getConfig());
+            });
+            panel.setLeds(Panneau.LedColor.NOIR);
+
         }
         return panel;
     }
 
-    public String getCouleur(){
+    public String getCouleur() {
         return couleur;
     }
 
-    public void printScore(int score) throws IOException, TooManyDigitsException {
-        if(using7Segments){
+    public void printScore(int score) throws IOException {
+        if (using7Segments) {
             panel.printScore(score);
         }
     }
 
     @Override
     protected void finalize() throws Throwable {
-        panel.getLeds().fillColor(LEDs.RGBColor.NOIR);
+        panel.setLeds(Panneau.LedColor.NOIR);
         panel.printScore(8888);
         super.finalize();
     }

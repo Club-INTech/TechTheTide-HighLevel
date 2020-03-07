@@ -1,25 +1,24 @@
 /**
  * Copyright (c) 2018, INTech.
  * this file is part of INTech's HighLevel.
- *
+ * <p>
  * INTech's HighLevel is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
+ * <p>
  * INTech's HighLevel is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
+ * <p>
  * You should have received a copy of the GNU General Public License
  * along with it.  If not, see <http://www.gnu.org/licenses/>.
  **/
 
 package robot;
 
-import com.panneau.LEDs;
-import com.panneau.TooManyDigitsException;
+import com.panneau.Panneau;
 import connection.Connection;
 import data.*;
 import data.controlers.DataController;
@@ -59,10 +58,14 @@ import java.util.function.Consumer;
  */
 public abstract class Robot implements Module {
 
-    private static final LEDs.RGBColor BLACK = LEDs.RGBColor.NOIR;
-    private static final LEDs.RGBColor START_FOLLOW_PATH = LEDs.RGBColor.ROUGE;
-    private static final LEDs.RGBColor FOLLOW_PATH_REATTEMPT_EVEN = LEDs.RGBColor.BLEU;
-    private static final LEDs.RGBColor FOLLOW_PATH_REATTEMPT_ODD = LEDs.RGBColor.VERT;
+    //FIXME: Il est malheuresement impossible d'avoir une autre couleur que jaune ou bleu sur ca panneau
+    private static final Panneau.LedColor BLACK = Panneau.LedColor.NOIR;
+    //private static final Panneau.LedColor START_FOLLOW_PATH = Panneau.LedColor.ROUGE;
+    private static final Panneau.LedColor START_FOLLOW_PATH = Panneau.LedColor.NOIR;
+    //private static final Panneau.LedColor FOLLOW_PATH_REATTEMPT_EVEN = Panneau.LedColor.BLEU;
+    private static final Panneau.LedColor FOLLOW_PATH_REATTEMPT_EVEN = Panneau.LedColor.NOIR;
+    //private static final Panneau.LedColor FOLLOW_PATH_REATTEMPT_ODD = Panneau.LedColor.VERT;
+    private static final Panneau.LedColor FOLLOW_PATH_REATTEMPT_ODD = Panneau.LedColor.NOIR;
 
     /**
      * Module qui permet de communiquer avec le panneau de score et l'interrupteur pour la sélection de la couleur de jeu
@@ -75,7 +78,7 @@ public abstract class Robot implements Module {
      */
     private SimulatorDebug simulatorDebug;
 
-    public int score ;
+    public int score;
 
     /**
      * Module qui permet au robot de bouger
@@ -148,15 +151,10 @@ public abstract class Robot implements Module {
     public void increaseScore(int points) {
         this.score = this.score + points;
         if (master) {
-            try {
-                if (usingPanel && panneauService.getPanneau() != null) {
-                    this.panneauService.getPanneau().printScore(score);
-                }
-            } catch (TooManyDigitsException | IOException e) {
-                e.printStackTrace();
+            if (usingPanel && panneauService.getPanneau() != null) {
+                this.panneauService.getPanneau().printScore(score);
             }
-        }
-        else{
+        } else {
             try {
                 hl.module(SynchronizationWithBuddy.class).increaseScore(points);
             } catch (ContainerException e) {
@@ -225,11 +223,11 @@ public abstract class Robot implements Module {
     public void followPathTo(Vec2 point, int maxRetries) throws UnableToMoveException, TimeoutError {
         try {
             debugLeds(START_FOLLOW_PATH);
-            if(maxRetries == -1) {
+            if (maxRetries == -1) {
                 int counter = 0;
                 while (true) {
                     UnableToMoveException e = attemptToGoto(point);
-                    if(e == null) { // on a réussi
+                    if (e == null) { // on a réussi
                         break;
                     }
                     if (counter % 2 == 0) {
@@ -246,12 +244,12 @@ public abstract class Robot implements Module {
                 }
             } else {
                 UnableToMoveException lastException = null;
-                for (int i = 0; i < maxRetries+1; i++) {
+                for (int i = 0; i < maxRetries + 1; i++) {
                     lastException = attemptToGoto(point);
-                    if(lastException == null) { // on a réussi
+                    if (lastException == null) { // on a réussi
                         return;
                     }
-                    if(i % 2 == 0) {
+                    if (i % 2 == 0) {
                         debugLeds(FOLLOW_PATH_REATTEMPT_EVEN);
                     } else {
                         debugLeds(FOLLOW_PATH_REATTEMPT_ODD);
@@ -269,11 +267,10 @@ public abstract class Robot implements Module {
         }
     }
 
-    private void debugLeds(LEDs.RGBColor color) {
-        if(usingPanel) {
-            if(panneauService.getPanneau() != null && panneauService.getPanneau().getLeds() != null) {
-                LEDs leds = panneauService.getPanneau().getLeds();
-                leds.fillColor(color);
+    private void debugLeds(Panneau.LedColor color) {
+        if (usingPanel) {
+            if (panneauService.getPanneau() != null) {
+                panneauService.getPanneau().setLeds(color);
             }
         }
     }
@@ -310,17 +307,17 @@ public abstract class Robot implements Module {
      */
     public void softGoTo(Vec2 point, boolean expectingWallImpact) throws UnableToMoveException {
         this.turnToPoint(point);
-        this.moveLengthwise((int)Math.round(point.distanceTo(XYO.getRobotInstance().getPosition())), expectingWallImpact);
+        this.moveLengthwise((int) Math.round(point.distanceTo(XYO.getRobotInstance().getPosition())), expectingWallImpact);
     }
 
     //Permet d'attrapper un gobelet avec sa couleur et sa position
 
     // Pas testé !!!
 
-     public void catchVerre(Vec2 positionVerre, boolean couloir) {   //true = droite
+    public void catchVerre(Vec2 positionVerre, boolean couloir) {   //true = droite
         int xRobot = XYO.getRobotInstance().getPosition().getX() + 1500;
         int yRobot = XYO.getRobotInstance().getPosition().getY();
-        int xVerre = positionVerre.getX()+1500;
+        int xVerre = positionVerre.getX() + 1500;
         int yVerre = positionVerre.getY();
         int d = 50;
         double xa = xVerre - xRobot;
@@ -328,56 +325,54 @@ public abstract class Robot implements Module {
         double xb;
         double yb;
 
-        if(xa == 0){
+        if (xa == 0) {
             xb = 1;
             yb = 0;
         }
 
-        if(ya == 0){
+        if (ya == 0) {
             xb = 0;
             yb = 1;
+        } else {
+            double a = 1 / ((Math.pow(ya, 2) / Math.pow(xa, 2)) + 1);
+            yb = Math.pow(a, 0.5);
+            xb = Math.pow(1 - a, 0.5);
         }
 
-        else{
-            double a = 1/((Math.pow(ya,2)/Math.pow(xa,2))+1);
-            yb = Math.pow(a,0.5);
-            xb = Math.pow(1-a,0.5);
-        }
-
-        if(couloir){
-            if(xa <= 0){
-                if(ya>0) {
+        if (couloir) {
+            if (xa <= 0) {
+                if (ya > 0) {
                     xb = -xb;
                 }
                 yb = -yb;
             }
-            if(xa>0){
-                if(ya>0) {
+            if (xa > 0) {
+                if (ya > 0) {
                     xb = -xb;
                 }
             }
         }
-        if(!couloir){
-            if(xa <= 0){
-                if(ya>0) {
+        if (!couloir) {
+            if (xa <= 0) {
+                if (ya > 0) {
                     yb = -yb;
                 }
                 xb = -xb;
             }
-            if(xa>0){
-                if(ya>0) {
+            if (xa > 0) {
+                if (ya > 0) {
                     yb = -yb;
                 }
             }
         }
-        Vec2 point = new VectCartesian(xVerre + xb*d, yVerre + yb*d);
-         try {
-             turnToPoint(point);
-             moveLengthwise((int) Math.pow(Math.pow(xRobot -(xVerre + xb*d),2) + Math.pow(yRobot - (yVerre + yb*d),2),0.5),false);
-         } catch (UnableToMoveException e) {
-             e.printStackTrace();
-         }
-     }
+        Vec2 point = new VectCartesian(xVerre + xb * d, yVerre + yb * d);
+        try {
+            turnToPoint(point);
+            moveLengthwise((int) Math.pow(Math.pow(xRobot - (xVerre + xb * d), 2) + Math.pow(yRobot - (yVerre + yb * d), 2), 0.5), false);
+        } catch (UnableToMoveException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Permet au robot d'avancer/recluer en ligne droite
@@ -439,9 +434,9 @@ public abstract class Robot implements Module {
     /**
      * MECA >>>>>>>>>>> SICKS (recalage mecanique sur une distance à spécifier)
      */
-    public void recalageMeca(boolean avant,int distReculeAbsolu) {
+    public void recalageMeca(boolean avant, int distReculeAbsolu) {
         this.disableRotation();
-        distReculeAbsolu=Math.abs(distReculeAbsolu);
+        distReculeAbsolu = Math.abs(distReculeAbsolu);
         try {
             this.setTranslationSpeed(Speed.SLOW_ALL);
             if (avant) {
@@ -465,7 +460,7 @@ public abstract class Robot implements Module {
     /**
      * Recalage LiDAR (par rapport aux 3 balises)
      */
-    public void recalageLidar(){
+    public void recalageLidar() {
         SensorState.RECALAGE_LIDAR_EN_COURS.setData(true);
         try {
             Connection.LIDAR_DATA.send(""); //Envoie d'une requête pour avoir des données brutes
@@ -533,8 +528,8 @@ public abstract class Robot implements Module {
     /**
      * Méthode qui permet le recalage avec les sicks
      */
-    public void computeNewPositionAndOrientation(Sick[] significantSicks){
-        if(simulation) {
+    public void computeNewPositionAndOrientation(Sick[] significantSicks) {
+        if (simulation) {
             return;
         }
         System.out.println(" JE CROIS ETRE ICI : " + " Position =" + XYO.getRobotInstance().getPosition() + " orientation =" + XYO.getRobotInstance().getOrientation());
@@ -543,14 +538,14 @@ public abstract class Robot implements Module {
         Sick.setSignificantSicks(significantSicks);
         this.orderWrapper.getSickData();
         XYO newXYO = Sick.getNewXYO();
-        if (significantSicks == Sick.NOTHING){
+        if (significantSicks == Sick.NOTHING) {
             return;
         }
 
         // remplacement de la position dans le HL
         XYO.getRobotInstance().update(newXYO.getPosition().getX(), newXYO.getPosition().getY(), newXYO.getOrientation());
 
-        Log.LOCOMOTION.debug("New position with SICKs: "+newXYO);
+        Log.LOCOMOTION.debug("New position with SICKs: " + newXYO);
         // remplacement de la position dans le LL
         this.orderWrapper.setPositionAndOrientation(newXYO.getPosition(), newXYO.getOrientation());
     }
@@ -560,17 +555,18 @@ public abstract class Robot implements Module {
      */
     public void switchToMontlheryMode() {
         this.orderWrapper.sendString(MontlheryOrders.Montlhery.toLL());
-        this.orderWrapper.sendString(MontlheryOrders.MaxRotationSpeed.toLL()+" "+Math.PI/4f);
-        this.orderWrapper.sendString(MontlheryOrders.MaxTranslationSpeed.toLL()+" 180");
+        this.orderWrapper.sendString(MontlheryOrders.MaxRotationSpeed.toLL() + " " + Math.PI / 4f);
+        this.orderWrapper.sendString(MontlheryOrders.MaxTranslationSpeed.toLL() + " 180");
     }
 
     // Gestion des ascenseurs
+
     /**
      * Renvoie le nombre de palets dans l'ascenseur de droite
      * @return
      */
     public int getNbPaletsGauches() {
-        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
+        if (master && symetry()) { // le secondaire ne fait pas de symétrie ici
             return getNbPaletsDroitsNoSymetry();
         } else {
             return getNbPaletsGauchesNoSymetry();
@@ -582,7 +578,7 @@ public abstract class Robot implements Module {
      * @return
      */
     public int getNbPaletsDroits() {
-        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
+        if (master && symetry()) { // le secondaire ne fait pas de symétrie ici
             return getNbPaletsGauchesNoSymetry();
         } else {
             return getNbPaletsDroitsNoSymetry();
@@ -625,9 +621,9 @@ public abstract class Robot implements Module {
      * Envoie une mise à jour de la liste de palets au simulateur si jamais il est connecté
      */
     private void sendElevatorUpdate() {
-        if(leftElevator != null)
+        if (leftElevator != null)
             simulatorDebug.sendElevatorContents(RobotSide.LEFT, leftElevator);
-        if(rightElevator != null)
+        if (rightElevator != null)
             simulatorDebug.sendElevatorContents(RobotSide.RIGHT, rightElevator);
     }
 
@@ -635,12 +631,12 @@ public abstract class Robot implements Module {
      * Envoie une mise à jour de l'état des couloirs au simulateur si jamais il est connecté
      */
 
-    private void sendCouloirUpdate(){
-        simulatorDebug.sendCouloirContents(RobotSide.LEFT,leftCouloir);
-        simulatorDebug.sendCouloirContents(RobotSide.RIGHT,rightCouloir);
+    private void sendCouloirUpdate() {
+        simulatorDebug.sendCouloirContents(RobotSide.LEFT, leftCouloir);
+        simulatorDebug.sendCouloirContents(RobotSide.RIGHT, rightCouloir);
     }
 
-    private void sendLighthouseUpdate(){
+    private void sendLighthouseUpdate() {
         simulatorDebug.sendLighthouseContents(lighthouse);
     }
 
@@ -651,7 +647,7 @@ public abstract class Robot implements Module {
 
     public void pushCouloirDroit(CouleurVerre verre) {
 
-        if(symetry()) {
+        if (symetry()) {
             pushCouloirGaucheNoSymetry(verre);
         } else {
             pushCouloirDroitNoSymetry(verre);
@@ -662,21 +658,21 @@ public abstract class Robot implements Module {
      * Ajoute un verre dans le couloir de gauche
      */
     public void pushCouloirGauche(CouleurVerre verre) {
-        if(symetry()) {
+        if (symetry()) {
             pushCouloirDroitNoSymetry(verre);
         } else {
             pushCouloirGaucheNoSymetry(verre);
         }
     }
 
-    public void emptyBothCouloirs(){
+    public void emptyBothCouloirs() {
         emptyCouloirDroit();
         emptyCouloirGauche();
     }
 
     public void emptyCouloirDroit() {
 
-        if(symetry()) {
+        if (symetry()) {
             emptyCouloirGaucheNoSymetry();
         } else {
             emptyCouloirDroitNoSymetry();
@@ -685,19 +681,19 @@ public abstract class Robot implements Module {
 
     public void emptyCouloirGauche() {
 
-        if(symetry()) {
+        if (symetry()) {
             emptyCouloirDroitNoSymetry();
         } else {
             emptyCouloirGaucheNoSymetry();
         }
     }
 
-    public void emptyCouloirDroitNoSymetry(){
+    public void emptyCouloirDroitNoSymetry() {
         rightCouloir.clear();
         sendCouloirUpdate();
     }
 
-    public void emptyCouloirGaucheNoSymetry(){
+    public void emptyCouloirGaucheNoSymetry() {
         leftCouloir.clear();
         sendCouloirUpdate();
     }
@@ -722,29 +718,29 @@ public abstract class Robot implements Module {
     /** Valide le Phare
      * */
 
-     public void validateLighthouse(){
-         lighthouse=true;
-         if(simulatorDebug!=null){
-             simulatorDebug.sendLighthouseContents(true);
-         }
-     }
+    public void validateLighthouse() {
+        lighthouse = true;
+        if (simulatorDebug != null) {
+            simulatorDebug.sendLighthouseContents(true);
+        }
+    }
 
-     public boolean getLighthouse(){
-         return lighthouse;
-     }
+    public boolean getLighthouse() {
+        return lighthouse;
+    }
 
     /**
      * Valide les manches à air
      */
-    public void validateWindsocks(int state){
+    public void validateWindsocks(int state) {
         windsocks = state;
-        if(simulatorDebug!=null){
+        if (simulatorDebug != null) {
             simulatorDebug.sendWindsocksContents(windsocks);
         }
     }
 
-    public int getWindsocks(){
-        return  windsocks;
+    public int getWindsocks() {
+        return windsocks;
     }
 
 
@@ -754,11 +750,11 @@ public abstract class Robot implements Module {
      */
     public void pushPaletDroit(CouleurPalet palet) {
 
-        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
-           pushPaletGaucheNoSymetry(palet);
-       } else {
-           pushPaletDroitNoSymetry(palet);
-       }
+        if (master && symetry()) { // le secondaire ne fait pas de symétrie ici
+            pushPaletGaucheNoSymetry(palet);
+        } else {
+            pushPaletDroitNoSymetry(palet);
+        }
     }
 
     /**
@@ -766,7 +762,7 @@ public abstract class Robot implements Module {
      * @throws NullPointerException si l'ascenseur n'existe pas
      */
     public void pushPaletGauche(CouleurPalet palet) {
-        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
+        if (master && symetry()) { // le secondaire ne fait pas de symétrie ici
             pushPaletDroitNoSymetry(palet);
         } else {
             pushPaletGaucheNoSymetry(palet);
@@ -798,7 +794,7 @@ public abstract class Robot implements Module {
      * @throws NullPointerException si l'ascenseur n'existe pas
      */
     public CouleurPalet popPaletDroit() {
-        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
+        if (master && symetry()) { // le secondaire ne fait pas de symétrie ici
             return popPaletGaucheNoSymetry();
         } else {
             return popPaletDroitNoSymetry();
@@ -810,7 +806,7 @@ public abstract class Robot implements Module {
      * @throws NullPointerException si l'ascenseur n'existe pas
      */
     public CouleurPalet popPaletGauche() {
-        if(master && symetry()) { // le secondaire ne fait pas de symétrie ici
+        if (master && symetry()) { // le secondaire ne fait pas de symétrie ici
             return popPaletDroitNoSymetry();
         } else {
             return popPaletGaucheNoSymetry();
@@ -862,7 +858,7 @@ public abstract class Robot implements Module {
      * Renvoies l'ascenseur de gauche, ou 'null' s'il n'existe pas
      */
     public Stack<CouleurPalet> getLeftElevatorOrNull() {
-        if(master && symetry()) {
+        if (master && symetry()) {
             return rightElevator;
         } else {
             return leftElevator;
@@ -873,7 +869,7 @@ public abstract class Robot implements Module {
      * Renvoies l'ascenseur de droite, ou 'null' s'il n'existe pas
      */
     public Stack<CouleurPalet> getRightElevatorOrNull() {
-        if(master && symetry()) {
+        if (master && symetry()) {
             return leftElevator;
         } else {
             return rightElevator;
@@ -884,7 +880,7 @@ public abstract class Robot implements Module {
      * Renvoies le couloir de gauche
      */
     public Stack<CouleurVerre> getLeftCouloir() {
-        if(master && symetry()) {
+        if (master && symetry()) {
             return rightCouloir;
         } else {
             return leftCouloir;
@@ -895,13 +891,15 @@ public abstract class Robot implements Module {
      * Renvoies le couloir de droite
      */
     public Stack<CouleurVerre> getRightCouloir() {
-        if(master && symetry()) {
+        if (master && symetry()) {
             return leftCouloir;
         } else {
             return rightCouloir;
         }
     }
 
-    public XYO getXyo() { return this.xyo;}
+    public XYO getXyo() {
+        return this.xyo;
+    }
 
 }
