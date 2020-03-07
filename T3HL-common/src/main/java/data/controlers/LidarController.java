@@ -161,14 +161,15 @@ public class LidarController implements Module {
             obstacleCenter.setA(Calculs.modulo(obstacleCenter.getA() + currentXYO.getOrientation(), Math.PI));
             obstacleCenter.plus(currentXYO.getPosition());
 
-            // on ajoute l'obstacle que s'il est dans la table et qu'il est pas dans les rampes
-            if(tableBB.isInShape(obstacleCenter) && !table.isPositionInBalance(obstacleCenter)) {
+            // on ajoute l'obstacle que s'il est dans la table
+            if(tableBB.isInShape(obstacleCenter)) {
                 // signes différents, on est de deux côtés de la table différents
                 if(SensorState.DISABLE_ENNEMIES_OTHER_SIDE.getData() && obstacleCenter.getX() * currentXYO.getPosition().getX() <= 0) {
                     // Log.LIDAR.warning("On ignore l'ennemi à "+obstacleCenter+" parce qu'on a désactivé les ennemis de l'autre côté de la table");
                     continue;
                 }
                 mobileObstacles.add(obstacleCenter);
+                Log.LIDAR.warning("Ennemi detection at " + obstacleCenter);
             }
         }
         table.updateMobileObstacles(mobileObstacles);
