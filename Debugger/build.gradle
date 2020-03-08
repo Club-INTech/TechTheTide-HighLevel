@@ -2,7 +2,7 @@ archivesBaseName = "debugger"
 
 dependencies {
     implementation project(":T3HL-common")
-    implementation project(":T3HL-simulator")
     implementation project (":T3HL-slave")
     implementation project (":T3HL-master")
+    implementation project (":T3HL-simulator")
 }

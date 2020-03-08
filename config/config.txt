@@ -19,7 +19,7 @@ SIMULATION                          =false
 USING_BALISE_IMAGE                  =false
 CONNECT_TO_BUDDY                    =false
 
-MODE_MONTHLERY                      =false
+MODE_MONTHLERY                      =true
 OPEN_THE_GATE                       =false
 
 

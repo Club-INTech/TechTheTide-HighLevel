@@ -94,9 +94,16 @@ public class MontlheryController extends Thread implements Module {
                     wasRightTriggerPressed = rightTriggerPressed;
 
                     boolean moving = false;
+
+                    if (epsilonCheck(leftAxisY) && epsilonCheck(rightAxisX)) {
+                        if (leftAxisY >0 && rightAxisX >0 ) {
+                            order(MontlheryOrders.GoForward);
+                            order(MontlheryOrders.Right);
+                        }
+                    }
+
                     if(epsilonCheck(leftAxisY)) {
-                        float forward = leftAxisY;
-                        if(forward > 0) {
+                        if(leftAxisY > 0) {
                             order(MontlheryOrders.GoForward);
                         } else {
                             order(MontlheryOrders.GoBackwards);
@@ -109,21 +116,13 @@ public class MontlheryController extends Thread implements Module {
                     }
 
                     if(epsilonCheck(rightAxisX)) {
+                            if(rightAxisX > 0) {
+                                order(MontlheryOrders.Right);
+                            } else {
+                                order(MontlheryOrders.Left);
+                            }
                         moving = true;
                         rotating = true;
-                        if(rightAxisX < 0) {
-                            if(leftAxisY > 0) {
-                                order(MontlheryOrders.Left);
-                            } else {
-                                order(MontlheryOrders.Right);
-                            }
-                        } else {
-                            if(leftAxisY > 0) {
-                                order(MontlheryOrders.Right);
-                            } else {
-                                order(MontlheryOrders.Left);
-                            }
-                        }
                     } else if(rotating) {
                         order(MontlheryOrders.StopRotation);
                         rotating = false;

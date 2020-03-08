@@ -1,2 +1,2 @@
 rootProject.name = 'T3HL'
-include 'T3HL-master', 'T3HL-common', 'T3HL-slave', 'T3HL-simulator', 'check-orders', "T3HL-debugger"
+include 'T3HL-master', 'T3HL-common', 'T3HL-slave', 'T3HL-simulator', 'check-orders', 'Debugger'

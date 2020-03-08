@@ -2,9 +2,8 @@ package graphique;
 
 import data.table.MobileCircularObstacle;
 import data.table.Obstacle;
-import simulator.IRobot;
 import utils.Log;
-
+import simulator.IRobot;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
