@@ -109,8 +109,8 @@ public class MainMaster extends RobotEntryPoint implements Offsets {
 
         try {
             Match match = hl.module(Match.class);
-            robot.setPositionAndOrientation(match.entryPosition(0), 0.0);
-            orderWrapper.waitJumper();
+            robot.setPositionAndOrientation(match.entryPosition(0), -Math.PI/2);
+            //orderWrapper.waitJumper(); Fix Me
             match.execute();
         } catch (ContainerException e) {
             e.printStackTrace();

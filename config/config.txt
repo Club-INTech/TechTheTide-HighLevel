@@ -29,7 +29,7 @@ OPEN_THE_GATE                       =false
 MASTER                              = true
 
 USING_PANEL                         = false
-USING_LIDAR			                = true
+USING_LIDAR			                = false
 LED_COUNT			                = 16
 HOMOLOGATION                        = false
 

@@ -52,17 +52,61 @@ public class ScriptPrincipalBasique extends Script {
         });
 
         try {
+            System.out.println(robot.getXyo());
+
+            turnTowards(-Math.PI/2);
+            moveLengthwise(632-455,false);
+
+            turnTowards(0);
+            moveLengthwise(450-206-10,false);
+
+            turnTowards(-Math.PI/2);
+            moveLengthwise(455-170,false);
+
+            turnTowards(0);
+            moveLengthwise(1025-450,false);
+
+            turnTowards(Math.PI/2);
+            moveLengthwise(1400-170,false);
+
+            turnTowards(0);
+            moveLengthwise(1800-1025,false);
 
 
-            Vec2 positionVerre6 = new VectCartesian(1270, 1200);
+            turnTowards(Math.PI/2);
+            moveLengthwise(1800-1400,false);
+
+            moveLengthwise(1140-1800,false);
+
+            turnTowards(Math.PI);
+            moveLengthwise(1800-200,false);
+
+            turnTowards(Math.PI/2);
+            moveLengthwise(1140-170,false);
+
+            turnTowards(Math.PI);
+            moveLengthwise(200-150,false);
+            moveLengthwise(150-740,false);
+
+            System.out.println(robot.getXyo());
+
+
+            /*
+            Vec2 depart = new VectCartesian(300, 510);
+
+
+
+            //robot.followPathTo(depart);
 
             //catchVerre(positionVerre6,true);
 
             //Portes ouvertes à 135 degrés
 
-            perform(ActuatorsOrders.ValvePOff);
+            //perform(ActuatorsOrders.ValvePOff);
+
+
             turnTowards(-0.63);
-            moveLengthwise(186,false);
+            moveLengthwise(186+218,false);
             robot.pushCouloirDroit(CouleurVerre.VERT);
             robot.pushCouloirGauche(CouleurVerre.ROUGE);
 
@@ -71,32 +115,38 @@ public class ScriptPrincipalBasique extends Script {
 
             //Portes ouvertes à 90 degrés
 
+            //Verre 1 (Vert)
 
             turnTowards(-Math.PI/2);
-            moveLengthwise(260,false);
+            moveLengthwise(200,false);
             perform(ActuatorsOrders.LiftDown);
             perform(ActuatorsOrders.PumpPOn);
             perform(ActuatorsOrders.LiftUp);
             turnTowards(0);
-            moveLengthwise(350,false);
+            //350
+            moveLengthwise(380,false);
             robot.pushCouloirDroit(CouleurVerre.VERT);
-            turnTowards(0.88);
+            //0.88
+            turnTowards(Math.PI/4);
 
 
 
 
             //Portes ouvertes à 135 degrés
+            //426
 
-            moveLengthwise(426,false);
+            moveLengthwise(226,false);
             robot.pushCouloirGauche(CouleurVerre.ROUGE);
             turnTowards(Math.PI/2);
-            moveLengthwise(430,false);
+
+            //430
+            moveLengthwise(350,false);
             robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(0.96);
             moveLengthwise(488,false);
             robot.pushCouloirGauche(CouleurVerre.ROUGE);
-            turnTowards(0);
-            moveLengthwise(450,false);
+            turnTowards(Math.PI/10);
+            moveLengthwise(530,false);
             robot.pushCouloirDroit(CouleurVerre.VERT);
             turnTowards(Math.PI/2);
             robot.pushCouloirGauche(CouleurVerre.ROUGE);
@@ -147,7 +197,7 @@ public class ScriptPrincipalBasique extends Script {
             //Lire girouette
             //System.out.print(robot.score);
 
-
+*/
 
         } catch (UnableToMoveException e) {
             e.printStackTrace();
@@ -155,7 +205,7 @@ public class ScriptPrincipalBasique extends Script {
     }
 
     @Override
-    public Vec2 entryPosition(int version) { return new VectCartesian(300,510); }
+    public Vec2 entryPosition(int version) { return new VectCartesian(206,636); }
 
     @Override
     public void finalize(Exception e) {

@@ -263,6 +263,33 @@ public class GraphicalInterface extends JFrame {
     }
 
 
+    /**Projet info
+     */
+    /*
+    private void drawGoalsRealisation(Graphics g,IRobot simulatedRobot,int index,boolean espaceStockage, String nomsEspacesStockage, int stockageMax, int nbActions){
+        g.setColor(Color.BLACK);
+
+        int totalEspaceStockageHeight = 100;
+        int baseY = totalEspaceStockageHeight*index;
+        int margin = 10;
+        int baseX = TABLE_PIXEL_WIDTH + margin;
+        int textHeight = g.getFontMetrics().getHeight();
+        g.drawString("Robot(port="+simulatedRobot.getPort()+")", baseX, baseY+textHeight);
+
+        if (espaceStockage){
+            String[] noms = nomsEspacesStockage.split(",");
+            for(String stockage : noms){
+                g.setColor(Color.BLACK);
+                List<CouleurObject> espace = simulatedRobot.getEspace(stockage);
+                if(espace == null)
+                    continue;
+                int objectHeight = totalEspaceStockageHeight / stockageMax;
+            }
+        }
+    }
+    */
+
+
     // en cours de construction
     private void drawCouloirs(Graphics g, IRobot simulatedRobot,int index){
         g.setColor(Color.BLACK);
