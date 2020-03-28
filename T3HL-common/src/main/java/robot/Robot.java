@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with it.  If not, see <http://www.gnu.org/licenses/>.
  **/
+//C'est raph qui vous parle si vous arrivez à lire ça, ça voudra dire qu'on a plus d'excuse pour rien branler dans ce projet info
 
 package robot;
 
