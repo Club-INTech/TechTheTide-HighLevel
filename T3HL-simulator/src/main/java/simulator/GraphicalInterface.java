@@ -264,6 +264,13 @@ public class GraphicalInterface extends JFrame {
 
 
     /**Projet info
+     *
+     * La fonction à laquelle j'avais pensé c'est drawGoalsRealisation
+     * boolean espaceStockage correspond à si on fait du stockage cet année
+     * String nomsEspacesStockage explicite ex: Couloir,Elevator...
+     * int stockageMax ombien on a d'element au max
+     * int nbActions combien on réalise d'action annexes du style relever les manche à air pour savoir combien on met de voyants qui passent de rouge à vert
+     * quand l'action est validéé
      */
     /*
     private void drawGoalsRealisation(Graphics g,IRobot simulatedRobot,int index,boolean espaceStockage, String nomsEspacesStockage, int stockageMax, int nbActions){
