@@ -9,7 +9,7 @@ package LogRegex;
  import java.util.regex.Pattern;
 
  // @author AznekEnimsay (yam)
-// last modification 08/03/20
+// last modification 13/03/20
 
 public class Regex {
 
@@ -59,13 +59,13 @@ public class Regex {
                 } else if (mlogLidarProcess.find()) {
                     RegexLidar.regexLidar(log);
                 } else if (mlogPosition.find()) {
-
+                    //A voir
                 } else if (mlogLLDebug.find()) {
-
+                    //A voir
                 } else if (mlogDynamixel.find()) {
                     RegexActionsMeca.regexActions(log);
                 } else if (mlogCommunication.find()) {
-
+                    //Comm buddy ou NUC ?
                 }
 
             } catch (Exception e) {
