@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.Double;
 
-public class TableJeu extends JPanel {
+public class TableVisualisation extends JPanel {
 
     //TODO: changer le chemin de l'image (ide qui comprend pas le chemin raccourci)
 
@@ -59,7 +59,9 @@ public class TableJeu extends JPanel {
 
         /**Affichage des gobelets rouges**/
 
-        /**Afficahge des gobelets verts
+
+
+        /**Affichage des gobelets verts**/
 
 
 

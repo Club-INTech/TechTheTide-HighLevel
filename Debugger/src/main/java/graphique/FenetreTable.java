@@ -3,14 +3,14 @@ package graphique;
 import javax.swing.*;
 import java.awt.*;
 
-public class Fenetre extends JFrame{
+public class FenetreTable extends JFrame{
 
     //TODO: voir pourquoi le chemin entier est necessaire
 
     String FileImageRobot = "/home/yasmine/TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/bouee_SailTheWorld.png";
-    private TableJeu robot = new TableJeu();
+    private TableVisualisation robot = new TableVisualisation();
 
-    public Fenetre () {
+    public FenetreTable() {
         setTitle("Debugger : Table de Jeu");
         setSize(802, 538);
         setLocationRelativeTo(null);
@@ -21,7 +21,7 @@ public class Fenetre extends JFrame{
         // Mise en place de la table de jeu
         setContentPane(robot);
         setVisible(true);
-        go();
+        Robot.go(robot);
 
         // Pour personnaliser l'icone de la fenêtre
         Image icone = Toolkit.getDefaultToolkit().getImage(FileImageRobot);
@@ -29,21 +29,6 @@ public class Fenetre extends JFrame{
 
     }
 
-        private void go() {
-            for(int i = 31; i < robot.getWidth(); i++){
-                int x = robot.getPosX(), y = robot.getPosY();
-                x++;
-                y--;
-                robot.setPosX(x);
-                robot.setPosY(y);
-                robot.repaint();
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+
     }
 
-
-}
