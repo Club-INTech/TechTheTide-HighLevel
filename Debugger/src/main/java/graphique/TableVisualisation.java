@@ -6,17 +6,27 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.Double;
+import java.util.ArrayList;
 
 public class TableVisualisation extends JPanel {
 
     //TODO: changer le chemin de l'image (ide qui comprend pas le chemin raccourci)
 
-    String FileTableImage = "/home/yasmine/TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
+    String FileTableImage = "/home/jasmin/Documents/Intech/TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
 
     //Mise à jour de la position du robot
 
+
     private int posX = 31;
     private int posY = 445;
+    Ennemi en1 = new Ennemi(60, 180);
+    Ennemi en2 = new Ennemi(380, 400);
+    private ArrayList< Ennemi> listEnnemis = new ArrayList<>();
+    private int i = 1;
+
+    public void addEnnemi(Ennemi ennemi){
+        this.listEnnemis.add(ennemi);
+    }
 
     public int getPosX() {
         return posX;
@@ -35,6 +45,12 @@ public class TableVisualisation extends JPanel {
     }
 
     public void paintComponent(Graphics g){
+        if (i >= 1){
+            listEnnemis.add(en1);
+            listEnnemis.add(en2);
+            i--;
+        }
+
 
         /**DESSIN DE LA TABLE DE JEU**/
 
@@ -64,6 +80,25 @@ public class TableVisualisation extends JPanel {
         /**Affichage des gobelets verts**/
 
 
+        /**Affichage des enemis**/
+
+        g.setColor(Color.red);
+
+        ArrayList< Ennemi> listEnnemisPrec = new ArrayList<>();
+        for (Ennemi ennemi : listEnnemis) {
+            listEnnemisPrec.add(ennemi);
+        }
+
+        if (listEnnemis.size() >= 1) {
+            for (Ennemi ennemi : listEnnemisPrec) {
+                g.fillOval(ennemi.getPosX(), ennemi.getPosY(), 25, 25);
+                ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
+                if (ennemi.timeLeft <= 0) {
+                    listEnnemis.remove(0);
+                }
+
+            }
+        }
 
 
       /**  Font font = new Font("Liberation", Font.PLAIN, 30);
