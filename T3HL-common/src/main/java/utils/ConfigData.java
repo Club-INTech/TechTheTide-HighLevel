@@ -121,6 +121,8 @@ public interface ConfigData
     ConfigInfo<Integer> HL_MASTER_SIMULATEUR = new BaseConfigInfo<>(20002, Integer.TYPE);
     ConfigInfo<Integer> DEBUG_SIMULATEUR_PORT = new BaseConfigInfo<>(19999, Integer.TYPE);
 
+    ConfigInfo<Integer> CYLINDER_DETECTION_PORT = new BaseConfigInfo<>(18000, Integer.TYPE);
+
     ConfigInfo<Boolean> MODE_MONTHLERY = new BaseConfigInfo<>(false, Boolean.TYPE);
     ConfigInfo<Boolean> OPEN_THE_GATE = new BaseConfigInfo<>(false, Boolean.TYPE);
 //    ConfigInfo<Boolean> ZONE_CHAOS_TEST = new BaseConfigInfo<>(true, Boolean.TYPE);
@@ -132,6 +134,7 @@ public interface ConfigData
     ConfigInfo<Integer> LED_COUNT = new BaseConfigInfo<>(16, Integer.TYPE);
     ConfigInfo<Integer> LED_PROGRAM_PORT = new BaseConfigInfo<>(19500, Integer.TYPE);
     ConfigInfo<Boolean> USING_7_SEGMENTS = new BaseConfigInfo<>(true, Boolean.TYPE);
+    ConfigInfo<Boolean> USING_CYLINDER_DETECTION = new BaseConfigInfo<>(false, Boolean.TYPE);
 
     /**
      * Timings

@@ -54,6 +54,8 @@ public enum Connection {
 
     BALISE_IMAGE(ConfigData.BALISE_IP,ConfigData.BALISE_PORT,SocketClientInterface.class),
     BALISE_IA(ConfigData.BALISE_IP,ConfigData.IA_PORT,SocketClientInterface.class),
+
+    CYLINDER_DETECTION(ConfigData.LOCALHOST, ConfigData.CYLINDER_DETECTION_PORT, SocketClientInterface.class),
     ;
 
     /**
