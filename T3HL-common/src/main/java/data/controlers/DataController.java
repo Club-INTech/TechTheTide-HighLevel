@@ -147,7 +147,7 @@ public class DataController extends ModuleThread {
 
     private void handleConfig(String config) {
         hl.getConfig().override(ConfigData.CONFIG_ECUEIL, config);
-        Log.COMMUNICATION.debug("Configuration de l'ecueil commun :" + config);
+        Log.COMMUNICATION.debug("Configuration de l'ecueil commun : " + config);
     }
 
     /**
