@@ -45,11 +45,6 @@ public class TableVisualisation extends JPanel {
     }
 
     public void paintComponent(Graphics g){
-        if (i >= 1){
-            listEnnemis.add(en1);
-            listEnnemis.add(en2);
-            i--;
-        }
 
 
         /**DESSIN DE LA TABLE DE JEU**/
@@ -81,7 +76,6 @@ public class TableVisualisation extends JPanel {
 
 
         /**Affichage des enemis**/
-
         g.setColor(Color.red);
 
         ArrayList< Ennemi> listEnnemisPrec = new ArrayList<>();

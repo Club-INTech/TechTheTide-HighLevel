@@ -8,6 +8,8 @@ package LogRegex;
  import java.util.regex.Matcher;
  import java.util.regex.Pattern;
 
+ import graphique.*;
+
  // @author AznekEnimsay (yam)
 // last modification 13/03/20
 
@@ -15,6 +17,10 @@ public class Regex {
 
 
     static public void regex (String logFile) throws IOException {
+
+
+
+        FenetreTable debug = new FenetreTable();
 
         String Locomotion = "LOCOMOTION";
         String Orders = "ORDERS";
@@ -31,7 +37,7 @@ public class Regex {
         /* read log line by line */
         while ((log = br.readLine()) != null) {
             try {
-
+//                System.out.println(log);
                 Pattern logLocomotion = Pattern.compile(Locomotion);
                 Pattern logOrders = Pattern.compile(Orders);
                 Pattern logLidar = Pattern.compile(Lidar);
@@ -52,18 +58,20 @@ public class Regex {
 
                 if (mlogLocomotion.find()) {
                     RegexDeplacement.regexDeplacement(log);
+
                 } else if (mlogOrders.find()) {
-                    RegexActionsMeca.regexActions(log);
+                    RegexActionsMeca.regexActions(log, debug);
+
                 } else if (mlogLidar.find()) {
-                    RegexLidar.regexLidar(log);
+                    RegexLidar.regexLidar(log, debug);
                 } else if (mlogLidarProcess.find()) {
-                    RegexLidar.regexLidar(log);
+                    RegexLidar.regexLidar(log, debug);
                 } else if (mlogPosition.find()) {
                     //A voir
                 } else if (mlogLLDebug.find()) {
                     //A voir
                 } else if (mlogDynamixel.find()) {
-                    RegexActionsMeca.regexActions(log);
+                    RegexActionsMeca.regexActions(log, debug);
                 } else if (mlogCommunication.find()) {
                     //Comm buddy ou NUC ?
                 }
@@ -76,7 +84,7 @@ public class Regex {
     }
 
     public static void main(String[] args) throws IOException {
-        String logfile = "/home/yasmine/TechTheTide-HighLevel/logs/Sat Mar 07 21:07:46 CET 2020 #0.log";
+        String logfile = "/home/jasmin/Documents/Intech/TechTheTide-HighLevel/logs/Sat May 04 11:47:19 CEST 2019 #27 - everything.log";
         Regex.regex(logfile);
     }
 }
