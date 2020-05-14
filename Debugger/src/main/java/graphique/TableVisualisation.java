@@ -19,6 +19,7 @@ public class TableVisualisation extends JPanel {
 
     /* ============ Affichage de la table et des robots  ============= */
 
+
     //TODO: changer le chemin de l'image (ide qui comprend pas le chemin raccourci)
 
     String FileTableImage = "/home/yasmine/TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
@@ -56,6 +57,18 @@ public class TableVisualisation extends JPanel {
             e.printStackTrace();
         }
 
+
+        /** Visualisation des gobelets sur la table**/
+
+        initGobeletsRouges();
+        initGobeletsVerts();
+        drawRougeGobelets(g);
+        drawVertGobelets(g);
+
+        g.setColor(Color.BLACK);
+        int ray = 10;
+        g.fillOval(transformTableCoordsToInterfaceCoords(0,0).getX() - TABLE_PIXEL_WIDTH/2 + 31,transformTableCoordsToInterfaceCoords(0,0).getY() + (538 - 397)/2 - 48/2 + ray/2, ray, ray);
+
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
 
         try {
@@ -65,17 +78,9 @@ public class TableVisualisation extends JPanel {
             e.printStackTrace();
         }
 
-        /** Visualisation des gobelets sur la table**/
-
-        initGobeletsRouges();
-        initGobeletsVerts();
-        drawRougeGobelets(g);
-        drawVertGobelets(g);
-
     }
 
     /* ============ Traitement des gobelets sur la table ============= */
-
 
     /**
      * La taille de l'image est 802x538
@@ -84,13 +89,21 @@ public class TableVisualisation extends JPanel {
      * Le bord de la table en bas à droite est aux cordonnées (625,445)
      * Le bord de la table en haut à droite est aux coordonnées (625,48)
      * La surface de jeu fait donc 594x397
+     *
+     * Une légende concernant la numérotation des gobelets est fournis dans le dossier ressources
+     * (TableLegendeGobeletsNumerotation.png)
      **/
 
 
-    private final int TABLE_PIXEL_WIDTH = 594; //in pixels
-    private final int TABLE_PIXEL_HEIGHT = 397; //in pixels
-    private final int WIDTH_TABLE = 3000;      //in millimeters
-    private final int HEIGHT_TABLE = 2000;     //in millimeters
+
+    private final int TABLE_PIXEL_WIDTH = 802; //in pixels
+    private final int TABLE_PIXEL_HEIGHT = 538; //in pixels
+    private final int TABLEGAME_PIXEL_WIDTH = 594; //in pixels
+    private final int TABLEGAME_PIXEL_HEIGHT = 397; //in pixels
+    private final int WIDTH_TABLEGAME = 3000;      //in millimeters
+    private final int HEIGHT_TABLEGAME = 2000;     //in millimeters
+    private final int WIDTH_TABLE = 3288;      //in millimeters
+    private final int HEIGHT_TABLE = 2244;     //in millimeters
     private final int GobeletRay = 53 ;
 
 
@@ -177,7 +190,7 @@ public void initGobeletsRouges() {
     Obstacle rouge5 = new StillCircularObstacle(formeRouge5);
     this.addGobeletRouge(rouge5);
 
-    Vec2 positionRouge6 = new VectCartesian(3000 - 1605, 1955);
+    Vec2 positionRouge6 = new VectCartesian(1395, 1955);
     Circle formeRouge6 = new Circle(positionRouge6, GobeletRay);
     Obstacle rouge6 = new StillCircularObstacle(formeRouge6);
     this.addGobeletRouge(rouge6);
@@ -249,7 +262,7 @@ public void initGobeletsRouges() {
         this.addGobeletVert(vert5);
 
 
-        Vec2 positionVert6 = new VectCartesian(3000 - 1665, 1650);
+        Vec2 positionVert6 = new VectCartesian(1335, 1650);
         Circle formeVert6 = new Circle(positionVert6, GobeletRay);
         Obstacle vert6 = new StillCircularObstacle(formeVert6);
         this.addGobeletVert(vert6);
@@ -290,17 +303,35 @@ public void initGobeletsRouges() {
     /* ============ Méthodes de transformation des coordonnées entre la table et la fenêtre graphique ============= */
 
     /**
-     * Transforme une distance de la table pour qu'elle soit affichée correction sur l'interface
-     */
-    private int transformTableDistanceToInterfaceDistance(int distanceOnTable) {
-        return Math.round(distanceOnTable * (this.TABLE_PIXEL_WIDTH / (float) this.WIDTH_TABLE));
-    }
+     * La taille de l'image est 802x538
+     * Le bord de la table en haut à gauche est aux coordonnées (31,48)
+     * Le bord de la table en bas à gauche est aux coordonnées (31,445)
+     * Le bord de la table en bas à droite est aux cordonnées (625,445)
+     * Le bord de la table en haut à droite est aux coordonnées (625,48)
+     * La surface de jeu fait donc 594x397
+     *
+     *
+     private final int TABLE_PIXEL_WIDTH = 802; //in pixels
+     private final int TABLE_PIXEL_HEIGHT = 538; //in pixels
+     private final int TABLEGAME_PIXEL_WIDTH = 594; //in pixels
+     private final int TABLEGAME_PIXEL_HEIGHT = 397; //in pixels
+     private final int WIDTH_TABLEGAME = 3000;      //in millimeters
+     private final int HEIGHT_TABLEGAME = 2000;     //in millimeters
+     private final int WIDTH_TABLE = 3288;      //in millimeters
+     private final int HEIGHT_TABLE = 2244;     //in millimeters
+     private final int GobeletRay = 53 ;
+     *
+     * Une légende concernant la numérotation des gobelets est fournis dans le dossier ressources
+     * (TableLegendeGobeletsNumerotation.png)
+     **/
+
 
     /**
      * Transforme une distance de la table pour qu'elle soit affichée correction sur l'interface
      */
     private float transformTableDistanceToInterfaceDistance(float distanceOnTable) {
-        return distanceOnTable * (this.TABLE_PIXEL_WIDTH / (float) this.WIDTH_TABLE);
+      return distanceOnTable * (this.TABLEGAME_PIXEL_WIDTH  / (float) this.WIDTH_TABLEGAME);
+
     }
 
     /**
@@ -308,36 +339,17 @@ public void initGobeletsRouges() {
      */
     private Vec2 transformTableCoordsToInterfaceCoords(int xOnTable, int yOnTable) {
         return new InternalVectCartesian(
-                (xOnTable + (this.WIDTH_TABLE / 2.0f)) * (this.TABLE_PIXEL_WIDTH / (float) this.WIDTH_TABLE),
-                (this.HEIGHT_TABLE - yOnTable) * (this.TABLE_PIXEL_HEIGHT / (float) this.HEIGHT_TABLE)
-        );
+              (xOnTable + (this.WIDTH_TABLEGAME/ 2.0f)) * (this.TABLE_PIXEL_WIDTH / (float) this.WIDTH_TABLEGAME),
+              (this.HEIGHT_TABLEGAME - yOnTable) * (this.TABLEGAME_PIXEL_HEIGHT/ (float) this.HEIGHT_TABLEGAME)) ;
+
     }
 
     /**
      * Transforme les coordonnées de la table pour qu'ils soient affichés correctement sur l'interface
      */
     private Vec2 transformTableCoordsToInterfaceCoords(Vec2 positionOnTable) {
-        return transformTableCoordsToInterfaceCoords(positionOnTable.getX(), positionOnTable.getY());
+        return transformTableCoordsToInterfaceCoords(positionOnTable.getX() - TABLE_PIXEL_WIDTH/2 + 31, positionOnTable.getY() + (538 - 397)/2 - 48/2 + GobeletRay/2);
     }
-
-
-    /**
-     * Transforme les coordonnées de l'interface pour qu'ils correspondent à ceux de la table
-     */
-    private Vec2 transformInterfaceCoordsToTableCoords(int xOnInterface, int yOnInterface) {
-        return new InternalVectCartesian(
-                (xOnInterface - (this.TABLE_PIXEL_WIDTH / 2.0f)) * (this.WIDTH_TABLE / (float) this.TABLE_PIXEL_WIDTH),
-                (this.TABLE_PIXEL_HEIGHT - yOnInterface) * (this.HEIGHT_TABLE / (float) this.TABLE_PIXEL_HEIGHT)
-        );
-    }
-
-    /**
-     * Transforme les coordonnées de l'interface pour qu'ils correspondent à ceux de la table
-     */
-    private Vec2 transformInterfaceCoordsToTableCoords(Vec2 positionOnInterface) {
-        return transformInterfaceCoordsToTableCoords(positionOnInterface.getX(), positionOnInterface.getY());
-    }
-
 
 
 }
