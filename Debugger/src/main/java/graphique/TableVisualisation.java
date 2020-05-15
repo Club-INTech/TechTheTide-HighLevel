@@ -1,7 +1,5 @@
 package graphique;
 
-import data.table.Obstacle;
-import utils.math.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -103,13 +101,13 @@ public class TableVisualisation extends JPanel {
     private final ArrayList<Point> GobeletsRouge = new ArrayList<>();
     private final ArrayList<Point> GobeletsVert = new ArrayList<>();
 
-    public void addGobeletRouge(Point gobelet) {
+    public void addGobeletsRouges(Point gobelet) {
         synchronized (GobeletsRouge) {
             GobeletsRouge.add(gobelet);
         }
     }
 
-    public void addGobeletVert(Point gobelet) {
+    public void addGobeletsVerts(Point gobelet) {
         synchronized (GobeletsVert) {
             GobeletsVert.add(gobelet);
         }
@@ -132,84 +130,84 @@ public class TableVisualisation extends JPanel {
 
     }
 
-    public void initGobeletsRouges() {
+    public void initGobeletsVerts() {
 
 
-        Point Rouge1 = new Point(300, 1200);
-        addGobeletRouge(Rouge1);
+        Point Vert1 = new Point(300, 1200);
+        addGobeletsVerts(Vert1);
 
-        Point Rouge2 = new Point(450, 510);
-        addGobeletRouge(Rouge2);
+        Point Vert2 = new Point(450, 510);
+        addGobeletsVerts(Vert2);
 
-        Point Rouge3 = new Point(950, 400);
-        addGobeletRouge(Rouge3);
+        Point Vert3 = new Point(950, 400);
+        addGobeletsVerts(Vert3);
 
-        Point Rouge4 = new Point(1065, 1650);
-        addGobeletRouge(Rouge4);
+        Point Vert4 = new Point(1065, 1650);
+        addGobeletsVerts(Vert4);
 
-        Point Rouge5 = new Point(1270, 1200);
-        addGobeletRouge(Rouge5);
+        Point Vert5 = new Point(1270, 1200);
+        addGobeletsVerts(Vert5);
 
-        Point Rouge6 = new Point(1395, 1955);
-        addGobeletRouge(Rouge6);
+        Point Vert6 = new Point(1395, 1955);
+        addGobeletsVerts(Vert6);
 
-        Point Rouge7 = new Point(1665, 1650);
-        addGobeletRouge(Rouge7);
+        Point Vert7 = new Point(1665, 1650);
+        addGobeletsVerts(Vert7);
 
-        Point Rouge8 = new Point(1900, 800);
-        addGobeletRouge(Rouge8);
+        Point Vert8 = new Point(1900, 800);
+        addGobeletsVerts(Vert8);
 
-        Point Rouge9 = new Point(1995, 1955);
-        addGobeletRouge(Rouge9);
+        Point Vert9 = new Point(1995, 1955);
+        addGobeletsVerts(Vert9);
 
-        Point Rouge10 = new Point(2330, 100);
-        addGobeletRouge(Rouge10);
+        Point Vert10 = new Point(2330, 100);
+        addGobeletsVerts(Vert10);
 
-        Point Rouge11 = new Point(2550, 1080);
-        addGobeletRouge(Rouge11);
+        Point Vert11 = new Point(2550, 1080);
+        addGobeletsVerts(Vert11);
 
-        Point Rouge12 = new Point(2700, 400);
-        addGobeletRouge(Rouge12);
+        Point Vert12 = new Point(2700, 400);
+        addGobeletsVerts(Vert12);
     }
 
 
-    public void initGobeletsVerts() {
+    public void initGobeletsRouges() {
 
-        Point Vert1 = new Point(300, 400);
-        addGobeletVert(Vert1);
+        Point Rouge1 = new Point(300, 400);
+        addGobeletsRouges(Rouge1);
 
-        Point Vert2 = new Point(450, 1080);
-        addGobeletVert(Vert2);
+        Point Rouge2 = new Point(450, 1080);
+        addGobeletsRouges(Rouge2);
 
-        Point Vert3 = new Point(670, 100);
-        addGobeletVert(Vert3);
+        Point Rouge3 = new Point(670, 100);
+        addGobeletsRouges(Rouge3);
 
-        Point Vert4 = new Point(1005, 1955);
-        addGobeletVert(Vert4);
+        Point Rouge4 = new Point(1005, 1955);
+        addGobeletsRouges(Rouge4);
 
-        Point Vert5 = new Point(1100, 800);
-        addGobeletVert(Vert5);
+        Point Rouge5 = new Point(1100, 800);
+        addGobeletsRouges(Rouge5);
 
-        Point Vert6 = new Point(1335, 1650);
-        addGobeletVert(Vert6);
+        Point Rouge6 = new Point(1335, 1650);
+        addGobeletsRouges(Rouge6);
 
-        Point Vert7 = new Point(1605, 1955);
-        addGobeletVert(Vert7);
+        Point Rouge7 = new Point(1605, 1955);
+        addGobeletsRouges(Rouge7);
 
-        Point Vert8 = new Point(1730, 1200);
-        addGobeletVert(Vert8);
+        Point Rouge8 = new Point(1730, 1200);
+        addGobeletsRouges(Rouge8);
 
-        Point Vert9 = new Point(1935, 1650);
-        addGobeletVert(Vert9);
+        Point Rouge9 = new Point(1935, 1650);
+        addGobeletsRouges(Rouge9);
 
-        Point Vert10 = new Point(2050, 400);
-        addGobeletVert(Vert10);
+        Point Rouge10 = new Point(2050, 400);
+        addGobeletsRouges(Rouge10);
 
-        Point Vert11 = new Point(2550, 510);
-        addGobeletVert(Vert11);
+        Point Rouge11 = new Point(2550, 510);
+        addGobeletsRouges(Rouge11);
 
-        Point Vert12 = new Point(2700, 1200);
-        addGobeletVert(Vert12);
+        Point Rouge12 = new Point(2700, 1200);
+        addGobeletsRouges(Rouge12);
     }
 
 
