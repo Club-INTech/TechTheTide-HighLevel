@@ -12,26 +12,23 @@ public class TableVisualisation extends JPanel {
 
 
     /**
-     * La taille de l'image est 655x460
-     * Le bord de la table en haut à gauche est aux coordonnées (29,14)
-     * Le bord de la table en bas à gauche est aux coordonnées (29,411)
-     * Le bord de la table en bas à droite est aux cordonnées (624,411)
-     * Le bord de la table en haut à droite est aux coordonnées (624,14)
-     * La surface de jeu fait 595x371
-     * <p>
+     * La taille de l'image est 893x573
+     * Le bord de la table en haut à gauche est aux coordonnées (43,21)
+     * La surface de jeu fait 982x690
+     *
      * Une légende concernant la numérotation des gobelets est fournis dans le dossier ressources
      * (TableLegendeGobeletsNumerotation.png)
      **/
 
-    private final int CoinHautGaucheX = 29;
-    private final int CoinHautGaucheY = 14;
-    private final int TABLE_PIXEL_WIDTH = 655; //en pixels
-    private final int TABLE_PIXEL_HEIGHT = 460; //en pixels
-    private final int TABLEGAME_PIXEL_WIDTH = 595; // largeur de la table de jeu en pixels
-    private final int TABLEGAME_PIXEL_HEIGHT = 371; //hauteur de la table de jeu en pixels
+    private final int CoinHautGaucheX = 43;
+    private final int CoinHautGaucheY = 21;
+    private final int TABLE_PIXEL_WIDTH = 982; //en pixels
+    private final int TABLE_PIXEL_HEIGHT = 690;//en pixels
+    private final int TABLEGAME_PIXEL_WIDTH = 893; // largeur de la table de jeu en pixels
+    private final int TABLEGAME_PIXEL_HEIGHT = 573; //hauteur de la table de jeu en pixels
     private final int WIDTH_TABLEGAME = 3000;      // vrai largeur de la table en millimetre
     private final int HEIGHT_TABLEGAME = 2000;     // vrai hauteur de la table en millimetre
-    private final int GobeletRay = 53; // rayon d'un gobelets en  millimetre
+    private final int GobeletRay = 27; // rayon d'un gobelet en  millimetre
 
 
     int PrincipalWidth = 350;
@@ -44,7 +41,7 @@ public class TableVisualisation extends JPanel {
 
     String FileTableImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
     String FilePrincipalImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/PrincipalVuDessus.png";
-
+    String FileSecondaireImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/SecondaireVuDessus.png";
 
     private int posX = 31;
     private int posY = 445;
@@ -82,8 +79,8 @@ public class TableVisualisation extends JPanel {
 
         initGobeletsRouges();
         initGobeletsVerts();
-        drawGobelets(g, GobeletsRouge, Color.RED);
-        drawGobelets(g, GobeletsVert, Color.GREEN);
+        drawGobelets(g, GobeletsRouge, Color.RED.darker());
+        drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
 
 
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
@@ -170,6 +167,23 @@ public class TableVisualisation extends JPanel {
 
         Point Vert12 = new Point(2700, 400);
         addGobeletsVerts(Vert12);
+
+        //Les gobelets dans les éceuils sont numérotés de haut en bas
+
+        Point EcueilJauneVert1 = new Point(3067,1750);
+        addGobeletsVerts(EcueilJauneVert1);
+
+        Point EcueilJauneVert2 = new Point (3067,1600);
+        addGobeletsVerts(EcueilJauneVert2);
+
+        Point EcueilJauneVert3 = new Point (3067, 1450);
+        addGobeletsVerts(EcueilJauneVert3);
+
+        Point EceuilBleuVert1 = new Point (-67, 1675);
+        addGobeletsVerts(EceuilBleuVert1);
+
+        Point EceuilBleuVert2 = new  Point (-67, 1525);
+        addGobeletsVerts(EceuilBleuVert2);
     }
 
 
@@ -210,6 +224,23 @@ public class TableVisualisation extends JPanel {
 
         Point Rouge12 = new Point(2700, 1200);
         addGobeletsRouges(Rouge12);
+
+        //Les gobelets dans les éceuils sont numérotés de haut en bas
+
+        Point EcueilJauneRouge1 = new Point(3067,1675);
+        addGobeletsRouges(EcueilJauneRouge1);
+
+        Point EcueilJauneRouge2 = new Point (3067,1525);
+        addGobeletsRouges(EcueilJauneRouge2);
+
+        Point EceuilBleuRouge1 = new Point (-67, 1750);
+        addGobeletsRouges(EceuilBleuRouge1);
+
+        Point EceuilBleuRouge2 = new  Point (-67, 1600);
+        addGobeletsRouges(EceuilBleuRouge2);
+
+        Point EcueilBleuRouge3 = new Point (-67, 1450);
+        addGobeletsRouges(EcueilBleuRouge3);
     }
 
 
