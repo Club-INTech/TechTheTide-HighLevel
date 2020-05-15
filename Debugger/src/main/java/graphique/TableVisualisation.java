@@ -10,6 +10,30 @@ import java.util.ArrayList;
 
 public class TableVisualisation extends JPanel {
 
+
+    /**
+     * La taille de l'image est 655x460
+     * Le bord de la table en haut à gauche est aux coordonnées (29,14)
+     * Le bord de la table en bas à gauche est aux coordonnées (29,411)
+     * Le bord de la table en bas à droite est aux cordonnées (624,411)
+     * Le bord de la table en haut à droite est aux coordonnées (624,14)
+     * La surface de jeu fait 595x371
+     * <p>
+     * Une légende concernant la numérotation des gobelets est fournis dans le dossier ressources
+     * (TableLegendeGobeletsNumerotation.png)
+     **/
+
+    private final int CoinHautGaucheX = 29;
+    private final int CoinHautGaucheY = 14;
+    private final int TABLE_PIXEL_WIDTH = 655; //en pixels
+    private final int TABLE_PIXEL_HEIGHT = 460; //en pixels
+    private final int TABLEGAME_PIXEL_WIDTH = 595; // largeur de la table de jeu en pixels
+    private final int TABLEGAME_PIXEL_HEIGHT = 371; //hauteur de la table de jeu en pixels
+    private final int WIDTH_TABLEGAME = 3000;      // vrai largeur de la table en millimetre
+    private final int HEIGHT_TABLEGAME = 2000;     // vrai hauteur de la table en millimetre
+    private final int GobeletRay = 53; // rayon d'un gobelets en  millimetre
+
+
     int PrincipalWidth = 350;
     int PrincipalHeigh = 220;
 
@@ -18,8 +42,8 @@ public class TableVisualisation extends JPanel {
 
     //TODO: changer le chemin de l'image (ide qui comprend pas le chemin raccourci)
 
-    String FileTableImage = "/home/yasmine/TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
-    String FilePrincipalImage = "/home/yasmine/TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/PrincipalVuDessus.png";
+    String FileTableImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
+    String FilePrincipalImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/PrincipalVuDessus.png";
 
 
     private int posX = 31;
@@ -74,28 +98,6 @@ public class TableVisualisation extends JPanel {
     }
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
-
-    /**
-     * La taille de l'image est 655x460
-     * Le bord de la table en haut à gauche est aux coordonnées (29,14)
-     * Le bord de la table en bas à gauche est aux coordonnées (29,411)
-     * Le bord de la table en bas à droite est aux cordonnées (624,411)
-     * Le bord de la table en haut à droite est aux coordonnées (624,14)
-     * La surface de jeu fait 595x371
-     * <p>
-     * Une légende concernant la numérotation des gobelets est fournis dans le dossier ressources
-     * (TableLegendeGobeletsNumerotation.png)
-     **/
-
-    private final int CoinHautGaucheX = 29;
-    private final int CoinHautGaucheY = 14;
-    private final int TABLE_PIXEL_WIDTH = 655; //en pixels
-    private final int TABLE_PIXEL_HEIGHT = 460; //en pixels
-    private final int TABLEGAME_PIXEL_WIDTH = 595; // largeur de la table de jeu en pixels
-    private final int TABLEGAME_PIXEL_HEIGHT = 371; //hauteur de la table de jeu en pixels
-    private final int WIDTH_TABLEGAME = 3000;      // vrai largeur de la table en millimetre
-    private final int HEIGHT_TABLEGAME = 2000;     // vrai hauteur de la table en millimetre
-    private final int GobeletRay = 53; // rayon d'un gobelets en  millimetre
 
 
     private final ArrayList<Point> GobeletsRouge = new ArrayList<>();
@@ -214,7 +216,7 @@ public class TableVisualisation extends JPanel {
     /* ============ Méthodes de transformation des distances entre la table et la fenêtre graphique ============= */
 
     private float transformTableDistanceToInterfaceDistance(float distanceOnTable) {
-        return distanceOnTable * ((this.TABLEGAME_PIXEL_WIDTH - CoinHautGaucheY) / (float) this.WIDTH_TABLEGAME);
+        return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME);
 
     }
 }
