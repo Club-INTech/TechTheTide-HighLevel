@@ -12,7 +12,7 @@ public class FenetreTable extends JFrame{
 
     public FenetreTable() {
         setTitle("Debugger : Table de Jeu");
-        setSize(802, 538);
+        setSize(655, 460);
         setLocationRelativeTo(null);
         setResizable(false);
         setAlwaysOnTop(true);

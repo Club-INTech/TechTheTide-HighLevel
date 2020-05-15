@@ -1,12 +1,7 @@
 package graphique;
 
-import data.table.MobileCircularObstacle;
 import data.table.Obstacle;
-import data.table.StillCircularObstacle;
 import utils.math.*;
-import utils.math.Rectangle;
-import utils.math.Shape;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +11,9 @@ import java.util.ArrayList;
 
 
 public class TableVisualisation extends JPanel {
+
+    int PrincipalWidth = 350;
+    int PrincipalHeigh = 220;
 
     /* ============ Affichage de la table et des robots  ============= */
 
@@ -62,294 +60,163 @@ public class TableVisualisation extends JPanel {
 
         initGobeletsRouges();
         initGobeletsVerts();
-        drawRougeGobelets(g);
-        drawVertGobelets(g);
+        drawGobelets(g, GobeletsRouge, Color.RED);
+        drawGobelets(g, GobeletsVert, Color.GREEN);
 
-        g.setColor(Color.BLACK);
-        int ray = 10;
-        g.fillOval(transformTableCoordsToInterfaceCoords(0,0).getX() - TABLE_PIXEL_WIDTH/2 + 31,transformTableCoordsToInterfaceCoords(0,0).getY() + (538 - 397)/2 - 48/2 + ray/2, ray, ray);
 
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
 
         try {
             Image principal = ImageIO.read(new File(FilePrincipalImage));
-            g.drawImage(principal, posX, posY, this.getWidth() / 4, this.getHeight() / 4, this);
+            g.drawImage(principal, posX, posY, (int) (transformTableDistanceToInterfaceDistance(PrincipalWidth)), (int) (transformTableDistanceToInterfaceDistance(PrincipalHeigh)), this);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    /* ============ Traitement des gobelets sur la table ============= */
+    /* ================================= Traitement des gobelets sur la table ======================================= */
 
     /**
-     * La taille de l'image est 802x538
-     * Le bord de la table en haut à gauche est aux coordonnées (31,48)
-     * Le bord de la table en bas à gauche est aux coordonnées (31,445)
-     * Le bord de la table en bas à droite est aux cordonnées (625,445)
-     * Le bord de la table en haut à droite est aux coordonnées (625,48)
-     * La surface de jeu fait donc 594x397
-     *
+     * La taille de l'image est 655x460
+     * Le bord de la table en haut à gauche est aux coordonnées (29,14)
+     * Le bord de la table en bas à gauche est aux coordonnées (29,411)
+     * Le bord de la table en bas à droite est aux cordonnées (624,411)
+     * Le bord de la table en haut à droite est aux coordonnées (624,14)
+     * La surface de jeu fait 595x371
+     * <p>
      * Une légende concernant la numérotation des gobelets est fournis dans le dossier ressources
      * (TableLegendeGobeletsNumerotation.png)
      **/
 
+    private final int CoinHautGaucheX = 29;
+    private final int CoinHautGaucheY = 14;
+    private final int TABLE_PIXEL_WIDTH = 655; //en pixels
+    private final int TABLE_PIXEL_HEIGHT = 460; //en pixels
+    private final int TABLEGAME_PIXEL_WIDTH = 595; // largeur de la table de jeu en pixels
+    private final int TABLEGAME_PIXEL_HEIGHT = 371; //hauteur de la table de jeu en pixels
+    private final int WIDTH_TABLEGAME = 3000;      // vrai largeur de la table en millimetre
+    private final int HEIGHT_TABLEGAME = 2000;     // vrai hauteur de la table en millimetre
+    private final int GobeletRay = 53; // rayon d'un gobelets en  millimetre
 
 
-    private final int TABLE_PIXEL_WIDTH = 802; //in pixels
-    private final int TABLE_PIXEL_HEIGHT = 538; //in pixels
-    private final int TABLEGAME_PIXEL_WIDTH = 594; //in pixels
-    private final int TABLEGAME_PIXEL_HEIGHT = 397; //in pixels
-    private final int WIDTH_TABLEGAME = 3000;      //in millimeters
-    private final int HEIGHT_TABLEGAME = 2000;     //in millimeters
-    private final int WIDTH_TABLE = 3288;      //in millimeters
-    private final int HEIGHT_TABLE = 2244;     //in millimeters
-    private final int GobeletRay = 53 ;
+    private final ArrayList<Point> GobeletsRouge = new ArrayList<>();
+    private final ArrayList<Point> GobeletsVert = new ArrayList<>();
 
-
-    private final  ArrayList<Obstacle> GobeletsRouge = new ArrayList<>() ;
-    private final ArrayList<Obstacle> GobeletsVert = new ArrayList<>();
-
-    public void addGobeletRouge(Obstacle obstacle) {
+    public void addGobeletRouge(Point gobelet) {
         synchronized (GobeletsRouge) {
-            GobeletsRouge.add(obstacle);
+            GobeletsRouge.add(gobelet);
         }
     }
 
-    public void addGobeletVert(Obstacle obstacle) {
+    public void addGobeletVert(Point gobelet) {
         synchronized (GobeletsVert) {
-            GobeletsVert.add(obstacle);
-        }
-    }
-
-    public void deleteGobeletRouge(Obstacle obstacle) {
-        synchronized (GobeletsRouge) {
-            if (GobeletsRouge.contains(obstacle)) {
-                GobeletsRouge.remove(GobeletsRouge.indexOf(obstacle));
-            }
-        }
-    }
-
-    public void deleteGobeletVert(Obstacle obstacle) {
-        synchronized (GobeletsVert) {
-            if (GobeletsVert.contains(obstacle)) {
-                GobeletsVert.remove(GobeletsVert.indexOf(obstacle));
-            }
-        }
-    }
-
-    private void drawRougeGobelets(Graphics g) {
-        for (Obstacle obstacle : this.GobeletsRouge) {
-            utils.math.Shape shape = obstacle.getShape();
-            Vec2 centerOnTable = shape.getCenter();
-            Vec2 center = transformTableCoordsToInterfaceCoords(centerOnTable);
-            float diameter = transformTableDistanceToInterfaceDistance(((Circle) shape).getRadius() * 2);
-            g.setColor(Color.RED);
-            g.fillOval(center.getX() - Math.round(diameter / 2), center.getY() - Math.round(diameter / 2), Math.round(diameter), Math.round(diameter));
-        }
-    }
-
-    private void drawVertGobelets(Graphics g) {
-        for (Obstacle obstacle : this.GobeletsVert) {
-            utils.math.Shape shape = obstacle.getShape();
-            Vec2 centerOnTable = shape.getCenter();
-            Vec2 center = transformTableCoordsToInterfaceCoords(centerOnTable);
-            float diameter = transformTableDistanceToInterfaceDistance(((Circle) shape).getRadius() * 2);
-            g.setColor(Color.GREEN);
-            g.fillOval(center.getX() - Math.round(diameter / 2), center.getY() - Math.round(diameter / 2), Math.round(diameter), Math.round(diameter));
+            GobeletsVert.add(gobelet);
         }
     }
 
 
-public void initGobeletsRouges() {
+    public void drawCenteredCircle(Graphics g, int x, int y, int r) {
+        x = x - (r / 2);
+        y = y - (r / 2);
+        g.fillOval(x, y, r, r);
+    }
 
-    Vec2 positionRouge1 = new VectCartesian(300, 1200);
-    Circle formeRouge1 = new Circle(positionRouge1, GobeletRay);
-    Obstacle rouge1 = new StillCircularObstacle(formeRouge1);
-    this.addGobeletRouge(rouge1);
+    private void drawGobelets(Graphics g, ArrayList<Point> Gob, Color couleur) {
+        for (int i = 0; i < Gob.size(); i++) {
+            double x = (this.WIDTH_TABLEGAME - Gob.get(i).getX()) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX;
+            double y = (-Gob.get(i).getY()) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY + TABLEGAME_PIXEL_HEIGHT;
+            g.setColor(couleur);
+            drawCenteredCircle(g, (int) x, (int) y, 2 * (int) transformTableDistanceToInterfaceDistance(GobeletRay));
+        }
 
-    Vec2 positionRouge2 = new VectCartesian(450, 510);
-    Circle formeRouge2 = new Circle(positionRouge2, GobeletRay);
-    Obstacle rouge2 = new StillCircularObstacle(formeRouge2);
-    this.addGobeletRouge(rouge2);
+    }
 
-
-    Vec2 positionRouge3 = new VectCartesian(950, 400);
-    Circle formeRouge3 = new Circle(positionRouge3, GobeletRay);
-    Obstacle rouge3 = new StillCircularObstacle(formeRouge3);
-    this.addGobeletRouge(rouge3);
-
-
-    Vec2 positionRouge4 = new VectCartesian(1065, 1650);
-    Circle formeRouge4 = new Circle(positionRouge4, GobeletRay);
-    Obstacle verre8 = new StillCircularObstacle(formeRouge4);
-    this.addGobeletRouge(verre8);
-
-    Vec2 positionRouge5 = new VectCartesian(1270, 1200);
-    Circle formeRouge5 = new Circle(positionRouge5, GobeletRay);
-    Obstacle rouge5 = new StillCircularObstacle(formeRouge5);
-    this.addGobeletRouge(rouge5);
-
-    Vec2 positionRouge6 = new VectCartesian(1395, 1955);
-    Circle formeRouge6 = new Circle(positionRouge6, GobeletRay);
-    Obstacle rouge6 = new StillCircularObstacle(formeRouge6);
-    this.addGobeletRouge(rouge6);
-
-    Vec2 positionRouge7 = new VectCartesian(1665, 1650);
-    Circle formerouge7 = new Circle(positionRouge7, GobeletRay );
-    Obstacle rouge7 = new StillCircularObstacle(formerouge7);
-    this.addGobeletRouge(rouge7);
-
-    Vec2 positionRouge8 = new VectCartesian(1900, 800);
-    Circle formeRouge8 = new Circle(positionRouge8, GobeletRay );
-    Obstacle rouge8 = new StillCircularObstacle(formeRouge8);
-    this.addGobeletRouge(rouge8);
+    public void initGobeletsRouges() {
 
 
-    Vec2 positionRouge9 = new VectCartesian(1995, 1955);
-    Circle formeRouge9 = new Circle(positionRouge9, GobeletRay );
-    Obstacle rouge9 = new StillCircularObstacle(formeRouge9);
-    this.addGobeletRouge(rouge9);
+        Point Rouge1 = new Point(300, 1200);
+        addGobeletRouge(Rouge1);
 
+        Point Rouge2 = new Point(450, 510);
+        addGobeletRouge(Rouge2);
 
-    Vec2 positionRouge10 = new VectCartesian(2330, 100);
-    Circle formeRouge10 = new Circle(positionRouge10, GobeletRay );
-    Obstacle rouge10 = new StillCircularObstacle(formeRouge10);
-    this.addGobeletRouge(rouge10);
+        Point Rouge3 = new Point(950, 400);
+        addGobeletRouge(Rouge3);
 
+        Point Rouge4 = new Point(1065, 1650);
+        addGobeletRouge(Rouge4);
 
-    Vec2 positionRouge11 = new VectCartesian(2550, 1080);
-    Circle formeRouge11 = new Circle(positionRouge11, GobeletRay );
-    Obstacle rouge11 = new StillCircularObstacle(formeRouge11);
-    this.addGobeletRouge(rouge11);
+        Point Rouge5 = new Point(1270, 1200);
+        addGobeletRouge(Rouge5);
 
-    Vec2 positionRouge12 = new VectCartesian(2700, 400);
-    Circle formerouge12 = new Circle(positionRouge12, GobeletRay );
-    Obstacle rouge12 = new StillCircularObstacle(formerouge12);
-    this.addGobeletRouge(rouge12);
+        Point Rouge6 = new Point(1395, 1955);
+        addGobeletRouge(Rouge6);
 
+        Point Rouge7 = new Point(1665, 1650);
+        addGobeletRouge(Rouge7);
 
-}
+        Point Rouge8 = new Point(1900, 800);
+        addGobeletRouge(Rouge8);
 
+        Point Rouge9 = new Point(1995, 1955);
+        addGobeletRouge(Rouge9);
+
+        Point Rouge10 = new Point(2330, 100);
+        addGobeletRouge(Rouge10);
+
+        Point Rouge11 = new Point(2550, 1080);
+        addGobeletRouge(Rouge11);
+
+        Point Rouge12 = new Point(2700, 400);
+        addGobeletRouge(Rouge12);
+    }
 
 
     public void initGobeletsVerts() {
 
-        Vec2 positionVert1 = new VectCartesian(300, 400);
-        Circle formeVert1 = new Circle(positionVert1, GobeletRay);
-        Obstacle vert1 = new StillCircularObstacle(formeVert1);
-        this.addGobeletVert(vert1);
+        Point Vert1 = new Point(300, 400);
+        addGobeletVert(Vert1);
 
-        Vec2 positionVert2 = new VectCartesian(450, 1080);
-        Circle formeVert2 = new Circle(positionVert2, GobeletRay);
-        Obstacle vert2 = new StillCircularObstacle(formeVert2);
-        this.addGobeletVert(vert2);
+        Point Vert2 = new Point(450, 1080);
+        addGobeletVert(Vert2);
 
-        Vec2 positionVert3 = new VectCartesian(670, 100);
-        Circle formeVert3 = new Circle(positionVert3, GobeletRay);
-        Obstacle vert3 = new StillCircularObstacle(formeVert3);
-        this.addGobeletVert(vert3);
+        Point Vert3 = new Point(670, 100);
+        addGobeletVert(Vert3);
 
+        Point Vert4 = new Point(1005, 1955);
+        addGobeletVert(Vert4);
 
-        Vec2 positionVert4 = new VectCartesian(1005, 1955);
-        Circle formeVert4 = new Circle(positionVert4, GobeletRay);
-        Obstacle vert4 = new StillCircularObstacle(formeVert4);
-        this.addGobeletVert(vert4);
+        Point Vert5 = new Point(1100, 800);
+        addGobeletVert(Vert5);
 
-        Vec2 positionVert5 = new VectCartesian(1100, 800);
-        Circle formeVert5 = new Circle(positionVert5, GobeletRay);
-        Obstacle vert5 = new StillCircularObstacle(formeVert5);
-        this.addGobeletVert(vert5);
+        Point Vert6 = new Point(1335, 1650);
+        addGobeletVert(Vert6);
 
+        Point Vert7 = new Point(1605, 1955);
+        addGobeletVert(Vert7);
 
-        Vec2 positionVert6 = new VectCartesian(1335, 1650);
-        Circle formeVert6 = new Circle(positionVert6, GobeletRay);
-        Obstacle vert6 = new StillCircularObstacle(formeVert6);
-        this.addGobeletVert(vert6);
+        Point Vert8 = new Point(1730, 1200);
+        addGobeletVert(Vert8);
 
-        Vec2 positionVert7 = new VectCartesian(1605, 1955);
-        Circle formeVert7 = new Circle(positionVert7, GobeletRay);
-        Obstacle vert7 = new StillCircularObstacle(formeVert7);
-        this.addGobeletVert(vert7);
+        Point Vert9 = new Point(1935, 1650);
+        addGobeletVert(Vert9);
 
-        Vec2 positionVert8 = new VectCartesian(1730, 1200);
-        Circle formeVert8 = new Circle(positionVert8, GobeletRay );
-        Obstacle vert8 = new StillCircularObstacle(formeVert8);
-        this.addGobeletVert(vert8);
+        Point Vert10 = new Point(2050, 400);
+        addGobeletVert(Vert10);
 
+        Point Vert11 = new Point(2550, 510);
+        addGobeletVert(Vert11);
 
-        Vec2 positionVert9 = new VectCartesian(1935, 1650);
-        Circle formeVert9 = new Circle(positionVert9, GobeletRay );
-        Obstacle vert9 = new StillCircularObstacle(formeVert9);
-        this.addGobeletVert(vert9);
-
-        Vec2 positionVert10 = new VectCartesian(2050, 400);
-        Circle formeVert10 = new Circle(positionVert10, GobeletRay );
-        Obstacle vert10 = new StillCircularObstacle(formeVert10);
-        this.addGobeletVert(vert10);
-
-        Vec2 positionVert11 = new VectCartesian(2550, 510);
-        Circle formeVert11 = new Circle(positionVert11, GobeletRay );
-        Obstacle vert11 = new StillCircularObstacle(formeVert11);
-        this.addGobeletVert(vert11);
-
-        Vec2 positionVert12 = new VectCartesian(2700, 1200);
-        Circle formeVert12 = new Circle(positionVert12, GobeletRay );
-        Obstacle vert12 = new StillCircularObstacle(formeVert12);
-        this.addGobeletVert(vert12);
+        Point Vert12 = new Point(2700, 1200);
+        addGobeletVert(Vert12);
     }
 
 
-    /* ============ Méthodes de transformation des coordonnées entre la table et la fenêtre graphique ============= */
+    /* ============ Méthodes de transformation des distances entre la table et la fenêtre graphique ============= */
 
-    /**
-     * La taille de l'image est 802x538
-     * Le bord de la table en haut à gauche est aux coordonnées (31,48)
-     * Le bord de la table en bas à gauche est aux coordonnées (31,445)
-     * Le bord de la table en bas à droite est aux cordonnées (625,445)
-     * Le bord de la table en haut à droite est aux coordonnées (625,48)
-     * La surface de jeu fait donc 594x397
-     *
-     *
-     private final int TABLE_PIXEL_WIDTH = 802; //in pixels
-     private final int TABLE_PIXEL_HEIGHT = 538; //in pixels
-     private final int TABLEGAME_PIXEL_WIDTH = 594; //in pixels
-     private final int TABLEGAME_PIXEL_HEIGHT = 397; //in pixels
-     private final int WIDTH_TABLEGAME = 3000;      //in millimeters
-     private final int HEIGHT_TABLEGAME = 2000;     //in millimeters
-     private final int WIDTH_TABLE = 3288;      //in millimeters
-     private final int HEIGHT_TABLE = 2244;     //in millimeters
-     private final int GobeletRay = 53 ;
-     *
-     * Une légende concernant la numérotation des gobelets est fournis dans le dossier ressources
-     * (TableLegendeGobeletsNumerotation.png)
-     **/
-
-
-    /**
-     * Transforme une distance de la table pour qu'elle soit affichée correction sur l'interface
-     */
     private float transformTableDistanceToInterfaceDistance(float distanceOnTable) {
-      return distanceOnTable * (this.TABLEGAME_PIXEL_WIDTH  / (float) this.WIDTH_TABLEGAME);
+        return distanceOnTable * ((this.TABLEGAME_PIXEL_WIDTH - CoinHautGaucheY) / (float) this.WIDTH_TABLEGAME);
 
     }
-
-    /**
-     * Transforme les coordonnées de la table pour qu'ils soient affichés correction sur l'interface
-     */
-    private Vec2 transformTableCoordsToInterfaceCoords(int xOnTable, int yOnTable) {
-        return new InternalVectCartesian(
-              (xOnTable + (this.WIDTH_TABLEGAME/ 2.0f)) * (this.TABLE_PIXEL_WIDTH / (float) this.WIDTH_TABLEGAME),
-              (this.HEIGHT_TABLEGAME - yOnTable) * (this.TABLEGAME_PIXEL_HEIGHT/ (float) this.HEIGHT_TABLEGAME)) ;
-
-    }
-
-    /**
-     * Transforme les coordonnées de la table pour qu'ils soient affichés correctement sur l'interface
-     */
-    private Vec2 transformTableCoordsToInterfaceCoords(Vec2 positionOnTable) {
-        return transformTableCoordsToInterfaceCoords(positionOnTable.getX() - TABLE_PIXEL_WIDTH/2 + 31, positionOnTable.getY() + (538 - 397)/2 - 48/2 + GobeletRay/2);
-    }
-
-
 }
