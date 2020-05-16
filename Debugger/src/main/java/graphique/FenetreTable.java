@@ -10,7 +10,7 @@ public class FenetreTable extends JFrame{
     String FileImageRobot = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
     private TableVisualisation robot = new TableVisualisation();
 
-    public FenetreTable(String log) throws Exception {
+    public FenetreTable(String logPosition) throws Exception {
         setTitle("Debugger : Table de Jeu");
         setSize(982, 690);
         setLocationRelativeTo(null);
@@ -25,8 +25,8 @@ public class FenetreTable extends JFrame{
         // Mise en place de la table de jeu
         setContentPane(robot);
         setVisible(true);
-        //Robot.SetPosition(robot, log);
-        Robot.go(robot);
+        Robot.SetPosition(robot, logPosition);
+        //Robot.go(robot);
 
 
     }

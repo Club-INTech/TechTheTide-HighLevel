@@ -31,8 +31,8 @@ public class TableVisualisation extends JPanel {
     private final int GobeletRay = 27; // rayon d'un gobelet en  millimetre
 
 
-    int PrincipalWidth = 350;
-    int PrincipalHeigh = 220;
+    final int PrincipalWidth = 350;
+    final int PrincipalHeigh = 220;
 
     /* ============ Affichage de la table et des robots  ============= */
 
@@ -100,20 +100,20 @@ public class TableVisualisation extends JPanel {
     private final ArrayList<Point> GobeletsRouge = new ArrayList<>();
     private final ArrayList<Point> GobeletsVert = new ArrayList<>();
 
-    public void addGobeletsRouges(Point gobelet) {
+    private void addGobeletsRouges(Point gobelet) {
         synchronized (GobeletsRouge) {
             GobeletsRouge.add(gobelet);
         }
     }
 
-    public void addGobeletsVerts(Point gobelet) {
+    private void addGobeletsVerts(Point gobelet) {
         synchronized (GobeletsVert) {
             GobeletsVert.add(gobelet);
         }
     }
 
 
-    public void drawCenteredCircle(Graphics g, int x, int y, int r) {
+    private void drawCenteredCircle(Graphics g, int x, int y, int r) {
         x = x - (r / 2);
         y = y - (r / 2);
         g.fillOval(x, y, r, r);
@@ -121,16 +121,14 @@ public class TableVisualisation extends JPanel {
 
     private void drawGobelets(Graphics g, ArrayList<Point> Gob, Color couleur) {
         for (int i = 0; i < Gob.size(); i++) {
-            double x = (this.WIDTH_TABLEGAME - Gob.get(i).getX()) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX;
-            double y = (-Gob.get(i).getY()) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY + TABLEGAME_PIXEL_HEIGHT;
+            Point GobCenter = transformTableCoordonateToInterfaceCoordonate(Gob.get(i));
             g.setColor(couleur);
-            drawCenteredCircle(g, (int) x, (int) y, 2 * (int) transformTableDistanceToInterfaceDistance(GobeletRay));
+            drawCenteredCircle(g, GobCenter.x, GobCenter.y, 2 * (int) transformTableDistanceToInterfaceDistance(GobeletRay));
         }
 
     }
 
     public void initGobeletsVerts() {
-
 
         Point Vert1 = new Point(300, 1200);
         addGobeletsVerts(Vert1);
@@ -250,4 +248,14 @@ public class TableVisualisation extends JPanel {
         return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME);
 
     }
+
+    private Point transformTableCoordonateToInterfaceCoordonate(Point point) {
+        Point newPoint = new Point();
+        newPoint.x  = (int) ((WIDTH_TABLEGAME - point.x) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX);
+        newPoint.y = (int) ((-point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY + TABLEGAME_PIXEL_HEIGHT);
+        return newPoint;
+    }
+
+
+
 }
