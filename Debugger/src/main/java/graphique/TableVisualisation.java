@@ -3,6 +3,7 @@ package graphique;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -87,7 +88,9 @@ public class TableVisualisation extends JPanel {
 
         try {
             Image principal = ImageIO.read(new File(FilePrincipalImage));
+            ((Graphics2D)g).setTransform(AffineTransform.getRotateInstance(0,posX,posY));
             g.drawImage(principal, posX, posY, (int) (transformTableDistanceToInterfaceDistance(PrincipalWidth)), (int) (transformTableDistanceToInterfaceDistance(PrincipalHeigh)), this);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
