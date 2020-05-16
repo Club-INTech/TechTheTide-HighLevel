@@ -2,7 +2,6 @@ package LogRegex;
 
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
- import traitementLogs.LogsCommunications.ComNUC.RegexComNuc;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
@@ -54,7 +53,7 @@ public class Regex {
                     Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 
                     if (handleConfig.find()) {
-                        RegexComNuc.regexComNuc(log);
+                       // RegexComNuc.regexComNuc(log);
                     } else{
                         RegexComBuddy.regexComBuddy(log);
                     }
@@ -69,7 +68,7 @@ public class Regex {
     }
 
     public static void main(String[] args) throws IOException {
-        String logfile = "/home/yasmine/TechTheTide-HighLevel/logs/Fri Jan 24 11_04_25 CET 2020 #60.log";
+        String logfile = "/Users/salhilamia/TechTheTide-HighLevel/logs/Wed May 13 18:42:24 CEST 2020 #7.log";
         Regex.regex(logfile);
     }
 }
