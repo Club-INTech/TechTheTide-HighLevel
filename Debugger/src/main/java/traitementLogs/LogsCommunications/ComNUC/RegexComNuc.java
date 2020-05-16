@@ -13,7 +13,6 @@ public class RegexComNuc {
             System.out.println("composition = " + compo);
                 if (compo == "RVRVV"){
                     System.out.println("RVRVV");
-                    graphique.config(compo);
                 }
                 else if (compo == "RVVRV"){
                     System.out.println("RVVRV");
