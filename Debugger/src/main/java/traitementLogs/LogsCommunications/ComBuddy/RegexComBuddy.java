@@ -10,7 +10,7 @@ public class RegexComBuddy {
         if (position.find()){
             String ordercxyo = log.substring(149);
             System.out.println("ordercxyo = " + ordercxyo);
-            /*mettre la position sur le simulateur*/
+            //TODO : mettre la position sur le simulateur
 
         }
         else {
