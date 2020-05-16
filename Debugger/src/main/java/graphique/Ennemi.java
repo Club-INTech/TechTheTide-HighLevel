@@ -29,6 +29,6 @@ public class Ennemi {
     public Ennemi(int posX, int posY){
         this.posX = posX;
         this.posY = posY;
-        this.timeLeft = 50;
+        this.timeLeft = 5;
     }
 }

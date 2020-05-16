@@ -36,6 +36,7 @@ public enum Log
     ORDERS(true),
     LIDAR(false),
     LIDAR_PROCESS(true),
+    CYLINDER_DETECTION(true),
     PATHFINDING(true),
     GRAPHE(false),
     HOOK(true),

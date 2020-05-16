@@ -5,6 +5,8 @@ import java.util.regex.*;
 
 public class RegexLidar {
 
+
+
     static public void regexLidar (String log, FenetreTable debug) {
         int i;
         String center = "center: ";
@@ -13,6 +15,13 @@ public class RegexLidar {
         String virgule = ",";
         Pattern logvirgule = Pattern.compile(virgule);
         Matcher mvirgule = logvirgule.matcher(log);
+
+        int sizeTableY = 2000;
+        int sizeTableX = 3000;
+        int sizeSimulatedTableX = 594;
+        int sizeSimulatedTableY = 397;
+        int offsetSimulatorX = 31 + sizeSimulatedTableX/2;
+        int offsetSimulatorY = 48 + sizeSimulatedTableY/2;
 
         String a = "(/d*,/d*)";
 
@@ -40,7 +49,7 @@ public class RegexLidar {
             System.out.println(posX);
             System.out.println(posY);
 
-            Ennemi en = new Ennemi(posX, posY);
+            Ennemi en = new Ennemi((posX * sizeSimulatedTableX) /sizeTableX + offsetSimulatorX, (posY * sizeSimulatedTableY)/sizeTableY + offsetSimulatorY);
             debug.robot.addEnnemi(en);
         }
 

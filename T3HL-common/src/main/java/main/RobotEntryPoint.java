@@ -204,6 +204,7 @@ public abstract class RobotEntryPoint {
             table = hl.module(Table.class);
             table.initObstacles();
             lidarController = hl.module(LidarController.class);
+            hl.initModule(CylinderDetectionController.class);
             robot = hl.module(robotClass);
             ai = hl.module(AIModule.class);
             MatchTimer timer = hl.module(MatchTimer.class);

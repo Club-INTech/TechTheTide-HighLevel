@@ -19,7 +19,6 @@ public class Regex {
     static public void regex (String logFile) throws IOException {
 
 
-
         FenetreTable debug = new FenetreTable();
 
         String Locomotion = "LOCOMOTION";
@@ -36,55 +35,62 @@ public class Regex {
         String log;
         /* read log line by line */
         while ((log = br.readLine()) != null) {
-            try {
+
+
 //                System.out.println(log);
-                Pattern logLocomotion = Pattern.compile(Locomotion);
-                Pattern logOrders = Pattern.compile(Orders);
-                Pattern logLidar = Pattern.compile(Lidar);
-                Pattern logLidarProcess = Pattern.compile(LidarProcess);
-                Pattern logPosition = Pattern.compile(Position);
-                Pattern logLLDebug = Pattern.compile(LLDebug);
-                Pattern logDynamixel = Pattern.compile(Dynamixel);
-                Pattern logCommunication = Pattern.compile(Communication);
+//                Pattern logLocomotion = Pattern.compile(Locomotion);
+//                Pattern logOrders = Pattern.compile(Orders);
+//                Pattern logLidar = Pattern.compile(Lidar);
+//                Pattern logLidarProcess = Pattern.compile(LidarProcess);
+//                Pattern logPosition = Pattern.compile(Position);
+//                Pattern logLLDebug = Pattern.compile(LLDebug);
+//                Pattern logDynamixel = Pattern.compile(Dynamixel);
+//                Pattern logCommunication = Pattern.compile(Communication);
 
-                Matcher mlogLocomotion = logLocomotion.matcher(log);
-                Matcher mlogOrders = logOrders.matcher(log);
-                Matcher mlogLidar = logLidar.matcher(log);
-                Matcher mlogLidarProcess = logLidarProcess.matcher(log);
-                Matcher mlogPosition = logPosition.matcher(log);
-                Matcher mlogLLDebug = logLLDebug.matcher(log);
-                Matcher mlogDynamixel = logDynamixel.matcher(log);
-                Matcher mlogCommunication = logCommunication.matcher(log);
 
-                if (mlogLocomotion.find()) {
-                    RegexDeplacement.regexDeplacement(log);
+                Matcher logLocomotion = Pattern.compile("LOCOMOTION").matcher(log);
+                Matcher logOrders = Pattern.compile("ORDERS").matcher(log);
+                Matcher logLidar = Pattern.compile("LIDAR").matcher(log);
+                Matcher logLidarProcess = Pattern.compile("LIDAR_PROCESS").matcher(log);
+                Matcher logPosition = Pattern.compile("POSITION").matcher(log);
+                Matcher logLLDebug = Pattern.compile("LL_DEBUG").matcher(log);
+                Matcher logDynamixel = Pattern.compile("DYNAMIXEL").matcher(log);
+                Matcher logCommunication = Pattern.compile("COMMUNICATION").matcher(log);
 
-                } else if (mlogOrders.find()) {
-                    RegexActionsMeca.regexActions(log, debug);
+                try {
+                    if (logLocomotion.find()) {
+                        RegexDeplacement.regexDeplacement(log);
 
-                } else if (mlogLidar.find()) {
-                    RegexLidar.regexLidar(log, debug);
-                } else if (mlogLidarProcess.find()) {
-                    RegexLidar.regexLidar(log, debug);
-                } else if (mlogPosition.find()) {
-                    //A voir
-                } else if (mlogLLDebug.find()) {
-                    //A voir
-                } else if (mlogDynamixel.find()) {
-                    RegexActionsMeca.regexActions(log, debug);
-                } else if (mlogCommunication.find()) {
-                    //Comm buddy ou NUC ?
+                    } else if (logOrders.find()) {
+                        RegexActionsMeca.regexActions(log);
+                    } else if (logLidar.find()) {
+                        RegexLidar.regexLidar(log, debug);
+                    } else if (logLidarProcess.find()) {
+                        RegexLidar.regexLidar(log, debug);
+                    } else if (logPosition.find()) {
+
+                        //A voir
+                    } else if (logLLDebug.find()) {
+                        //A voir
+                    } else if (logDynamixel.find()) {
+                        RegexActionsMeca.regexActions(log);
+                    } else if (logCommunication.find()) {
+
+                        //Comm buddy ou NUC ?
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("Error : " + e.getMessage());
                 }
 
-            } catch (Exception e) {
-                System.out.println("Error : " + e.getMessage());
-            }
         }
         fstream.close();
     }
 
     public static void main(String[] args) throws IOException {
         String logfile = "/home/jasmin/Documents/Intech/TechTheTide-HighLevel/logs/Sat May 04 11:47:19 CEST 2019 #27 - everything.log";
+//        String logfile = "/home/jasmin/Documents/Intech/TechTheTide-HighLevel/logs/Sat May 04 11:47:54 CEST 2019 #28 - everything.log";
+
         Regex.regex(logfile);
     }
 }

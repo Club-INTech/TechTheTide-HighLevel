@@ -78,12 +78,13 @@ public class TableVisualisation extends JPanel {
         /**Affichage des enemis**/
         g.setColor(Color.red);
 
+        if (listEnnemis.size() >= 1) {
         ArrayList< Ennemi> listEnnemisPrec = new ArrayList<>();
         for (Ennemi ennemi : listEnnemis) {
             listEnnemisPrec.add(ennemi);
         }
 
-        if (listEnnemis.size() >= 1) {
+
             for (Ennemi ennemi : listEnnemisPrec) {
                 g.fillOval(ennemi.getPosX(), ennemi.getPosY(), 25, 25);
                 ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
