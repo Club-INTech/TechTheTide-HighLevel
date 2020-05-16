@@ -71,9 +71,5 @@ public class Regex {
         fstream.close();
     }
 
-    public static void main(String[] args) throws IOException {
-        String logfile = "../TechTheTide-HighLevel/logs/Wed May 13 18:42:24 CEST 2020 #7.log";
-        Regex.regex(logfile);
-    }
 }
 

@@ -6,7 +6,7 @@ import traitementLogs.LogsDeplacement.RegexActions;
 
 public class MainDebug {
     public static void main(String[] args) throws Exception {
-        String logfile = "../TechTheTide-HighLevel/logs/Wed May 13 18:42:24 CEST 2020 #7.log";
+        String logfile = "logs/Sat Mar 07 23_46_45 CET 2020 #304.log";
         Regex.regex(logfile);
        new FenetreTable(RegexActions.LOG_POSITIONSET);
     }

@@ -40,9 +40,9 @@ public class TableVisualisation extends JPanel {
 
     //TODO: changer le chemin de l'image (ide qui comprend pas le chemin raccourci)
 
-    String FileTableImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
-    String FilePrincipalImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/PrincipalVuDessus.png";
-    String FileSecondaireImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/SecondaireVuDessus.png";
+    String FileTableImage = "Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
+    String FilePrincipalImage = "Debugger/src/main/java/graphique/ressources/PrincipalVuDessus.png";
+    String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessus.png";
 
     private int posX = 31;
     private int posY = 445;
@@ -88,8 +88,7 @@ public class TableVisualisation extends JPanel {
 
         try {
             Image principal = ImageIO.read(new File(FilePrincipalImage));
-            ((Graphics2D)g).setTransform(AffineTransform.getRotateInstance(0,posX,posY));
-            g.drawImage(principal, posX, posY, (int) (transformTableDistanceToInterfaceDistance(PrincipalWidth)), (int) (transformTableDistanceToInterfaceDistance(PrincipalHeigh)), this);
+            g.drawImage(principal, posX, posY, (int) (transformTableDistanceToInterfaceDistance(PrincipalHeigh)), (int) (transformTableDistanceToInterfaceDistance(PrincipalWidth)), this);
 
         } catch (IOException e) {
             e.printStackTrace();

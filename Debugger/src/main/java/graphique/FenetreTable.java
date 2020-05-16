@@ -7,7 +7,7 @@ public class FenetreTable extends JFrame{
 
     //TODO: voir pourquoi le chemin entier est necessaire
 
-    String FileImageRobot = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
+    String FileImageRobot = "Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
     private TableVisualisation robot = new TableVisualisation();
 
     public FenetreTable(String logPosition) throws Exception {
