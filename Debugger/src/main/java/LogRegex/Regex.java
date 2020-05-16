@@ -1,6 +1,8 @@
 package LogRegex;
 
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
+ import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
+ import traitementLogs.LogsCommunications.ComNUC.RegexComNuc;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
@@ -49,8 +51,15 @@ public class Regex {
                 } else if (logDynamixel.find()) {
                     RegexActionsMeca.regexActionsMeca(log);
                 } else if (logCommunication.find()) {
-                    //Comm buddy ou NUC ?
+                    Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
+
+                    if (handleConfig.find()) {
+                        RegexComNuc.regexComNuc(log);
+                    } else{
+                        RegexComBuddy.regexComBuddy(log);
+                    }
                 }
+
 
             } catch (Exception e) {
                 System.out.println("Error : " + e.getMessage());
