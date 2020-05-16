@@ -2,6 +2,7 @@ package LogRegex;
 
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
+ import traitementLogs.LogsCommunications.ComBuddy.RegexComNuc;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
@@ -53,7 +54,7 @@ public class Regex {
                     Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 
                     if (handleConfig.find()) {
-                       // RegexComNuc.regexComNuc(log);
+                       RegexComNuc.regexComNuc(log);
                     } else{
                         RegexComBuddy.regexComBuddy(log);
                     }
