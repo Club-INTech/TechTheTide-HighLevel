@@ -64,9 +64,9 @@ public class Regex {
                     } else if (logOrders.find()) {
                         RegexActionsMeca.regexActions(log);
                     } else if (logLidar.find()) {
-                        RegexLidar.regexLidar(log, debug);
+                        RegexLidar.regexLidar(log);
                     } else if (logLidarProcess.find()) {
-                        RegexLidar.regexLidar(log, debug);
+                        RegexLidar.regexLidar(log);
                     } else if (logPosition.find()) {
 
                         //A voir

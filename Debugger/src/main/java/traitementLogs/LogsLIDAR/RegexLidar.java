@@ -7,7 +7,7 @@ public class RegexLidar {
 
 
 
-    static public void regexLidar (String log, FenetreTable debug) {
+    static public void regexLidar (String log) {
         int i;
         String center = "center: ";
         Pattern logcenter = Pattern.compile(center);
@@ -50,11 +50,11 @@ public class RegexLidar {
             System.out.println(posY);
 
             Ennemi en = new Ennemi((posX * sizeSimulatedTableX) /sizeTableX + offsetSimulatorX, (posY * sizeSimulatedTableY)/sizeTableY + offsetSimulatorY);
-            debug.robot.addEnnemi(en);
+
         }
 
 //        debug.robot.addEnnemi();
-        debug.robot.repaint();
+
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {

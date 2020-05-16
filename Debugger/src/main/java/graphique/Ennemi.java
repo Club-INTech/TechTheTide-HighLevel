@@ -31,4 +31,5 @@ public class Ennemi {
         this.posY = posY;
         this.timeLeft = 5;
     }
+
 }

@@ -1,7 +1,6 @@
 package graphique;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Robot extends JPanel {
 
