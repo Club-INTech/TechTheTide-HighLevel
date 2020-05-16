@@ -2,10 +2,10 @@ package LogRegex;
 
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
- import traitementLogs.LogsCommunications.ComBuddy.RegexComNuc;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
+ import traitementLogs.LogsStrategy.RegexStrategy;
 
  import java.io.*;
  import java.util.regex.Matcher;
@@ -32,6 +32,7 @@ public class Regex {
             Matcher logLLDebug = Pattern.compile("LL_DEBUG").matcher(log);
             Matcher logDynamixel = Pattern.compile("DYNAMIXEL").matcher(log);
             Matcher logCommunication = Pattern.compile("COMMUNICATION").matcher(log);
+            Matcher logStrategy =Pattern.compile("STRATEGY").matcher(log);
 
             try {
 
@@ -50,11 +51,13 @@ public class Regex {
                     //A voir
                 } else if (logDynamixel.find()) {
                     RegexActionsMeca.regexActionsMeca(log);
+                } else if (logStrategy.find()){
+                    RegexStrategy.regexStrategy(log);
                 } else if (logCommunication.find()) {
                     Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 
                     if (handleConfig.find()) {
-                       RegexComNuc.regexComNuc(log);
+                       traitementLogs.LogsCommunications.ComNUC.RegexComNUC.regexComNuc(log);
                     } else{
                         RegexComBuddy.regexComBuddy(log);
                     }
@@ -68,5 +71,9 @@ public class Regex {
         fstream.close();
     }
 
+    public static void main(String[] args) throws IOException {
+        String logfile = "../TechTheTide-HighLevel/logs/Wed May 13 18:42:24 CEST 2020 #7.log";
+        Regex.regex(logfile);
+    }
 }
 
