@@ -10,28 +10,8 @@ public class RegexComNuc {
 
         if (Configuration.find()) {
             String compo = log.substring(156);
-            System.out.println("composition = " + compo);
-                if (compo == "RVRVV"){
-                    System.out.println("RVRVV");
-                }
-                else if (compo == "RVVRV"){
-                    System.out.println("RVVRV");
-                }
-                else if (compo == "RRVVV"){
-                    System.out.println("RRVVV");
-                }
-                else if (compo == "VRRVR"){
-                    System.out.println("VRRVR");
-                }
-                else if (compo == "VRVRR"){
-                    System.out.println("VRVRR");
-                }
-                else if(compo == "VVRRR"){
-                    System.out.println("VVRRR");
-                }
-                else{
-                    System.out.println("erreur: composition impossible");
-                }
+            //System.out.println("composition = " + compo);
+            graphique.Robot.SetEceuilCommun(compo);
         }
     }
 }

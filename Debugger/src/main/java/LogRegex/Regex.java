@@ -6,6 +6,7 @@ package LogRegex;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
+ import traitementLogs.LogsStrategy.RegexStrategy;
 
  import java.io.*;
  import java.util.regex.Matcher;
@@ -32,6 +33,7 @@ public class Regex {
             Matcher logLLDebug = Pattern.compile("LL_DEBUG").matcher(log);
             Matcher logDynamixel = Pattern.compile("DYNAMIXEL").matcher(log);
             Matcher logCommunication = Pattern.compile("COMMUNICATION").matcher(log);
+            Matcher logStrategy =Pattern.compile("STRATEGY").matcher(log);
 
             try {
 
@@ -50,6 +52,8 @@ public class Regex {
                     //A voir
                 } else if (logDynamixel.find()) {
                     RegexActionsMeca.regexActionsMeca(log);
+                } else if (logStrategy.find()){
+                    RegexStrategy.regexStrategy(log);
                 } else if (logCommunication.find()) {
                     Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 

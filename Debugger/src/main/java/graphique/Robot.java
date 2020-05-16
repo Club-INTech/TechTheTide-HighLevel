@@ -34,5 +34,37 @@ public class Robot extends JPanel {
        robot.setPosY(PositionSet.x);
        robot.setPosY(PositionSet.y);
     }
+
+    public static void SetEceuilCommun (String compo ) {
+        try{
+            if (compo == "RVRVV"){
+                System.out.println("RVRVV");
+                //TableVisualisation.RVRVV();
+            }
+            else if (compo == "RVVRV"){
+                System.out.println("RVVRV");
+                //TableVisualisation.RVVRV();
+            }
+            else if (compo == "RRVVV"){
+                System.out.println("RRVVV");
+                //TableVisualisation.RRVVV();
+            }
+            else if (compo == "VRRVR"){
+                System.out.println("VRRVR");
+                //TableVisualisation.VRRVR();
+            }
+            else if (compo == "VRVRR"){
+                System.out.println("VRVRR");
+                //TableVisualisation.VRVRR();
+            }
+            else if(compo == "VVRRR"){
+                System.out.println("VVRRR");
+                //TableVisualisation.VVRRR();
+            }
+
+        }catch(Exception e){
+            System.out.println("erreur composition impossible:"+ e.getMessage());
+        }
+    }
 }
 
