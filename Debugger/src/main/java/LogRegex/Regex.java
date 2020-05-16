@@ -1,6 +1,7 @@
 package LogRegex;
 
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
+ import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
 
@@ -12,7 +13,6 @@ package LogRegex;
 // last modification 13/03/20
 
 public class Regex {
-
 
     static public void regex (String logFile) throws IOException {
 
@@ -37,7 +37,7 @@ public class Regex {
                 if (logLocomotion.find()) {
                     RegexDeplacement.regexDeplacement(log);
                 } else if (logOrders.find()) {
-                    RegexActionsMeca.regexActions(log);
+                    RegexActions.regexActions(log);
                 } else if (logLidar.find()) {
                     RegexLidar.regexLidar(log);
                 } else if (logLidarProcess.find()) {
@@ -47,7 +47,7 @@ public class Regex {
                 } else if (logLLDebug.find()) {
                     //A voir
                 } else if (logDynamixel.find()) {
-                    RegexActionsMeca.regexActions(log);
+                    RegexActionsMeca.regexActionsMeca(log);
                 } else if (logCommunication.find()) {
                     //Comm buddy ou NUC ?
                 }
