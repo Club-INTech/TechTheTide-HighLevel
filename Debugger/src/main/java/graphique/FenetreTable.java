@@ -7,18 +7,15 @@ public class FenetreTable extends JFrame{
 
     //TODO: voir pourquoi le chemin entier est necessaire
 
-
-
     String FileImageRobot = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
     private TableVisualisation robot = new TableVisualisation();
 
-
-    public FenetreTable() {
+    public FenetreTable() throws Exception {
         setTitle("Debugger : Table de Jeu");
         setSize(982, 690);
         setLocationRelativeTo(null);
         setResizable(false);
-        setAlwaysOnTop(true);
+        setAlwaysOnTop(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Pour personnaliser l'icone de la fenêtre
@@ -28,7 +25,8 @@ public class FenetreTable extends JFrame{
         // Mise en place de la table de jeu
         setContentPane(robot);
         setVisible(true);
-//        Robot.go(robot);
+        //Robot.SetPosition(robot, log);
+        Robot.go(robot);
 
 
     }
