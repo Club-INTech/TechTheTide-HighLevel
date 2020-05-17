@@ -4,8 +4,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -38,14 +38,17 @@ public class TableVisualisation extends JPanel {
     /* ============ Affichage de la table et des robots  ============= */
 
 
-    //TODO: changer le chemin de l'image (ide qui comprend pas le chemin raccourci)
-
     String FileTableImage = "Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
-    String FilePrincipalImage = "Debugger/src/main/java/graphique/ressources/PrincipalVuDessus.png";
+    String FilePrincipalImage = "Debugger/src/main/java/graphique/ressources/PrincipalVuDessusInterfaceSize.png";
     String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessus.png";
 
-    private int posX = 31;
-    private int posY = 445;
+    public static BufferedImage Principal;
+    public static BufferedImage RobotPrincipal;
+    private Image Table;
+
+    private int posX;
+    private int posY;
+    private double orientation;
 
     public int getPosX() {
         return posX;
@@ -63,17 +66,27 @@ public class TableVisualisation extends JPanel {
         this.posY = posY;
     }
 
+    public void setOrientation( double t) { orientation = t; }
+
+    public double getOrientation() { return orientation; }
+
+    public TableVisualisation() {
+
+        try {
+            Table = ImageIO.read(new File(FileTableImage));
+            Principal = ImageIO.read(new File(FilePrincipalImage));
+            RobotPrincipal = rotate(Principal, orientation);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
         /**DESSIN DE LA TABLE DE JEU**/
 
-
-        try {
-            Image img = ImageIO.read(new File(FileTableImage));
-            g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        g.drawImage(Table, 0, 0, this.getWidth(), this.getHeight(), this);
 
 
         /** Visualisation des gobelets sur la table**/
@@ -86,14 +99,12 @@ public class TableVisualisation extends JPanel {
 
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
 
-        try {
-            Image principal = ImageIO.read(new File(FilePrincipalImage));
-            g.drawImage(principal, posX, posY, (int) (transformTableDistanceToInterfaceDistance(PrincipalHeigh)), (int) (transformTableDistanceToInterfaceDistance(PrincipalWidth)), this);
+        if (RobotPrincipal != null) {
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.drawImage(RobotPrincipal, posX, posY, this);
+            g2d.dispose();
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
     }
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
@@ -122,8 +133,8 @@ public class TableVisualisation extends JPanel {
     }
 
     private void drawGobelets(Graphics g, ArrayList<Point> Gob, Color couleur) {
-        for (int i = 0; i < Gob.size(); i++) {
-            Point GobCenter = transformTableCoordonateToInterfaceCoordonate(Gob.get(i));
+        for (Point point : Gob) {
+            Point GobCenter = transformTableCoordonateToInterfaceCoordonate(point);
             g.setColor(couleur);
             drawCenteredCircle(g, GobCenter.x, GobCenter.y, 2 * (int) transformTableDistanceToInterfaceDistance(GobeletRay));
         }
@@ -258,6 +269,31 @@ public class TableVisualisation extends JPanel {
         return newPoint;
     }
 
+    public BufferedImage rotate(BufferedImage img, double angle) {
+
+        double sin = Math.abs(Math.sin(angle)), cos = Math.abs(Math.cos(angle));
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int newWidth = (int) Math.floor(w * cos + h * sin);
+        int newHeight = (int) Math.floor(h * cos + w * sin);
+
+        BufferedImage rotated = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = rotated.createGraphics();
+        AffineTransform at = new AffineTransform();
+        at.translate((newWidth - w) / 2f, (newHeight - h) / 2f);
+
+        int x = w / 2;
+        int y = h / 2;
+
+        at.rotate(angle, x, y);
+        g2d.setTransform(at);
+        g2d.drawImage(img, 0, 0, this);
+        g2d.setColor(Color.RED);
+        g2d.drawRect(0, 0, newWidth - 1, newHeight - 1);
+        g2d.dispose();
+
+        return rotated;
+    }
 
 
 }

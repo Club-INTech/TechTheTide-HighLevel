@@ -1,5 +1,7 @@
 package traitementLogs.LogsDeplacement;
 
+
+import graphique.Robot;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,32 +10,27 @@ import java.util.regex.Pattern;
 
 public class RegexActions {
 
-    public static String LOG_POSITIONSET;
-    public static String LOG_TURN;
-    private static int TABLEGAME_WIDTH = 3000;
-    private static final int TABLEGAME_HIGH = 2000;
     private static final double defaultOrientation = 0.0;
 
-    static public void regexActions(String log) {
+    static public void regexActions(String log) throws Exception {
         Matcher turnTowards = Pattern.compile("Sent to LL: t").matcher(log);
         Matcher setPosition = Pattern.compile("setPositionAndOrientation").matcher(log);
         Matcher cxyo = Pattern.compile("!cxyo").matcher(log);
          if (turnTowards.find()) {
              turn(log);
-             LOG_TURN = log;
-             //System.out.println(LOG_TURN);
+             Robot.Turn(log);
          }
          if (setPosition.find() && cxyo.find()) {
              setPosition(log);
-             LOG_POSITIONSET=log;
+             Robot.SetPosition(log);
+             Robot.SetOrientation(log);
          }
     }
 
-    static double turn (String log) {
+    static public double turn (String log) {
             int iend = log.substring(111).indexOf("\u001B") ; // ! \\ ATTENTION: après la valeur de rotation, dans le log y a un caractère spécial (voir les logs sous gedit)
             String turn = log.substring(111).substring(0, iend);
-            double t = Double.parseDouble(turn);
-            return t;
+            return Double.parseDouble(turn);
         }
 
     static public Map<Point, Double> setPosition(String log) {
