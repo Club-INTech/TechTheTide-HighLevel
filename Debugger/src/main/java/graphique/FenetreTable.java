@@ -26,7 +26,6 @@ public class FenetreTable extends JFrame{
         setContentPane(robot);
         setVisible(true);
         Regex.regex(logfile);
-       //Robot.go(robot);
 
 
     }
