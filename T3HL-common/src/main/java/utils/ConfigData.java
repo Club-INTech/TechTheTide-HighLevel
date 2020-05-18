@@ -122,6 +122,7 @@ public interface ConfigData
     ConfigInfo<Integer> DEBUG_SIMULATEUR_PORT = new BaseConfigInfo<>(19999, Integer.TYPE);
 
     ConfigInfo<Integer> CYLINDER_DETECTION_PORT = new BaseConfigInfo<>(18000, Integer.TYPE);
+    ConfigInfo<Integer> CYLINDER_RADIUS = new BaseConfigInfo<>(70, Integer.TYPE);
 
     ConfigInfo<Boolean> MODE_MONTHLERY = new BaseConfigInfo<>(false, Boolean.TYPE);
     ConfigInfo<Boolean> OPEN_THE_GATE = new BaseConfigInfo<>(false, Boolean.TYPE);

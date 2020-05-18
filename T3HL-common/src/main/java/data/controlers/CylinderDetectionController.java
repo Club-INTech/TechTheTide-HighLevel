@@ -1,10 +1,8 @@
 package data.controlers;
 
 import connection.Connection;
-import data.SensorState;
 import data.Table;
 import data.XYO;
-import data.table.MobileCircularObstacle;
 import pfg.config.Configurable;
 import utils.HLInstance;
 import utils.Log;
@@ -28,13 +26,16 @@ public class CylinderDetectionController implements Module {
     private static final Pattern shapePattern = Pattern.compile(SHAPE_REGEX, Pattern.MULTILINE);
     private final Rectangle tableBB;
     private final Table table;
-    private final List<Vec2> cylinders = new LinkedList<>();
+    private final List<Cup> cylinders = new LinkedList<>();
 
     @Configurable
     private boolean usingCylinderDetection;
 
     @Configurable
     private boolean symetry;
+
+    @Configurable("cylinderRadius")
+    private int cupRadius;
 
     private Listener listener;
 
@@ -109,14 +110,13 @@ public class CylinderDetectionController implements Module {
 
                     // on ajoute l'obstacle que s'il est dans la table
                     if(tableBB.isInShape(localPosition)) {
-                        cylinders.add(localPosition);
+                        cylinders.add(new Cup(localPosition, cupRadius, Cup.Color.valueOf(color.toUpperCase())));
                         Log.CYLINDER_DETECTION.warning("Cylinder detection at " + localPosition);
                     }
                 }
             }
 
-            // TODO: liste uniquement pour ça
-            table.updateMobileObstacles(cylinders);
+            table.updateCylinders(cylinders);
         }
 
     }

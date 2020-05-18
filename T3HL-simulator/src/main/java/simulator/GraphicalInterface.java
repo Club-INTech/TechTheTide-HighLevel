@@ -3,6 +3,7 @@ package simulator;
 import data.CouleurPalet;
 import data.CouleurVerre;
 import data.Table;
+import data.controlers.Cup;
 import data.graphe.Node;
 import data.table.MobileCircularObstacle;
 import data.table.Obstacle;
@@ -566,7 +567,31 @@ public class GraphicalInterface extends JFrame {
             drawPoints(g);
         }
 
+        drawCups(g);
+
         drawTime(g);
+    }
+
+    private void drawCups(Graphics g) {
+        for(Cup cup : table.getCups()) {
+            Vec2 coordsOnInterface = transformTableCoordsToInterfaceCoords(cup.getPosition().getX(), cup.getPosition().getY());
+            int radius = transformTableDistanceToInterfaceDistance((Integer) ConfigData.CYLINDER_RADIUS.getDefaultValue()*2);
+
+
+            switch (cup.getColor()) {
+                case RED:
+                    g.setColor(Color.RED);
+                    break;
+
+                case GREEN:
+                    g.setColor(Color.GREEN);
+                    break;
+            }
+            g.fillOval(coordsOnInterface.getX()-radius, coordsOnInterface.getY()-radius, radius*2, radius*2);
+
+            g.setColor(Color.BLACK);
+            g.drawOval(coordsOnInterface.getX()-radius, coordsOnInterface.getY()-radius, radius*2, radius*2);
+        }
     }
 
     private void drawTime(Graphics g) {

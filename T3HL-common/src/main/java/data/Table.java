@@ -18,6 +18,7 @@
 
 package data;
 
+import data.controlers.Cup;
 import data.table.*;
 import pfg.config.Configurable;
 import utils.Log;
@@ -118,6 +119,9 @@ public class Table implements Module {
     @Configurable
     private boolean openTheGate;
 
+    private List<Cup> cylinders;
+    private List<Cup> cylindersBuffer;
+
     /**
      * Constructeur de la table
      */
@@ -126,6 +130,8 @@ public class Table implements Module {
         this.mobileObstacles = new ConcurrentLinkedQueue<>();
         this.mobileObstacleBuffer = new ArrayList<>();
         this.temporaryObstacles = new ArrayList<>();
+        this.cylinders = new LinkedList<>();
+        this.cylindersBuffer = new LinkedList<>();
     }
 
     /**
@@ -671,6 +677,10 @@ public class Table implements Module {
         return mobileObstacles;
     }
 
+    public List<Cup> getCups() {
+        return cylinders;
+    }
+
     public int getLength() {
         return length;
     }
@@ -691,5 +701,43 @@ public class Table implements Module {
         synchronized (temporaryObstacles) {
             temporaryObstacles.clear();
         }
+    }
+
+    public void updateCylinders(List<Cup> points) {
+        Log.CYLINDER_DETECTION.debug("Mise à jour des gobelets...");
+
+        cylindersBuffer.clear();
+        synchronized (cylinders) {
+            Cup currentCup;
+            Iterator<Cup> cylindersIterator = cylinders.iterator();
+
+            while (cylindersIterator.hasNext()) {
+                Cup existingCup = cylindersIterator.next();
+                Iterator<Cup> pointIterator = points.iterator();
+                while (pointIterator.hasNext()) {
+                    currentCup = pointIterator.next();
+                    if (existingCup.getColor() == currentCup.getColor() && existingCup.isInObstacle(currentCup.getPosition())) {
+                        existingCup.update(currentCup.getPosition());
+                        Log.CYLINDER_DETECTION.debug("MàJ du gobelet : " + existingCup);
+                        pointIterator.remove();
+                    }
+                }
+                if (existingCup.getOutDatedTime() < System.currentTimeMillis()) {
+                    Log.CYLINDER_DETECTION.debug("Expiration du gobelet: " + existingCup);
+                    cylindersIterator.remove();
+                }
+            }
+        }
+
+        for (Cup cup : points) {
+            Log.CYLINDER_DETECTION.debug("Nouveau gobelet: " + cup);
+            cylindersBuffer.add(cup);
+        }
+
+        synchronized (cylinders) {
+            cylinders.addAll(cylindersBuffer); // on envoie tout d'un coup
+        }
+
+        Log.CYLINDER_DETECTION.debug("Mise à jour des gobelets terminée");
     }
 }
