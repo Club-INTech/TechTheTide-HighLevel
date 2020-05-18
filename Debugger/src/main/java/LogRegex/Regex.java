@@ -1,8 +1,9 @@
 package LogRegex;
 
+ import graphique.FenetreTable;
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
- import traitementLogs.LogsCommunications.ComNuc.RegexComNuc;
+ import traitementLogs.LogsCommunications.ComNuc.RegexComNUC;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
@@ -25,6 +26,13 @@ public class Regex {
         String couleurZone= null;
         /* read log line by line */
         while ((log = br.readLine()) != null) {
+
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
 
             Matcher logLocomotion = Pattern.compile("LOCOMOTION").matcher(log);
             Matcher logOrders = Pattern.compile("ORDERS").matcher(log);
@@ -59,7 +67,7 @@ public class Regex {
                     Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 
                     if (handleConfig.find()) {
-                        RegexComNuc.regexComNuc(log, couleurZone);
+                        RegexComNUC.regexComNuc(log, couleurZone);
                     } else{
                         RegexComBuddy.regexComBuddy(log);
                     }
@@ -73,9 +81,5 @@ public class Regex {
         fstream.close();
     }
 
-    public static void main(String[] args) throws IOException {
-        String logfile = "../TechTheTide-HighLevel/logs/Wed May 13 18:42:24 CEST 2020 #7.log";
-        Regex.regex(logfile);
-    }
 }
 

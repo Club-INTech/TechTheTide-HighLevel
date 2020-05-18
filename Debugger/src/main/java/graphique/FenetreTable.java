@@ -1,16 +1,17 @@
 package graphique;
 
+import LogRegex.Regex;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class FenetreTable extends JFrame{
 
-    //TODO: voir pourquoi le chemin entier est necessaire
+    String FileImageRobot = "Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
+    public static TableVisualisation robot = new TableVisualisation();
+    String logfile = "logs/Sat Mar 07 23_46_45 CET 2020 #304.log";
 
-    String FileImageRobot = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
-    private TableVisualisation robot = new TableVisualisation();
-
-    public FenetreTable(String logPosition) throws Exception {
+    public FenetreTable() throws Exception {
         setTitle("Debugger : Table de Jeu");
         setSize(982, 690);
         setLocationRelativeTo(null);
@@ -22,11 +23,9 @@ public class FenetreTable extends JFrame{
         Image icone = Toolkit.getDefaultToolkit().getImage(FileImageRobot);
         setIconImage(icone);
 
-        // Mise en place de la table de jeu
         setContentPane(robot);
         setVisible(true);
-        Robot.SetPosition(robot, logPosition);
-        //Robot.go(robot);
+        Regex.regex(logfile);
 
 
     }

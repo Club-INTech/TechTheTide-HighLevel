@@ -3,9 +3,16 @@ package graphique;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 import java.io.File;
+
 import java.io.IOException;
+import java.lang.Double;
+
 import java.util.ArrayList;
+
+
 
 
 public class TableVisualisation extends JPanel {
@@ -34,17 +41,29 @@ public class TableVisualisation extends JPanel {
     final int PrincipalWidth = 350;
     final int PrincipalHeigh = 220;
 
+
     /* ============ Affichage de la table et des robots  ============= */
 
 
-    //TODO: changer le chemin de l'image (ide qui comprend pas le chemin raccourci)
+    String FileTableImage = "Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
+    String FilePrincipalImage = "Debugger/src/main/java/graphique/ressources/PrincipalVuDessusInterfaceSize.png";
+    String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessus.png";
 
-    String FileTableImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
-    String FilePrincipalImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/PrincipalVuDessus.png";
-    String FileSecondaireImage = "../TechTheTide-HighLevel/Debugger/src/main/java/graphique/ressources/SecondaireVuDessus.png";
+    public static BufferedImage Principal;
+    public static BufferedImage RobotPrincipal;
+    private Image Table;
 
-    private int posX = 31;
-    private int posY = 445;
+
+
+    private int posX;
+    private int posY;
+
+    private double orientation;
+
+
+    private int i = 1;
+
+
 
     public int getPosX() {
         return posX;
@@ -62,17 +81,32 @@ public class TableVisualisation extends JPanel {
         this.posY = posY;
     }
 
-    public void paintComponent(Graphics g) {
+    public void setOrientation( double t) { orientation = t; }
+
+
 
         /**DESSIN DE LA TABLE DE JEU**/
 
+    public double getOrientation() { return orientation; }
+
+
+    public TableVisualisation() {
 
         try {
-            Image img = ImageIO.read(new File(FileTableImage));
-            g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
-        } catch (IOException e) {
+            Table = ImageIO.read(new File(FileTableImage));
+            Principal = ImageIO.read(new File(FilePrincipalImage));
+            RobotPrincipal = rotate(Principal, orientation);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        /**DESSIN DE LA TABLE DE JEU**/
+
+        g.drawImage(Table, 0, 0, this.getWidth(), this.getHeight(), this);
 
 
         /** Visualisation des gobelets sur la table**/
@@ -84,11 +118,17 @@ public class TableVisualisation extends JPanel {
 
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
 
-        try {
-            Image principal = ImageIO.read(new File(FilePrincipalImage));
-            g.drawImage(principal, posX, posY, (int) (transformTableDistanceToInterfaceDistance(PrincipalWidth)), (int) (transformTableDistanceToInterfaceDistance(PrincipalHeigh)), this);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (RobotPrincipal != null) {
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.drawImage(RobotPrincipal, posX, posY, this);
+            g2d.dispose();
+
+        /**Affichage des enemis**/
+
+        actualizeEnnemis(listEnnemis);
+        drawEnnemis(g,listEnnemis);
+
+
         }
 
     }
@@ -118,9 +158,11 @@ public class TableVisualisation extends JPanel {
         g.fillOval(x, y, r, r);
     }
 
+
     private void drawGobelets(Graphics g, ArrayList<Point> Gob, Color couleur) {
-        for (int i = 0; i < Gob.size(); i++) {
-            Point GobCenter = transformTableCoordonateToInterfaceCoordonate(Gob.get(i));
+        for (Point point : Gob) {
+            Point GobCenter = transformTableCoordonateToInterfaceCoordonate(point);
+
             g.setColor(couleur);
             drawCenteredCircle(g, GobCenter.x, GobCenter.y, 2 * (int) transformTableDistanceToInterfaceDistance(GobeletRay));
         }
@@ -240,8 +282,8 @@ public class TableVisualisation extends JPanel {
         addGobeletsRouges(EcueilBleuRouge3);
     }
 
-    /* ======Différentes configuration des gobelets dans le éceuils=====*/
 
+/* ======Différentes configuration des gobelets dans le éceuils=====*/
 //les gobelets dans les éceuils communs sont numérotés de gauche à droite
 
 
@@ -553,9 +595,9 @@ public class TableVisualisation extends JPanel {
         Point EceuilCommun10 = new Point(700, -67);
         addGobeletsRouges(EceuilCommun10);
 
-    }
+        }
 
-    public void VRRVR_B(){
+        public void VRRVR_B(){
 
         Point EceuilCommun1 = new Point(2300, -80);
         addGobeletsVerts(EceuilCommun1);
@@ -654,7 +696,56 @@ public class TableVisualisation extends JPanel {
         addGobeletsVerts(EceuilCommun10);
 
     }
-    */
+     */
+    /* ================================= Affichage des Enemmis sur la table ======================================= */
+
+    private ArrayList< Ennemi> listEnnemis = new ArrayList<>();
+
+    public void drawEnnemis(Graphics g, ArrayList<Ennemi> listEnnemis){
+        g.setColor(Color.magenta.darker());
+        if(listEnnemis.size()>0) {
+            for (Ennemi e : listEnnemis) {
+                g.fillOval(e.getPosX(), e.getPosY(), 25, 25);
+            }
+        }
+    }
+
+    public void addEnnemi(Ennemi ennemi){
+        this.listEnnemis.add(ennemi);
+    }
+
+    public void actualizeEnnemis(ArrayList<Ennemi> listEnnemis){
+//        if (listEnnemis.size() >= 1) {
+//            ArrayList< Ennemi> listEnnemisPrec = new ArrayList<>();
+//            for (Ennemi ennemi : listEnnemis) {
+//                listEnnemisPrec.add(ennemi);
+//            }
+//
+//
+//            for (Ennemi ennemi : listEnnemisPrec) {
+//                ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
+//                if (ennemi.timeLeft <= 0) {
+//                    listEnnemis.remove(0);
+//                }
+//            }
+//        }
+        if (listEnnemis.size() >= 1) {
+            int nbEnnemisFinis = 0;
+            for(Ennemi ennemi : listEnnemis){
+                ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
+                if (ennemi.getTimeLeft() <= 0){
+                    nbEnnemisFinis++;
+                }
+            }
+            while (nbEnnemisFinis > 0){
+                listEnnemis.remove(0);
+                nbEnnemisFinis--;
+            }
+        }
+
+    }
+
+
     /* ============ Méthodes de transformation des distances entre la table et la fenêtre graphique ============= */
 
     private float transformTableDistanceToInterfaceDistance(float distanceOnTable) {
@@ -669,6 +760,31 @@ public class TableVisualisation extends JPanel {
         return newPoint;
     }
 
+    public BufferedImage rotate(BufferedImage img, double angle) {
+
+        double sin = Math.abs(Math.sin(angle)), cos = Math.abs(Math.cos(angle));
+        int w = img.getWidth();
+        int h = img.getHeight();
+        int newWidth = (int) Math.floor(w * cos + h * sin);
+        int newHeight = (int) Math.floor(h * cos + w * sin);
+
+        BufferedImage rotated = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = rotated.createGraphics();
+        AffineTransform at = new AffineTransform();
+        at.translate((newWidth - w) / 2f, (newHeight - h) / 2f);
+
+        int x = w / 2;
+        int y = h / 2;
+
+        at.rotate(angle, x, y);
+        g2d.setTransform(at);
+        g2d.drawImage(img, 0, 0, this);
+        g2d.setColor(Color.RED);
+        g2d.drawRect(0, 0, newWidth - 1, newHeight - 1);
+        g2d.dispose();
+
+        return rotated;
+    }
 
 
 }
