@@ -123,28 +123,28 @@ public class Robot extends JPanel {
         }
     }
 
-    public static void SetEceuilCommun (TableVisualisation robot, String compo,String couleurZone) {
+    public static void SetEceuilCommun (String compo,String couleurZone) {
         try {
             if (couleurZone == "jaune") {
                 try {
                     if (compo == "RVRVV") {
                         System.out.println("RVRVV");
-                        //robot.RVRVV_J();
+                        robot.RVRVV_J();
                     } else if (compo == "RVVRV") {
                         System.out.println("RVVRV");
-                        //robot.RVVRV_J();
+                        robot.RVVRV_J();
                     } else if (compo == "RRVVV") {
                         System.out.println("RRVVV");
-                        //robot.RRVVV_J();
+                        robot.RRVVV_J();
                     } else if (compo == "VRRVR") {
                         System.out.println("VRRVR");
-                        //robot.VRRVR_J();
+                        robot.VRRVR_J();
                     } else if (compo == "VRVRR") {
                         System.out.println("VRVRR");
-                        //robot.VRVRR_J();
+                        robot.VRVRR_J();
                     } else if (compo == "VVRRR") {
                         System.out.println("VVRRR");
-                        //robot.VVRRR_J();
+                        robot.VVRRR_J();
                     }
                 } catch (Exception e) {
                     System.out.println("erreur Configuration" + e.getMessage());
@@ -153,22 +153,22 @@ public class Robot extends JPanel {
                 try {
                     if (compo == "RVRVV") {
                         System.out.println("RVRVV");
-                        //robot.RVRVV_B();
+                        robot.RVRVV_B();
                     } else if (compo == "RVVRV") {
                         System.out.println("RVVRV");
-                        //robot.RVVRV_B();
+                        robot.RVVRV_B();
                     } else if (compo == "RRVVV") {
                         System.out.println("RRVVV");
-                        //robot.RRVVV_B();
+                        robot.RRVVV_B();
                     } else if (compo == "VRRVR") {
                         System.out.println("VRRVR");
-                        //robot.VRRVR_B();
+                        robot.VRRVR_B();
                     } else if (compo == "VRVRR") {
                         System.out.println("VRVRR");
-                        //robot.VRVRR_B();
+                        robot.VRVRR_B();
                     } else if (compo == "VVRRR") {
                         System.out.println("VVRRR");
-                        //robot.VVRRR_B();
+                        robot.VVRRR_B();
                     }
                 } catch (Exception e) {
                     System.out.println("erreur Configuration" + e.getMessage());
