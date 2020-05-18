@@ -297,6 +297,10 @@ public class TableVisualisation extends JPanel {
     }
 
     public void addEnnemi(Ennemi ennemi){
+        Point point = new Point(ennemi.getPosX(), ennemi.getPosY());
+        point = transformTableCoordonateToInterfaceCoordonate(point);
+        ennemi.setPosX(point.x);
+        ennemi.setPosY(point.y);
         this.listEnnemis.add(ennemi);
     }
 

@@ -1,9 +1,12 @@
 package graphique;
+import java.awt.*;
 
 public class Ennemi {
     int posX;
     int posY;
     int timeLeft;
+
+    static TableVisualisation robot = FenetreTable.robot;
 
     public int getPosX(){
         return(posX);
@@ -30,6 +33,13 @@ public class Ennemi {
         this.posX = posX;
         this.posY = posY;
         this.timeLeft = 5;
+    }
+
+
+    public static void addEnnemi(Ennemi e){
+
+        robot.addEnnemi(e);
+        robot.repaint();
     }
 
 }

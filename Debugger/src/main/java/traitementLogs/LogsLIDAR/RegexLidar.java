@@ -21,6 +21,10 @@ public class RegexLidar {
             int posY = Integer.parseInt(pos.substring(0,posYend));
             System.out.println(posX);
             System.out.println(posY);
+
+            Ennemi e = new Ennemi(posX, posY);
+
+            Ennemi.addEnnemi(e);
         }
     }
 

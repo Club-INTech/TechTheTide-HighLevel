@@ -1,6 +1,7 @@
 package graphique;
 
 import traitementLogs.LogsDeplacement.RegexActions;
+import traitementLogs.LogsLIDAR.RegexLidar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -156,6 +157,8 @@ public class Robot extends JPanel {
         newPoint.y = (int) ((HEIGHT_TABLEGAME - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME));
         return newPoint;
     }
+
+
 
 }
 
