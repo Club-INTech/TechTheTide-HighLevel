@@ -64,6 +64,9 @@ public class TableVisualisation extends JPanel {
     private int i = 1;
 
 
+    //booléen qui permet de savoir s'il faut actualiser la couleur des gobelets des éceuils communs*/
+    private boolean actualizeEceuilC = false;
+
 
     public int getPosX() {
         return posX;
@@ -128,7 +131,12 @@ public class TableVisualisation extends JPanel {
         actualizeEnnemis(listEnnemis);
         drawEnnemis(g,listEnnemis);
 
+        }
 
+        /**Visualisation des gobelets dans les eceuils communs*/
+        if (actualizeEceuilC = true){
+            drawGobelets(g, GobeletsRouge, Color.RED.darker());
+            drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
         }
 
     }
@@ -320,9 +328,7 @@ public class TableVisualisation extends JPanel {
         Point EceuilCommun10 = new Point(700, -80);
         addGobeletsVerts(EceuilCommun10);
 
-
-        //drawGobelets(g, GobeletsRouge, Color.RED.darker());
-        //drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
+        actualizeEceuilC=true;
     }
 
     public void RVVRV_J(){
