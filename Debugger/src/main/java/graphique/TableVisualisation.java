@@ -330,7 +330,7 @@ public class TableVisualisation extends JPanel {
         Point EceuilCommun1 = new Point(2300, 80);
         addGobeletsVerts(EceuilCommun1);
 
-        Point EceuilCommun2 = new Point(2225, -8à);
+        Point EceuilCommun2 = new Point(2225, -80);
         addGobeletsRouges(EceuilCommun2);
 
         Point EceuilCommun3 = new Point(2150, -80);
@@ -434,7 +434,7 @@ public class TableVisualisation extends JPanel {
         Point EceuilCommun2 = new Point(2225, -80);
         addGobeletsRouges(EceuilCommun2);
 
-        Point EceuilCommun3 = new Point(2150, -8à);
+        Point EceuilCommun3 = new Point(2150, -80);
         addGobeletsVerts(EceuilCommun3);
 
         Point EceuilCommun4 = new Point(2075, -80);
@@ -446,7 +446,7 @@ public class TableVisualisation extends JPanel {
         Point EceuilCommun6 = new Point(1000, -80);
         addGobeletsVerts(EceuilCommun6);
 
-        Point EceuilCommun7 = new Point(925, -8à);
+        Point EceuilCommun7 = new Point(925, -80);
         addGobeletsRouges(EceuilCommun7);
 
         Point EceuilCommun8 = new Point(850, -80);
@@ -697,7 +697,6 @@ public class TableVisualisation extends JPanel {
 
     }
 
-     */
     /* ================================= Affichage des Enemmis sur la table ======================================= */
 
     private ArrayList< Ennemi> listEnnemis = new ArrayList<>();

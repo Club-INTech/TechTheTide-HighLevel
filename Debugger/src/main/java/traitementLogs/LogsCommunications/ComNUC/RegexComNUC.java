@@ -13,7 +13,7 @@ public class RegexComNUC {
         if (Configuration.find()) {
             String compo = log.substring(156);
             System.out.println("composition = " + compo);
-            Robot.SetEceuilCommun(compo,couleurZone);
+            //Robot.SetEceuilCommun(compo,couleurZone);
         }
     }
 }
