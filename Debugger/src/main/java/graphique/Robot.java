@@ -42,7 +42,6 @@ public class Robot extends JPanel {
     public static void Move(String log){
         int d = RegexDeplacement.MoveLengthWiseFonction(log);
         int distanceInterface = (int) transformTableDistanceToInterfaceDistance(d);
-        System.out.println("d = " + d);
         double theta = robot.getOrientation();
         double tx =Math.cos(theta) * distanceInterface;
         double ty =Math.sin(theta)*distanceInterface;
@@ -180,14 +179,16 @@ public class Robot extends JPanel {
     }
 
 
-        static double transformTableDistanceToInterfaceDistance (double distanceOnTable){
-            return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (double) WIDTH_TABLEGAME);
-        }
-        static Point LLtransformTableCoordonateToInterfaceCoordonate (Point point){
-            Point newPoint = new Point();
-            newPoint.x = (int) ((WIDTH_TABLEGAME / 2 + point.x) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME));
-            newPoint.y = (int) ((HEIGHT_TABLEGAME - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME));
-            return newPoint;
-        }
+    static double transformTableDistanceToInterfaceDistance(double distanceOnTable) {
+        return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (double) WIDTH_TABLEGAME);
 
     }
+
+    static Point LLtransformTableCoordonateToInterfaceCoordonate(Point point) {
+        Point newPoint = new Point();
+        newPoint.x  = (int) ((WIDTH_TABLEGAME/2 + point.x) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME));
+        newPoint.y = (int) ((HEIGHT_TABLEGAME - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME));
+        return newPoint;
+    }
+
+}
