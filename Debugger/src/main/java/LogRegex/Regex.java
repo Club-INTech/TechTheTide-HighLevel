@@ -3,6 +3,7 @@ package LogRegex;
  import graphique.FenetreTable;
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
+ import traitementLogs.LogsCommunications.ComNuc.RegexComNUC;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
@@ -22,6 +23,7 @@ public class Regex {
         FileInputStream fstream = new FileInputStream(logFile);
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
         String log;
+        String couleurZone= null;
         /* read log line by line */
         while ((log = br.readLine()) != null) {
 
@@ -60,12 +62,12 @@ public class Regex {
                 } else if (logDynamixel.find()) {
                     RegexActionsMeca.regexActionsMeca(log);
                 } else if (logStrategy.find()){
-                    RegexStrategy.regexStrategy(log);
+                    couleurZone = RegexStrategy.regexStrategy(log); //on stocke l'information de la couleur de la zone de départ
                 } else if (logCommunication.find()) {
                     Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 
                     if (handleConfig.find()) {
-                       traitementLogs.LogsCommunications.ComNUC.RegexComNUC.regexComNuc(log);
+                        RegexComNUC.regexComNuc(log, couleurZone);
                     } else{
                         RegexComBuddy.regexComBuddy(log);
                     }

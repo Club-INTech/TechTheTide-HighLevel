@@ -1,13 +1,11 @@
 package graphique;
 
 import traitementLogs.LogsDeplacement.RegexActions;
-import traitementLogs.LogsLIDAR.RegexLidar;
+import traitementLogs.LogsDeplacement.RegexDeplacement;
+
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
 public class Robot extends JPanel {
 
@@ -20,29 +18,11 @@ public class Robot extends JPanel {
     static TableVisualisation robot = FenetreTable.robot;
 
 
-    static void go() {
-        for (int i = 0; i < 10000; i++) {
-
-            int x = robot.getPosX(), y = robot.getPosY();
-            x++;
-            y++;
-            robot.setPosX(x);
-            robot.setPosY(y);
-            robot.repaint();
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
-
     public static void SetPosition (String log) throws Exception {
         Point PositionTableSet = RegexActions.getPositionSet(log);
-       Point PositionSet = LLtransformTableCoordonateToInterfaceCoordonate(PositionTableSet);
-       robot.setPosX(PositionSet.x);
-       robot.setPosY(PositionSet.y);
+        Point PositionSet = LLtransformTableCoordonateToInterfaceCoordonate(PositionTableSet);
+        robot.setPosX(PositionSet.x);
+        robot.setPosY(PositionSet.y);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -51,8 +31,8 @@ public class Robot extends JPanel {
     }
 
     public static void SetOrientation(String log) throws Exception {
-        double t = RegexActions.getOrientationSet(log);
-        robot.setOrientation(t);
+        double theta = RegexActions.getOrientationSet(log);
+        robot.setOrientation(theta);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -60,13 +40,43 @@ public class Robot extends JPanel {
         }
     }
 
+    public static void Move(String log){
+        int d = RegexDeplacement.MoveLengthWiseFonction(log);
+        int distanceInterface = (int) transformTableDistanceToInterfaceDistance(d);
+        double theta = robot.getOrientation();
+        double tx =Math.cos(theta) * distanceInterface;
+        double ty =Math.sin(theta)*distanceInterface;
+        float x = robot.getPosX();
+        float y = robot.getPosY();
+        int xfinale = (int) (robot.getPosX() + tx);
+        int yfinale = (int) (robot.getPosY() + ty);
+        float distanceParcourue = 0;
+        while (distanceParcourue <= distanceInterface) {
+            distanceParcourue+=distanceInterface*0.01;
+            x+=tx/100;
+            y+=ty/100;
+            robot.setPosX((int) x);
+            robot.setPosY((int) y);
+            robot.repaint();
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        robot.setPosY(yfinale);
+        robot.setPosX(xfinale);
+    }
+
+
+
     public static void Turn (String log) {
         try {
-            double t = - RegexActions.turn(log);
+            double theta = - RegexActions.turn(log);
             double orientation = robot.getOrientation();
-            if (t <= 0) {
-                if (t >= orientation) {
-                    while (t>orientation) {
+            if (theta <= 0) {
+                if (theta >= orientation) {
+                    while (theta>orientation) {
                         orientation+=0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
@@ -75,20 +85,20 @@ public class Robot extends JPanel {
                     }
                 }
                 else {
-                    while (t<orientation) {
+                    while (theta<orientation) {
                         orientation -=0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
                         robot.repaint();
                         Thread.sleep(10);
                     }
-                    robot.setOrientation(t);
+                    robot.setOrientation(theta);
                     robot.repaint();
                 }
             }
             else {
-                if (t >= orientation) {
-                    while (t>orientation) {
+                if (theta >= orientation) {
+                    while (theta>orientation) {
                         orientation+=0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
@@ -97,14 +107,14 @@ public class Robot extends JPanel {
                     }
                 }
                 else {
-                    while (t<orientation) {
+                    while (theta<orientation) {
                         orientation -=0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
                         robot.repaint();
                         Thread.sleep(10);
                     }
-                    robot.setOrientation(t);
+                    robot.setOrientation(theta);
                     robot.repaint();
                 }
             }
@@ -113,45 +123,69 @@ public class Robot extends JPanel {
         }
     }
 
-
-    public static void SetEceuilCommun (String compo ) {
-        try{
-            if (compo == "RVRVV"){
-                System.out.println("RVRVV");
-                //TableVisualisation.RVRVV();
+    public static void SetEceuilCommun (TableVisualisation robot, String compo,String couleurZone) {
+        try {
+            if (couleurZone == "jaune") {
+                try {
+                    if (compo == "RVRVV") {
+                        System.out.println("RVRVV");
+                        //robot.RVRVV_J();
+                    } else if (compo == "RVVRV") {
+                        System.out.println("RVVRV");
+                        //robot.RVVRV_J();
+                    } else if (compo == "RRVVV") {
+                        System.out.println("RRVVV");
+                        //robot.RRVVV_J();
+                    } else if (compo == "VRRVR") {
+                        System.out.println("VRRVR");
+                        //robot.VRRVR_J();
+                    } else if (compo == "VRVRR") {
+                        System.out.println("VRVRR");
+                        //robot.VRVRR_J();
+                    } else if (compo == "VVRRR") {
+                        System.out.println("VVRRR");
+                        //robot.VVRRR_J();
+                    }
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            } else if (couleurZone == "bleue") {
+                try {
+                    if (compo == "RVRVV") {
+                        System.out.println("RVRVV");
+                        //robot.RVRVV_B();
+                    } else if (compo == "RVVRV") {
+                        System.out.println("RVVRV");
+                        //robot.RVVRV_B();
+                    } else if (compo == "RRVVV") {
+                        System.out.println("RRVVV");
+                        //robot.RRVVV_B();
+                    } else if (compo == "VRRVR") {
+                        System.out.println("VRRVR");
+                        //robot.VRRVR_B();
+                    } else if (compo == "VRVRR") {
+                        System.out.println("VRVRR");
+                        //robot.VRVRR_B();
+                    } else if (compo == "VVRRR") {
+                        System.out.println("VVRRR");
+                        //robot.VVRRR_B();
+                    }
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
             }
-            else if (compo == "RVVRV"){
-                System.out.println("RVVRV");
-                //TableVisualisation.RVVRV();
-            }
-            else if (compo == "RRVVV"){
-                System.out.println("RRVVV");
-                //TableVisualisation.RRVVV();
-            }
-            else if (compo == "VRRVR"){
-                System.out.println("VRRVR");
-                //TableVisualisation.VRRVR();
-            }
-            else if (compo == "VRVRR"){
-                System.out.println("VRVRR");
-                //TableVisualisation.VRVRR();
-            }
-            else if(compo == "VVRRR"){
-                System.out.println("VVRRR");
-                //TableVisualisation.VVRRR();
-            }
-
-        }catch(Exception e){
-            System.out.println("erreur composition impossible:"+ e.getMessage());
+        } catch (Exception e) {
+            System.out.println("erreur Configuration" + e.getMessage());
         }
     }
 
 
-    static float transformTableDistanceToInterfaceDistance(float distanceOnTable) {
-        return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME);
+    static double transformTableDistanceToInterfaceDistance(double distanceOnTable) {
+        return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (double) WIDTH_TABLEGAME);
 
     }
-     static Point LLtransformTableCoordonateToInterfaceCoordonate(Point point) {
+
+    static Point LLtransformTableCoordonateToInterfaceCoordonate(Point point) {
         Point newPoint = new Point();
         newPoint.x  = (int) ((WIDTH_TABLEGAME/2 + point.x) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME));
         newPoint.y = (int) ((HEIGHT_TABLEGAME - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME));
@@ -161,4 +195,3 @@ public class Robot extends JPanel {
 
 
 }
-
