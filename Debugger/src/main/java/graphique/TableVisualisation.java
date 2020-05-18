@@ -119,6 +119,13 @@ public class TableVisualisation extends JPanel {
         drawGobelets(g, GobeletsRouge, Color.RED.darker());
         drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
 
+
+        /**Visualisation des gobelets dans les eceuils communs*/
+        if (actualizeEceuilC = true){
+            drawGobelets(g, GobeletsRouge, Color.RED.darker());
+            drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
+        }
+
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
 
         if (RobotPrincipal != null) {
@@ -133,11 +140,6 @@ public class TableVisualisation extends JPanel {
 
         }
 
-        /**Visualisation des gobelets dans les eceuils communs*/
-        if (actualizeEceuilC = true){
-            drawGobelets(g, GobeletsRouge, Color.RED.darker());
-            drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
-        }
 
     }
 
