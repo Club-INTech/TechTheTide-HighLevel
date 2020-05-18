@@ -1,6 +1,8 @@
 package graphique;
 
+import LogRegex.Regex;
 import traitementLogs.LogsDeplacement.RegexActions;
+import traitementLogs.LogsCommunications.ComNuc.RegexComNuc;
 
 import javax.swing.*;
 import java.awt.*;
@@ -50,37 +52,64 @@ public class Robot extends JPanel {
         return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME);
 
     }
-    public static void SetEceuilCommun (String compo ) {
-        try{
-            if (compo == "RVRVV"){
-                System.out.println("RVRVV");
-                //TableVisualisation.RVRVV();
-            }
-            else if (compo == "RVVRV"){
-                System.out.println("RVVRV");
-                //TableVisualisation.RVVRV();
-            }
-            else if (compo == "RRVVV"){
-                System.out.println("RRVVV");
-                //TableVisualisation.RRVVV();
-            }
-            else if (compo == "VRRVR"){
-                System.out.println("VRRVR");
-                //TableVisualisation.VRRVR();
-            }
-            else if (compo == "VRVRR"){
-                System.out.println("VRVRR");
-                //TableVisualisation.VRVRR();
-            }
-            else if(compo == "VVRRR"){
-                System.out.println("VVRRR");
-                //TableVisualisation.VVRRR();
-            }
 
+
+    public static void SetEceuilCommun (TableVisualisation robot, String compo,String couleurZone) {
+        try{
+            if (couleurZone == "jaune") {
+                try{
+                    if (compo == "RVRVV") {
+                        System.out.println("RVRVV");
+                        //robot.RVRVV_J();
+                    } else if (compo == "RVVRV") {
+                        System.out.println("RVVRV");
+                        //robot.RVVRV_J();
+                    } else if (compo == "RRVVV") {
+                        System.out.println("RRVVV");
+                        //robot.RRVVV_J();
+                    } else if (compo == "VRRVR") {
+                        System.out.println("VRRVR");
+                        //robot.VRRVR_J();
+                    } else if (compo == "VRVRR") {
+                        System.out.println("VRVRR");
+                        //robot.VRVRR_J();
+                    } else if (compo == "VVRRR") {
+                        System.out.println("VVRRR");
+                        //robot.VVRRR_J();
+                    }
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            }else if (couleurZone == "bleue"){
+                try{
+                    if (compo == "RVRVV") {
+                        System.out.println("RVRVV");
+                        //robot.RVRVV_B();
+                    } else if (compo == "RVVRV") {
+                        System.out.println("RVVRV");
+                        //robot.RVVRV_B();
+                    } else if (compo == "RRVVV") {
+                        System.out.println("RRVVV");
+                        //robot.RRVVV_B();
+                    } else if (compo == "VRRVR") {
+                        System.out.println("VRRVR");
+                        //robot.VRRVR_B();
+                    } else if (compo == "VRVRR") {
+                        System.out.println("VRVRR");
+                        //robot.VRVRR_B();
+                    } else if (compo == "VVRRR") {
+                        System.out.println("VVRRR");
+                        //robot.VVRRR_B();
+                    }
+                }catch(Exception e){
+                    System.out.println("erreur Configuration"+ e.getMessage());
+                }
+            }
         }catch(Exception e){
-            System.out.println("erreur composition impossible:"+ e.getMessage());
+            System.out.println("erreur Zonecote"+ e.getMessage());
         }
     }
+
 
      static Point LLtransformTableCoordonateToInterfaceCoordonate(Point point) {
         Point newPoint = new Point();
