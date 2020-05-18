@@ -1,5 +1,7 @@
 package traitementLogs.LogsCommunications.ComBuddy;
 
+import graphique.Ennemi;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,14 +11,15 @@ public class RegexComBuddy {
         Matcher position = Pattern.compile("confirmOrder cxyo").matcher(log);
         if (position.find()){
             String ordercxyo = log.substring(149);
-          //System.out.println("ordercxyo = " + ordercxyo);
+            //System.out.println("ordercxyo = " + ordercxyo);
             //TODO : mettre la position sur le simulateur
+            //Buddy b = new Ennemi(posX, posY);
 
         }
         else {
             int icrochet = log.substring(3).indexOf("]") ;
             String action = log.substring(3).substring(icrochet + 2 );
-          //System.out.println("action = " + action);
+            System.out.println("action = " + action);
         }
     }
 }

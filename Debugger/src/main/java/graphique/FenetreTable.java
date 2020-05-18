@@ -9,7 +9,7 @@ public class FenetreTable extends JFrame{
 
     String FileImageRobot = "Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
     public static TableVisualisation robot = new TableVisualisation();
-    String logfile = "Debugger/src/main/java/LogsTests/testLogsComNuc.log";
+    String logfile = "Debugger/src/main/java/LogsTests/testLogsComNuc1.log";
 
     public FenetreTable() throws Exception {
         setTitle("Debugger : Table de Jeu");
