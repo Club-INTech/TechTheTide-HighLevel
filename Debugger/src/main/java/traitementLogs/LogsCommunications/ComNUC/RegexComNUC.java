@@ -1,5 +1,7 @@
 package traitementLogs.LogsCommunications.ComNuc;
 
+import graphique.Robot;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,7 +13,7 @@ public class RegexComNUC {
         if (Configuration.find()) {
             String compo = log.substring(156);
             System.out.println("composition = " + compo);
-            //graphique.Robot.SetEceuilCommun(compo,couleurZone);
+            Robot.SetEceuilCommun(compo,couleurZone);
         }
     }
 }

@@ -324,7 +324,7 @@ public class TableVisualisation extends JPanel {
         //drawGobelets(g, GobeletsRouge, Color.RED.darker());
         //drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
     }
-/*
+
     public void RVVRV_J(){
 
         Point EceuilCommun1 = new Point(2300, 80);
@@ -382,7 +382,7 @@ public class TableVisualisation extends JPanel {
         Point EceuilCommun7 = new Point(925, -80);
         addGobeletsRouges(EceuilCommun7);
 
-        Point EceuilCommun8 = new Point(850, -8à);
+        Point EceuilCommun8 = new Point(850, -80);
         addGobeletsVerts(EceuilCommun8);
 
         Point EceuilCommun9 = new Point(775, -80);
@@ -494,7 +494,7 @@ public class TableVisualisation extends JPanel {
     }
 
     /*configurations des éceuils communs si le robot démarre dans la zone jaune*/
-    /*
+
     public void RVRVV_B(){
 
         Point EceuilCommun1 = new Point(2300, -67);
@@ -696,6 +696,7 @@ public class TableVisualisation extends JPanel {
         addGobeletsVerts(EceuilCommun10);
 
     }
+
      */
     /* ================================= Affichage des Enemmis sur la table ======================================= */
 
