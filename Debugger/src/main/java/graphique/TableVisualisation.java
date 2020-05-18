@@ -82,7 +82,6 @@ public class TableVisualisation extends JPanel {
         drawGobelets(g, GobeletsRouge, Color.RED.darker());
         drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
 
-
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
 
         try {
@@ -241,7 +240,421 @@ public class TableVisualisation extends JPanel {
         addGobeletsRouges(EcueilBleuRouge3);
     }
 
+    /* ======Différentes configuration des gobelets dans le éceuils=====*/
 
+//les gobelets dans les éceuils communs sont numérotés de gauche à droite
+
+
+    /*configurations des éceuils communs si le robot démarre dans la zone jaune*/
+    public void RVRVV_J(){
+
+        Point EceuilCommun1 = new Point(2300, -80);
+        addGobeletsVerts(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -80);
+        addGobeletsVerts(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -80);
+        addGobeletsRouges(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsVerts(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsRouges(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsRouges(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -80);
+        addGobeletsVerts(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -80);
+        addGobeletsRouges(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsVerts(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsVerts(EceuilCommun10);
+
+
+        //drawGobelets(g, GobeletsRouge, Color.RED.darker());
+        //drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
+    }
+/*
+    public void RVVRV_J(){
+
+        Point EceuilCommun1 = new Point(2300, 80);
+        addGobeletsVerts(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -8à);
+        addGobeletsRouges(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -80);
+        addGobeletsVerts(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsVerts(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsRouges(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsRouges(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -80);
+        addGobeletsVerts(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -80);
+        addGobeletsVerts(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsRouges(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsVerts(EceuilCommun10);
+
+    }
+
+    public void RRVVV_J(){
+
+        Point EceuilCommun1 = new Point(2300, -80);
+        addGobeletsVerts(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -80);
+        addGobeletsVerts(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -80);
+        addGobeletsVerts(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsRouges(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsRouges(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsRouges(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -80);
+        addGobeletsRouges(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -8à);
+        addGobeletsVerts(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsVerts(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsVerts(EceuilCommun10);
+
+    }
+
+    public void VRRVR_J(){
+
+        Point EceuilCommun1 = new Point(2300, -80);
+        addGobeletsRouges(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -80);
+        addGobeletsVerts(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -80);
+        addGobeletsRouges(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsRouges(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsVerts(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsVerts(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -80);
+        addGobeletsRouges(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -80);
+        addGobeletsRouges(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsVerts(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsRouges(EceuilCommun10);
+
+    }
+    public void VRVRR_J(){
+
+        Point EceuilCommun1 = new Point(2300, -80);
+        addGobeletsRouges(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -80);
+        addGobeletsRouges(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -8à);
+        addGobeletsVerts(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsRouges(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsVerts(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsVerts(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -8à);
+        addGobeletsRouges(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -80);
+        addGobeletsVerts(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsRouges(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsRouges(EceuilCommun10);
+
+    }
+    public void VVRRR_J(){
+
+        Point EceuilCommun1 = new Point(2300, -67);
+        addGobeletsRouges(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -67);
+        addGobeletsRouges(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -67);
+        addGobeletsRouges(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -67);
+        addGobeletsVerts(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -67);
+        addGobeletsVerts(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -67);
+        addGobeletsVerts(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -67);
+        addGobeletsVerts(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -67);
+        addGobeletsRouges(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -67);
+        addGobeletsRouges(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -67);
+        addGobeletsRouges(EceuilCommun10);
+
+    }
+
+    /*configurations des éceuils communs si le robot démarre dans la zone jaune*/
+    /*
+    public void RVRVV_B(){
+
+        Point EceuilCommun1 = new Point(2300, -67);
+        addGobeletsRouges(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -67);
+        addGobeletsVerts(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -67);
+        addGobeletsRouges(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -67);
+        addGobeletsVerts(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -67);
+        addGobeletsVerts(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -67);
+        addGobeletsVerts(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -67);
+        addGobeletsVerts(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -67);
+        addGobeletsRouges(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -67);
+        addGobeletsVerts(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -67);
+        addGobeletsRouges(EceuilCommun10);
+
+    }
+
+    public void RVVRV_B(){
+
+        Point EceuilCommun1 = new Point(2300, -67);
+        addGobeletsRouges(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -67);
+        addGobeletsVerts(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -67);
+        addGobeletsVerts(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -67);
+        addGobeletsRouges(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -67);
+        addGobeletsVerts(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -67);
+        addGobeletsVerts(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -67);
+        addGobeletsRouges(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -67);
+        addGobeletsVerts(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -67);
+        addGobeletsVerts(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -67);
+        addGobeletsRouges(EceuilCommun10);
+
+    }
+
+    public void RRVVV_B(){
+
+        Point EceuilCommun1 = new Point(2300, -67);
+        addGobeletsRouges(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -67);
+        addGobeletsRouges(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -67);
+        addGobeletsVerts(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -67);
+        addGobeletsVerts(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -67);
+        addGobeletsVerts(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -67);
+        addGobeletsVerts(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -67);
+        addGobeletsVerts(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -67);
+        addGobeletsVerts(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -67);
+        addGobeletsRouges(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -67);
+        addGobeletsRouges(EceuilCommun10);
+
+    }
+
+    public void VRRVR_B(){
+
+        Point EceuilCommun1 = new Point(2300, -80);
+        addGobeletsVerts(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -80);
+        addGobeletsRouges(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -80);
+        addGobeletsRouges(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsVerts(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsRouges(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsRouges(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -80);
+        addGobeletsVerts(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -80);
+        addGobeletsRouges(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsRouges(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsVerts(EceuilCommun10);
+
+    }
+    public void VRVRR_B(){
+
+        Point EceuilCommun1 = new Point(2300, -80);
+        addGobeletsVerts(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -80);
+        addGobeletsRouges(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -80);
+        addGobeletsVerts(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsRouges(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsRouges(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsRouges(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -80);
+        addGobeletsRouges(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -80);
+        addGobeletsVerts(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsRouges(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsVerts(EceuilCommun10);
+
+    }
+    public void VVRRR_B(){
+
+        Point EceuilCommun1 = new Point(2300, -80);
+        addGobeletsVerts(EceuilCommun1);
+
+        Point EceuilCommun2 = new Point(2225, -80);
+        addGobeletsVerts(EceuilCommun2);
+
+        Point EceuilCommun3 = new Point(2150, -80);
+        addGobeletsRouges(EceuilCommun3);
+
+        Point EceuilCommun4 = new Point(2075, -80);
+        addGobeletsRouges(EceuilCommun4);
+
+        Point EceuilCommun5 = new Point(2000, -80);
+        addGobeletsRouges(EceuilCommun5);
+
+        Point EceuilCommun6 = new Point(1000, -80);
+        addGobeletsRouges(EceuilCommun6);
+
+        Point EceuilCommun7 = new Point(925, -80);
+        addGobeletsRouges(EceuilCommun7);
+
+        Point EceuilCommun8 = new Point(850, -80);
+        addGobeletsRouges(EceuilCommun8);
+
+        Point EceuilCommun9 = new Point(775, -80);
+        addGobeletsVerts(EceuilCommun9);
+
+        Point EceuilCommun10 = new Point(700, -80);
+        addGobeletsVerts(EceuilCommun10);
+
+    }
+    */
     /* ============ Méthodes de transformation des distances entre la table et la fenêtre graphique ============= */
 
     private float transformTableDistanceToInterfaceDistance(float distanceOnTable) {
