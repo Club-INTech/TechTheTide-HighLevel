@@ -1,5 +1,6 @@
 package LogRegex;
 
+ import graphique.FenetreTable;
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
  import traitementLogs.LogsDeplacement.RegexActions;
@@ -23,6 +24,13 @@ public class Regex {
         String log;
         /* read log line by line */
         while ((log = br.readLine()) != null) {
+
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
 
             Matcher logLocomotion = Pattern.compile("LOCOMOTION").matcher(log);
             Matcher logOrders = Pattern.compile("ORDERS").matcher(log);

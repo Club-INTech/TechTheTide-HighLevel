@@ -6,7 +6,13 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
+
+import java.io.IOException;
+import java.lang.Double;
+
 import java.util.ArrayList;
+
+
 
 
 public class TableVisualisation extends JPanel {
@@ -35,6 +41,7 @@ public class TableVisualisation extends JPanel {
     final int PrincipalWidth = 350;
     final int PrincipalHeigh = 220;
 
+
     /* ============ Affichage de la table et des robots  ============= */
 
 
@@ -46,9 +53,17 @@ public class TableVisualisation extends JPanel {
     public static BufferedImage RobotPrincipal;
     private Image Table;
 
+
+
     private int posX;
     private int posY;
+
     private double orientation;
+
+
+    private int i = 1;
+
+
 
     public int getPosX() {
         return posX;
@@ -68,7 +83,12 @@ public class TableVisualisation extends JPanel {
 
     public void setOrientation( double t) { orientation = t; }
 
+
+
+        /**DESSIN DE LA TABLE DE JEU**/
+
     public double getOrientation() { return orientation; }
+
 
     public TableVisualisation() {
 
@@ -104,7 +124,14 @@ public class TableVisualisation extends JPanel {
             g2d.drawImage(RobotPrincipal, posX, posY, this);
             g2d.dispose();
 
+        /**Affichage des enemis**/
+
+        actualizeEnnemis(listEnnemis);
+        drawEnnemis(g,listEnnemis);
+
+
         }
+
     }
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
@@ -132,9 +159,11 @@ public class TableVisualisation extends JPanel {
         g.fillOval(x, y, r, r);
     }
 
+
     private void drawGobelets(Graphics g, ArrayList<Point> Gob, Color couleur) {
         for (Point point : Gob) {
             Point GobCenter = transformTableCoordonateToInterfaceCoordonate(point);
+
             g.setColor(couleur);
             drawCenteredCircle(g, GobCenter.x, GobCenter.y, 2 * (int) transformTableDistanceToInterfaceDistance(GobeletRay));
         }
@@ -253,6 +282,57 @@ public class TableVisualisation extends JPanel {
         Point EcueilBleuRouge3 = new Point (-67, 1450);
         addGobeletsRouges(EcueilBleuRouge3);
     }
+
+    /* ================================= Affichage des Enemmis sur la table ======================================= */
+
+    private ArrayList< Ennemi> listEnnemis = new ArrayList<>();
+
+    public void drawEnnemis(Graphics g, ArrayList<Ennemi> listEnnemis){
+        g.setColor(Color.magenta.darker());
+        if(listEnnemis.size()>0) {
+            for (Ennemi e : listEnnemis) {
+                g.fillOval(e.getPosX(), e.getPosY(), 25, 25);
+            }
+        }
+    }
+
+    public void addEnnemi(Ennemi ennemi){
+        this.listEnnemis.add(ennemi);
+    }
+
+    public void actualizeEnnemis(ArrayList<Ennemi> listEnnemis){
+//        if (listEnnemis.size() >= 1) {
+//            ArrayList< Ennemi> listEnnemisPrec = new ArrayList<>();
+//            for (Ennemi ennemi : listEnnemis) {
+//                listEnnemisPrec.add(ennemi);
+//            }
+//
+//
+//            for (Ennemi ennemi : listEnnemisPrec) {
+//                ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
+//                if (ennemi.timeLeft <= 0) {
+//                    listEnnemis.remove(0);
+//                }
+//            }
+//        }
+        if (listEnnemis.size() >= 1) {
+            int nbEnnemisFinis = 0;
+            for(Ennemi ennemi : listEnnemis){
+                ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
+                if (ennemi.getTimeLeft() <= 0){
+                    nbEnnemisFinis++;
+                }
+            }
+            while (nbEnnemisFinis > 0){
+                listEnnemis.remove(0);
+                nbEnnemisFinis--;
+            }
+        }
+
+    }
+
+
+
 
 
     /* ============ Méthodes de transformation des distances entre la table et la fenêtre graphique ============= */
