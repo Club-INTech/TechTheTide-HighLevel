@@ -7,7 +7,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 
-public class FenetreDemarrage extends JDialog {
+public class FenetreDemarrage extends JDialog{
 
     private Boolean principalBool = true;
     private String logFile;
@@ -29,13 +29,20 @@ public class FenetreDemarrage extends JDialog {
     };
 
     public FenetreDemarrage (){
+
+        super(null, Dialog.ModalityType.APPLICATION_MODAL);
+
         setTitle("Débugger");
         setSize(500,300);
         setLocationRelativeTo(null);
         setResizable(false);
         setAlwaysOnTop(false);
 
-        setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        ImageIcon image = new ImageIcon("Debugger/src/main/java/graphique/ressources/bouee_SailTheWorld.png");
+        setIconImage(image.getImage());
+
+//        setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        setModal(true);
 
         initZoneDeTexte();
         initChoixRobot();
