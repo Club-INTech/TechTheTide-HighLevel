@@ -10,7 +10,6 @@ public class RegexDeplacement {
     static public void regexDeplacement (String log) {
         Matcher MoveLengthwise = Pattern.compile("Move lengthwise").matcher(log);
         if (MoveLengthwise.find()) {
-            MoveLengthWiseFonction(log);
             Robot.Move(log);
         }
     }

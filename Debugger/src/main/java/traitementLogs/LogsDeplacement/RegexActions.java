@@ -17,11 +17,9 @@ public class RegexActions {
         Matcher setPosition = Pattern.compile("setPositionAndOrientation").matcher(log);
         Matcher cxyo = Pattern.compile("!cxyo").matcher(log);
          if (turnTowards.find()) {
-             turn(log);
              Robot.Turn(log);
          }
          if (setPosition.find() && cxyo.find()) {
-             setPosition(log);
              Robot.SetPosition(log);
              Robot.SetOrientation(log);
          }

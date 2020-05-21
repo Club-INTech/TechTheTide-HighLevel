@@ -125,48 +125,48 @@ public class Robot extends JPanel {
 
     public static void SetEceuilCommun (String compo,String couleurZone) {
         try {
-            if (couleurZone == "jaune") {
+            if (couleurZone.equals("jaune")) {
                 try {
-                    if (compo == "RVRVV") {
+                    if (compo.equals("RVRVV")){
                         System.out.println("RVRVV");
                         robot.RVRVV_J();
-                    } else if (compo == "RVVRV") {
+                    } else if (compo.equals("RVVRV")) {
                         System.out.println("RVVRV");
                         robot.RVVRV_J();
-                    } else if (compo == "RRVVV") {
+                    } else if (compo.equals("RRVVV")){
                         System.out.println("RRVVV");
                         robot.RRVVV_J();
-                    } else if (compo == "VRRVR") {
+                    } else if (compo.equals("VRRVR")) {
                         System.out.println("VRRVR");
                         robot.VRRVR_J();
-                    } else if (compo == "VRVRR") {
+                    } else if (compo.equals("VRVRR")) {
                         System.out.println("VRVRR");
                         robot.VRVRR_J();
-                    } else if (compo == "VVRRR") {
+                    } else if (compo.equals("VVRRR")) {
                         System.out.println("VVRRR");
                         robot.VVRRR_J();
                     }
                 } catch (Exception e) {
                     System.out.println("erreur Configuration" + e.getMessage());
                 }
-            } else if (couleurZone == "bleue") {
+            } else if (couleurZone.equals("bleue")) {
                 try {
-                    if (compo == "RVRVV") {
+                    if (compo.equals("RVRVV")) {
                         System.out.println("RVRVV");
                         robot.RVRVV_B();
-                    } else if (compo == "RVVRV") {
+                    } else if (compo.equals("RVVRV")) {
                         System.out.println("RVVRV");
                         robot.RVVRV_B();
-                    } else if (compo == "RRVVV") {
+                    } else if (compo.equals("RRVVV")) {
                         System.out.println("RRVVV");
                         robot.RRVVV_B();
-                    } else if (compo == "VRRVR") {
+                    } else if (compo.equals("VRRVR")) {
                         System.out.println("VRRVR");
                         robot.VRRVR_B();
-                    } else if (compo == "VRVRR") {
+                    } else if (compo.equals("VRVRR")) {
                         System.out.println("VRVRR");
                         robot.VRVRR_B();
-                    } else if (compo == "VVRRR") {
+                    } else if (compo.equals("VVRRR")) {
                         System.out.println("VVRRR");
                         robot.VVRRR_B();
                     }
@@ -177,6 +177,7 @@ public class Robot extends JPanel {
         } catch (Exception e) {
             System.out.println("erreur Configuration" + e.getMessage());
         }
+        robot.repaint();
     }
 
 
