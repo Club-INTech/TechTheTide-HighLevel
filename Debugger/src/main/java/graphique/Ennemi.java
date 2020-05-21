@@ -32,7 +32,7 @@ public class Ennemi {
     public Ennemi(int posX, int posY){
         this.posX = posX;
         this.posY = posY;
-        this.timeLeft = 5;
+        this.timeLeft = 3;
     }
 
 

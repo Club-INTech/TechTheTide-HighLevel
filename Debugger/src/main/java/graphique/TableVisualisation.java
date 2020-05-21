@@ -119,7 +119,15 @@ public class TableVisualisation extends JPanel {
         drawGobelets(g, GobeletsRouge, Color.RED.darker());
         drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
 
+        if (actualizeEceuilC = true){
+            drawGobelets(g, GobeletsRouge, Color.RED.darker());
+            drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
+        }
+
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
+
+        actualizeEnnemis(listEnnemis);
+        drawEnnemis(g,listEnnemis);
 
         if (RobotPrincipal != null) {
             Graphics2D g2d = (Graphics2D) g.create();
@@ -128,16 +136,12 @@ public class TableVisualisation extends JPanel {
 
         /**Affichage des enemis**/
 
-        actualizeEnnemis(listEnnemis);
-        drawEnnemis(g,listEnnemis);
+
 
         }
 
         /**Visualisation des gobelets dans les eceuils communs*/
-        if (actualizeEceuilC = true){
-            drawGobelets(g, GobeletsRouge, Color.RED.darker());
-            drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
-        }
+
 
     }
 
@@ -718,7 +722,7 @@ public class TableVisualisation extends JPanel {
 
     public void addEnnemi(Ennemi ennemi){
         Point point = new Point(ennemi.getPosX(), ennemi.getPosY());
-        point = transformTableCoordonateToInterfaceCoordonate(point);
+        point = transformLidarCoordonateToInterfaceCoordonate(point);
         ennemi.setPosX(point.x);
         ennemi.setPosY(point.y);
         this.listEnnemis.add(ennemi);
@@ -767,6 +771,13 @@ public class TableVisualisation extends JPanel {
         Point newPoint = new Point();
         newPoint.x  = (int) ((WIDTH_TABLEGAME - point.x) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX);
         newPoint.y = (int) ((-point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY + TABLEGAME_PIXEL_HEIGHT);
+        return newPoint;
+    }
+
+    private Point transformLidarCoordonateToInterfaceCoordonate(Point point){
+        Point newPoint = new Point();
+        newPoint.x = (int) ((point.x + WIDTH_TABLEGAME/2) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX);
+        newPoint.y = (int) ((HEIGHT_TABLEGAME/2 - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY);
         return newPoint;
     }
 
