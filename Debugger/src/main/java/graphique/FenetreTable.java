@@ -12,10 +12,10 @@ public class FenetreTable extends JFrame{
 
 //    String logfile = "logs/Sat May 04 11:47:54 CEST 2019 #28 - everything.log";
 
-    String logfile = "Debugger/src/main/java/LogsTests/testLogsComNuc1.log";
+//    String logfile = "Debugger/src/main/java/LogsTests/testLogsComNuc1.log";
 
 
-    public FenetreTable() throws Exception {
+    public FenetreTable(Boolean principal, String logFile) throws Exception {
         setTitle("Debugger : Table de Jeu");
         setSize(982, 690);
         setLocationRelativeTo(null);
@@ -29,7 +29,7 @@ public class FenetreTable extends JFrame{
 
         setContentPane(robot);
         setVisible(true);
-        Regex.regex(logfile);
+        Regex.regex(logFile);
 
 
     }

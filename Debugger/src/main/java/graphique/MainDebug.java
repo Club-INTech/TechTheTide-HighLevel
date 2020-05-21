@@ -2,6 +2,8 @@ package graphique;
 
 public class MainDebug {
     public static void main(String[] args) throws Exception {
-        new FenetreTable();
+        FenetreDemarrage fenetreDemarrage = new FenetreDemarrage();
+
+        new FenetreTable(fenetreDemarrage.getChoixRobot(), fenetreDemarrage.getLogFile());
     }
 }
