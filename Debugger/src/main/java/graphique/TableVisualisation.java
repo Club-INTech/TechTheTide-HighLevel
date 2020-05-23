@@ -7,9 +7,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import java.io.IOException;
-import java.lang.Double;
-
 import java.util.ArrayList;
 
 
@@ -47,18 +44,23 @@ public class TableVisualisation extends JPanel {
 
     String FileTableImage = "Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
     String FilePrincipalImage = "Debugger/src/main/java/graphique/ressources/PrincipalVuDessusInterfaceSize.png";
-    String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessus.png";
+    String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessusInterfaceSize.png";
 
-    public static BufferedImage Principal;
-    public static BufferedImage RobotPrincipal;
+    public static BufferedImage Principal;       //Robot séléctionné (ie. qui joue le match)
+    public static BufferedImage RobotPrincipal;  //Robotsélectionné orienté
+    public static BufferedImage Secondaire;      // Robot ami
+    public static BufferedImage RobotSecondaire; //Robot ami orienté
     private Image Table;
 
 
 
     private int posX;
     private int posY;
+    private int SposX; //Abscisse du secondaire (robot ami)
+    private int SposY; //ordonnée du secondaire (robot ami)
 
     private double orientation;
+    private double orientationS; //orientation du robotAmi (secondaire)
 
 
     private int i = 1;
@@ -67,20 +69,33 @@ public class TableVisualisation extends JPanel {
     public int getPosX() {
         return posX;
     }
+    public int getSPosX() {
+        return SposX;
+    }
 
     public void setPosX(int posX) {
         this.posX = posX;
+    }
+    public void setSPosX(int SposX) {
+        this.SposX = SposX;
     }
 
     public int getPosY() {
         return posY;
     }
+    public int getSPosY() {
+        return SposY;
+    }
 
     public void setPosY(int posY) {
         this.posY = posY;
     }
+    public void setSPosY(int SposY) {
+        this.SposY = SposY;
+    }
 
     public void setOrientation( double t) { orientation = t; }
+    public void setOrientationS( double t) { orientationS = t; }
 
 
 
@@ -95,6 +110,8 @@ public class TableVisualisation extends JPanel {
             Table = ImageIO.read(new File(FileTableImage));
             Principal = ImageIO.read(new File(FilePrincipalImage));
             RobotPrincipal = rotate(Principal, orientation);
+            Secondaire = ImageIO.read(new File(FileSecondaireImage));
+            RobotSecondaire = rotate(Secondaire, orientationS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -125,12 +142,22 @@ public class TableVisualisation extends JPanel {
             g2d.drawImage(RobotPrincipal, posX, posY, this);
             g2d.dispose();
 
+
+        /**VISUALISATION DU DEUXIÈME ROBOT (le buddy)**/
+            if (RobotSecondaire != null){
+                Graphics2D g2d2 = (Graphics2D) g.create();
+                g2d2.drawImage(RobotSecondaire, SposX, SposY, this);
+                g2d2.dispose();
+            }
+
+
         /**Affichage des enemis**/
 
             actualizeEnnemis(listEnnemis);
             drawEnnemis(g,listEnnemis);
 
         }
+
     }
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
@@ -283,8 +310,8 @@ public class TableVisualisation extends JPanel {
     }
 
 
-/* ======Différentes configuration des gobelets dans le éceuils=====*/
-//les gobelets dans les éceuils communs sont numérotés de gauche à droite
+    /* =======================Différentes configuration des gobelets dans les éceuils communs=========================*/
+    //les gobelets dans les éceuils communs sont numérotés de gauche à droite
 
 
     /*configurations des éceuils communs si le robot démarre dans la zone jaune*/
@@ -694,6 +721,7 @@ public class TableVisualisation extends JPanel {
 
     }
 
+
     /* ================================= Affichage des Enemmis sur la table ======================================= */
 
     private ArrayList< Ennemi> listEnnemis = new ArrayList<>();
@@ -749,6 +777,7 @@ public class TableVisualisation extends JPanel {
 
     /* ============ Méthodes de transformation des distances entre la table et la fenêtre graphique ============= */
 
+
     private float transformTableDistanceToInterfaceDistance(float distanceOnTable) {
         return distanceOnTable * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME);
 
@@ -761,7 +790,8 @@ public class TableVisualisation extends JPanel {
         return newPoint;
     }
 
-    private Point transformLidarCoordonateToInterfaceCoordonate(Point point){
+    //TODO: j'ai mis en  public( est-ce que je peux)
+    public Point transformLidarCoordonateToInterfaceCoordonate(Point point){
         Point newPoint = new Point();
         newPoint.x = (int) ((point.x + WIDTH_TABLEGAME/2) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX);
         newPoint.y = (int) ((HEIGHT_TABLEGAME/2 - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY);

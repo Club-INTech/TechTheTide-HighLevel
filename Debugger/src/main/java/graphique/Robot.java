@@ -9,6 +9,8 @@ import java.awt.*;
 
 public class Robot extends JPanel {
 
+    private static final int CoinHautGaucheX = 43;
+    private static final int CoinHautGaucheY = 21;
     private static final int TABLEGAME_PIXEL_WIDTH = 893; // largeur de la table de jeu en pixels
     private static final int TABLEGAME_PIXEL_HEIGHT = 573; //hauteur de la table de jeu en pixels
     private static final int WIDTH_TABLEGAME = 3000;      // vrai largeur de la table en millimetre
@@ -39,6 +41,7 @@ public class Robot extends JPanel {
             e.printStackTrace();
         }
     }
+
 
     public static void Move(String log){
         int d = RegexDeplacement.MoveLengthWiseFonction(log);
@@ -123,6 +126,29 @@ public class Robot extends JPanel {
         }
     }
 
+
+
+    /* ================================= Affichage de l'ami sur la table ======================================= */
+
+    public static void SetPositionEtOrientationAmi (int posX,int posY, double posO) {
+        Point PositionAmi = new  Point();
+        PositionAmi.x = posX;
+        PositionAmi.y = posY;
+        PositionAmi= transformLidarCoordonateToInterfaceCoordonate(PositionAmi);
+        robot.setSPosX(PositionAmi.x);
+        robot.setSPosY(PositionAmi.y);
+        robot.setOrientationS(posO);
+        robot.repaint();
+        //TODO: demandé à yasmine à quoi ça sert
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* =============================== Actualise la configuration des écueils communs ============================== */
+    //TODO: mettre des cases+mettre (-67)+ cas où on a pas la positon de départ
     public static void SetEceuilCommun (String compo,String couleurZone) {
         try {
             if (couleurZone.equals("jaune")) {
@@ -193,6 +219,10 @@ public class Robot extends JPanel {
         return newPoint;
     }
 
-
-
+    static Point transformLidarCoordonateToInterfaceCoordonate(Point point) {
+        Point newPoint = new Point();
+        newPoint.x = (int) ((point.x + WIDTH_TABLEGAME / 2) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX);
+        newPoint.y = (int) ((HEIGHT_TABLEGAME / 2 - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY);
+        return newPoint;
+    }
 }
