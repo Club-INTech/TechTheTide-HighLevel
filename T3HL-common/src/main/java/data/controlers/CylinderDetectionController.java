@@ -20,8 +20,8 @@ import java.util.regex.Pattern;
 public class CylinderDetectionController implements Module {
 
     //
-    private static final String REGEX = "^(?<angleX>([0-9]+(\\.[0-9]*)?)) (?<angleY>([0-9]+(\\.[0-9]*)?)) (?<angleZ>([0-9]+(\\.[0-9]*)?)) (?<shapeCount>[0-9]+) (?<shape>((?<type>[a-z]+) (?<color>[a-z]+) (?<height>([0-9]+(\\.[0-9]*)?)) (?<localX>([0-9]+(\\.[0-9]*)?)) (?<localY>([0-9]+(\\.[0-9]*)?)) (?<localZ>([0-9]+(\\.[0-9]*)?)) (?<globalX>([0-9]+(\\.[0-9]*)?)) (?<globalY>([0-9]+(\\.[0-9]*)?)) (?<globalZ>([0-9]+(\\.[0-9]*)?))) ?)*";
-    private static final String SHAPE_REGEX = "(?<shape>((?<type>[a-z]+) (?<color>[a-z]+) (?<height>([0-9]+(\\.[0-9]*)?)) (?<localX>([0-9]+(\\.[0-9]*)?)) (?<localY>([0-9]+(\\.[0-9]*)?)) (?<localZ>([0-9]+(\\.[0-9]*)?)) (?<globalX>([0-9]+(\\.[0-9]*)?)) (?<globalY>([0-9]+(\\.[0-9]*)?)) (?<globalZ>([0-9]+(\\.[0-9]*)?))) ?)";
+    private static final String REGEX = "^(?<angleX>(-?[0-9]+(\\.[0-9]*)?)) (?<angleY>(-?[0-9]+(\\.[0-9]*)?)) (?<angleZ>(-?[0-9]+(\\.[0-9]*)?)) (?<shapeCount>[0-9]+) (?<shape>((?<type>[a-z]+) (?<color>[a-z]+) (?<height>(-?[0-9]+(\\.[0-9]*)?)) (?<localX>(-?[0-9]+(\\.[0-9]*)?)) (?<localY>(-?[0-9]+(\\.[0-9]*)?)) (?<localZ>(-?[0-9]+(\\.[0-9]*)?)) (?<globalX>(-?[0-9]+(\\.[0-9]*)?)) (?<globalY>(-?[0-9]+(\\.[0-9]*)?)) (?<globalZ>(-?[0-9]+(\\.[0-9]*)?))) ?)*";
+    private static final String SHAPE_REGEX = "(?<shape>((?<type>[a-z]+) (?<color>[a-z]+) (?<height>(-?[0-9]+(\\.[0-9]*)?)) (?<localX>(-?[0-9]+(\\.[0-9]*)?)) (?<localY>(-?[0-9]+(\\.[0-9]*)?)) (?<localZ>(-?[0-9]+(\\.[0-9]*)?)) (?<globalX>(-?[0-9]+(\\.[0-9]*)?)) (?<globalY>(-?[0-9]+(\\.[0-9]*)?)) (?<globalZ>(-?[0-9]+(\\.[0-9]*)?))) ?)";
     private static final Pattern pattern = Pattern.compile(REGEX, Pattern.MULTILINE);
     private static final Pattern shapePattern = Pattern.compile(SHAPE_REGEX, Pattern.MULTILINE);
     private final Rectangle tableBB;
@@ -99,7 +99,7 @@ public class CylinderDetectionController implements Module {
                     float globalZ = Float.parseFloat(shapeMatcher.group("globalZ"))*1000;
 
                     double length = Math.sqrt(localX*localX+localZ*localZ);
-                    double angle = Math.atan2(localZ, localX);
+                    double angle = -Math.atan2(localX, localZ);
                     VectPolar localPosition = new VectPolar(length, angle);
                     if(symetry) {
                         localPosition.setA(-localPosition.getA());
@@ -109,10 +109,10 @@ public class CylinderDetectionController implements Module {
                     localPosition.plus(currentXYO.getPosition());
 
                     // on ajoute l'obstacle que s'il est dans la table
-                    if(tableBB.isInShape(localPosition)) {
+                  //  if(tableBB.isInShape(localPosition)) {
                         cylinders.add(new Cup(localPosition, cupRadius, Cup.Color.valueOf(color.toUpperCase())));
-                        Log.CYLINDER_DETECTION.warning("Cylinder detection at " + localPosition);
-                    }
+                        Log.CYLINDER_DETECTION.warning("(x="+localX+";z="+localZ+") Cylinder detection at " + localPosition);
+                    //}
                 }
             }
 
