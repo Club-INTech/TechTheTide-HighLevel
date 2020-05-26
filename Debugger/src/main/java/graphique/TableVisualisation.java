@@ -738,9 +738,6 @@ public class TableVisualisation extends JPanel {
             g.setColor(Color.MAGENTA);
             Point ennemiPixel = new Point(ennemi.getPosX(), ennemi.getPosY());
             ennemiPixel = transformLidarCoordonateToInterfaceCoordonate(ennemiPixel);
-            System.out.println(ennemiPixel.x);
-            System.out.println(ennemiPixel.y);
-            System.out.println("ok");
             g.fillOval(ennemiPixel.x,ennemiPixel.y, 25, 25);
         }
     }

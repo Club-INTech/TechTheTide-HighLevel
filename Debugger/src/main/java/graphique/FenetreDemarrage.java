@@ -79,7 +79,7 @@ public class FenetreDemarrage extends JDialog{
         valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                System.out.println("validé");
+//                System.out.println("validé");
                 logFile = text.getText();
                 dispose();
             }

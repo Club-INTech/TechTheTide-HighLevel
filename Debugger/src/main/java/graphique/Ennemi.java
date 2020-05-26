@@ -63,7 +63,7 @@ public class Ennemi {
         }
 
         robot.setAffichageEnnemi(false);
-        robot.repaint();
+//        robot.repaint();
     }
 
 }
