@@ -108,6 +108,10 @@ public class TableVisualisation extends JPanel {
         g.drawImage(Table, 0, 0, this.getWidth(), this.getHeight(), this);
 
 
+        /**Affichage des enemis**/
+
+        drawEnnemi(g);
+
         /** Visualisation des gobelets sur la table**/
 
         initGobeletsRouges();
@@ -124,11 +128,6 @@ public class TableVisualisation extends JPanel {
             Graphics2D g2d = (Graphics2D) g.create();
             g2d.drawImage(RobotPrincipal, posX, posY, this);
             g2d.dispose();
-
-        /**Affichage des enemis**/
-
-            actualizeEnnemis(listEnnemis);
-            drawEnnemis(g,listEnnemis);
 
         }
     }
@@ -696,56 +695,28 @@ public class TableVisualisation extends JPanel {
 
     /* ================================= Affichage des Enemmis sur la table ======================================= */
 
-    private ArrayList< Ennemi> listEnnemis = new ArrayList<>();
+    private Ennemi ennemi = new Ennemi(0,0);
 
-    public void drawEnnemis(Graphics g, ArrayList<Ennemi> listEnnemis){
-        g.setColor(Color.magenta.darker());
-        if(listEnnemis.size()>0) {
-            for (Ennemi e : listEnnemis) {
-                g.fillOval(e.getPosX(), e.getPosY(), 25, 25);
-            }
+    public void setEnnemiPos(int posX, int posY){
+        ennemi.setPosX(posX);
+        ennemi.setPosY(posY);
+    }
+
+    public void setAffichageEnnemi(Boolean affichageEnnemi){
+        ennemi.setAffichageEnnemi(affichageEnnemi);
+    }
+
+    public void drawEnnemi(Graphics g){
+        if(ennemi.getAffichageEnnemi()){
+            g.setColor(Color.MAGENTA);
+            Point ennemiPixel = new Point(ennemi.getPosX(), ennemi.getPosY());
+            ennemiPixel = transformLidarCoordonateToInterfaceCoordonate(ennemiPixel);
+            System.out.println(ennemiPixel.x);
+            System.out.println(ennemiPixel.y);
+            System.out.println("ok");
+            g.fillOval(ennemiPixel.x,ennemiPixel.y, 25, 25);
         }
     }
-
-    public void addEnnemi(Ennemi ennemi){
-        Point point = new Point(ennemi.getPosX(), ennemi.getPosY());
-        point = transformLidarCoordonateToInterfaceCoordonate(point);
-        ennemi.setPosX(point.x);
-        ennemi.setPosY(point.y);
-        this.listEnnemis.add(ennemi);
-    }
-
-    public void actualizeEnnemis(ArrayList<Ennemi> listEnnemis){
-//        if (listEnnemis.size() >= 1) {
-//            ArrayList< Ennemi> listEnnemisPrec = new ArrayList<>();
-//            for (Ennemi ennemi : listEnnemis) {
-//                listEnnemisPrec.add(ennemi);
-//            }
-//
-//
-//            for (Ennemi ennemi : listEnnemisPrec) {
-//                ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
-//                if (ennemi.timeLeft <= 0) {
-//                    listEnnemis.remove(0);
-//                }
-//            }
-//        }
-        if (listEnnemis.size() >= 1) {
-            int nbEnnemisFinis = 0;
-            for(Ennemi ennemi : listEnnemis){
-                ennemi.setTimeLeft(ennemi.getTimeLeft() - 1);
-                if (ennemi.getTimeLeft() <= 0){
-                    nbEnnemisFinis++;
-                }
-            }
-            while (nbEnnemisFinis > 0){
-                listEnnemis.remove(0);
-                nbEnnemisFinis--;
-            }
-        }
-
-    }
-
 
     /* ============ Méthodes de transformation des distances entre la table et la fenêtre graphique ============= */
 

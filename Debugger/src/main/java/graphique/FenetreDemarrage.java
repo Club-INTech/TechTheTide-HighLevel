@@ -1,5 +1,6 @@
 package graphique;
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,8 @@ public class FenetreDemarrage extends JDialog{
     private String logFile;
 
     private JPanel panel = new JPanel(null);
-    private JTextField text = new JTextField("lien du log");
+//    private JTextField text = new JTextField("lien du log");
+    private JTextField text = new JTextField("logs/Sat May 04 11:47:54 CEST 2019 #28 - everything.log");
     private JToggleButton principal = new JToggleButton("principal");
     private JToggleButton secondaire = new JToggleButton("secondaire");
     private ButtonGroup choixRobot = new ButtonGroup();
@@ -47,6 +49,7 @@ public class FenetreDemarrage extends JDialog{
         initZoneDeTexte();
         initChoixRobot();
         initButtonValider();
+
         setContentPane(panel);
 
         setVisible(true);
@@ -91,5 +94,9 @@ public class FenetreDemarrage extends JDialog{
     public String getLogFile(){
         return logFile;
     }
+
+//    private JTextPane test = new JTextPane();
+
+
 
 }
