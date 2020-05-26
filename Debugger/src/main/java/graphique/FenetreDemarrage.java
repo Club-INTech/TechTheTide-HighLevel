@@ -14,8 +14,7 @@ public class FenetreDemarrage extends JDialog{
     private String logFile;
 
     private JPanel panel = new JPanel(null);
-//    private JTextField text = new JTextField("lien du log");
-    private JTextField text = new JTextField("logs/Sat May 04 11:47:54 CEST 2019 #28 - everything.log");
+    private JTextField text = new JTextField("lien du log");
     private JToggleButton principal = new JToggleButton("principal");
     private JToggleButton secondaire = new JToggleButton("secondaire");
     private ButtonGroup choixRobot = new ButtonGroup();
