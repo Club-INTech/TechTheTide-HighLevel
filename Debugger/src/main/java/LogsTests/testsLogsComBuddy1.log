@@ -1,10 +1,25 @@
-[[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 480 154 0.00000
+[[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 -2.00000
 [[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
 [[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
-[[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 485 154 0.00000
 [[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
 [[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
-[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 550 154 0.00000
+[[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 90.00000
 [[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
 [[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
-[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 1500 1000 90.00
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 3.4
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 -5.00
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:48.359 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 0 0 0.00

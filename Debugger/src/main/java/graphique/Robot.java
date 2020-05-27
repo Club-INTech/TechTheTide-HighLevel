@@ -134,7 +134,9 @@ public class Robot extends JPanel {
         Point PositionAmi = new  Point();
         PositionAmi.x = posX;
         PositionAmi.y = posY;
-        PositionAmi= transformLidarCoordonateToInterfaceCoordonate(PositionAmi);
+        //TODO: vérifier la conversion et résoudre pb d'orientations
+        PositionAmi= LLtransformTableCoordonateToInterfaceCoordonate(PositionAmi);
+        //PositionAmi= transformLidarCoordonateToInterfaceCoordonate(PositionAmi);
         robot.setSPosX(PositionAmi.x);
         robot.setSPosY(PositionAmi.y);
         robot.setOrientationS(posO);
@@ -219,10 +221,12 @@ public class Robot extends JPanel {
         return newPoint;
     }
 
+    /*
     static Point transformLidarCoordonateToInterfaceCoordonate(Point point) {
         Point newPoint = new Point();
         newPoint.x = (int) ((point.x + WIDTH_TABLEGAME / 2) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME) + CoinHautGaucheX);
         newPoint.y = (int) ((HEIGHT_TABLEGAME / 2 - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME) + CoinHautGaucheY);
         return newPoint;
     }
+     */
 }

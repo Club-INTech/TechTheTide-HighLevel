@@ -47,7 +47,7 @@ public class TableVisualisation extends JPanel {
     String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessusInterfaceSize.png";
 
     public static BufferedImage Principal;       //Robot séléctionné (ie. qui joue le match)
-    public static BufferedImage RobotPrincipal;  //Robotsélectionné orienté
+    public static BufferedImage RobotPrincipal;  //Robot séléctionné orienté
     public static BufferedImage Secondaire;      // Robot ami
     public static BufferedImage RobotSecondaire; //Robot ami orienté
     private Image Table;
@@ -102,6 +102,7 @@ public class TableVisualisation extends JPanel {
         /**DESSIN DE LA TABLE DE JEU**/
 
     public double getOrientation() { return orientation; }
+    public double getOrientationS() { return orientationS; }
 
 
     public TableVisualisation() {
