@@ -1,6 +1,9 @@
 package traitementLogs.LogsLIDAR;
 import LogRegex.*;
+import data.Table;
 import graphique.*;
+
+import java.awt.*;
 import java.util.regex.*;
 
 public class RegexLidar {
@@ -19,12 +22,13 @@ public class RegexLidar {
             pos = pos.substring(posXend + 1);
             int posYend = pos.indexOf(")");
             int posY = Integer.parseInt(pos.substring(0,posYend));
-            System.out.println(posX);
-            System.out.println(posY);
+//            System.out.println(posX);
+//            System.out.println(posY);
 
-            Ennemi e = new Ennemi(posX, posY);
+            Ennemi.actualizeEnnemi(posX, posY);
+            Ennemi.afficherEnnemi();
 
-            Ennemi.addEnnemi(e);
+
         }
     }
 

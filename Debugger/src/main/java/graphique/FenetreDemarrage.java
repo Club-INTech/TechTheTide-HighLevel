@@ -1,5 +1,6 @@
 package graphique;
 import javax.swing.*;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,6 +48,7 @@ public class FenetreDemarrage extends JDialog{
         initZoneDeTexte();
         initChoixRobot();
         initButtonValider();
+
         setContentPane(panel);
 
         setVisible(true);
@@ -77,7 +79,7 @@ public class FenetreDemarrage extends JDialog{
         valider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                System.out.println("validé");
+//                System.out.println("validé");
                 logFile = text.getText();
                 dispose();
             }
@@ -91,5 +93,9 @@ public class FenetreDemarrage extends JDialog{
     public String getLogFile(){
         return logFile;
     }
+
+//    private JTextPane test = new JTextPane();
+
+
 
 }
