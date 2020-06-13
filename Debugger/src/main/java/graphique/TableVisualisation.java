@@ -52,6 +52,8 @@ public class TableVisualisation extends JPanel {
     public static BufferedImage RobotSecondaire; //Robot ami orienté
     private Image Table;
 
+    private static Scrollbar fenetreLog = new Scrollbar();
+
 
 
     private int posX;
