@@ -6,7 +6,8 @@ import java.awt.*;
 
 public class FenetreLog extends JFrame {
     private static JTextArea textArea = new JTextArea(43,43);
-    private JScrollPane scrollPanel = new JScrollPane(textArea);
+    private static JScrollPane scrollPanel = new JScrollPane(textArea);
+    private static JScrollBar scrollBar = scrollPanel.getVerticalScrollBar();
     private JPanel panel = new JPanel();
     private Dimension dimensionsEcran = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -38,6 +39,7 @@ public class FenetreLog extends JFrame {
         Image icone = Toolkit.getDefaultToolkit().getImage(FileImageRobot);
         setIconImage(icone);
 
+        scrollPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         initFenetreLog();
 
@@ -56,7 +58,18 @@ public class FenetreLog extends JFrame {
     public static void addLogTextln(String textToAdd) {
         text = text + "\n" + textToAdd;
         textArea.setText(text);
-        textArea.setCaretPosition(100);
+//        textArea.setCaretPosition(100);
+        scrollDown();
+    }
+
+    public static void scrollDown(){
+        int max = scrollBar.getMaximum();
+        System.out.println(scrollBar.getValue());
+        if (scrollBar.getValue() >= max-1000) {
+
+            scrollBar.setValue(max);
+        }
+
     }
 
 
