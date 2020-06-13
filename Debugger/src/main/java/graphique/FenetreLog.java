@@ -12,6 +12,8 @@ public class FenetreLog extends JFrame {
 
     private static String text = new String();
 
+    String FileImageRobot = "Debugger/src/main/java/graphique/ressources/RobotsVignette.png";
+
     private final int TABLE_PIXEL_WIDTH = 982; //en pixels
     private final int TABLE_PIXEL_HEIGHT = 690; //en pixels
     private final int LOG_PIXEL_WIDTH = 500; //largeur de la fenètre de log en pixels
@@ -32,6 +34,9 @@ public class FenetreLog extends JFrame {
         setResizable(false);
         setAlwaysOnTop(true);
         setLocation((dimensionsEcran.width+TABLE_PIXEL_WIDTH-LOG_PIXEL_WIDTH)/2 +1, (dimensionsEcran.height-TABLE_PIXEL_HEIGHT)/2);
+
+        Image icone = Toolkit.getDefaultToolkit().getImage(FileImageRobot);
+        setIconImage(icone);
 
 
         initFenetreLog();

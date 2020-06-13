@@ -33,6 +33,7 @@ public class FenetreTable extends JFrame{
         // Pour personnaliser l'icone de la fenêtre
         Image icone = Toolkit.getDefaultToolkit().getImage(FileImageRobot);
         setIconImage(icone);
+        robot.setPrincipal(principal);
 
         setContentPane(robot);
         setVisible(true);
