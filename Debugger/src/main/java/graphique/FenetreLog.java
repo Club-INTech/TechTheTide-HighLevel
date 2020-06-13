@@ -55,13 +55,14 @@ public class FenetreLog extends JFrame {
         return text;
     }
 
+    /* Actualise le text */
     public static void addLogTextln(String textToAdd) {
         text = text + "\n" + textToAdd;
         textArea.setText(text);
-//        textArea.setCaretPosition(100);
         scrollDown();
     }
 
+    /* Scroll automatiquement à la dernière ligne */
     public static void scrollDown(){
         int max = scrollBar.getMaximum();
         System.out.println(scrollBar.getValue());
