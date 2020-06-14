@@ -1,7 +1,3 @@
-[[34m21:34:49.870 COMMUNICATION (DEBUG) on SocketClient(localhost:17566) utils.communication.SocketClientInterface.lambda$init$0(SocketClientInterface.java:51)] Trying to connect to localhost on port 17566
-[[34m21:34:49.871 COMMUNICATION (DEBUG) on SocketClient(localhost:17566) utils.communication.SocketClientInterface.lambda$init$0(SocketClientInterface.java:53)] Socket created to localhost on port 17566
-[[34m21:34:49.882 COMMUNICATION (DEBUG) on SocketClient(localhost:17566) utils.communication.SocketClientInterface.lambda$init$0(SocketClientInterface.java:70)] SUCCESS to connect to localhost on port 17566
-[[34m21:34:49.888 STDOUT (DEBUG) on Thread-12 simulator.SimulatedConnectionManager.<init>(SimulatedConnectionManager.java:33)] Ouverture d'une socket sur le port 17566
 [[34m21:34:52.708 STRATEGY (DEBUG) on main main.RobotEntryPoint.initServices(RobotEntryPoint.java:204)] Couleur: bleue
 [[34m21:34:55.212 COMMUNICATION (DEBUG) on Thread-3 data.controlers.DataControler.handleConfig(DataControler.java:148)] Configuration de l'ecueil commun : VVRRR
 
