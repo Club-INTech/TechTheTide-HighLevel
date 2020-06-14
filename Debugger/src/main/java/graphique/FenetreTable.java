@@ -86,8 +86,8 @@ public class FenetreTable extends JFrame {
     };
 
     public void initBoutonPlay(){
-        play.setBounds(465-29, 604, 55, 30);
-        stop.setBounds(465+26, 604, 55, 30);
+        play.setBounds(465-45, 599, 70, 30);
+        stop.setBounds(465+26, 599, 70, 30);
 
         robot.add(play);
         robot.add(stop);
@@ -114,7 +114,7 @@ public class FenetreTable extends JFrame {
     }
 
     public void initBoutonPasAPas(){
-        pasAPas.setBounds(465, 632,50,30);
+        pasAPas.setBounds(465-10, 629,70,30);
 
         robot.add(pasAPas);
 
