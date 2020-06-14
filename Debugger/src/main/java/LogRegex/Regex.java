@@ -77,12 +77,7 @@ public class Regex {
         Matcher logDynamixel = Pattern.compile("DYNAMIXEL").matcher(log);
         Matcher logCommunication = Pattern.compile("COMMUNICATION").matcher(log);
         Matcher logStrategy =Pattern.compile("STRATEGY").matcher(log);
-/*
-        int icrochet = log.substring(3).indexOf("]") ;
-        String action = log.substring(3).substring(icrochet + 2 );
-        //System.out.println("action = " + action);
 
- */
 
         try {
 
@@ -104,22 +99,20 @@ public class Regex {
             } else if (logStrategy.find()){
                 //on stocke l'information de la couleur de la zone de départ
                 couleurZone = RegexStrategy.regexStrategy(log);
-                System.out.println(couleurZone);
+                //System.out.println(couleurZone);
             } else if (logCommunication.find()) {
                 Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 
                 if (handleConfig.find()) {
                     RegexComNUC.regexComNuc(log, couleurZone);
-                    //FenetreLog.addLogTextln("CommunicationNuc : " + action);
                 } else{
                     RegexComBuddy.regexComBuddy(log);
-                    //FenetreLog.addLogTextln("CommunicationBuddy : " + action);
                 }
             }
 
-
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
+            FenetreLog.addLogTextln(log);
         }
         return couleurZone;
     }

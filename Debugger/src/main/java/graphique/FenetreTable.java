@@ -56,8 +56,6 @@ public class FenetreTable extends JFrame {
 /*======================================= boutons marche/arrêt et pas à pas=========================================*/
 
     private JButton play = new JButton("Play");
-    private JButton stop = new JButton("Stop");
-    private ButtonGroup playStop = new ButtonGroup();
     private JButton pasAPas = new JButton("PAP");
 
     private static Boolean boutonPlay = false;
@@ -66,20 +64,21 @@ public class FenetreTable extends JFrame {
     ActionListener listener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            boutonPlay = true;
-            boutonPasAPas = false;
+            if (play.getText().equals("Play")) {
+                boutonPlay = true;
+                boutonPasAPas = false;
+                play.setText("Stop");
+            }
+            else if (play.getText().equals("Stop")) {
+                boutonPlay = false;
+                boutonPasAPas = false;
+                play.setText("Play");
+            }
+
         }
     };
 
     ActionListener listener1 = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            boutonPlay = false;
-            boutonPasAPas = false;
-        }
-    };
-
-    ActionListener listener2 = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             boutonPasAPas = true;
@@ -88,44 +87,19 @@ public class FenetreTable extends JFrame {
     };
 
     public void initBoutonPlay(){
-        play.setBounds(465-45, 599, 70, 30);
-        stop.setBounds(465+26, 599, 70, 30);
+        play.setBounds(455, 599, 70, 30);
 
         robot.add(play);
-        robot.add(stop);
-
-
-        /*
-        try {
-            if (play.getText().equals("Play")) {
-                play.addActionListener(listener);
-                play.setText("Stop");
-            } else if (play.getText().equals("Stop")) {
-                play.addActionListener(listener1);
-                play.setText("Play");
-            }
-        }catch (Exception e) {
-            System.out.println("erreur Configuration" + e.getMessage());
-        }
-        */
 
         play.addActionListener(listener);
-        stop.addActionListener(listener1);
-
-        playStop.add(play);
-        playStop.add(stop);
-
     }
 
     public void initBoutonPasAPas(){
-        pasAPas.setBounds(465-10, 629,70,30);
+        pasAPas.setBounds(455, 629,70,30);
 
         robot.add(pasAPas);
 
-        pasAPas.addActionListener(listener2);
-
-        playStop.add(pasAPas);
-
+        pasAPas.addActionListener(listener1);
     }
 
     public static boolean getboutonPlay (){

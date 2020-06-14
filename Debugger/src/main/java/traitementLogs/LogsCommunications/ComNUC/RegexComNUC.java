@@ -13,15 +13,14 @@ public class RegexComNUC {
 
         if (Configuration.find()) {
             String compo = log.substring(156);
-
-            //System.out.println("composition = " + compo + " " + couleurZone );
             Robot.SetEceuilCommun(compo,couleurZone);
             FenetreLog.addLogTextln("compositionEcueuilsNuc = " + compo);
+            //System.out.println("composition = " + compo);
         }
         else{
             int icrochet = log.substring(3).indexOf("]") ;
             String action = log.substring(3).substring(icrochet + 2 );
-            FenetreLog.addLogTextln("actionNuc = " + action);
+            FenetreLog.addLogTextln("ComNuc = " + action);
         }
 
     }
