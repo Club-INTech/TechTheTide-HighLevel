@@ -1,5 +1,12 @@
 package graphique;
 
+import data.CouleurVerre;
+import data.XYO;
+import data.table.Obstacle;
+import simulator.IRobot;
+import utils.RobotSide;
+import utils.math.Vec2;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -8,9 +15,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import java.util.ArrayList;
-
-
-
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.Arrays;
 
 public class TableVisualisation extends JPanel {
 
@@ -33,6 +40,7 @@ public class TableVisualisation extends JPanel {
     private final int WIDTH_TABLEGAME = 3000;      // vrai largeur de la table en millimetre
     private final int HEIGHT_TABLEGAME = 2000;     // vrai hauteur de la table en millimetre
     private final int GobeletRay = 27; // rayon d'un gobelet en  millimetre
+    private final int PhareRay = 55; // rayon du phare en  millimetre
 
 
     final int PrincipalWidth = 350;
@@ -143,7 +151,7 @@ public class TableVisualisation extends JPanel {
         g.drawImage(Table, 0, 0, this.getWidth(), this.getHeight(), this);
 
 
-        /**Affichage des enemis**/
+        /**Affichage des ennemis**/
 
         drawEnnemi(g);
 
@@ -151,13 +159,21 @@ public class TableVisualisation extends JPanel {
 
         initGobeletsRouges();
         initGobeletsVerts();
+
         drawGobelets(g, GobeletsRouge, Color.RED.darker());
         drawGobelets(g, GobeletsVert, Color.GREEN.darker().darker());
 
+        /**Visualisation du phare et des manches à air sur la table**/
+        ArrayList<String> allume = new ArrayList<>();
+        allume.add("allume");
+
+        if (EtatPhare.equals(allume)) {
+            drawPhare(g, Phare, Color.GREEN);
+        } else {
+            drawPhare(g, Phare, Color.BLACK);
+        }
 
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
-
-
 
         if (RobotPrincipal != null && etatPrincipal==true) {
             Graphics2D g2d = (Graphics2D) g.create();
@@ -175,6 +191,46 @@ public class TableVisualisation extends JPanel {
 
 
     }
+    /* ================================= Traitement du phare et des manches àn air sur la table ======================================= */
+
+    private ArrayList<Point> Phare = new ArrayList<>();
+    private ArrayList<String> EtatPhare = new ArrayList<>();
+
+    private void addPhare(Point phare) {
+        synchronized (Phare) {
+            Phare.add(phare);
+        }
+    }
+    private void addEtat(String etatPhare) {
+        synchronized (EtatPhare) {
+            EtatPhare.clear();
+            EtatPhare.add(etatPhare);
+        }
+    }
+
+    private void drawPhare(Graphics g, ArrayList<Point> Phare, Color CouleurPhare) {
+        for (Point point : Phare) {
+            Point PhareCenter = transformTableCoordonateToInterfaceCoordonate(point);
+            g.setColor(CouleurPhare);
+            drawCenteredCircle(g, PhareCenter.x, PhareCenter.y, 2 * (int) transformTableDistanceToInterfaceDistance(PhareRay));
+        }
+    }
+
+
+    public void PhareJaune() {
+        Point PhareJaune = new Point(3000 - 230, -130);
+        addPhare(PhareJaune);
+    }
+    public void PhareBleu() {
+        Point PhareBleu = new Point(230, -130);
+        addPhare(PhareBleu);
+    }
+    public void PhareAllume() {
+        addEtat("allume");
+    }
+    public void PhareEteint() {
+    }
+
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
 
@@ -194,6 +250,17 @@ public class TableVisualisation extends JPanel {
         }
     }
 
+    /**Enleve les gobelets de la table**/
+    private void removeGobeletsRouges(Point gobelet) {
+        synchronized (GobeletsRouge) {
+            GobeletsRouge.remove(gobelet);
+        }
+    }
+    private void removeGobeletsVerts(Point gobelet) {
+        synchronized (GobeletsVert) {
+            GobeletsVert.remove(gobelet);
+        }
+    }
 
     private void drawCenteredCircle(Graphics g, int x, int y, int r) {
         x = x - (r / 2);
@@ -307,7 +374,7 @@ public class TableVisualisation extends JPanel {
         Point Rouge12 = new Point(2700, 1200);
         addGobeletsRouges(Rouge12);
 
-        //Les gobelets dans les éceuils sont numérotés de haut en bas
+        //Les gobelets dans les écueils sont numérotés de haut en bas
 
         Point EcueilJauneRouge1 = new Point(3067,1675);
         addGobeletsRouges(EcueilJauneRouge1);
@@ -533,7 +600,7 @@ public class TableVisualisation extends JPanel {
 
     }
 
-    /*configurations des éceuils communs si le robot démarre dans la zone jaune*/
+    /*configurations des écueils communs si le robot démarre dans la zone jaune*/
 
     public void RVRVV_B(){
 

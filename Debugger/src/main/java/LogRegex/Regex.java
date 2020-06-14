@@ -97,7 +97,7 @@ public class Regex {
                 FenetreLog.addLogTextln(log);
                 //A voir
             } else if (logDynamixel.find()) {
-                RegexActionsMeca.regexActionsMeca(log);
+                RegexActionsMeca.regexActionsMeca(log, couleurZone);
             } else if (logStrategy.find()){
                 //on stocke l'information de la couleur de la zone de départ
                 couleurZone = RegexStrategy.regexStrategy(log);

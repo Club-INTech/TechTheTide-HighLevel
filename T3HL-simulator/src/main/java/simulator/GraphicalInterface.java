@@ -246,7 +246,7 @@ public class GraphicalInterface extends JFrame {
     private void drawDebug(Graphics g, IRobot simulatedRobot, int index) {
         //drawElevators(g, simulatedRobot, index);
         //drawArmPositions(g, simulatedRobot, index);
-        drawCouloirs(g,simulatedRobot,index);
+//        drawCouloirs(g,simulatedRobot,index);
     }
 
     private void drawArmPositions(Graphics g, IRobot simulatedRobot, int index) {
@@ -291,7 +291,7 @@ public class GraphicalInterface extends JFrame {
 
 
     // en cours de construction
-    private void drawCouloirs(Graphics g, IRobot simulatedRobot,int index){
+/*    private void drawCouloirs(Graphics g, IRobot simulatedRobot,int index){
         g.setColor(Color.BLACK);
 
         int totalCouloirPanelHeight = 100;
@@ -391,7 +391,7 @@ public class GraphicalInterface extends JFrame {
             g.fillRect(baseX + 100 , baseY + 300, 20, 20);
         }
     }
-
+*/
     /*
     private void drawElevators(Graphics g, IRobot simulatedRobot, int index) {
         g.setColor(Color.BLACK);

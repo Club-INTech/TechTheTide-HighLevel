@@ -556,7 +556,7 @@ public class Table implements Module {
      * Retire un obstacle fixe de la table sans metre à jour le graphe
      * @param obstacle
      */
-    public void removeFixedObstacleNoReInit(Obstacle obstacle) {
+/*    public void removeFixedObstacleNoReInit(Obstacle obstacle) {
         if (obstacle instanceof MobileCircularObstacle) {
             throw new IllegalArgumentException("L'obstacle ajouté n'est pas fixe !");
         }
@@ -565,7 +565,7 @@ public class Table implements Module {
         }
         Log.TABLE.debug("suppression de l'obstacle " + obstacle);
     }
-
+*/
     /**
      * Retire un obstacle fixe de la table et met à jour le graphe
      * ATTENTION : méthode coûteuse car le graphe doit être recalculé

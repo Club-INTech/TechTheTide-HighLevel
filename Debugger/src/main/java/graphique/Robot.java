@@ -2,7 +2,8 @@ package graphique;
 
 import traitementLogs.LogsDeplacement.RegexActions;
 import traitementLogs.LogsDeplacement.RegexDeplacement;
-
+import utils.math.Vec2;
+import java.lang.Thread;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,11 +20,11 @@ public class Robot extends JPanel {
 
     static TableVisualisation robot = FenetreTable.robot;
 
-/* =================================== Affichage du robot jouant ========================================= */
+    /* =================================== Affichage du robot jouant ========================================= */
 
-    public static void SetPosition (String log) throws Exception {
-    //activation de la visualisation sur robot jouant dans la fenêtre
-        robot.etatPrincipal=true;
+    public static void SetPosition(String log) throws Exception {
+        //activation de la visualisation sur robot jouant dans la fenêtre
+        robot.etatPrincipal = true;
         Point PositionTableSet = RegexActions.getPositionSet(log);
         Point PositionSet = LLtransformTableCoordonateToInterfaceCoordonate(PositionTableSet);
         robot.setPosX(PositionSet.x);
@@ -46,24 +47,25 @@ public class Robot extends JPanel {
     }
 
 
-    public static void Move(String log){
+    public static void Move(String log) {
         int d = RegexDeplacement.MoveLengthWiseFonction(log);
         int distanceInterface = (int) transformTableDistanceToInterfaceDistance(d);
         double theta = robot.getOrientation();
-        double tx =Math.cos(theta) * distanceInterface;
-        double ty =Math.sin(theta)*distanceInterface;
+        double tx = Math.cos(theta) * distanceInterface;
+        double ty = Math.sin(theta) * distanceInterface;
         float x = robot.getPosX();
         float y = robot.getPosY();
         int xfinale = (int) (robot.getPosX() + tx);
         int yfinale = (int) (robot.getPosY() + ty);
         float distanceParcourue = 0;
         while (distanceParcourue <= distanceInterface) {
-            distanceParcourue+=distanceInterface*0.01;
-            x+=tx/100;
-            y+=ty/100;
+            distanceParcourue += distanceInterface * 0.01;
+            x += tx / 100;
+            y += ty / 100;
             robot.setPosX((int) x);
             robot.setPosY((int) y);
             robot.repaint();
+
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
@@ -75,24 +77,22 @@ public class Robot extends JPanel {
     }
 
 
-
-    public static void Turn (String log) {
+    public static void Turn(String log) {
         try {
-            double theta = - RegexActions.turn(log);
+            double theta = -RegexActions.turn(log);
             double orientation = robot.getOrientation();
             if (theta <= 0) {
                 if (theta >= orientation) {
-                    while (theta>orientation) {
-                        orientation+=0.01;
+                    while (theta > orientation) {
+                        orientation += 0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
                         robot.repaint();
                         Thread.sleep(10);
                     }
-                }
-                else {
-                    while (theta<orientation) {
-                        orientation -=0.01;
+                } else {
+                    while (theta < orientation) {
+                        orientation -= 0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
                         robot.repaint();
@@ -101,20 +101,18 @@ public class Robot extends JPanel {
                     robot.setOrientation(theta);
                     robot.repaint();
                 }
-            }
-            else {
+            } else {
                 if (theta >= orientation) {
-                    while (theta>orientation) {
-                        orientation+=0.01;
+                    while (theta > orientation) {
+                        orientation += 0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
                         robot.repaint();
                         Thread.sleep(10);
                     }
-                }
-                else {
-                    while (theta<orientation) {
-                        orientation -=0.01;
+                } else {
+                    while (theta < orientation) {
+                        orientation -= 0.01;
                         robot.setOrientation(orientation);
                         TableVisualisation.RobotPrincipal = robot.rotate(TableVisualisation.Principal, orientation);
                         robot.repaint();
@@ -131,21 +129,21 @@ public class Robot extends JPanel {
 
 
 
-/* ================================= Affichage de l'ami sur la table ======================================= */
+    /* ================================= Affichage de l'ami sur la table ======================================= */
 
-    public static void SetPositionEtOrientationAmi (int posX,int posY, double posO) {
-    //activation de la visualisation sur robot ami dans la fenêtre
-        robot.etatSecondaire=true;
-    //changement de position
-        Point PositionAmi = new  Point();
+    public static void SetPositionEtOrientationAmi(int posX, int posY, double posO) {
+        //activation de la visualisation sur robot ami dans la fenêtre
+        robot.etatSecondaire = true;
+        //changement de position
+        Point PositionAmi = new Point();
         PositionAmi.x = posX;
         PositionAmi.y = posY;
-        PositionAmi= transformLidarCoordonateToInterfaceCoordonate(PositionAmi);
+        PositionAmi = transformLidarCoordonateToInterfaceCoordonate(PositionAmi);
         robot.setSPosX(PositionAmi.x);
         robot.setSPosY(PositionAmi.y);
         robot.setOrientationS(posO);
         robot.repaint();
-    //changement d'orientation
+        //changement d'orientation
         TableVisualisation.RobotSecondaire = robot.rotate(TableVisualisation.Secondaire, posO);
         robot.setOrientation(posO);
         robot.repaint();
@@ -158,17 +156,17 @@ public class Robot extends JPanel {
 
     /* =============================== Actualise la configuration des écueils communs ============================== */
     //TODO: mettre des cases+mettre (-67)+ cas où on a pas la positon de départ
-    public static void SetEceuilCommun (String compo,String couleurZone) {
+    public static void SetEceuilCommun(String compo, String couleurZone) {
         try {
             if (couleurZone.equals("jaune")) {
                 try {
-                    if (compo.equals("RVRVV")){
+                    if (compo.equals("RVRVV")) {
                         //System.out.println("RVRVV");
                         robot.RVRVV_J();
                     } else if (compo.equals("RVVRV")) {
                         //System.out.println("RVVRV");
                         robot.RVVRV_J();
-                    } else if (compo.equals("RRVVV")){
+                    } else if (compo.equals("RRVVV")) {
                         //System.out.println("RRVVV");
                         robot.RRVVV_J();
                     } else if (compo.equals("VRRVR")) {
@@ -223,10 +221,11 @@ public class Robot extends JPanel {
 
     static Point LLtransformTableCoordonateToInterfaceCoordonate(Point point) {
         Point newPoint = new Point();
-        newPoint.x  = (int) ((WIDTH_TABLEGAME/2 + point.x) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME));
+        newPoint.x = (int) ((WIDTH_TABLEGAME / 2 + point.x) * (TABLEGAME_PIXEL_WIDTH / (float) WIDTH_TABLEGAME));
         newPoint.y = (int) ((HEIGHT_TABLEGAME - point.y) * ((TABLEGAME_PIXEL_HEIGHT) / (float) HEIGHT_TABLEGAME));
         return newPoint;
     }
+
 
 
     static Point transformLidarCoordonateToInterfaceCoordonate(Point point) {
@@ -236,4 +235,52 @@ public class Robot extends JPanel {
         return newPoint;
     }
 
+
+    //=============Phare position en fonction couleur zone table==================
+    public static void SetPhare(String couleurZone) {
+        try {
+            if (couleurZone.equals("jaune")) {
+                try {
+                    robot.PhareJaune();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            } else if (couleurZone.equals("bleue")) {
+                try {
+                    robot.PhareBleu();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("erreur Configuration00" + e.getMessage());
+        }
+        robot.repaint();
+    }
+
+    //========Phare changement couleur activé======================
+    public static void PhareCouleur(String phareActive) {
+        try {
+            if (phareActive.equals("oui")) {
+                try {
+                    Thread.sleep(1000);
+                    robot.PhareAllume();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            } else {
+                try {
+                    Thread.sleep(1000);
+                    robot.PhareEteint();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("erreur Configuration00" + e.getMessage());
+        }
+        robot.repaint();
+    }
 }
+
+
