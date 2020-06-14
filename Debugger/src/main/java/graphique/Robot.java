@@ -210,7 +210,7 @@ public class Robot extends JPanel {
                 }
             }
         } catch (Exception e) {
-            System.out.println("erreur Configuration" + e.getMessage());
+            System.out.println("erreur Configuration00" + e.getMessage());
         }
         robot.repaint();
     }

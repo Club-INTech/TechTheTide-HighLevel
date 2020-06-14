@@ -59,7 +59,7 @@ public class Regex {
 
 
             //Traitement de Log (ici soit le bouton play est activé soit le bouton pas à pas l'est
-            TraitementLog(log, couleurZone);
+            couleurZone=TraitementLog(log, couleurZone);
 
             //on réinitialise le paramétre boutonPasAPas
             graphique.FenetreTable.boutonPasAPas = false;
@@ -67,7 +67,7 @@ public class Regex {
         fstream.close();
     }
 
-    public static void TraitementLog(String log, String couleurZone){
+    public static String TraitementLog(String log, String couleurZone){
         Matcher logLocomotion = Pattern.compile("LOCOMOTION").matcher(log);
         Matcher logOrders = Pattern.compile("ORDERS").matcher(log);
         Matcher logLidar = Pattern.compile("LIDAR").matcher(log);
@@ -104,6 +104,7 @@ public class Regex {
             } else if (logStrategy.find()){
                 //on stocke l'information de la couleur de la zone de départ
                 couleurZone = RegexStrategy.regexStrategy(log);
+                System.out.println(couleurZone);
             } else if (logCommunication.find()) {
                 Matcher handleConfig = Pattern.compile("handleConfig").matcher(log);
 
@@ -120,6 +121,7 @@ public class Regex {
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
         }
+        return couleurZone;
     }
 
 }

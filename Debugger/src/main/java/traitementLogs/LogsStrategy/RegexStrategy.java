@@ -9,7 +9,7 @@ public class RegexStrategy {
         Matcher CouleurDeDepart = Pattern.compile("Couleur").matcher(log);
         if (CouleurDeDepart.find()) {
             String couleur = log.substring(114);
-            //System.out.println("couleur = " + getCouleurZone(log));
+            //System.out.println("couleur = " + couleur);
             return couleur;
         }
         return null;
