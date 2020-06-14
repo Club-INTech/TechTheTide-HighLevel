@@ -96,6 +96,4 @@ public class FenetreDemarrage extends JDialog{
 
 //    private JTextPane test = new JTextPane();
 
-
-
 }

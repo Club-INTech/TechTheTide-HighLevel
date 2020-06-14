@@ -1,5 +1,6 @@
 package traitementLogs.LogsCommunications.ComNuc;
 
+import graphique.FenetreLog;
 import graphique.Robot;
 
 import java.util.regex.Matcher;
@@ -14,8 +15,13 @@ public class RegexComNUC {
             String compo = log.substring(156);
             //System.out.println("composition = " + compo);
             Robot.SetEceuilCommun(compo,couleurZone);
+            FenetreLog.addLogTextln("composition des éceuils communs = " + compo);
+        }
+        else{
+            int icrochet = log.substring(3).indexOf("]") ;
+            String action = log.substring(3).substring(icrochet + 2 );
+            FenetreLog.addLogTextln("actionNuc = " + action);
         }
 
-        //FenetreLog.addLogTextln(log);
     }
 }

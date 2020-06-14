@@ -52,6 +52,8 @@ public class TableVisualisation extends JPanel {
     public static BufferedImage RobotSecondaire; //Robot ami orienté
     private Image Table;
 
+    private static Scrollbar fenetreLog = new Scrollbar();
+
 
 
     private int posX;
@@ -62,6 +64,7 @@ public class TableVisualisation extends JPanel {
     private double orientation;
     private double orientationS; //orientation du robotAmi (secondaire)
 
+    private boolean principal = true; //true = les logs correpondent au robot principal
 
     private int i = 1;
 
@@ -97,6 +100,8 @@ public class TableVisualisation extends JPanel {
     public void setOrientation( double t) { orientation = t; }
     public void setOrientationS( double t) { orientationS = t; }
 
+    public void setPrincipal(boolean bool) { principal = bool; }
+
 
 
         /**DESSIN DE LA TABLE DE JEU**/
@@ -110,9 +115,17 @@ public class TableVisualisation extends JPanel {
         try {
             Table = ImageIO.read(new File(FileTableImage));
             Principal = ImageIO.read(new File(FilePrincipalImage));
-            RobotPrincipal = rotate(Principal, orientation);
             Secondaire = ImageIO.read(new File(FileSecondaireImage));
-            RobotSecondaire = rotate(Secondaire, orientationS);
+
+            if (principal){
+                RobotPrincipal = rotate(Principal, orientation);
+                RobotSecondaire = rotate(Secondaire, orientationS);
+            }
+            else {
+                RobotPrincipal = rotate(Secondaire, orientationS);
+                RobotSecondaire = rotate(Principal, orientation);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

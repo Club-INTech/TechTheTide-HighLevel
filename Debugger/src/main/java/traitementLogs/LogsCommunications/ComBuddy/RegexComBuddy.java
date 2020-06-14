@@ -1,5 +1,6 @@
 package traitementLogs.LogsCommunications.ComBuddy;
 
+import graphique.FenetreLog;
 import graphique.Robot;
 
 import java.util.regex.Matcher;
@@ -14,6 +15,8 @@ public class RegexComBuddy {
         if (position.find()){
             String pos = log.substring(149);
             System.out.println("pos = " + pos);
+
+            FenetreLog.addLogTextln("position ami = " + pos);
 
             int posXend = pos.indexOf(" ");
             int posX = Integer.parseInt(pos.substring(0,posXend));
@@ -30,16 +33,16 @@ public class RegexComBuddy {
             Robot.SetPositionEtOrientationAmi(posX, posY, posO);
 
 
+
+
         }
         /** Affichage des autres actions**/
         else {
-            System.out.println(log);
-            //int icrochet = log.substring(3).indexOf("]") ;
-            //String action = log.substring(3).substring(icrochet + 2 );
+            int icrochet = log.substring(3).indexOf("]") ;
+            String action = log.substring(3).substring(icrochet + 2 );
             //System.out.println("action = " + action);
-            //FenetreLog.addLogTextln("action = " + action);
+            FenetreLog.addLogTextln("actionBuddy = " + action);
         }
-        //FenetreLog.addLogTextln("composition = " + compo);
     }
 }
 
