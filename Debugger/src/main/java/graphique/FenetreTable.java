@@ -22,7 +22,7 @@ public class FenetreTable extends JFrame {
     private Dimension dimensionsEcran = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
     public final int TABLE_PIXEL_WIDTH = 982; //en pixels
     public final int TABLE_PIXEL_HEIGHT = 690; //en pixels
-    public final int LOG_PIXEL_WIDTH = 500; //largeur de la fenètre de log en pixels
+    public final int LOG_PIXEL_WIDTH = 450; //largeur de la fenètre de log en pixels
     public final int LOG_PIXEL_HEIGHT = TABLE_PIXEL_HEIGHT; //hauteur de la fenètre de log en pixels
 
 
