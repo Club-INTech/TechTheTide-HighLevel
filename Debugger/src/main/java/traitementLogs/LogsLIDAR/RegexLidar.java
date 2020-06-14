@@ -30,6 +30,11 @@ public class RegexLidar {
                 Ennemi.afficherEnnemi();
                 FenetreLog.addLogTextln("ennemi détecté à la position ("+posX+","+posY+")");
             }
+
+            else {
+                String pos = log.substring(101);
+                FenetreLog.addLogTextln(pos);
+            }
         }
         catch(Exception e){
             System.out.println(log);

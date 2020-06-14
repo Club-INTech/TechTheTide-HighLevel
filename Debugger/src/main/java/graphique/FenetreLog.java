@@ -33,7 +33,7 @@ public class FenetreLog extends JFrame {
         setSize(LOG_PIXEL_WIDTH,LOG_PIXEL_HEIGHT);
 //        setLocationRelativeTo(null);
         setResizable(false);
-        setAlwaysOnTop(true);
+        setAlwaysOnTop(false);
         setLocation((dimensionsEcran.width+TABLE_PIXEL_WIDTH-LOG_PIXEL_WIDTH)/2 +1, (dimensionsEcran.height-TABLE_PIXEL_HEIGHT)/2);
 
         Image icone = Toolkit.getDefaultToolkit().getImage(FileImageRobot);
