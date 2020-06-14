@@ -3,3 +3,5 @@
 [ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 3.4
 [ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 -5.00
 [ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 0 0 -5.00
+
+

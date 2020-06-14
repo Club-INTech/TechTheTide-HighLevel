@@ -71,7 +71,6 @@ public class FenetreLog extends JFrame {
 
             scrollBar.setValue(max);
         }
-
     }
 
 
