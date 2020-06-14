@@ -41,7 +41,8 @@ public class TableVisualisation extends JPanel {
     private final int HEIGHT_TABLEGAME = 2000;     // vrai hauteur de la table en millimetre
     private final int GobeletRay = 27; // rayon d'un gobelet en  millimetre
     private final int PhareRay = 55; // rayon du phare en  millimetre
-
+    private final int MANCHE_WIDTH = (int) transformTableDistanceToInterfaceDistance(200);
+    private final int MANCHE_HEIGHT = (int) transformTableDistanceToInterfaceDistance(40);
 
     final int PrincipalWidth = 350;
     final int PrincipalHeigh = 220;
@@ -173,6 +174,35 @@ public class TableVisualisation extends JPanel {
             drawPhare(g, Phare, Color.BLACK);
         }
 
+        ArrayList<String> aa = new ArrayList<>();
+        aa.add("active");
+        aa.add("active");
+        System.out.print("aa ="+aa);
+
+        ArrayList<String> ad = new ArrayList<>();
+        ad.add("active");
+        ad.add("desactive");
+
+        ArrayList<String> da = new ArrayList<>();
+        da.add("desactive");
+        da.add("active");
+
+        ArrayList<String> dd = new ArrayList<>();
+        dd.add("desactive");
+        dd.add("desactive");
+
+        if (EtatManche.equals(aa)) {
+            drawManche(g, Manche, Color.GREEN, Color.GREEN);
+        } else if (EtatManche.equals(ad)){
+            drawManche(g, Manche, Color.GREEN, Color.RED);
+        } else if (EtatManche.equals(da)){
+            drawManche(g, Manche, Color.RED, Color.GREEN);
+        } else if (EtatManche.equals(dd)){
+            drawManche(g, Manche, Color.RED, Color.RED);
+        } else {
+            drawManche(g, Manche,Color.RED,Color.RED);
+        }
+
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
 
         if (RobotPrincipal != null && etatPrincipal==true) {
@@ -228,11 +258,62 @@ public class TableVisualisation extends JPanel {
     public void PhareEteint() {
     }
 
+    /* ================================= Traitement des manches à air sur la table ======================================= */
+    private ArrayList<Point> Manche = new ArrayList<>();
+    private ArrayList<String> EtatManche = new ArrayList<>();
 
-
-
-
-
+    private void addManche(Point manche) {
+        synchronized (Manche) {
+            Manche.add(manche);
+        }
+    }
+    private void addEtatManche(String etatManche1, String etatManche2) {
+        synchronized (EtatManche) {
+            EtatManche.clear();
+            EtatManche.add(etatManche1);
+            EtatManche.add(etatManche2);
+        }
+    }
+    private void drawManche(Graphics g, ArrayList<Point> Manche, Color CouleurManche1, Color CouleurManche2) {
+            Point MancheDebut1 = transformTableCoordonateToInterfaceCoordonate(Manche.get(0));
+            Point MancheDebut2 = transformTableCoordonateToInterfaceCoordonate(Manche.get(1));
+            g.drawRect(MancheDebut1.x, MancheDebut1.y, MANCHE_WIDTH, MANCHE_HEIGHT);
+            g.drawRect(MancheDebut2.x, MancheDebut2.y, MANCHE_WIDTH, MANCHE_HEIGHT);
+            g.setColor(CouleurManche1);
+            System.out.print ("couleurManche1 ="+ CouleurManche1);
+            g.fillRect(MancheDebut1.x, MancheDebut1.y, MANCHE_WIDTH, MANCHE_HEIGHT);
+            g.setColor(CouleurManche2);
+            System.out.print ("couleurManche2 ="+ CouleurManche2);
+            g.fillRect(MancheDebut2.x, MancheDebut2.y, MANCHE_WIDTH, MANCHE_HEIGHT);
+    }
+    public void MancheJaune() {
+        Point MancheJaune1 = new Point(3000 - 30, 2022);
+        addManche(MancheJaune1);
+        Point MancheJaune2 = new Point(3000 - 500, 2022);
+        addManche(MancheJaune2);
+    }
+    public void MancheBleu() {
+        Point MancheBleu1 = new Point(30, 2022);
+        addManche(MancheBleu1);
+        Point MancheBleu2 = new Point(500, 2022);
+        addManche(MancheBleu2);
+    }
+    public void MancheDD() {
+        addEtatManche("desactive", "desactive");
+        System.out.print("MancheDD ="+EtatManche);
+    }
+    public void MancheAD() {
+        addEtatManche("active", "desactive");
+        System.out.print("MancheAD="+EtatManche);
+    }
+    public void MancheDA() {
+        addEtatManche("desactive", "active");
+        System.out.print("MancheDA="+EtatManche);
+    }
+    public void MancheAA() {
+        addEtatManche("active", "active");
+        System.out.print("MancheAA ="+EtatManche);
+    }
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
 
