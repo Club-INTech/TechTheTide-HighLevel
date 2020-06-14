@@ -168,12 +168,13 @@ public class TableVisualisation extends JPanel {
         ArrayList<String> allume = new ArrayList<>();
         allume.add("allume");
 
-        if (EtatPhare.equals(allume)) {
-            drawPhare(g, Phare, Color.GREEN);
-        } else {
-            drawPhare(g, Phare, Color.BLACK);
+        if (!Phare.isEmpty()) {
+            if (EtatPhare.equals(allume)) {
+                drawPhare(g, Phare, Color.GREEN);
+            } else {
+                drawPhare(g, Phare, Color.BLACK);
+            }
         }
-
         ArrayList<String> aa = new ArrayList<>();
         aa.add("active");
         aa.add("active");
@@ -191,16 +192,18 @@ public class TableVisualisation extends JPanel {
         dd.add("desactive");
         dd.add("desactive");
 
-        if (EtatManche.equals(aa)) {
-            drawManche(g, Manche, Color.GREEN, Color.GREEN);
-        } else if (EtatManche.equals(ad)){
-            drawManche(g, Manche, Color.GREEN, Color.RED);
-        } else if (EtatManche.equals(da)){
-            drawManche(g, Manche, Color.RED, Color.GREEN);
-        } else if (EtatManche.equals(dd)){
-            drawManche(g, Manche, Color.RED, Color.RED);
-        } else {
-            drawManche(g, Manche,Color.RED,Color.RED);
+        if (!Manche.isEmpty()) {
+            if (EtatManche.equals(aa)) {
+                drawManche(g, Manche, Color.GREEN, Color.GREEN);
+            } else if (EtatManche.equals(ad)) {
+                drawManche(g, Manche, Color.GREEN, Color.RED);
+            } else if (EtatManche.equals(da)) {
+                drawManche(g, Manche, Color.RED, Color.GREEN);
+            } else if (EtatManche.equals(dd)) {
+                drawManche(g, Manche, Color.RED, Color.RED);
+            } else {
+                drawManche(g, Manche, Color.RED, Color.RED);
+            }
         }
 
         /**VISUALISATION DE NOTRE ROBOT (celui qui joue) **/
