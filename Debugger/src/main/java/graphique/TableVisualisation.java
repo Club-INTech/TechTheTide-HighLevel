@@ -191,8 +191,7 @@ public class TableVisualisation extends JPanel {
 
 
     }
-    /* ================================= Traitement du phare et des manches àn air sur la table ======================================= */
-
+    /* ================================= Traitement du phare sur la table ======================================= */
     private ArrayList<Point> Phare = new ArrayList<>();
     private ArrayList<String> EtatPhare = new ArrayList<>();
 
@@ -215,8 +214,6 @@ public class TableVisualisation extends JPanel {
             drawCenteredCircle(g, PhareCenter.x, PhareCenter.y, 2 * (int) transformTableDistanceToInterfaceDistance(PhareRay));
         }
     }
-
-
     public void PhareJaune() {
         Point PhareJaune = new Point(3000 - 230, -130);
         addPhare(PhareJaune);
@@ -230,6 +227,11 @@ public class TableVisualisation extends JPanel {
     }
     public void PhareEteint() {
     }
+
+
+
+
+
 
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
