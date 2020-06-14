@@ -58,7 +58,7 @@ public class FenetreLog extends JFrame {
     /* Actualise le text */
     public static void addLogTextln(String textToAdd) {
         text = text + "\n" + textToAdd;
-        System.out.println(textToAdd);
+//        System.out.println(textToAdd);
         textArea.setText(text);
         scrollDown();
     }
