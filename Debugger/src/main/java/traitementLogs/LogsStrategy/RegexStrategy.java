@@ -1,5 +1,7 @@
 package traitementLogs.LogsStrategy;
 
+import graphique.FenetreLog;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,7 +11,7 @@ public class RegexStrategy {
         Matcher CouleurDeDepart = Pattern.compile("Couleur").matcher(log);
         if (CouleurDeDepart.find()) {
             String couleur = log.substring(114);
-            //System.out.println("couleur = " + couleur);
+            FenetreLog.addLogTextln("couleurZone = " + couleur);
             return couleur;
         }
         return null;

@@ -49,6 +49,7 @@ public class Robot extends JPanel {
 
     public static void Move(String log) {
         int d = RegexDeplacement.MoveLengthWiseFonction(log);
+        FenetreLog.addLogTextln("Robot move : " + d);
         int distanceInterface = (int) transformTableDistanceToInterfaceDistance(d);
         double theta = robot.getOrientation();
         double tx = Math.cos(theta) * distanceInterface;
@@ -80,6 +81,7 @@ public class Robot extends JPanel {
     public static void Turn(String log) {
         try {
             double theta = -RegexActions.turn(log);
+            FenetreLog.addLogTextln("Robot turn : " + theta);
             double orientation = robot.getOrientation();
             if (theta <= 0) {
                 if (theta >= orientation) {
