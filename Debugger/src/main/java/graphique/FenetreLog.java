@@ -39,7 +39,7 @@ public class FenetreLog extends JFrame {
         Image icone = Toolkit.getDefaultToolkit().getImage(FileImageRobot);
         setIconImage(icone);
 
-        scrollPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+//        scrollPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         initFenetreLog();
 
