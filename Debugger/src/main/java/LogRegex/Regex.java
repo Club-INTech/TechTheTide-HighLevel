@@ -1,5 +1,6 @@
 package LogRegex;
 
+ import graphique.FenetreLog;
  import graphique.FenetreTable;
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
@@ -55,6 +56,11 @@ public class Regex {
                     }
                 }
             }
+
+            int icrochet = log.substring(3).indexOf("]") ;
+            String action = log.substring(3).substring(icrochet + 2 );
+            //System.out.println("action = " + action);
+            FenetreLog.addLogTextln(action);
 
             //Traitement de Log (ici soit le bouton play est activé soit le bouton pas à pas l'est
             TraitementLog(log, couleurZone);

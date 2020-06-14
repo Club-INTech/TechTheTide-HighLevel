@@ -43,6 +43,8 @@ public class FenetreTable extends JFrame {
         initBoutonPasAPas();
         initBoutonPlay();
 
+        System.out.println(play.getText());
+
         setContentPane(robot);
         setVisible(true);
         Regex.regex(logFile);
@@ -92,19 +94,21 @@ public class FenetreTable extends JFrame {
         robot.add(play);
         robot.add(stop);
 
+
         /*
         try {
-            if (play.getText().equals("play")) {
+            if (play.getText().equals("Play")) {
                 play.addActionListener(listener);
-                play.setText("stop");
-            } else if (play.getText().equals("play")) {
+                play.setText("Stop");
+            } else if (play.getText().equals("Stop")) {
                 play.addActionListener(listener1);
-                play.setText("play");
+                play.setText("Play");
             }
         }catch (Exception e) {
             System.out.println("erreur Configuration" + e.getMessage());
         }
         */
+
         play.addActionListener(listener);
         stop.addActionListener(listener1);
 

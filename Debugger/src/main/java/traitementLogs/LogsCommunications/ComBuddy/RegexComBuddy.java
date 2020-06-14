@@ -16,7 +16,7 @@ public class RegexComBuddy {
             String pos = log.substring(149);
             System.out.println("pos = " + pos);
 
-            FenetreLog.addLogTextln("positionBuddy = " + pos);
+            //FenetreLog.addLogTextln("positionBuddy = " + pos);
 
             int posXend = pos.indexOf(" ");
             int posX = Integer.parseInt(pos.substring(0,posXend));
@@ -41,7 +41,7 @@ public class RegexComBuddy {
             int icrochet = log.substring(3).indexOf("]") ;
             String action = log.substring(3).substring(icrochet + 2 );
             //System.out.println("action = " + action);
-            FenetreLog.addLogTextln("actionBuddy = " + action);
+            //FenetreLog.addLogTextln("actionBuddy = " + action);
         }
     }
 }
