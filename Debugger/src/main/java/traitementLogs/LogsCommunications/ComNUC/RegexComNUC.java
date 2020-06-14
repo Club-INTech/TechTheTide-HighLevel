@@ -15,7 +15,7 @@ public class RegexComNUC {
             String compo = log.substring(156);
             //System.out.println("composition = " + compo);
             Robot.SetEceuilCommun(compo,couleurZone);
-            FenetreLog.addLogTextln("composition des éceuils communs = " + compo);
+            FenetreLog.addLogTextln("compositionEcueuilsNuc = " + compo);
         }
         else{
             int icrochet = log.substring(3).indexOf("]") ;

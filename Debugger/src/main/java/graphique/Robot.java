@@ -19,8 +19,11 @@ public class Robot extends JPanel {
 
     static TableVisualisation robot = FenetreTable.robot;
 
+/* =================================== Affichage du robot jouant ========================================= */
 
     public static void SetPosition (String log) throws Exception {
+    //activation de la visualisation sur robot jouant dans la fenêtre
+        robot.etatPrincipal=true;
         Point PositionTableSet = RegexActions.getPositionSet(log);
         Point PositionSet = LLtransformTableCoordonateToInterfaceCoordonate(PositionTableSet);
         robot.setPosX(PositionSet.x);
@@ -128,9 +131,12 @@ public class Robot extends JPanel {
 
 
 
-    /* ================================= Affichage de l'ami sur la table ======================================= */
+/* ================================= Affichage de l'ami sur la table ======================================= */
 
     public static void SetPositionEtOrientationAmi (int posX,int posY, double posO) {
+    //activation de la visualisation sur robot ami dans la fenêtre
+        robot.etatSecondaire=true;
+    //changement de position
         Point PositionAmi = new  Point();
         PositionAmi.x = posX;
         PositionAmi.y = posY;
@@ -138,8 +144,9 @@ public class Robot extends JPanel {
         robot.setSPosX(PositionAmi.x);
         robot.setSPosY(PositionAmi.y);
         robot.setOrientationS(posO);
-        TableVisualisation.RobotSecondaire = robot.rotate(TableVisualisation.Secondaire, posO);
         robot.repaint();
+    //changement d'orientation
+        TableVisualisation.RobotSecondaire = robot.rotate(TableVisualisation.Secondaire, posO);
         robot.setOrientation(posO);
         robot.repaint();
         try {

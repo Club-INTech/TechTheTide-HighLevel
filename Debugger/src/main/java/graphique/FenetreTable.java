@@ -22,7 +22,7 @@ public class FenetreTable extends JFrame {
     private Dimension dimensionsEcran = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
     public final int TABLE_PIXEL_WIDTH = 982; //en pixels
     public final int TABLE_PIXEL_HEIGHT = 690; //en pixels
-    public final int LOG_PIXEL_WIDTH = 500; //largeur de la fenètre de log en pixels
+    public final int LOG_PIXEL_WIDTH = 450; //largeur de la fenètre de log en pixels
     public final int LOG_PIXEL_HEIGHT = TABLE_PIXEL_HEIGHT; //hauteur de la fenètre de log en pixels
 
 
@@ -54,7 +54,7 @@ public class FenetreTable extends JFrame {
 /*======================================= boutons marche/arrêt et pas à pas=========================================*/
 
     private JButton play = new JButton("Play");
-    private JButton stop = new JButton("stop");
+    private JButton stop = new JButton("Stop");
     private ButtonGroup playStop = new ButtonGroup();
     private JButton pasAPas = new JButton("PAP");
 
@@ -86,8 +86,8 @@ public class FenetreTable extends JFrame {
     };
 
     public void initBoutonPlay(){
-        play.setBounds(1730, 1655, 50, 50);
-        stop.setBounds(300, 1600, 50, 50);
+        play.setBounds(465-29, 604, 55, 30);
+        stop.setBounds(465+26, 604, 55, 30);
 
         robot.add(play);
         robot.add(stop);
@@ -114,7 +114,7 @@ public class FenetreTable extends JFrame {
     }
 
     public void initBoutonPasAPas(){
-        pasAPas.setBounds(1300, 1600, 100, 50);
+        pasAPas.setBounds(465, 632,50,30);
 
         robot.add(pasAPas);
 

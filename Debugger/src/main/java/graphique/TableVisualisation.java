@@ -54,8 +54,6 @@ public class TableVisualisation extends JPanel {
 
     private static Scrollbar fenetreLog = new Scrollbar();
 
-
-
     private int posX;
     private int posY;
     private int SposX; //Abscisse du secondaire (robot ami)
@@ -64,7 +62,10 @@ public class TableVisualisation extends JPanel {
     private double orientation;
     private double orientationS; //orientation du robotAmi (secondaire)
 
-    private boolean principal = true; //true = les logs correpondent au robot principal
+    private boolean principal = true; //true = les logs correspondent au robot principal
+
+    public boolean etatPrincipal = false; //false = il n'y a jamais  eu de logs concernant le buddy jusqu'à présent
+    public boolean etatSecondaire = false; //false = il n'y a jamais  eu de logs concernant le buddy jusqu'à présent
 
     private int i = 1;
 
@@ -112,6 +113,9 @@ public class TableVisualisation extends JPanel {
 
     public TableVisualisation() {
 
+        //permet de modifier les positions des boutons de FenêtreTable (cf. setBound())
+        setLayout(null);
+
         try {
             Table = ImageIO.read(new File(FileTableImage));
             Principal = ImageIO.read(new File(FilePrincipalImage));
@@ -155,21 +159,20 @@ public class TableVisualisation extends JPanel {
 
 
 
-        if (RobotPrincipal != null) {
+        if (RobotPrincipal != null && etatPrincipal==true) {
             Graphics2D g2d = (Graphics2D) g.create();
             g2d.drawImage(RobotPrincipal, posX, posY, this);
             g2d.dispose();
-
+        }
 
 
         /**VISUALISATION DU DEUXIÈME ROBOT (le buddy)**/
-            if (RobotSecondaire != null){
-                Graphics2D g2d2 = (Graphics2D) g.create();
-                g2d2.drawImage(RobotSecondaire, SposX, SposY, this);
-                g2d2.dispose();
-            }
-
+        if (RobotSecondaire != null && etatSecondaire==true){
+            Graphics2D g2d2 = (Graphics2D) g.create();
+            g2d2.drawImage(RobotSecondaire, SposX, SposY, this);
+            g2d2.dispose();
         }
+
 
     }
 

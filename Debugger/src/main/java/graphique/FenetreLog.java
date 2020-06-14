@@ -5,7 +5,7 @@ import java.awt.*;
 
 
 public class FenetreLog extends JFrame {
-    private static JTextArea textArea = new JTextArea(43,43);
+    private static JTextArea textArea = new JTextArea(40,35);
     private static JScrollPane scrollPanel = new JScrollPane(textArea);
     private static JScrollBar scrollBar = scrollPanel.getVerticalScrollBar();
     private JPanel panel = new JPanel();
@@ -17,7 +17,7 @@ public class FenetreLog extends JFrame {
 
     private final int TABLE_PIXEL_WIDTH = 982; //en pixels
     private final int TABLE_PIXEL_HEIGHT = 690; //en pixels
-    private final int LOG_PIXEL_WIDTH = 500; //largeur de la fenètre de log en pixels
+    private final int LOG_PIXEL_WIDTH = 450; //largeur de la fenètre de log en pixels
     private final int LOG_PIXEL_HEIGHT = TABLE_PIXEL_HEIGHT; //hauteur de la fenètre de log en pixels
 
     public void initFenetreLog() {
@@ -58,6 +58,7 @@ public class FenetreLog extends JFrame {
     /* Actualise le text */
     public static void addLogTextln(String textToAdd) {
         text = text + "\n" + textToAdd;
+        System.out.println(textToAdd);
         textArea.setText(text);
         scrollDown();
     }

@@ -16,20 +16,20 @@ public class RegexComBuddy {
             String pos = log.substring(149);
             System.out.println("pos = " + pos);
 
-            FenetreLog.addLogTextln("position ami = " + pos);
+            FenetreLog.addLogTextln("positionBuddy = " + pos);
 
             int posXend = pos.indexOf(" ");
             int posX = Integer.parseInt(pos.substring(0,posXend));
-            System.out.println(posX);
+            //System.out.println(posX);
 
             pos = pos.substring(posXend + 1);
             int posYend = pos.indexOf(" ");
             int posY = Integer.parseInt(pos.substring(0,posYend));
-            System.out.println(posY);
+            //System.out.println(posY);
 
             pos = pos.substring(posYend + 1);
             double posO = Double.parseDouble(pos);
-            System.out.println(posO);
+            //System.out.println(posO);
             Robot.SetPositionEtOrientationAmi(posX, posY, posO);
 
 
