@@ -15,5 +15,7 @@ public class RegexComNUC {
             //System.out.println("composition = " + compo);
             Robot.SetEceuilCommun(compo,couleurZone);
         }
+
+        //FenetreLog.addLogTextln(log);
     }
 }

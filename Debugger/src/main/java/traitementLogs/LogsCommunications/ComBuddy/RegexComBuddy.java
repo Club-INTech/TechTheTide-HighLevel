@@ -27,19 +27,19 @@ public class RegexComBuddy {
             pos = pos.substring(posYend + 1);
             double posO = Double.parseDouble(pos);
             System.out.println(posO);
-
-
-            //TODO : mettre la position sur le simulateur
-            //TODO: ajouter l'orientatation
             Robot.SetPositionEtOrientationAmi(posX, posY, posO);
+
 
         }
         /** Affichage des autres actions**/
         else {
-            int icrochet = log.substring(3).indexOf("]") ;
-            String action = log.substring(3).substring(icrochet + 2 );
+            System.out.println(log);
+            //int icrochet = log.substring(3).indexOf("]") ;
+            //String action = log.substring(3).substring(icrochet + 2 );
             //System.out.println("action = " + action);
+            //FenetreLog.addLogTextln("action = " + action);
         }
+        //FenetreLog.addLogTextln("composition = " + compo);
     }
 }
 
