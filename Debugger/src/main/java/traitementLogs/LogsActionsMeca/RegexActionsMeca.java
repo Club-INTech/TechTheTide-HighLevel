@@ -25,7 +25,7 @@ public class RegexActionsMeca {
             else {
                 int icrochet = log.substring(3).indexOf("]") ;
                 String action = log.substring(3).substring(icrochet + 2 );
-                FenetreLog.addLogTextln("actionNuc = " + action);
+                FenetreLog.addLogTextln("actionMeca = " + action);
         }
         Matcher Manche = Pattern.compile("Bras manche a air :pos1 :").matcher(log);
         if (Manche.find()) {
@@ -35,8 +35,6 @@ public class RegexActionsMeca {
             Robot.MancheCouleur(mancheActive1,mancheActive2);
             FenetreLog.addLogTextln("mancheActive1 =" + mancheActive1+ "et mancheActive2 ="+ mancheActive2);
         }
-
-
-
     }
 }
+
