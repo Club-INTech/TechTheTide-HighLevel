@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class RegexActionsMeca {
 
     static public void regexActionsMeca(String log, String couleurZone) {
-        Robot.SetPhare(couleurZone);
+        Robot.SetPhareManche(couleurZone);
 
         Matcher Phare = Pattern.compile("Bras phare active :").matcher(log);
             if (Phare.find()) {
@@ -27,6 +27,15 @@ public class RegexActionsMeca {
                 String action = log.substring(3).substring(icrochet + 2 );
                 FenetreLog.addLogTextln("actionNuc = " + action);
         }
+        Matcher Manche = Pattern.compile("Bras manche a air :pos1 :").matcher(log);
+        if (Manche.find()) {
+            String mancheActive1 = log.substring(62,65);
+            String mancheActive2 = log.substring(72);
+            System.out.println("mancheActive1 =" + mancheActive1+ "_mancheActive2 ="+ mancheActive2);
+            Robot.MancheCouleur(mancheActive1,mancheActive2);
+            FenetreLog.addLogTextln("mancheActive1 =" + mancheActive1+ "et mancheActive2 ="+ mancheActive2);
+        }
+
 
 
     }

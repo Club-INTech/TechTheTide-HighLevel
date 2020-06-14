@@ -236,18 +236,20 @@ public class Robot extends JPanel {
     }
 
 
-    //=============Phare position en fonction couleur zone table==================
-    public static void SetPhare(String couleurZone) {
+    //=============Phare et Manche position en fonction couleur zone table==================
+    public static void SetPhareManche(String couleurZone) {
         try {
             if (couleurZone.equals("jaune")) {
                 try {
                     robot.PhareJaune();
+                    robot.MancheJaune();
                 } catch (Exception e) {
                     System.out.println("erreur Configuration" + e.getMessage());
                 }
             } else if (couleurZone.equals("bleue")) {
                 try {
                     robot.PhareBleu();
+                    robot.MancheBleu();
                 } catch (Exception e) {
                     System.out.println("erreur Configuration" + e.getMessage());
                 }
@@ -281,6 +283,42 @@ public class Robot extends JPanel {
         }
         robot.repaint();
     }
+
+    //========Manche changement couleur activé======================
+    public static void MancheCouleur(String mancheActive1, String mancheActive2) {
+        try {
+            if (mancheActive1.equals("oui") && mancheActive2.equals("oui")) {
+                try {
+                    Thread.sleep(1000);
+                    robot.MancheAA();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            } else if (mancheActive1.equals("oui") && mancheActive2.equals("non")) {
+                try {
+                    Thread.sleep(1000);
+                    robot.MancheAD();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            } else if (mancheActive1.equals("non") && mancheActive2.equals("oui")) {
+                try {
+                    Thread.sleep(1000);
+                    robot.MancheDA();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            } else {
+                try {
+                    Thread.sleep(1000);
+                    robot.MancheDD();
+                } catch (Exception e) {
+                    System.out.println("erreur Configuration" + e.getMessage());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("erreur Configuration00" + e.getMessage());
+        }
+        robot.repaint();
+    }
 }
-
-
