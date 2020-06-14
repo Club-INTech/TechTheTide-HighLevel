@@ -83,6 +83,7 @@ public class FenetreTable extends JFrame {
         public void actionPerformed(ActionEvent actionEvent) {
             boutonPasAPas = true;
             boutonPlay =  false;
+            play.setText("Play");
         }
     };
 

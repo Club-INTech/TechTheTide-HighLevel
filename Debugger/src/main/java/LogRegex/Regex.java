@@ -91,8 +91,10 @@ public class Regex {
             } else if (logLidarProcess.find()) {
                 RegexLidar.regexLidar(log);
             } else if (logPosition.find()) {
+                FenetreLog.addLogTextln(log);
                 //A voir
             } else if (logLLDebug.find()) {
+                FenetreLog.addLogTextln(log);
                 //A voir
             } else if (logDynamixel.find()) {
                 RegexActionsMeca.regexActionsMeca(log);
