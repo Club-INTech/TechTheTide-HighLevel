@@ -66,7 +66,7 @@ public class FenetreLog extends JFrame {
     /* Scroll automatiquement à la dernière ligne */
     public static void scrollDown(){
         int max = scrollBar.getMaximum();
-        System.out.println(scrollBar.getValue());
+//        System.out.println(scrollBar.getValue());
         if (scrollBar.getValue() >= max-1000) {
 
             scrollBar.setValue(max);

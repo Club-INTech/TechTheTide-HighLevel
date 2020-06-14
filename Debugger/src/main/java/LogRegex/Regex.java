@@ -57,10 +57,6 @@ public class Regex {
                 }
             }
 
-            int icrochet = log.substring(3).indexOf("]") ;
-            String action = log.substring(3).substring(icrochet + 2 );
-            //System.out.println("action = " + action);
-            FenetreLog.addLogTextln(action);
 
             //Traitement de Log (ici soit le bouton play est activé soit le bouton pas à pas l'est
             TraitementLog(log, couleurZone);
@@ -81,6 +77,12 @@ public class Regex {
         Matcher logDynamixel = Pattern.compile("DYNAMIXEL").matcher(log);
         Matcher logCommunication = Pattern.compile("COMMUNICATION").matcher(log);
         Matcher logStrategy =Pattern.compile("STRATEGY").matcher(log);
+/*
+        int icrochet = log.substring(3).indexOf("]") ;
+        String action = log.substring(3).substring(icrochet + 2 );
+        //System.out.println("action = " + action);
+
+ */
 
         try {
 
@@ -107,8 +109,10 @@ public class Regex {
 
                 if (handleConfig.find()) {
                     RegexComNUC.regexComNuc(log, couleurZone);
+                    //FenetreLog.addLogTextln("CommunicationNuc : " + action);
                 } else{
                     RegexComBuddy.regexComBuddy(log);
+                    //FenetreLog.addLogTextln("CommunicationBuddy : " + action);
                 }
             }
 
