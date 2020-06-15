@@ -1,4 +1,4 @@
-package traitementLogs.LogsCommunications.ComNuc;
+package traitementLogs.LogsCommunications.ComNUC;
 
 import graphique.FenetreLog;
 import graphique.Robot;
