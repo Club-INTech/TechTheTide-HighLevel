@@ -19,6 +19,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.Arrays;
 
+import graphique.FenetreDemarrage;
+
 public class TableVisualisation extends JPanel {
 
 
@@ -52,9 +54,9 @@ public class TableVisualisation extends JPanel {
 
 
     String FileTableImage = "Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
-
     String FilePrincipalImage = "Debugger/src/main/java/graphique/ressources/PrincipalVuDessusInterfaceSize.png";
     String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessusInterfaceSize.png";
+
 
     public static BufferedImage Principal;       //Robot séléctionné (ie. qui joue le match)
     public static BufferedImage RobotPrincipal;  //Robot séléctionné orienté
@@ -123,22 +125,23 @@ public class TableVisualisation extends JPanel {
 
     public TableVisualisation() {
 
+
         //permet de modifier les positions des boutons de FenêtreTable (cf. setBound())
         setLayout(null);
 
         try {
             Table = ImageIO.read(new File(FileTableImage));
-            Principal = ImageIO.read(new File(FilePrincipalImage));
-            Secondaire = ImageIO.read(new File(FileSecondaireImage));
 
-            if (principal){
-                RobotPrincipal = rotate(Principal, orientation);
-                RobotSecondaire = rotate(Secondaire, orientationS);
+            if (FenetreDemarrage.getChoixRobot()==true) {
+                Principal = ImageIO.read(new File(FilePrincipalImage));
+                Secondaire = ImageIO.read(new File(FileSecondaireImage));
+            }else{
+                Principal = ImageIO.read(new File(FileSecondaireImage));
+                Secondaire = ImageIO.read(new File(FilePrincipalImage));
             }
-            else {
-                RobotPrincipal = rotate(Secondaire, orientationS);
-                RobotSecondaire = rotate(Principal, orientation);
-            }
+
+            RobotPrincipal = rotate(Principal, orientation);
+            RobotSecondaire = rotate(Secondaire, orientationS);
 
         } catch (Exception e) {
             e.printStackTrace();

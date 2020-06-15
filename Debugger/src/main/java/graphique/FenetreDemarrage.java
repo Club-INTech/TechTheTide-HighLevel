@@ -10,7 +10,7 @@ import java.awt.event.ItemListener;
 
 public class FenetreDemarrage extends JDialog{
 
-    private Boolean principalBool = true;
+    private static Boolean principalBool = true;
     private String logFile;
 
     private JPanel panel = new JPanel(null);
@@ -85,7 +85,7 @@ public class FenetreDemarrage extends JDialog{
         });
     }
 
-    public boolean getChoixRobot (){
+    public static boolean getChoixRobot (){
         return principalBool;
     }
 
