@@ -130,7 +130,6 @@ public class TableVisualisation extends JPanel {
 
     public TableVisualisation() {
 
-
         //permet de modifier les positions des boutons de FenêtreTable (cf. setBound())
         setLayout(null);
 
