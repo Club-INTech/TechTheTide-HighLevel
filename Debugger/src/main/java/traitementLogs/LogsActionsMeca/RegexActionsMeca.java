@@ -15,10 +15,10 @@ public class RegexActionsMeca {
         Matcher Phare = Pattern.compile("Bras phare active :").matcher(log);
             if (Phare.find()) {
                 String phareActive = log.substring(56);
-                //System.out.println(phareActive);
+                System.out.println("phareActive="+phareActive);
                 Robot.PhareCouleur(phareActive);
                 FenetreLog.addLogTextln("PhareCôté = " + couleurZone);
-                FenetreLog.addLogTextln("PhareActivé = oui");
+                FenetreLog.addLogTextln("PhareActivé ="+ phareActive);
             }
 
        //affichage des autres actions
