@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.Arrays;
+import java.awt.geom.Area;
 
 import graphique.FenetreDemarrage;
 
@@ -45,6 +47,9 @@ public class TableVisualisation extends JPanel {
     private final int PhareRay = 55; // rayon du phare en  millimetre
     private final int MANCHE_WIDTH = (int) transformTableDistanceToInterfaceDistance(200);
     private final int MANCHE_HEIGHT = (int) transformTableDistanceToInterfaceDistance(40);
+    private final int GOBELET_NORMALISE = (int) transformTableDistanceToInterfaceDistance(36);
+    private final int ROBOT_NORMALISE_WIDTH = (int) transformTableDistanceToInterfaceDistance(350);
+    private final int ROBOT_NORMALISE_HEIGHT = (int) transformTableDistanceToInterfaceDistance(220);
 
     final int PrincipalWidth = 350;
     final int PrincipalHeigh = 220;
@@ -186,7 +191,7 @@ public class TableVisualisation extends JPanel {
 
         ArrayList<String> ad = new ArrayList<>();
         ad.add("active");
-        //ad.add("desactive");
+        ad.add("desactive");
 
         ArrayList<String> da = new ArrayList<>();
         da.add("desactive");

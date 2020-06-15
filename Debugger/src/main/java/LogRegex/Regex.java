@@ -4,7 +4,7 @@ package LogRegex;
  import graphique.FenetreTable;
  import traitementLogs.LogsActionsMeca.RegexActionsMeca;
  import traitementLogs.LogsCommunications.ComBuddy.RegexComBuddy;
- import traitementLogs.LogsCommunications.ComNuc.RegexComNUC;
+ import traitementLogs.LogsCommunications.ComNUC.RegexComNUC;
  import traitementLogs.LogsDeplacement.RegexActions;
  import traitementLogs.LogsDeplacement.RegexDeplacement;
  import traitementLogs.LogsLIDAR.RegexLidar;
