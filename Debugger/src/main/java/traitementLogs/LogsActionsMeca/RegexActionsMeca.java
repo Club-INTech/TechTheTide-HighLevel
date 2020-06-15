@@ -15,7 +15,7 @@ public class RegexActionsMeca {
         Matcher Phare = Pattern.compile("Bras phare active :").matcher(log);
             if (Phare.find()) {
                 String phareActive = log.substring(56);
-                System.out.println("phareActive="+phareActive);
+                //System.out.println("phareActive="+phareActive);
                 Robot.PhareCouleur(phareActive);
                 FenetreLog.addLogTextln("PhareCôté = " + couleurZone);
                 FenetreLog.addLogTextln("PhareActivé ="+ phareActive);
@@ -31,7 +31,7 @@ public class RegexActionsMeca {
         if (Manche.find()) {
             String mancheActive1 = log.substring(62,65);
             String mancheActive2 = log.substring(72);
-            System.out.println("mancheActive1 =" + mancheActive1+ "_mancheActive2 ="+ mancheActive2);
+            //System.out.println("mancheActive1 =" + mancheActive1+ "_mancheActive2 ="+ mancheActive2);
             Robot.MancheCouleur(mancheActive1,mancheActive2);
             FenetreLog.addLogTextln("mancheActive1 =" + mancheActive1+ "et mancheActive2 ="+ mancheActive2);
         }

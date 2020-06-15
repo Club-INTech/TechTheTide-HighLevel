@@ -52,6 +52,7 @@ public class TableVisualisation extends JPanel {
 
 
     String FileTableImage = "Debugger/src/main/java/graphique/ressources/tableComplete2020Fond.png";
+
     String FilePrincipalImage = "Debugger/src/main/java/graphique/ressources/PrincipalVuDessusInterfaceSize.png";
     String FileSecondaireImage = "Debugger/src/main/java/graphique/ressources/SecondaireVuDessusInterfaceSize.png";
 
@@ -178,11 +179,11 @@ public class TableVisualisation extends JPanel {
         ArrayList<String> aa = new ArrayList<>();
         aa.add("active");
         aa.add("active");
-        System.out.print("aa ="+aa);
+        //System.out.print("aa ="+aa);
 
         ArrayList<String> ad = new ArrayList<>();
         ad.add("active");
-        ad.add("desactive");
+        //ad.add("desactive");
 
         ArrayList<String> da = new ArrayList<>();
         da.add("desactive");
@@ -283,10 +284,10 @@ public class TableVisualisation extends JPanel {
             g.drawRect(MancheDebut1.x, MancheDebut1.y, MANCHE_WIDTH, MANCHE_HEIGHT);
             g.drawRect(MancheDebut2.x, MancheDebut2.y, MANCHE_WIDTH, MANCHE_HEIGHT);
             g.setColor(CouleurManche1);
-            System.out.print ("couleurManche1 ="+ CouleurManche1);
+            //System.out.print ("couleurManche1 ="+ CouleurManche1);
             g.fillRect(MancheDebut1.x, MancheDebut1.y, MANCHE_WIDTH, MANCHE_HEIGHT);
             g.setColor(CouleurManche2);
-            System.out.print ("couleurManche2 ="+ CouleurManche2);
+            //System.out.print ("couleurManche2 ="+ CouleurManche2);
             g.fillRect(MancheDebut2.x, MancheDebut2.y, MANCHE_WIDTH, MANCHE_HEIGHT);
     }
     public void MancheJaune() {
@@ -303,19 +304,19 @@ public class TableVisualisation extends JPanel {
     }
     public void MancheDD() {
         addEtatManche("desactive", "desactive");
-        System.out.print("MancheDD ="+EtatManche);
+        //System.out.print("MancheDD ="+EtatManche);
     }
     public void MancheAD() {
         addEtatManche("active", "desactive");
-        System.out.print("MancheAD="+EtatManche);
+        //System.out.print("MancheAD="+EtatManche);
     }
     public void MancheDA() {
         addEtatManche("desactive", "active");
-        System.out.print("MancheDA="+EtatManche);
+        //System.out.print("MancheDA="+EtatManche);
     }
     public void MancheAA() {
         addEtatManche("active", "active");
-        System.out.print("MancheAA ="+EtatManche);
+        //System.out.print("MancheAA ="+EtatManche);
     }
 
     /* ================================= Traitement des gobelets sur la table ======================================= */
