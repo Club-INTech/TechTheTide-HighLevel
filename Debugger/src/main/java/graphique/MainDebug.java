@@ -8,7 +8,6 @@ public class MainDebug {
         new FenetreLog();
         new FenetreTable(fenetreDemarrage.getChoixRobot(), fenetreDemarrage.getLogFile());
 
-
     }
 
 }

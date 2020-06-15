@@ -21,11 +21,20 @@ public class FenetreDemarrage extends JDialog{
     private JButton valider = new JButton("Valider");
 
 
-    ItemListener listener = new ItemListener() {
+    ItemListener listenerPrincipal = new ItemListener() {
         @Override
         public void itemStateChanged(ItemEvent itemEvent) {
             int state = itemEvent.getStateChange();
             principalBool = (state == 1);
+            System.out.println("principal =" + principalBool);
+        }
+    };
+    ItemListener listenerSecondaire = new ItemListener() {
+        @Override
+        public void itemStateChanged(ItemEvent itemEvent) {
+            int state = itemEvent.getStateChange();
+            principalBool = (state == 2);
+            System.out.println("principal = " +principalBool);
         }
     };
 
@@ -66,7 +75,8 @@ public class FenetreDemarrage extends JDialog{
         panel.add(principal);
         panel.add(secondaire);
 
-        principal.addItemListener(listener);
+        principal.addItemListener(listenerPrincipal);
+        secondaire.addItemListener(listenerSecondaire);
 
         choixRobot.add(principal);
         choixRobot.add(secondaire);

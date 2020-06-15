@@ -132,7 +132,9 @@ public class TableVisualisation extends JPanel {
         try {
             Table = ImageIO.read(new File(FileTableImage));
 
-            if (FenetreDemarrage.getChoixRobot()==true) {
+//            System.out.println("robot n°" + principal);
+
+            if (FenetreDemarrage.getChoixRobot()) {
                 Principal = ImageIO.read(new File(FilePrincipalImage));
                 Secondaire = ImageIO.read(new File(FileSecondaireImage));
             }else{
