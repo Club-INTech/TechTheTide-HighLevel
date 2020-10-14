@@ -29,12 +29,14 @@ public class Match extends Script {
        scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
 
 
+       /*
         try {
             moveLengthwise(-100, false);
         } catch (UnableToMoveException e) {
             e.printStackTrace();
 
         }
+        */
 
 
         // TODO: A vous de jouer les 1As!

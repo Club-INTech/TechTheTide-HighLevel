@@ -15,6 +15,8 @@ import utils.math.Circle;
 import utils.math.InternalVectCartesian;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
+import locomotion.UnableToMoveException;
+import orders.order.ActuatorsOrders;
 
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -54,6 +56,9 @@ public class ScriptPrincipalBasique extends Script {
         try {
             System.out.println(robot.getXyo());
 
+            ActuatorsOrders.Gate.compileWith(3 * Math.PI/4);
+
+
             turnTowards(-Math.PI/2);
             moveLengthwise(632-455,false);
 
@@ -78,6 +83,8 @@ public class ScriptPrincipalBasique extends Script {
 
             moveLengthwise(1140-1800,false);
 
+            robot.increaseScore(18);
+
             turnTowards(Math.PI);
             moveLengthwise(1800-200,false);
 
@@ -89,7 +96,6 @@ public class ScriptPrincipalBasique extends Script {
             moveLengthwise(150-740,false);
 
             System.out.println(robot.getXyo());
-
 
             /*
             Vec2 depart = new VectCartesian(300, 510);

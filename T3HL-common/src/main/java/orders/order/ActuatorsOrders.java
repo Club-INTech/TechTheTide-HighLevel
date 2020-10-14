@@ -130,10 +130,9 @@ public final class ActuatorsOrders {
 
 //////////////////GATE (PRINCIPAL)
 
-    public static final Order GateOpen = OrderBuilder
-            .createSimple("GateOpen");
-    public static final Order GateClose = OrderBuilder
-            .createSimple("GateClose");
+    public static final OrderWithArgument Gate = OrderBuilder
+            .createWithArgs("Gate");
+
 
 //////////////////ELEVATOR (PRINCIPAL)
 // LiftUp/ LiftDown : pour monter/descendre le profilet pour remonter les 2 gobelets en hauteur
@@ -150,4 +149,6 @@ public final class ActuatorsOrders {
             .createSimple("FlagUp");
     public static final Order FlagDown = OrderBuilder
             .createSimple("FlagDown");
+
+
 }
