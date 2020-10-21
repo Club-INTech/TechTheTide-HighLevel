@@ -28,7 +28,6 @@ public enum GameState {
 
     POSITIONS_CHAOS_RECUES(false),
     CONFIG_ECUEIL("RRRRR"),
-
     PHARE_ALLUME(false),
     MANCHES_LEVES(false),
     GIROUETTE_LUE(false),
