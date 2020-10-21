@@ -46,7 +46,6 @@ import utils.container.Module;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
 
-import java.io.IOException;
 import java.util.Objects;
 import java.util.Stack;
 import java.util.concurrent.TimeUnit;

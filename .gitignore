@@ -26,4 +26,6 @@ doc/formation/*.pdf
 .distinct_order_list
 .order_list
 
+T3HL-common/src/main/java/PanneauRaspi-master
+
 # **DO NOT** put gradle/ or gradlew here, they allow the project to be imported without having to download&install Gradle!
