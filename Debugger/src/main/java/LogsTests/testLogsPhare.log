@@ -1,0 +1,7 @@
+[[34m21:34:52.708 STRATEGY (DEBUG) on main main.RobotEntryPoint.initServices(RobotEntryPoint.java:204)] Couleur: jaune
+[[34m21:34:49.870 DYNAMIXEL (DEBUG) Bras phare active :non
+[[34m21:34:49.871 DYNAMIXEL (DEBUG) Bras phare active :oui
+[[34m21:34:49.891 DYNAMIXEL (DEBUG) Bras manche a air :pos1 :non pos2 :non
+[[34m21:35:51.911 DYNAMIXEL (DEBUG) Bras manche a air :pos1 :oui pos2 :non
+[[34m21:36:52.925 DYNAMIXEL (DEBUG) Bras manche a air :pos1 :non pos2 :oui
+[[34m21:37:53.937 DYNAMIXEL (DEBUG) Bras manche a air :pos1 :oui pos2 :oui

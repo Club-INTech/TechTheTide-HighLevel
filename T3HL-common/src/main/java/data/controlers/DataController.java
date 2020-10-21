@@ -4,6 +4,7 @@ import data.*;
 import orders.OrderWrapper;
 import pfg.config.Configurable;
 import robot.Robot;
+import utils.ConfigData;
 import utils.HLInstance;
 import utils.Log;
 import utils.MatchTimer;
@@ -105,6 +106,8 @@ public class DataController extends ModuleThread {
         listener.registerMessageHandler(Channel.BUDDY_EVENT, this::handleBuddyEvent);
         listener.registerMessageHandler(Channel.CONFIG_ECEUIL, this::handleEcueilMessage);
 
+        listener.registerMessageHandler(Channel.CONFIG_ECEUIL,this::handleConfig);
+
         start();
     }
 
@@ -140,6 +143,11 @@ public class DataController extends ModuleThread {
                 break;
             }
         }
+    }
+
+    private void handleConfig(String config) {
+        hl.getConfig().override(ConfigData.CONFIG_ECUEIL, config);
+        Log.COMMUNICATION.debug("Configuration de l'ecueil commun : " + config);
     }
 
     /**
@@ -445,8 +453,6 @@ public class DataController extends ModuleThread {
     private void handleCouleurGobelet(String message){
          CouleurVerre.setCouleurGobRecu(message);
     }
-
-
 
 
     /**

@@ -71,7 +71,7 @@ public class MontlheryController extends Thread implements Module {
                         armPosition = ArmState.ELEVATOR;
                         // TODO: remplacer robot.useActuator(ActuatorsOrder.ENVOIE_LE_BRAS_DROIT_A_LA_POSITION_ASCENSEUR);
                     }
-                    if(xPressed && !wasXPressed) {
+                   /* if(xPressed && !wasXPressed) {
                         robot.perform(ElevatorOrders.RaiseRightElevator);
                     }
                     if(yPressed && !wasYPressed) {
@@ -84,7 +84,7 @@ public class MontlheryController extends Thread implements Module {
                     if(rightTriggerPressed && !wasRightTriggerPressed) {
                         orders.perform(ActuatorsOrders.DeactivateLeftPump);
                         orders.perform(ActuatorsOrders.ActivateRightValve);
-                    }
+                    }*/
 
                     wasAPressed = aPressed;
                     wasBPressed = bPressed;

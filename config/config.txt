@@ -17,9 +17,10 @@ VISUALISATION                       =false
 SIMULATION                          =false
 
 USING_BALISE_IMAGE                  =false
+USING_CYLINDER_DETECTION            =false
 CONNECT_TO_BUDDY                    =false
 
-MODE_MONTHLERY                      =true
+MODE_MONTHLERY                      =false
 OPEN_THE_GATE                       =false
 
 

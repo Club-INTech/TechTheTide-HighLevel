@@ -72,6 +72,9 @@ public class Listener implements Module {
     @Configurable
     private boolean usingLidar;
 
+    @Configurable
+    private boolean usingCylinderDetection;
+
     /**
      * Si on utilise la balise pour le traitement d'images
      */
@@ -228,6 +231,10 @@ public class Listener implements Module {
             if(usingLidar) {
                 connectionManager.initConnections(Connection.LIDAR_DATA);
                 Log.COMMUNICATION.debug("Lidar connected");
+            }
+            if(usingCylinderDetection) {
+                connectionManager.initConnections(Connection.CYLINDER_DETECTION);
+                Log.COMMUNICATION.debug("Initiated connection to CylinderDetection");
             }
             /*
             if(usingElectron) {

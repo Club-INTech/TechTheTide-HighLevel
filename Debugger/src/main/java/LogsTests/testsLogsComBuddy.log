@@ -1,0 +1,14 @@
+[[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 -2.00000
+[[34m15:30:29.499 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: armFinishedMovement left
+[[34m15:30:29.499 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:237)] Fin de mouvement du bras left
+[[34m15:30:29.747 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: armFinishedMovement right
+[[34m15:30:29.749 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:237)] Fin de mouvement du bras right
+[[34m15:30:29.786 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:203)] Received confirmation for order (cxyo)
+[[34m15:30:29.793 COMMUNICATION (DEBUG) on main data.controlers.DataControler.waitForTwoPositionUpdates(DataControler.java:478)] Waiting for two position updates
+[[34m15:30:30.219 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: stoppedMoving
+[[34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 90.00000
+[ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 3.4
+[ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 300 0 -5.00
+[ [34m15:30:48.358 COMMUNICATION (DEBUG) on Thread-7 data.controlers.DataControler.handleEvent(DataControler.java:173)] Got event: confirmOrder cxyo 0 0 -5.00
+
+

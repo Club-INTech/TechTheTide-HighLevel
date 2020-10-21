@@ -51,6 +51,9 @@ public enum Channel {
     OBSTACLES('!', '!'),
     RAW_LIDAR_DATA('!', 'R'),
 
+    // CylinderDetection
+    CYLINDERS('!', '§'),
+
     //Gobelet Position
     GOBELETS_POSITION('!', '-'),
 
