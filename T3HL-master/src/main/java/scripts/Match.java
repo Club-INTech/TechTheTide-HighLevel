@@ -21,12 +21,11 @@ public class Match extends Script {
 
     @Override
     public void execute(int version) {
-        // Code lançant les différents scripts du principal
-        //scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
-        //Test
-        //scriptManagerMaster.getScript(ScriptNamesMaster.RECUPFACULTATIF).timedExecute(0);
-       // scriptTest // A rajouter
-       scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
+        if(false) { //homologation
+            scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
+        }else {
+            scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
+        }
 
 
        /*

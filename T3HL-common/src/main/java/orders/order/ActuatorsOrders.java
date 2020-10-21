@@ -21,40 +21,13 @@ import java.text.Format;
  */
 public final class ActuatorsOrders {
 
-    // TODO:enlever les ordres de l'annee derniere
+
 
     private static final String PUMPS = "pump";
     private static final String VALVES = "valve";
     private static final String SERVOS = "servos";
 
-    public static final SidedOrder ActivateRightPump = OrderBuilder
-            .create(PUMPS)
-            .side(RobotSide.RIGHT)
-            .on();
-    public static final SidedOrder ActivateLeftPump = ActivateRightPump.symetrize();
 
-    public static final SidedOrder DeactivateRightPump = OrderBuilder
-            .create(PUMPS)
-            .side(RobotSide.RIGHT)
-            .off();
-    public static final SidedOrder DeactivateLeftPump = DeactivateRightPump.symetrize();
-
-    public static final SidedOrder ActivateRightValve = OrderBuilder
-            .create(VALVES)
-            .side(RobotSide.RIGHT)
-            .on();
-    public static final SidedOrder ActivateLeftValve = ActivateRightValve.symetrize();
-
-    public static final SidedOrder DeactivateRightValve = OrderBuilder
-            .create(VALVES)
-            .side(RobotSide.RIGHT)
-            .off();
-    public static final SidedOrder DeactivateLeftValve = DeactivateRightValve.symetrize();
-
-    private ActuatorsOrders() {
-    }
-
-    //NEW 2020
     /////////////////////////////////////////////PUMPS and VALVES (SECONDAIRE)
 
     // Pompes et valves de 0 à 5 pour le secondaire
@@ -131,8 +104,11 @@ public final class ActuatorsOrders {
 //////////////////GATE (PRINCIPAL)
 
     public static final OrderWithArgument Gate = OrderBuilder
-            .createWithArgs("Gate");
+            .createWithArgs("Gate",Formatting.FLOAT3);
 
+    public static final Order SetGate(double a){
+        return(Gate.compileWith(a));
+    }
 
 //////////////////ELEVATOR (PRINCIPAL)
 // LiftUp/ LiftDown : pour monter/descendre le profilet pour remonter les 2 gobelets en hauteur
@@ -151,4 +127,6 @@ public final class ActuatorsOrders {
             .createSimple("FlagDown");
 
 
+    private ActuatorsOrders() {
+    }
 }
