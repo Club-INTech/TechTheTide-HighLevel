@@ -5,13 +5,6 @@ import lowlevel.order.*;
 import utils.RobotSide;
 import utils.communication.Formatting;
 
-/**
- * Liste des ordres liés aux actuateurs.
- *
- * Les noms sont en PascalCase juste par esthétisme.
- *
- * @author jglrxavpok
- */
 public final class ActuatorsOrders {
 
 
@@ -119,6 +112,29 @@ public final class ActuatorsOrders {
     public static final Order FlagDown = OrderBuilder
             .createSimple("FlagDown");
 
+    public static final SidedOrder ActivateRightPump = OrderBuilder
+            .create(PUMPS)
+            .side(RobotSide.RIGHT)
+            .on();
+    public static final SidedOrder ActivateLeftPump = ActivateRightPump.symetrize();
+
+    public static final SidedOrder DeactivateRightPump = OrderBuilder
+            .create(PUMPS)
+            .side(RobotSide.RIGHT)
+            .off();
+    public static final SidedOrder DeactivateLeftPump = DeactivateRightPump.symetrize();
+
+    public static final SidedOrder ActivateRightValve = OrderBuilder
+            .create(VALVES)
+            .side(RobotSide.RIGHT)
+            .on();
+    public static final SidedOrder ActivateLeftValve = ActivateRightValve.symetrize();
+
+    public static final SidedOrder DeactivateRightValve = OrderBuilder
+            .create(VALVES)
+            .side(RobotSide.RIGHT)
+            .off();
+    public static final SidedOrder DeactivateLeftValve = DeactivateRightValve.symetrize();
 
     private ActuatorsOrders() {
     }
