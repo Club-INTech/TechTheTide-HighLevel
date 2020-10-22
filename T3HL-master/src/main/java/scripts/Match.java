@@ -1,7 +1,6 @@
 package scripts;
 
 import data.synchronization.SynchronizationWithBuddy;
-import locomotion.UnableToMoveException;
 import utils.HLInstance;
 import utils.math.Vec2;
 
@@ -18,26 +17,24 @@ public class Match extends Script {
 
     @Override
     public void execute(int version) {
-        // Code lançant les différents scripts du principal
-        //scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
-        //Test
-        //scriptManagerMaster.getScript(ScriptNamesMaster.RECUPFACULTATIF).timedExecute(0);
-       // scriptTest // A rajouter
-       scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
+        if(false) { //homologation
+            scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
+        }else {
+            scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
+        }
 
 
+       /*
         try {
             moveLengthwise(-100, false);
         } catch (UnableToMoveException e) {
             e.printStackTrace();
 
         }
+        */
 
 
         // TODO: A vous de jouer les 1As!
-
-        //Update
-        // TODO Gagner la coupe
     }
 
     @Override

@@ -1,16 +1,9 @@
 package orders.order;
 
-import locomotion.PathFollower;
-import locomotion.UnableToMoveException;
-import lowlevel.actuators.ServoGroups;
-import lowlevel.order.*;
 import lowlevel.actuators.Servos;
 import lowlevel.order.*;
-import orders.OrderWrapper;
 import utils.RobotSide;
 import utils.communication.Formatting;
-
-import java.text.Format;
 
 /**
  * Liste des ordres liés aux actuateurs.
@@ -21,40 +14,13 @@ import java.text.Format;
  */
 public final class ActuatorsOrders {
 
-    // TODO:enlever les ordres de l'annee derniere
+
 
     private static final String PUMPS = "pump";
     private static final String VALVES = "valve";
     private static final String SERVOS = "servos";
 
-    public static final SidedOrder ActivateRightPump = OrderBuilder
-            .create(PUMPS)
-            .side(RobotSide.RIGHT)
-            .on();
-    public static final SidedOrder ActivateLeftPump = ActivateRightPump.symetrize();
 
-    public static final SidedOrder DeactivateRightPump = OrderBuilder
-            .create(PUMPS)
-            .side(RobotSide.RIGHT)
-            .off();
-    public static final SidedOrder DeactivateLeftPump = DeactivateRightPump.symetrize();
-
-    public static final SidedOrder ActivateRightValve = OrderBuilder
-            .create(VALVES)
-            .side(RobotSide.RIGHT)
-            .on();
-    public static final SidedOrder ActivateLeftValve = ActivateRightValve.symetrize();
-
-    public static final SidedOrder DeactivateRightValve = OrderBuilder
-            .create(VALVES)
-            .side(RobotSide.RIGHT)
-            .off();
-    public static final SidedOrder DeactivateLeftValve = DeactivateRightValve.symetrize();
-
-    private ActuatorsOrders() {
-    }
-
-    //NEW 2020
     /////////////////////////////////////////////PUMPS and VALVES (SECONDAIRE)
 
     // Pompes et valves de 0 à 5 pour le secondaire
@@ -130,10 +96,12 @@ public final class ActuatorsOrders {
 
 //////////////////GATE (PRINCIPAL)
 
-    public static final Order GateOpen = OrderBuilder
-            .createSimple("GateOpen");
-    public static final Order GateClose = OrderBuilder
-            .createSimple("GateClose");
+    public static final OrderWithArgument Gate = OrderBuilder
+            .createWithArgs("Gate",Formatting.FLOAT3);
+
+    public static final Order SetGate(double a){
+        return(Gate.compileWith(a));
+    }
 
 //////////////////ELEVATOR (PRINCIPAL)
 // LiftUp/ LiftDown : pour monter/descendre le profilet pour remonter les 2 gobelets en hauteur
@@ -150,4 +118,8 @@ public final class ActuatorsOrders {
             .createSimple("FlagUp");
     public static final Order FlagDown = OrderBuilder
             .createSimple("FlagDown");
+
+
+    private ActuatorsOrders() {
+    }
 }
