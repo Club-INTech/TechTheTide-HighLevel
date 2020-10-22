@@ -33,8 +33,7 @@ public class ScriptHomologation extends Script {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                // on active une pompe par exemple
-                actuators.rightPump.activate();
+                //action
             });
 
             turnTowards(Math.PI/2);

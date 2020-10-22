@@ -1,9 +1,6 @@
 package lowlevel.actuators;
 
-import data.SensorState;
 import orders.OrderWrapper;
-import orders.order.ActuatorsOrders;
-import orders.order.ElevatorOrders;
 import utils.container.Module;
 
 /**
@@ -15,19 +12,13 @@ public class ActuatorsModule implements Module {
 
     private OrderWrapper wrapper;
 //Used in script homologation de l'an dernier (don't delete yet)
-    public final OnOffActuator leftPump;
-    public final OnOffActuator rightPump;
-    public final OnOffActuator leftValve;
-    public final OnOffActuator rightValve;
+
 
     public ActuatorsModule(OrderWrapper wrapper) {
         this.wrapper = wrapper;
 
         // Initialisation des différents actuateurs
-        leftPump = new OnOffActuator(wrapper, ActuatorsOrders.ActivateLeftPump, ActuatorsOrders.DeactivateLeftPump);
-        rightPump = new OnOffActuator(wrapper, ActuatorsOrders.ActivateRightPump, ActuatorsOrders.DeactivateRightPump);
-        leftValve = new OnOffActuator(wrapper, ActuatorsOrders.ActivateLeftValve, ActuatorsOrders.DeactivateLeftValve);
-        rightValve = new OnOffActuator(wrapper, ActuatorsOrders.ActivateRightValve, ActuatorsOrders.DeactivateRightValve);
+
 
 /*        leftElevator = new ElevatorActuator(wrapper, ElevatorOrders.RaiseLeftElevator, ElevatorOrders.LowerLeftElevator,
                 ElevatorOrders.RaiseThenLowerLeftElevator, ElevatorOrders.RaiseThenLowerLeftElevator, SensorState.LEFT_ELEVATOR_MOVING);
