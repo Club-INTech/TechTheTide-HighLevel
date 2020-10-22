@@ -1,0 +1,432 @@
+[[34m14:42:53.866 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m                   /*``.           `-:--.`
+[[34m14:42:53.874 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m                  `.-::::/.        .:::::::y
+[[34m14:42:53.874 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m                 `::::::::o``````.-::::::/h-
+[[34m14:42:53.875 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m                 `::::::::::::::::::::::/h.
+[[34m14:42:53.875 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m                  -::::::://++++//::::::::.
+[[34m14:42:53.876 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m               `-::::/oso+/:-....--://:::::-.``.---:`
+[[34m14:42:53.876 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m      ````   .-:::/so/-      ``````  `.:::::::::::::+ [34m``````````````````````````````````````````````````````````````````````
+[[34m14:42:53.877 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m    `-:::::--:::os+.[34m   `/sssssss`   ./syyyyyys+/y+sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssy- `-:::://
+[[34m14:42:53.877 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m   `-:::::::::+y/`[34mS   .shhhhhdd:   `/hhhhhhhhhdo:/dddddddddddddddddhhhhhhhdddddddddddddddddddddddddddddddddddddddddddddo`.:////sy.
+[[34m14:42:53.878 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m   ::::::::::so`[34m     :yhhhhhmy`   .ohhhhhhhhhhd  `//oooooo+//////+hhhhhhdd+///////+++++++/////////////////+++++++/////-`-////+h+` `
+[[34m14:42:53.878 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m  `://:::::y/ [34mU   `+hhhhhdm+    -yhhhhhdhhhhhm`  `oyyyyyhs     .shhhhhdh-  ``.-:::////:::-.       ``.-::::////::://  `://///o+:::::::-.
+[[34m14:42:53.879 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m      `::::y/ [34m    .shhhhhdh-   `+hhhhhdd+shhhhd- -yhhhhhmo`    /yhhhhhms` .-://+ssso+++/////o   `.:://+ossoo+++o+oy- -/////+ssoo+//////h
+[[34m14:42:53.879 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m      .:::/y [34mU   :yhhhhhms`   .shhhhhdy[33m::[34mhhhhhho+hhhhhdd:    `ohhhhhdd/ .:///oyo::-----////oy `-:///oyo:.`      `-``:////oy+-` `:////+h:
+[[34m14:42:53.880 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m      -:::o: [34m  `+hhhhhdm/    :yhhhhddo[33m:::[34m+hhhhhhhhhhhms.    -yhhhhhdh. -////yo.`ooooooooooss``:////yo.            -/////yo`   .:////ys.
+[[34m14:42:53.880 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m   ``.::::+-[34m S .shhhhhdh-   `+hhhhhdd/[33m::::[34m/hhhhhhhhhdd/     /hhhhhhmo` `/////s```..----:+:..  -/////o``````..:.  `:////oh:   `-////+h/
+[[34m14:42:53.881 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m`.-::::::::+ [34m:yhhhhhms`   .shhhhhmy[33m:::::::[34mhhhhhhhhdh.    `ohhhhhdd:    :++////:::///+oys`    `/++/////://++yo` .:////ys`   .:////ys.
+[[34m14:42:53.881 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m-::::::::::/-[34m/oooooo/     -sssyyyo[33m:+o/++//[34mhyssssss+`     .sssssss.      `-/++oooo++//:.        .:/+oooo++/:-   /ooooo:     :ooooo/
+[[34m14:42:53.882 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m.:::::/o:::::-`               `.--:::os+```.---
+[[34m14:42:53.882 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m :+ooo/.`::::::-..`````````.--::::+ss:`
+[[34m14:42:53.882 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m  ``     `-/::::::::::::::::::::::s.
+[[34m14:42:53.883 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m          `:::::::::::://+::::::::o-
+[[34m14:42:53.883 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m         `:::::::/h////::.-:::::::y-
+[[34m14:42:53.884 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m         :::::::ss`        -:/+sso:
+[[34m14:42:53.884 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] [33m         .:/++sy:          `//*/
+[[34m14:42:53.884 STDOUT (DEBUG) on main utils.Container.printMessage(Container.java:271)] ______________________________________________________________________________________________________________________________________________
+[[34m11:04:25.880 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:104)] Version : 000001 on dev - [Logs type match reglement 2020 Robot Principal][0m
+[[34m11:04:25.906 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:112)] System : Linux 5.0.0-37-generic amd64[0m
+[[34m11:04:25.940 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:114)] Java : Oracle Corporation 13.0.1, max memory : 1.46G, available processors : 2[0m
+[[34m11:04:25.941 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:117)] [0m
+[[34m11:04:25.942 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:119)]    Remember, with great power comes great current squared times resistance !
+[0m
+[[34m11:04:25.942 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:119)]    INTech Rules The Campus, The Maisel, The Foyer and The BBQ à l'espace T
+[0m
+[[34m11:04:25.942 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:119)]    Remember, Minet est un club d'INTech et Hackademint est la légende du placard au sous sol du foyer ! 
+[0m
+[[34m11:04:25.943 STDOUT (DEBUG) on main utils.HLInstance.<init>(HLInstance.java:122)] Chargement de la config...[0m
+[[34m11:04:25.996 STDOUT (DEBUG) on main pfg.config.Config.readConfigFile(Config.java:166)] Loading config file : /home/ubuntu/IdeaProjects/TechTheTide-HighLevel/bin/../config/config.txt[0m
+[[34m11:04:26.093 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:465)] Configuration diff :[0m
+[[34m11:04:26.095 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   ennemyRay = 150 (default : 220) [0m
+[[34m11:04:26.095 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   nbrNoeudsX = 30 (default : 45) [0m
+[[34m11:04:26.096 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   NbrNoeudY = 20 (default : 30) [0m
+[[34m11:04:26.098 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   NbrNoeudCircle = 14 (default : 12) [0m
+[[34m11:04:26.099 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   EspacementCircle = 1.2 [0m
+[[34m11:04:26.101 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   Couleur = jaune [0m
+[[34m11:04:26.102 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   LidarProcessPath = ../bin/LiDAR_UST_10LX [0m
+[[34m11:04:26.108 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   Visualisation = false (default : true) [0m
+[[34m11:04:26.115 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   Simulation = false (default : true) [0m
+[[34m11:04:26.116 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   UsingBaliseImage = false (default : true) [0m
+[[34m11:04:26.117 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   UsingCylenderDetection = false (default : true) [0m
+[[34m11:04:26.118 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   ConnectToBuddy = false (default : true) [0m
+[[34m11:04:26.119 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   ModeMontlhery = false (default : false) [0m
+[[34m11:04:26.122 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   OpenTheGate = false (default : false) [0m
+[[34m11:04:26.125 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   Master = true (default : true) [0m
+[[34m11:04:26.125 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   UsingPannel = false (default : true) [0m
+[[34m11:04:26.131 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   UsingLiDAR = false (default : true) [0m
+[[34m11:04:26.132 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   LedCount = 16 [0m
+[[34m11:04:26.132 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   Homologation = false (default : false) [0m
+[[34m11:04:26.133 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   RobotRay = 190 (default : 190) [0m
+[[34m11:04:26.134 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   BuddyRay = 70 (default : 70) [0m
+[[34m11:04:26.134 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   VectorComparisonThreShold = 5 (default : 5) [0m
+[[34m11:04:26.134 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   RecalageACC = false (default : true) [0m
+[[34m11:04:26.135 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   Secours = false (default : true) [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_JAUNE_RED_SUP       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_JAUNE_RED_SUP       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_JAUNE_VERT_SUP      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_JAUNE_VERT_SUP      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_JAUNE_RED_INF       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_JAUNE_RED_INF       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_JAUNE_VERT_INF      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_JAUNE_VERT_INF      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_BLEU_VERT_SUP       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_BLEU_VERT_SUP       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_BLEU_RED_SUP        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_BLEU_RED_SUP        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_BLEU_VERT_INF       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_BLEU_VERT_INF       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_X_BLEU_RED_INF        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PORT_Y_BLEU_RED_INF        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_JAUNE_RED_SUP     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_JAUNE_RED_SUP     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_JAUNE_VERT_SUP    =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_JAUNE_VERT_SUP    =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_JAUNE_RED_INF     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_JAUNE_RED_INF     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_JAUNE_VERT_INF    =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_JAUNE_VERT_INF    =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_BLEU_VERT_SUP     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_BLEU_VERT_SUP     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_BLEU_RED_SUP      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_BLEU_RED_SUP      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_BLEU_VERT_INF     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_BLEU_VERT_INF     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_X_BLEU_RED_INF      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_MILIEU_Y_BLEU_RED_INF      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_X_JAUNE_RED     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_Y_JAUNE_RED     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_X_JAUNE_VERT    =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_Y_JAUNE_VERT    =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_X_BLEU_RED      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_Y_BLEU_RED      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_X_BLEU_VERT     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GOBELETS_PETIT_PORT_Y_BLEU_VERT     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GIROUETTE_X                         =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   GIROUETTE_Y                         =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   PHARE_X_JAUNE                       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   PHARE_Y_JAUNE                       =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   PHARE_X_BLEU                        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   PHARE_Y_BLEU                        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE1_X_JAUNE                     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE1_Y_JAUNE                     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE2_X_JAUNE                     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE2_Y_JAUNE                     =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE1_X_BLEU                      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE1_Y_BLEU                      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE2_X_BLEU                      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MANCHE2_Y_BLEU                      =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_COMMUN_X_JAUNE        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_COMMUN_Y_JAUNE        =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_COMMUN_X_BLEU         =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_COMMUN_Y_BLEU         =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_PRIVE_X_JAUNE         =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_PRIVE_Y_JAUNE         =1 [0m
+[[34m11:04:26.137 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_PRIVE_XBLEU           =1 [0m
+[[34m11:04:26.173 STDOUT (DEBUG) on main pfg.config.Config.printChangedValues(Config.java:469)]   MILIEU_ECUEIL_PRIVE_Y_BLEU          =1 [0m
+[[34m11:04:26.173 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service PanneauService [0m
+[[34m11:04:26.173 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service PanneauService après son initialisation. [0m
+[[34m11:04:26.173 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service PanneauService prêt [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] com.pi4j.io.i2c.I2CFactory$UnsupportedBusNumberException [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at com.panneau.Segments.<init>(Segments.java:47) [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at com.panneau.Panneau.<init>(Panneau.java:68) [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at data.controlers.PanneauService.getPanneau(PanneauService.java:40) [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at main.RobotEntryPoint.initServices(RobotEntryPoint.java:184) [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at main.RobotEntryPoint.entryPoint(RobotEntryPoint.java:64) [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at MainMaster.start(MainMaster.java:67) [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at MainMaster.main(MainMaster.java:62) [0m
+[[34m11:04:26.173 STDERR (CRITICAL) on main] 	at LaunchSimulatorMaster.main(LaunchSimulatorMaster.java:17) [0m
+[[34m11:04:26.173 STRATEGY (CRITICAL) on main main.RobotEntryPoint.initServices(RobotEntryPoint.java:191)] PAS DE PANNEAU [0m
+[[34m11:04:26.173 STRATEGY (DEBUG) on main main.RobotEntryPoint.initServices(RobotEntryPoint.java:206)] Couleur: jaune [0m
+[[34m11:04:26.173 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service ScriptManagerMaster [0m
+[[34m11:04:26.173 DATA_HANDLER (DEBUG) on main utils.HLInstance.module(HLInstance.java:271)] Initialisation du moduleClass Table[0m
+[[34m11:04:26.173 DATA_HANDLER (DEBUG) on main utils.HLInstance.module(HLInstance.java:285)] Mise à jour de la config du moduleClass Table après son initialisation.[0m
+[[34m11:04:26.201 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service Table prêt [0m
+[[34m11:04:26.237 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service Graphe [0m
+[[34m11:04:26.264 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service Graphe après son initialisation. [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service Graphe prêt [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service Pathfinder [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service Pathfinder après son initialisation. [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service Pathfinder prêt [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service SymmetrizedActuatorOrderMap [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service SymmetrizedActuatorOrderMap après son initialisation. [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service SymmetrizedActuatorOrderMap prêt [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service OrderWrapper [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service OrderWrapper après son initialisation. [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service OrderWrapper prêt [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service PathFollower [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service PathFollower après son initialisation. [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service PathFollower prêt [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service Locomotion [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service Locomotion après son initialisation. [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service Locomotion prêt [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service ConnectionManager [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service ConnectionManager après son initialisation. [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service ConnectionManager prêt [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service SimulatorDebug [0m
+[[34m11:04:27.288 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service SimulatorDebug après son initialisation. [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service SimulatorDebug prêt [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service Master [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service SynchronizationWithBuddy [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service SynchronizationWithBuddy après son initialisation. [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service SynchronizationWithBuddy prêt [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service Listener [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service Listener après son initialisation. [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service Listener prêt [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service MatchTimer [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service MatchTimer après son initialisation. [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service MatchTimer prêt [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service DataControler [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service DataControler après son initialisation. [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service DataControler prêt [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service Master après son initialisation. [0m
+[[34m11:04:27.332 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service Master prêt [0m
+[[34m11:04:27.352 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service Accelerateur [0m
+[[34m11:04:27.352 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service Accelerateur après son initialisation. [0m
+[[34m11:04:27.352 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service ScriptHomologation prêt [0m
+[[34m11:04:27.352 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service ScriptManagerMaster après son initialisation. [0m
+[[34m11:04:27.352 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service ScriptManagerMaster prêt [0m
+[[34m11:04:27.352 COMMUNICATION (DEBUG) on Listener data.controlers.Listener.run(Listener.java:139)] Listener lancé : connection aux devices... [0m
+[[34m11:04:27.352 COMMUNICATION (DEBUG) on Listener data.controlers.Listener.run(Listener.java:142)] Simulation initializing connections... [0m
+[[34m11:04:27.361 DATA_HANDLER (DEBUG) on DataController data.controlers.DataControler.run(DataControler.java:117)] Controler lancé : en attente du listener... [0m
+[[34m11:04:27.361 DATA_HANDLER (DEBUG) on DataController data.controlers.DataControler.run(DataControler.java:125)] Controler opérationnel [0m
+[[34m11:04:27.362 COMMUNICATION (DEBUG) on Listener data.controlers.Listener.run(Listener.java:147)] Debug connection init... [0m
+[[34m11:04:27.363 COMMUNICATION (DEBUG) on Listener data.controlers.Listener.run(Listener.java:149)] Debug connection ready! [0m
+[[34m11:04:27.363 COMMUNICATION (DEBUG) on Listener data.controlers.Listener.run(Listener.java:185)] Lidar connected [0m
+[[34m21:34:49.870 COMMUNICATION (DEBUG) on SocketClient(localhost:17566) utils.communication.SocketClientInterface.lambda$init$0(SocketClientInterface.java:51)] Trying to connect to localhost on port 17566 [0m
+[[34m21:34:49.871 COMMUNICATION (DEBUG) on SocketClient(localhost:17566) utils.communication.SocketClientInterface.lambda$init$0(SocketClientInterface.java:53)] Socket created to localhost on port 17566 [0m
+[[34m15:53:24.209 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service LidarControler
+[[34m15:53:24.211 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service LidarControler après son initialisation.
+[[34m15:53:24.211 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service LidarControler prêt
+[[34m15:53:24.212 LIDAR_PROCESS (DEBUG) on LidarControler data.controlers.LidarControler.run(LidarControler.java:107)] Controller lancé : en attente du listener...
+[[34m15:53:24.212 LIDAR_PROCESS (DEBUG) on LidarControler data.controlers.LidarControler.run(LidarControler.java:108)] Démarrage du processus LiDAR_UST_10LX...
+[[34m15:53:24.213 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service KeepAlive
+[[34m15:53:24.213 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service KeepAlive après son initialisation.
+[[34m15:53:24.213 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service KeepAlive prêt
+[[34m15:53:24.217 ORDERS (DEBUG) on Thread-8 utils.communication.KeepAlive.run(KeepAlive.java:24)] SensorState.LAST_PONG = 1559310804217
+[[34m15:53:24.238 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:233)] Initialisation du service AIService
+[[34m15:53:24.273 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:244)] Mise à jour de la config du service AIService après son initialisation.
+[[34m15:53:24.273 DATA_HANDLER (DEBUG) on main utils.Container.getService(Container.java:247)] Service AIService prêt
+[[31m15:53:24.274 STDERR (CRITICAL) on main] com.pi4j.io.i2c.I2CFactory$UnsupportedBusNumberException
+[[31m15:53:24.274 STDERR (CRITICAL) on main] 	at com.panneau.Segments.<init>(Segments.java:47)
+[[31m15:53:24.274 STDERR (CRITICAL) on main] 	at com.panneau.Panneau.<init>(Panneau.java:68)
+[[31m15:53:24.274 STDERR (CRITICAL) on main] 	at data.controlers.PanneauService.getPanneau(PanneauService.java:40)
+[[31m15:53:24.275 STDERR (CRITICAL) on main] 	at main.RobotEntryPoint.waitForColorSwitch(RobotEntryPoint.java:117)
+[[31m15:53:24.275 STDERR (CRITICAL) on main] 	at MainMaster.preLLConnection(MainMaster.java:72)
+[[31m15:53:24.275 STDERR (CRITICAL) on main] 	at main.RobotEntryPoint.entryPoint(RobotEntryPoint.java:65)
+[[31m15:53:24.275 STDERR (CRITICAL) on main] 	at MainMaster.start(MainMaster.java:67)
+[[31m15:53:24.275 STDERR (CRITICAL) on main] 	at MainMaster.main(MainMaster.java:62)
+[[34m21:34:49.882 COMMUNICATION (DEBUG) on SocketClient(localhost:17566) utils.communication.SocketClientInterface.lambda$init$0(SocketClientInterface.java:70)] SUCCESS to connect to localhost on port 17566 [0m
+[[34m21:34:49.870 DYNAMIXEL (DEBUG) Bras phare active :non
+[[34m21:34:49.888 STDOUT (DEBUG) on Thread-12 simulator.SimulatedConnectionManager.<init>(SimulatedConnectionManager.java:33)] Ouverture d'une socket sur le port 17566 [0m
+[[34m21:34:55.212 COMMUNICATION (DEBUG) on Thread-3 data.controlers.DataControler.handleConfig(DataControler.java:148)] Configuration de l'ecueil commun : RVRVV
+[[34m15:53:24.486 LIDAR_PROCESS (DEBUG) on LidarControler data.controlers.LidarControler.run(LidarControler.java:119)] Processus OK
+[[34m15:53:24.486 LIDAR_PROCESS (DEBUG) on LidarControler data.controlers.LidarControler.run(LidarControler.java:139)] Controller opérationnel
+[[34m15:53:24.492 LIDAR_PROCESS (DEBUG) on java.lang.UNIXProcess@25d083f3 utils.communication.CopyIOThread.run(CopyIOThread.java:32)] Waiting for connection on address 127.0.0.1:17865
+[[34m15:53:24.567 COMMUNICATION (DEBUG) on Listener data.controlers.Listener.run(Listener.java:201)] Listener opérationnel
+[[34m15:53:24.593 LIDAR_PROCESS (DEBUG) on java.lang.UNIXProcess@25d083f3 utils.communication.CopyIOThread.run(CopyIOThread.java:32)] Connection successful !
+[[34m15:53:24.693 LIDAR_PROCESS (DEBUG) on java.lang.UNIXProcess@25d083f3 utils.communication.CopyIOThread.run(CopyIOThread.java:32)] Trying to connect to UST10LX
+[[34m14:42:55.124 STDOUT (DEBUG) on Thread-10 simulator.SimulatorManagerLauncher.launchSimulatorManager(SimulatorManagerLauncher.java:189)] Listener LL-Master lancé sur le port 10001
+[[31m14:43:00.124 STDERR (CRITICAL) on main] com.pi4j.io.i2c.I2CFactory$UnsupportedBusNumberException
+[[31m14:43:00.124 STDERR (CRITICAL) on main] 	at com.panneau.Segments.<init>(Segments.java:47)
+[[31m14:43:00.124 STDERR (CRITICAL) on main] 	at com.panneau.Panneau.<init>(Panneau.java:71)
+[[31m14:43:00.124 STDERR (CRITICAL) on main] 	at com.panneau.Panneau.<init>(Panneau.java:56)
+[[31m14:43:00.125 STDERR (CRITICAL) on main] 	at data.controlers.PanneauService.getPanneau(PanneauService.java:37)
+[[31m14:43:00.125 STDERR (CRITICAL) on main] 	at MainMaster.waitForAllConnectionsReady(MainMaster.java:91)
+[[31m14:43:00.125 STDERR (CRITICAL) on main] 	at main.RobotEntryPoint.entryPoint(RobotEntryPoint.java:60)
+[[31m14:43:00.125 STDERR (CRITICAL) on main] 	at MainMaster.start(MainMaster.java:66)
+[[31m14:43:00.125 STDERR (CRITICAL) on main] 	at MainMaster.main(MainMaster.java:61)
+[[34m14:43:12.246 COMMUNICATION (DEBUG) on main main.RobotEntryPoint.entryPoint(RobotEntryPoint.java:61)] Connection established, starting match
+[[34m21:26:36.411 DATA_HANDLER (DEBUG) on main utils.HLInstance.module(HLInstance.java:271)] Initialisation du moduleClass Match[0m
+[[34m21:26:36.412 DATA_HANDLER (DEBUG) on main utils.HLInstance.module(HLInstance.java:285)] Mise à jour de la config du moduleClass Match après son initialisation.[0m
+[[34m21:26:36.415 STDOUT (DEBUG) on main pfg.config.Config.loadInto(Config.java:274)] Set private long scripts.Script.locomotionObstructedTimeout to 2000[0m
+[[34m21:26:36.416 STDOUT (DEBUG) on main pfg.config.Config.loadInto(Config.java:274)] Set protected boolean scripts.Script.symetry to false[0m
+[[34m21:26:36.416 DATA_HANDLER (DEBUG) on main utils.HLInstance.module(HLInstance.java:297)] Module Match prêt[0m
+[[34m16:42:04.941 ORDERS (DEBUG) on main orders.OrderWrapper.setPositionAndOrientation(OrderWrapper.java:168)] Sent to LL: !cxyo -1200 510 0.00000[0m
+[[34m21:26:36.425 STDOUT (DEBUG) on SimulatorManagerThread simulator.SimulatorManager.handleMessageLL(SimulatorManager.java:239)] SIMULATEUR-LL : message reçu : !cxyo -1200 510 0.00000[0m
+[[34m21:26:36.426 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] Got event: confirmOrder cxyo -1200 510 0.00000
+[[34m21:26:36.427 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:285)] Received confirmation for order (cxyo)[0m
+[[34m21:26:36.440 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:286)] SensorState.ACTUATOR_ACTUATING = false[0m
+[[34m21:26:36.441 COMMUNICATION (DEBUG) on main data.controlers.DataController.waitForTwoPositionUpdates(DataController.java:548)] Waiting for two position updates[0m
+[[33m21:26:36.491 STRATEGY (WARNING) on main scripts.Script.timedExecute(Script.java:174)] Starting script ScriptPrincipalBasique v0 at 1589397996.475[0m
+[[34m21:26:36.497 STDOUT (DEBUG) on main scripts.ScriptPrincipalBasique.execute(ScriptPrincipalBasique.java:55)] null[0m
+[[34m21:26:36.498 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:301)] SensorState.DISABLE_LIDAR = true[0m
+[[34m21:26:36.506 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:303)] SensorState.MOVING = true[0m
+[[34m16:42:06.408 ORDERS (DEBUG) on main locomotion.Locomotion.turnTowards(Locomotion.java:139)] Sent to LL: t -0.63000[0m
+[[34m21:26:37.743 COMMUNICATION (DEBUG) on pool-1-thread-4 data.controlers.DataController.handleEvent(DataController.java:251)] Got event: stoppedMoving[0m
+[[34m16:42:07.245 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise 186[0m
+[[34m16:42:07.252 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d 186 false[0m
+[[34m16:42:07.527 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:07.527 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:07.527 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-1049,400), o=-0.63[0m
+[[34m16:42:07.584 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxtr 500.00000[0m
+[[34m16:42:07.584 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxro 6.28319[0m
+[[34m16:42:07.584 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:224)] End of move lengthwise[0m
+[[34m21:26:38.006 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:301)] SensorState.DISABLE_LIDAR = true[0m
+[[34m21:26:38.006 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:303)] SensorState.MOVING = true[0m
+[[34m16:42:07.603 ORDERS (DEBUG) on main locomotion.Locomotion.turnTowards(Locomotion.java:139)] Sent to LL: t -1.57080[0m
+[[34m21:26:39.286 COMMUNICATION (DEBUG) on pool-1-thread-4 data.controlers.DataController.handleEvent(DataController.java:251)] Got event: stoppedMoving[0m
+[[34m21:26:39.286 ORDERS (DEBUG) on pool-1-thread-4 data.controlers.DataController.handleEvent(DataController.java:263)] SensorState.MOVING = false[0m
+[[34m21:26:39.286 STDOUT (DEBUG) on pool-1-thread-4 data.controlers.DataController.handleEvent(DataController.java:264)] Position at StoppedMoving: (x,y)=(-1049,400), o=-1.5708[0m
+[[34m16:42:07.871 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:317)] SensorState.DISABLE_LIDAR = false[0m
+[[34m16:42:07.872 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:165)] SensorState.MOVING = true[0m
+[[34m16:42:07.872 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise 260[0m
+[[34m16:42:07.873 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d 260 false[0m
+[[34m16:42:08.252 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:08.254 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:08.254 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-1049,140), o=-1.5708[0m
+[[34m16:42:08.307 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxtr 500.00000[0m
+[[34m16:42:08.308 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxro 6.28319[0m
+[[34m16:42:08.309 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:224)] End of move lengthwise[0m
+[[34m16:42:08.311 ORDERS (DEBUG) on main scripts.Script.perform(Script.java:292)] Sent to LL: LiftDown[0m
+[[34m16:42:08.311 ORDERS (DEBUG) on main scripts.Script.perform(Script.java:292)] Sent to LL: Valve 6 on[0m
+[[34m16:42:08.311 ORDERS (DEBUG) on main scripts.Script.perform(Script.java:292)] Sent to LL: LiftUp[0m
+[[34m16:42:08.311 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:301)] SensorState.DISABLE_LIDAR = true[0m
+[[34m16:42:08.311 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:303)] SensorState.MOVING = true[0m
+[[34m16:42:08.312 ORDERS (DEBUG) on main locomotion.Locomotion.turnTowards(Locomotion.java:139)] Sent to LL: t 0.00000[0m
+[[34m16:42:09.635 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:09.635 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:09.635 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-1049,140), o=0.0[0m
+[[34m16:42:09.635 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:317)] SensorState.DISABLE_LIDAR = false[0m
+[[34m16:42:09.636 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:165)] SensorState.MOVING = true[0m
+[[34m16:42:09.636 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise 500[0m
+[[34m16:42:09.675 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d 500 false[0m
+[[34m16:42:10.089 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:10.090 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:10.090 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-699,140), o=0.0[0m
+[[34m21:34:49.882 DYNAMIXEL (DEBUG) Bras manche a air :oui
+[[34m16:42:11.187 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:301)] SensorState.DISABLE_LIDAR = true[0m
+[[34m16:42:11.187 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:303)] SensorState.MOVING = true[0m
+[[34m16:42:11.212 ORDERS (DEBUG) on main locomotion.Locomotion.turnTowards(Locomotion.java:139)] Sent to LL: t 1.57080[0m
+[[34m16:42:11.536 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:11.536 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:11.536 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-426,468), o=1.5708[0m
+[[34m16:42:11.543 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:317)] SensorState.DISABLE_LIDAR = false[0m
+[[34m16:42:11.543 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:165)] SensorState.MOVING = true[0m
+[[34m16:42:11.543 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise 520[0m
+[[34m16:42:11.547 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d 520 false[0m
+[[34m16:42:12.020 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:12.020 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:12.020 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-426,898), o=1.5708[0m
+[[34m16:42:12.086 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxtr 500.00000[0m
+[[34m16:42:12.086 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxro 6.28319[0m
+[[34m16:42:12.086 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:224)] End of move lengthwise[0m
+[[34m16:42:12.092 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:301)] SensorState.DISABLE_LIDAR = true[0m
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1480,980), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1470,970), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1460,960), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1450,950), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1440,940), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1430,930), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1420,920), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1410,910), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1400,900), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1390,890), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1380,880), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1370,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1350,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1330,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1310,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1290,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1270,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1250,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1230,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1210,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1190,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1170,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1150,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (1000,500), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (990,480), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (970,470), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (960,460), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (940,440), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (920,430), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (910,410), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (900,400), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (890,380), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (870,370), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (850,360), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (840,330), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (810,320), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (800,300), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (1000,-500), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m16:42:12.093 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:303)] SensorState.MOVING = true[0m
+[[34m16:42:12.097 ORDERS (DEBUG) on main locomotion.Locomotion.turnTowards(Locomotion.java:139)] Sent to LL: t 0.96000[0m
+[[34m16:42:12.399 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:12.399 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:12.402 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-426,898), o=0.96[0m
+[[34m16:42:12.405 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:317)] SensorState.DISABLE_LIDAR = false[0m
+[[34m16:42:12.405 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:165)] SensorState.MOVING = true[0m
+[[34m16:42:12.405 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise 950[0m
+[[34m16:42:12.466 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d 950 false[0m
+[[34m16:42:12.985 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:12.985 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:12.985 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-148,1298), o=0.96[0m
+[[34m16:42:13.040 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxtr 500.00000[0m
+[[34m16:42:13.040 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxro 6.28319[0m
+[[34m16:42:13.040 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:224)] End of move lengthwise[0m
+[[34m16:42:13.061 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:301)] SensorState.DISABLE_LIDAR = false[0m
+[[34m16:42:13.061 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:303)] SensorState.MOVING = true[0m
+[[34m16:42:13.421 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:13.421 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:13.421 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(-148,1298), o=0.0[0m
+[[34m21:34:49.871 DYNAMIXEL (DEBUG) Bras phare active :oui
+[[34m16:42:13.427 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:317)] SensorState.DISABLE_LIDAR = false[0m
+[[34m16:42:13.427 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:165)] SensorState.MOVING = true[0m
+[[34m16:42:13.427 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise 450[0m
+[[34m16:42:13.428 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d 450 false[0m
+[[34m16:42:13.952 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:13.952 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:13.952 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(302,1298), o=0.0[0m
+[[34m16:42:14.148 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxtr 500.00000[0m
+[[34m16:42:14.153 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxro 6.28319[0m
+[[34m16:42:14.179 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:224)] End of move lengthwise[0m
+[[34m16:42:14.179 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:301)] SensorState.DISABLE_LIDAR = true[0m
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1480,980), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1470,970), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1460,960), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1450,950), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1440,940), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1430,930), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1420,920), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1410,910), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1400,900), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1390,890), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1380,880), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1370,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1350,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1330,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1310,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1290,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1270,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1250,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1230,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1210,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1190,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1170,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (-1150,870), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (1000,500), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m11:48:02.601 LIDAR (DEBUG) on LidarControler data.Table.updateMobileObstacles(Table.java:304)] Obstacle mobile ajouté : Obstacle mobile circulaire Circle [center: (1000,-500), ray : 220.0, angleStart : -3.142, angleEnd : 3.142
+[[34m16:42:14.180 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:303)] SensorState.MOVING = true[0m
+[[34m16:42:14.278 ORDERS (DEBUG) on main locomotion.Locomotion.turnTowards(Locomotion.java:139)] Sent to LL: t 1.57080[0m
+[[34m16:42:14.723 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:14.724 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:14.724 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(302,1298), o=1.568[0m
+[[34m16:42:14.731 ORDERS (DEBUG) on main locomotion.PathFollower.turnTowards(PathFollower.java:317)] SensorState.DISABLE_LIDAR = false[0m
+[[34m16:42:14.739 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:165)] SensorState.MOVING = true[0m
+[[34m16:42:14.739 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise 100[0m
+[[34m16:42:14.756 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d 100 false[0m
+[[34m16:42:15.199 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:15.199 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:15.199 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(302,1698), o=1.5708[0m
+[[34m16:42:15.266 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxtr 500.00000[0m
+[[34m16:42:15.266 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxro 6.28319[0m
+[[34m16:42:15.266 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:224)] End of move lengthwise[0m
+[[34m16:42:15.267 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:165)] SensorState.MOVING = true[0m
+[[34m16:42:15.267 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:166)] Move lengthwise -90[0m
+[[34m16:42:15.267 ORDERS (DEBUG) on main locomotion.Locomotion.moveLengthwise(Locomotion.java:131)] Sent to LL: d -90 false[0m
+[[34m16:42:15.373 COMMUNICATION (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:239)] Got event: stoppedMoving[0m
+[[34m16:42:15.373 ORDERS (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:251)] SensorState.MOVING = false[0m
+[[34m16:42:15.373 STDOUT (DEBUG) on pool-1-thread-1 data.controlers.DataController.handleEvent(DataController.java:252)] Position at StoppedMoving: (x,y)=(302,1608), o=1.5708[0m
+[[34m16:42:15.434 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxtr 500.00000[0m
+[[34m16:42:15.434 ORDERS (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:217)] Sent to LL: maxro 6.28319[0m
+[[34m16:42:15.434 LOCOMOTION (DEBUG) on main locomotion.PathFollower.moveLengthwise(PathFollower.java:224)] End of move lengthwise[0m
+
