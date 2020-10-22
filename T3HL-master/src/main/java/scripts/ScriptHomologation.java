@@ -10,10 +10,10 @@ import java.util.concurrent.TimeUnit;
 
 public class ScriptHomologation extends Script {
 
-    private static final int DISTANCE_INTERPALET = 300;
+    //private static final int DISTANCE_INTERPALET = 300;
 
-    private int xEntry = 3000-191-65+20;
-    private int yEntry = 430;
+    private int xEntry = 225;
+    private int yEntry = 640;
 
     public ScriptHomologation(HLInstance hl) {
         super(hl);
@@ -36,21 +36,12 @@ public class ScriptHomologation extends Script {
                 //action
             });
 
-            turnTowards(Math.PI/2);
-            moveLengthwise(DISTANCE_INTERPALET*2, false);
-            turnTowards(Math.PI);
-            moveLengthwise(DISTANCE_INTERPALET*3, false);
-            turnTowards(-Math.PI/2);
-            moveLengthwise(DISTANCE_INTERPALET, false);
-            turnTowards(0);
-            moveLengthwise(DISTANCE_INTERPALET*2, false);
-            turnTowards(Math.PI);
-            moveLengthwise(DISTANCE_INTERPALET*2, false);
-            turnTowards(-Math.PI/2);
-            moveLengthwise(DISTANCE_INTERPALET, false);
-            turnTowards(0);
-            moveLengthwise(DISTANCE_INTERPALET*2, false);
 
+
+            moveLengthwise(1575,false);
+            turnTowards(Math.PI/2);
+            moveLengthwise(1060,false);
+            moveLengthwise(-1000,false);
 
             // On peut attendre que des actions en parallèle aient fini
             join(myParallelAction);

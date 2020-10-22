@@ -17,7 +17,8 @@ public class Match extends Script {
 
     @Override
     public void execute(int version) {
-        if(false) { //homologation
+        boolean homologation = true;
+        if(homologation) { //homologation
             scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
         }else {
             scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
