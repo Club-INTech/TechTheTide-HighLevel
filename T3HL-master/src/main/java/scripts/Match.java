@@ -2,10 +2,7 @@ package scripts;
 
 import data.synchronization.SynchronizationWithBuddy;
 import locomotion.UnableToMoveException;
-import pfg.config.Configurable;
-import utils.ConfigData;
 import utils.HLInstance;
-import utils.container.ContainerException;
 import utils.math.Vec2;
 
 public class Match extends Script {
@@ -38,6 +35,9 @@ public class Match extends Script {
 
 
         // TODO: A vous de jouer les 1As!
+
+        //Update
+        // TODO Gagner la coupe
     }
 
     @Override
