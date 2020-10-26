@@ -42,7 +42,6 @@ public class ScriptPrincipalBasique extends Script {
         });
 
         try {
-            System.out.println(robot.getXyo());
 
             turnTowards(-Math.PI/2);
             //225 640

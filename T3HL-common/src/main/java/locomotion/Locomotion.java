@@ -171,7 +171,7 @@ public class Locomotion implements Module {
         pathFollower.gotoPoint(point);
     }
 
-    /**
+    /**s
      * Méthode permettant au robot de se déplacer jusqu'à un point de la table
      * @param point point à atteindre
      */
