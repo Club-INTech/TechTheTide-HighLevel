@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 // @author Pierre, last modification 14/01/20
 
-public class ScriptPrincipalBasique extends Script {
+public class ScriptRecupGobeletsNonAgressive extends Script {
     @Configurable
     private int robotRay;
     /**
@@ -20,7 +20,7 @@ public class ScriptPrincipalBasique extends Script {
      *
      * @param hl le container
      */
-    protected ScriptPrincipalBasique(HLInstance hl) {
+    protected ScriptRecupGobeletsNonAgressive(HLInstance hl) {
         super(hl);
     }
 
@@ -42,7 +42,9 @@ public class ScriptPrincipalBasique extends Script {
         });
 
         try {
-            System.out.println(robot.getXyo());
+
+
+
 
             turnTowards(-Math.PI/2);
             //225 640
@@ -52,65 +54,49 @@ public class ScriptPrincipalBasique extends Script {
             moveLengthwise(225,false);
             //430 455
             turnTowards(-Math.PI/2);
-            moveLengthwise(305,false);
-            //450 150
+            moveLengthwise(275,false);
+            //450 180
             turnTowards(0);
             moveLengthwise(575,false);
-            //1025 150
+            //1025 180
             turnTowards(Math.PI/2);
-            moveLengthwise(825,false);
+            moveLengthwise(920,false);
             //1025 1100
             turnTowards(0);
             moveLengthwise(775,false);
             //1800 1100
             turnTowards(Math.PI/2);
-            moveLengthwise(700,false);
-            //1800 1800
-            moveLengthwise(-500,false);
-            //1800 1300
+            if(table.isPositionInMobileObstacle(new VectCartesian(1800,1300))){
+                //On regarde s'il est toujours au bout de 2,5 secondes
+                for(int i=0;i<4;i++){
+                    TimeUnit.MILLISECONDS.sleep(2500);
+                    try {
+                        moveLengthwise(700, false);
+                        //1800 1800
+                        moveLengthwise(-500, false);
+                        //1800 1300
+                        break;
+                    } catch (UnableToMoveException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            else {
 
-            /*
-            turnTowards(-Math.PI/2);
-            moveLengthwise(632-455,false);
-
-            turnTowards(0);
-            moveLengthwise(450-206-10,false);
-
-            turnTowards(-Math.PI/2);
-            moveLengthwise(455-170,false);
-
-            turnTowards(0);
-            moveLengthwise(1025-450,false);
-
-            turnTowards(Math.PI/2);
-            moveLengthwise(1400-170,false);
-
-            turnTowards(0);
-            moveLengthwise(1800-1025,false);
+                moveLengthwise(700, false);
+                //1800 1800
+                moveLengthwise(-500, false);
+                //1800 1300
 
 
-            turnTowards(Math.PI/2);
-            moveLengthwise(1800-1400,false);
-
-            moveLengthwise(1140-1800,false);
-
-            turnTowards(Math.PI);
-            moveLengthwise(1800-200,false);
-
-            turnTowards(Math.PI/2);
-            moveLengthwise(1140-170,false);
-
-            turnTowards(Math.PI);
-            moveLengthwise(200-150,false);
-            moveLengthwise(150-740,false);
-             */
-
-            System.out.println(robot.getXyo());
+            }
+            followPathTo(new VectCartesian(670,1300));
+            //670 1300
 
 
 
 
-        } catch (UnableToMoveException e) {
+        } catch (UnableToMoveException | InterruptedException e) {
             e.printStackTrace();
         }
     }
