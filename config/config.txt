@@ -30,9 +30,9 @@ OPEN_THE_GATE                       =false
 MASTER                              = true
 
 USING_PANEL                         = false
-USING_LIDAR			                = false
-LED_COUNT			                = 16
-HOMOLOGATION                        = false
+USING_LIDAR			                = true
+LED_COUNT			                = 0
+HOMOLOGATION                        = true
 
 # DIMENSIONS DES ROBOTS
 ROBOT_RAY                           = 190
@@ -46,7 +46,7 @@ RECALAGE_MECA_ACC                   =true
 
 [Slave]
 MASTER                              = false
-USING_PANEL				= false
+USING_PANEL				            = false
 USING_7_SEGMENTS                    = false
 USING_LIDAR			                =false
 LED_COUNT			                = 1
