@@ -43,9 +43,7 @@ import utils.communication.SimulatorDebug;
 import utils.container.ContainerException;
 import utils.container.Module;
 import utils.math.Vec2;
-import utils.math.VectCartesian;
 
-import java.io.IOException;
 import java.util.Objects;
 import java.util.Stack;
 import java.util.concurrent.TimeUnit;
@@ -308,70 +306,6 @@ public abstract class Robot implements Module {
     public void softGoTo(Vec2 point, boolean expectingWallImpact) throws UnableToMoveException {
         this.turnToPoint(point);
         this.moveLengthwise((int) Math.round(point.distanceTo(XYO.getRobotInstance().getPosition())), expectingWallImpact);
-    }
-
-    //Permet d'attrapper un gobelet avec sa couleur et sa position
-
-    // Pas testé !!!
-
-    public void catchVerre(Vec2 positionVerre, boolean couloir) {   //true = droite
-        int xRobot = XYO.getRobotInstance().getPosition().getX() + 1500;
-        int yRobot = XYO.getRobotInstance().getPosition().getY();
-        int xVerre = positionVerre.getX() + 1500;
-        int yVerre = positionVerre.getY();
-        int d = 50;
-        double xa = xVerre - xRobot;
-        double ya = yVerre - yRobot;
-        double xb;
-        double yb;
-
-        if (xa == 0) {
-            xb = 1;
-            yb = 0;
-        }
-
-        if (ya == 0) {
-            xb = 0;
-            yb = 1;
-        } else {
-            double a = 1 / ((Math.pow(ya, 2) / Math.pow(xa, 2)) + 1);
-            yb = Math.pow(a, 0.5);
-            xb = Math.pow(1 - a, 0.5);
-        }
-
-        if (couloir) {
-            if (xa <= 0) {
-                if (ya > 0) {
-                    xb = -xb;
-                }
-                yb = -yb;
-            }
-            if (xa > 0) {
-                if (ya > 0) {
-                    xb = -xb;
-                }
-            }
-        }
-        if (!couloir) {
-            if (xa <= 0) {
-                if (ya > 0) {
-                    yb = -yb;
-                }
-                xb = -xb;
-            }
-            if (xa > 0) {
-                if (ya > 0) {
-                    yb = -yb;
-                }
-            }
-        }
-        Vec2 point = new VectCartesian(xVerre + xb * d, yVerre + yb * d);
-        try {
-            turnToPoint(point);
-            moveLengthwise((int) Math.pow(Math.pow(xRobot - (xVerre + xb * d), 2) + Math.pow(yRobot - (yVerre + yb * d), 2), 0.5), false);
-        } catch (UnableToMoveException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
