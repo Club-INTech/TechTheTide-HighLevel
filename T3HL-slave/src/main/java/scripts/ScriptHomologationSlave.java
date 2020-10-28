@@ -1,14 +1,17 @@
 package scripts;
 
 import locomotion.UnableToMoveException;
+import orders.order.ActuatorsOrders;
+import pfg.config.Configurable;
 import utils.HLInstance;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
 
 public class ScriptHomologationSlave extends Script {
-    private int xEntry = 297;
-    private int yEntry = 400;
-    private static final int DISTANCE_INTERPALET = 300;
+
+    @Configurable("buddyRay")
+    private int ray;
+
 
     public ScriptHomologationSlave(HLInstance hl) {
         super(hl);
@@ -16,14 +19,10 @@ public class ScriptHomologationSlave extends Script {
     @Override
     public void execute(int version) {
         try {
-            turnTowards(Math.PI/2);
-            moveLengthwise(DISTANCE_INTERPALET*2, false);
             turnTowards(Math.PI);
-            moveLengthwise(DISTANCE_INTERPALET*3, false);
-            turnTowards(-Math.PI/2);
-            moveLengthwise(DISTANCE_INTERPALET, false);
-            turnTowards(0);
-            moveLengthwise(DISTANCE_INTERPALET*2+150, false);
+            perform(ActuatorsOrders.AllBrasDepot[1]);
+            moveLengthwise(845, true);
+            moveLengthwise(-845, true);
         } catch (UnableToMoveException e) {
             e.printStackTrace();
         }
@@ -31,7 +30,7 @@ public class ScriptHomologationSlave extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return new VectCartesian(xEntry, yEntry);
+        return new VectCartesian(ray + 10,1050-ray);
     }
 
     @Override

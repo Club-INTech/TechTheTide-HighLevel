@@ -38,11 +38,14 @@ public class ScriptHomologation extends Script {
             });
 
 
+            moveLengthwise(100,false);
             //ActuatorsOrders.SetGate(40);
+            /**
             moveLengthwise(1675,false);
             turnTowards(Math.PI/2);
             moveLengthwise(960,false);
             moveLengthwise(-600,false);
+             **/
 
             // On peut attendre que des actions en parallèle aient fini
             join(myParallelAction);
