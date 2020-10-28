@@ -157,6 +157,7 @@ public class Table implements Module {
 
         //Verres
 
+
         float glassRay = 36;
 
         Vec2 positionVerre1 = new VectCartesian(300, 400);

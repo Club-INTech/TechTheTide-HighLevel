@@ -21,7 +21,7 @@ public class Match extends Script {
         if(homologation) { //homologation
             scriptManagerMaster.getScript(ScriptNamesMaster.HOMOLOGATION).timedExecute(0);
         }else {
-            scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).timedExecute();
+            scriptManagerMaster.getScript(ScriptNamesMaster.RECUP_GOBELETS_NON_AGRESSIVE).timedExecute();
         }
 
 
@@ -40,7 +40,7 @@ public class Match extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return scriptManagerMaster.getScript(ScriptNamesMaster.RECUPBASIQUE).entryPosition(0);
+        return scriptManagerMaster.getScript(ScriptNamesMaster.RECUP_GOBELETS_NON_AGRESSIVE).entryPosition(0);
         //return scriptManagerMaster.getScript(ScriptNamesMaster.RECUPFACULTATIF).entryPosition(0);
     }
 

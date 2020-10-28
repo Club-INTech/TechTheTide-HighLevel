@@ -1,6 +1,7 @@
 package scripts;
 
 import locomotion.UnableToMoveException;
+import orders.order.ActuatorsOrders;
 import utils.HLInstance;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
@@ -37,11 +38,11 @@ public class ScriptHomologation extends Script {
             });
 
 
-
-            moveLengthwise(1575,false);
+            //ActuatorsOrders.SetGate(40);
+            moveLengthwise(1675,false);
             turnTowards(Math.PI/2);
-            moveLengthwise(1060,false);
-            moveLengthwise(-1000,false);
+            moveLengthwise(960,false);
+            moveLengthwise(-600,false);
 
             // On peut attendre que des actions en parallèle aient fini
             join(myParallelAction);

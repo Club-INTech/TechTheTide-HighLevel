@@ -278,11 +278,6 @@ public abstract class Script implements Module {
         robot.moveLengthwise(distance, expectedWallImpact, runnables);
     }
 
-    //Permet d'attrapper un gobelet avec sa couleur et sa position
-
-    public void catchVerre(Vec2 positionVerre, boolean couloir) {
-        robot.catchVerre(positionVerre,couloir);
-    }
 
     /**
      * Utilise un ordre donné, sans attendre de confirmation
