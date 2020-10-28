@@ -58,7 +58,7 @@ public class ScriptRecupEcueilPrive extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return new VectCartesian(ray,1050-ray);
+        return new VectCartesian(ray + 10,1050-ray);
     }
 
     @Override
