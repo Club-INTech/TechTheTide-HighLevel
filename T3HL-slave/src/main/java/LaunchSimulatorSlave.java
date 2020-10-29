@@ -11,10 +11,10 @@ public class LaunchSimulatorSlave {
 
     public static void main(String[] args) throws ContainerException {
         HLInstance hl = HLInstance.get(Robots.SECONDARY);
-        hl.getConfig().override(ConfigData.USING_LIDAR, false);
+        //hl.getConfig().override(ConfigData.USING_LIDAR, true);
         hl.getConfig().override(ConfigData.MASTER, false);
         hl.getConfig().override(ConfigData.USING_PANEL, false);
-        hl.getConfig().override(ConfigData.SIMULATION, true);
+        hl.getConfig().override(ConfigData.SIMULATION, false);
         hl.getConfig().override(ConfigData.VISUALISATION, false);
         MainSlave.main(args);
     }

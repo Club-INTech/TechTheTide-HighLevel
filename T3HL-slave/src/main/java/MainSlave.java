@@ -75,7 +75,7 @@ public class MainSlave extends RobotEntryPoint {
         try {
             MatchSlave match = hl.module(MatchSlave.class);
             robot.setPositionAndOrientation(match.entryPosition(0), Math.PI/2);
-          // orderWrapper.waitJumper();
+            orderWrapper.waitJumper();
             match.execute(0);
         } catch (ContainerException e) {
             e.printStackTrace();
@@ -92,7 +92,7 @@ public class MainSlave extends RobotEntryPoint {
         // FIXME/TODO simulatorLauncher.setHLSlavePort((int)ConfigData.HL_SLAVE_SIMULATEUR.getDefaultValue());
 
         //On set le lidar s'il ne tourne pas
-        //simulatorLauncher.setLidarPort((int) ConfigData.LIDAR_DATA_PORT.getDefaultValue());
+        simulatorLauncher.setLidarPort((int) ConfigData.LIDAR_DATA_PORT.getDefaultValue());
 
         try {
             simulatorLauncher.setPathfollowerToShow(hl.module(PathFollower.class), (int)ConfigData.LL_MASTER_SIMULATEUR.getDefaultValue());
@@ -122,7 +122,7 @@ public class MainSlave extends RobotEntryPoint {
             e.printStackTrace();
         }
         //On set le lidar s'il ne tourne pas
-        //simulatorLauncher.setLidarPort((int) ConfigData.LIDAR_DATA_PORT.getDefaultValue());
+        simulatorLauncher.setLidarPort((int) ConfigData.LIDAR_DATA_PORT.getDefaultValue());
 
         simulatorLauncher.setColorblindMode(true);
         simulatorLauncher.setIsSimulatingObstacleWithMouse(true);

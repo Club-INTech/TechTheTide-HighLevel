@@ -110,7 +110,7 @@ public class MainMaster extends RobotEntryPoint implements Offsets {
         try {
             Match match = hl.module(Match.class);
             robot.setPositionAndOrientation(match.entryPosition(0), 0);
-            //orderWrapper.waitJumper();
+            orderWrapper.waitJumper();
             match.execute();
         } catch (ContainerException e) {
             e.printStackTrace();
@@ -126,7 +126,7 @@ public class MainMaster extends RobotEntryPoint implements Offsets {
         simulatorLauncher.setSpeedFactor(2f);
 
         //On set tous les HL qui recevront des messages
-        // FIXME/TODO simulatorLauncher.setHLSlavePort((int)ConfigData.HL_SLAVE_SIMULATEUR.getDefaultValue());
+        simulatorLauncher.setHLSlavePort((int)ConfigData.HL_SLAVE_SIMULATEUR.getDefaultValue());
 
         //On set le lidar s'il ne tourne pas
         //simulatorLauncher.setLidarPort((int) ConfigData.LIDAR_DATA_PORT.getDefaultValue());

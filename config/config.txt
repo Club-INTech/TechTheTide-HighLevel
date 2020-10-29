@@ -13,8 +13,8 @@ COULEUR                             = jaune
 
 #CHEMIN D'EXECUTION DU PROCESSUS LIDAR
 LIDAR_PROCESS_PATH                  =../bin/LiDAR_UST_10LX
-VISUALISATION                       =true
-SIMULATION                          =true
+VISUALISATION                       =false
+SIMULATION                          =false
 
 USING_BALISE_IMAGE                  =false
 USING_CYLINDER_DETECTION            =false
@@ -30,9 +30,9 @@ OPEN_THE_GATE                       =false
 MASTER                              = true
 
 USING_PANEL                         = false
-USING_LIDAR			                = false
+USING_LIDAR			                = true
 LED_COUNT			                = 0
-HOMOLOGATION                        = false
+HOMOLOGATION                        = true
 
 # DIMENSIONS DES ROBOTS
 ROBOT_RAY                           = 190

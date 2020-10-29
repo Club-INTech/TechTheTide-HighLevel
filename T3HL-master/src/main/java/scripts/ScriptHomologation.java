@@ -38,7 +38,7 @@ public class ScriptHomologation extends Script {
             });
 
 
-            moveLengthwise(100,false);
+            moveLengthwise(1000,false);
             //ActuatorsOrders.SetGate(40);
             /**
             moveLengthwise(1675,false);

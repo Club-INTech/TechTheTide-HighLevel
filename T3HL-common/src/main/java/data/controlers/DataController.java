@@ -289,12 +289,12 @@ public class DataController extends ModuleThread {
                 }
                 break;
 
-/*            case "gogogofast": {
+           case "gogogofast": {
                 timer.resetTimer();
                 SensorState.WAITING_JUMPER.setData(false);
                 break;
             }
-*/
+
         }
     }
 

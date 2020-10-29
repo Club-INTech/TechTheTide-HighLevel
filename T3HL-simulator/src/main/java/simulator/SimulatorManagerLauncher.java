@@ -118,7 +118,7 @@ public class SimulatorManagerLauncher extends Thread{
     }
 
     /** Setter du port utilisé pour parler au HL slave */
-    void setLidarPort(int lidarPort){
+    public void setLidarPort(int lidarPort){
         if (canParametersBePassed()){
             this.lidarPort=lidarPort;
         }

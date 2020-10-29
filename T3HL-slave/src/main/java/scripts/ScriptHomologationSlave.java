@@ -19,8 +19,8 @@ public class ScriptHomologationSlave extends Script {
     @Override
     public void execute(int version) {
         try {
-            turnTowards(Math.PI);
-            perform(ActuatorsOrders.AllBrasDepot[1]);
+          //  turnTowards(Math.PI);
+          //  perform(ActuatorsOrders.AllBrasDepot[1]);
             moveLengthwise(845, true);
             moveLengthwise(-845, true);
         } catch (UnableToMoveException e) {

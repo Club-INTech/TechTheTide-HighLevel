@@ -40,7 +40,7 @@ public class MatchSlave extends Script {
 
     @Override
     public Vec2 entryPosition(int version) {
-        return scriptManagerSlave.getScript(ScriptNamesSlave.TEST_ECUEIL_PRIVE).entryPosition(0);
+        return scriptManagerSlave.getScript(ScriptNamesSlave.HOMOLOGATION).entryPosition(0);
     }
 
     @Override
