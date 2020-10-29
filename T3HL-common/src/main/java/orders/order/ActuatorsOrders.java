@@ -90,11 +90,7 @@ public final class ActuatorsOrders {
 //////////////////GATE (PRINCIPAL)
 
     public static final OrderWithArgument Gate = OrderBuilder
-            .createWithArgs("Gate",Formatting.FLOAT3);
-
-    public static final Order SetGate(double a){
-        return(Gate.compileWith(a));
-    }
+            .createWithArgs("Gate",Formatting.INT);
 
 //////////////////ELEVATOR (PRINCIPAL)
 // LiftUp/ LiftDown : pour monter/descendre le profilet pour remonter les 2 gobelets en hauteur
@@ -109,6 +105,7 @@ public final class ActuatorsOrders {
     // Pour hisser haut le drapeau
     public static final Order FlagUp = OrderBuilder
             .createSimple("FlagUp");
+    public static final Order FlagUp(){ return(FlagUp);}
     public static final Order FlagDown = OrderBuilder
             .createSimple("FlagDown");
 
@@ -137,5 +134,9 @@ public final class ActuatorsOrders {
     public static final SidedOrder DeactivateLeftValve = DeactivateRightValve.symetrize();
 
     private ActuatorsOrders() {
+    }
+
+    public static void SetGate(int i) {
+        SetGate(i);
     }
 }

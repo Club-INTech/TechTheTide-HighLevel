@@ -120,6 +120,7 @@ public class OrderWrapper implements Module {
      */
     public void immobilise() {
         perform(MotionOrders.Stop);
+        perform(MotionOrders.Fin);
         SensorState.MOVING.setData(false);
     }
 

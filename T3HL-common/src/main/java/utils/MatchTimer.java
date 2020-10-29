@@ -4,7 +4,7 @@ import orders.OrderWrapper;
 import utils.container.ModuleThread;
 
 public class MatchTimer extends ModuleThread {
-    private static final long MATCH_LENGTH = 100 * 1000;
+    private static final long MATCH_LENGTH = 10 * 1000;
     private long startTime;
     private OrderWrapper orderWrapper;
 

@@ -45,5 +45,7 @@ public class MotionOrders {
     /** Activer l'asserv en rotation */
     public static final Order EnableRotationControl = OrderBuilder.createSimple("cr1");
 
+    public static final Order Fin = OrderBuilder.createSimple("cv0");
+
     private MotionOrders() {}
 }

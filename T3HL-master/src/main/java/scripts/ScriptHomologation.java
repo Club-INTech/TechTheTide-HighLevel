@@ -6,6 +6,7 @@ import utils.HLInstance;
 import utils.math.Vec2;
 import utils.math.VectCartesian;
 
+import java.sql.Time;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -22,37 +23,38 @@ public class ScriptHomologation extends Script {
 
     @Override
     public void execute(int version) {
+        // TODO: remplacer ce code d
+        //  'exemple par un code qui marche
+        Future<Void> myParallelAction = async("Parallel action", () -> {
+           // on peut faire des actions en parallèle avec 'async'
+
+            // on attend 1s
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //action
+        });
+
+
         try {
-            // TODO: remplacer ce code d
-            //  'exemple par un code qui marche
-            Future<Void> myParallelAction = async("Parallel action", () -> {
-               // on peut faire des actions en parallèle avec 'async'
-
-                // on attend 1s
-                try {
-                    TimeUnit.SECONDS.sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                //action
-            });
-
-
-            moveLengthwise(1000,false);
-            //ActuatorsOrders.SetGate(40);
-            /**
-            moveLengthwise(1675,false);
-            turnTowards(Math.PI/2);
-            moveLengthwise(960,false);
-            moveLengthwise(-600,false);
-             **/
-
-            // On peut attendre que des actions en parallèle aient fini
-            join(myParallelAction);
+            moveLengthwise(160,false);
         } catch (UnableToMoveException e) {
             e.printStackTrace();
-            throw new RuntimeException(e);
         }
+        //ActuatorsOrders.SetGate(40);
+        //ActuatorsOrders.SetGate(90);
+        //ActuatorsOrders.SetGate(149);
+        //ActuatorsOrders.FlagUp();
+            /*moveLengthwise(1675,false);
+            turnTowards(Math.PI/2);
+            moveLengthwise(960,false);*/
+        // moveLengthwise(-600,false); */
+
+
+        // On peut attendre que des actions en parallèle aient fini
+        join(myParallelAction);
     }
 
     @Override
