@@ -38,11 +38,14 @@ public class ScriptHomologation extends Script {
         });
 
 
-        try {
+       /** try {
             moveLengthwise(160,false);
         } catch (UnableToMoveException e) {
             e.printStackTrace();
-        }
+        }**/
+       ActuatorsOrders.Gate40.toLL();
+        ActuatorsOrders.Gate90.toLL();
+        ActuatorsOrders.Gate149.toLL();
         //ActuatorsOrders.SetGate(40);
         //ActuatorsOrders.SetGate(90);
         //ActuatorsOrders.SetGate(149);
